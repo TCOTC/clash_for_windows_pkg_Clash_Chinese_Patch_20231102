@@ -15961,7 +15961,7 @@ module.exports = function(e)
 			data: function()
 			{
 				return {
-					modes: ["Global", "Rule", "Direct"], modes_text: ["全局","规则","直连"]
+					modes: ["Global", "Rule", "Direct"]
 				}
 			},
 			computed: y()(
@@ -16015,7 +16015,7 @@ module.exports = function(e)
 			}, [n("div",
 			{
 				staticClass: "btns"
-			}, e._l(e.modes_text, (function(t, r)
+			}, e._l(e.modes, (function(t, r)
 			{
 				return n("div",
 				{
