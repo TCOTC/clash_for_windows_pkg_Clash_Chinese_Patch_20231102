@@ -66,8 +66,8 @@ module.exports = function(t)
 	"number" == typeof __g && (__g = n)
 }, function(t, n, e)
 {
-	var r = e(31)("wks"),
-		o = e(32),
+	var r = e(32)("wks"),
+		o = e(33),
 		i = e(1)
 		.Symbol,
 		c = "function" == typeof i;
@@ -93,7 +93,7 @@ module.exports = function(t)
 }, function(t, n, e)
 {
 	var r = e(12),
-		o = e(27);
+		o = e(28);
 	t.exports = e(8) ? function(t, n, e)
 	{
 		return r.f(t, n, o(1, e))
@@ -112,16 +112,16 @@ module.exports = function(t)
 		s = function(t, n, e)
 		{
 			var f, l, p, h = t & s.F,
-				v = t & s.G,
-				d = t & s.S,
+				d = t & s.G,
+				v = t & s.S,
 				y = t & s.P,
 				m = t & s.B,
 				g = t & s.W,
-				x = v ? o : o[n] || (o[n] = {}),
+				x = d ? o : o[n] || (o[n] = {}),
 				w = x[a],
-				b = v ? r : d ? r[n] : (r[n] ||
+				b = d ? r : v ? r[n] : (r[n] ||
 				{})[a];
-			for(f in v && (e = n), e)(l = !h && b && void 0 !== b[f]) && u(x, f) || (p = l ? b[f] : e[f], x[f] = v && "function" != typeof b[f] ? e[f] : m && l ? i(p, r) : g && b[f] == p ? function(t)
+			for(f in d && (e = n), e)(l = !h && b && void 0 !== b[f]) && u(x, f) || (p = l ? b[f] : e[f], x[f] = d && "function" != typeof b[f] ? e[f] : m && l ? i(p, r) : g && b[f] == p ? function(t)
 			{
 				var n = function(n, e, r)
 				{
@@ -269,7 +269,7 @@ module.exports = function(t)
 	}
 }, function(t, n, e)
 {
-	var r = e(29),
+	var r = e(30),
 		o = e(16);
 	t.exports = function(t)
 	{
@@ -277,8 +277,8 @@ module.exports = function(t)
 	}
 }, function(t, n, e)
 {
-	var r = e(31)("keys"),
-		o = e(32);
+	var r = e(32)("keys"),
+		o = e(33);
 	t.exports = function(t)
 	{
 		return r[t] || (r[t] = o(t))
@@ -323,6 +323,12 @@ module.exports = function(t)
 	t.exports = e(45)
 }, function(t, n, e)
 {
+	t.exports = {
+		default: e(80),
+		__esModule: !0
+	}
+}, function(t, n, e)
+{
 	"use strict";
 	var r = e(17),
 		o = e(6),
@@ -335,36 +341,36 @@ module.exports = function(t)
 		l = e(2)("iterator"),
 		p = !([].keys && "next" in [].keys()),
 		h = "keys",
-		v = "values",
-		d = function()
+		d = "values",
+		v = function()
 		{
 			return this
 		};
 	t.exports = function(t, n, e, y, m, g, x)
 	{
 		a(e, n, y);
-		var w, b, _, O = function(t)
+		var w, b, _, j = function(t)
 			{
 				return !p && t in M ? M[t] : function()
 				{
 					return new e(this, t)
 				}
 			},
-			j = n + " Iterator",
-			S = m == v,
+			O = n + " Iterator",
+			S = m == d,
 			L = !1,
 			M = t.prototype,
 			P = M[l] || M["@@iterator"] || m && M[m],
-			k = P || O(m),
-			E = m ? S ? O("entries") : k : void 0,
+			k = P || j(m),
+			E = m ? S ? j("entries") : k : void 0,
 			T = "Array" == n && M.entries || P;
-		if(T && ((_ = f(T.call(new t))) !== Object.prototype && _.next && (s(_, j, !0), !r && "function" != typeof _[l] && c(_, l, d))), S && P && P.name !== v && (L = !0, k = function()
+		if(T && ((_ = f(T.call(new t))) !== Object.prototype && _.next && (s(_, O, !0), !r && "function" != typeof _[l] && c(_, l, v))), S && P && P.name !== d && (L = !0, k = function()
 		{
 			return P.call(this)
-		}), (!r || x) && (p || L || !M[l]) && c(M, l, k), u[n] = k, u[j] = d, m)
+		}), (!r || x) && (p || L || !M[l]) && c(M, l, k), u[n] = k, u[O] = v, m)
 			if(w = {
-				values: S ? k : O(v),
-				keys: g ? k : O(h),
+				values: S ? k : j(d),
+				keys: g ? k : j(h),
 				entries: E
 			}, x)
 				for(b in w) b in M || i(M, b, w[b]);
@@ -385,7 +391,7 @@ module.exports = function(t)
 }, function(t, n, e)
 {
 	var r = e(58),
-		o = e(33);
+		o = e(34);
 	t.exports = Object.keys || function(t)
 	{
 		return r(t, o)
@@ -483,14 +489,14 @@ module.exports = function(t)
 {
 	var r, o, i, c = e(10),
 		u = e(72),
-		a = e(34),
+		a = e(35),
 		s = e(19),
 		f = e(1),
 		l = f.process,
 		p = f.setImmediate,
 		h = f.clearImmediate,
-		v = f.MessageChannel,
-		d = f.Dispatch,
+		d = f.MessageChannel,
+		v = f.Dispatch,
 		y = 0,
 		m = {},
 		g = "onreadystatechange",
@@ -520,10 +526,10 @@ module.exports = function(t)
 	}, "process" == e(14)(l) ? r = function(t)
 	{
 		l.nextTick(c(x, t, 1))
-	} : d && d.now ? r = function(t)
+	} : v && v.now ? r = function(t)
 	{
-		d.now(c(x, t, 1))
-	} : v ? (i = (o = new v)
+		v.now(c(x, t, 1))
+	} : d ? (i = (o = new d)
 		.port2, o.port1.onmessage = w, r = c(i.postMessage, i, 1)) : f.addEventListener && "function" == typeof postMessage && !f.importScripts ? (r = function(t)
 	{
 		f.postMessage(t + "", "*")
@@ -613,12 +619,6 @@ module.exports = function(t)
 	}
 }, function(t, n, e)
 {
-	t.exports = {
-		default: e(80),
-		__esModule: !0
-	}
-}, function(t, n, e)
-{
 	"use strict";
 	n.__esModule = !0;
 	var r = function(t)
@@ -644,12 +644,12 @@ module.exports = function(t)
 			n = {};
 		try
 		{
-			var r = JSON.parse(v.readFileSync(m, "utf8"))
+			var r = JSON.parse(d.readFileSync(m, "utf8"))
 				.bounds;
 			r && (n = r)
 		}
 		catch (n)
-		{}(d = new p.BrowserWindow(l()(
+		{}(v = new p.BrowserWindow(l()(
 		{
 			height: 603,
 			width: 850,
@@ -657,47 +657,49 @@ module.exports = function(t)
 			minHeight: 603,
 			backgroundColor: "#f5f5f5",
 			useContentSize: !0,
-			show: !1,
+			show: "darwin" === process.platform,
 			minimizable: !0,
 			frame: !1,
+			titleBarStyle: "hidden",
 			webPreferences:
 			{
 				nodeIntegration: !0,
 				webSecurity: !0,
 				nodeIntegrationInWorker: !1,
-				enableRemoteModule: !0
+				enableRemoteModule: !0,
+				preload: h.resolve(h.join(__dirname, "preload.js"))
 			}
 		}, n)))
-		.setMenu(null), d.webContents.on("will-navigate", (function(t)
+		.setMenu(null), v.webContents.on("will-navigate", (function(t)
 			{
 				return t.preventDefault()
-			})), d.loadURL(g,
+			})), v.loadURL(g,
 			{
 				userAgent: "ClashforWindows/7.0 (Windows NT 10.0; Win64; x64) Chrome/76.0.3809.126 Electron/6.0.3"
-			}), d.on("hide", (function()
+			}), v.on("hide", (function()
 			{
-				d.webContents.send("window-event", "hide")
-			})), d.on("show", (function()
+				v.webContents.send("window-event", "hide")
+			})), v.on("show", (function()
 			{
-				d.webContents.send("window-event", "show")
-			})), d.on("close", (function(t)
+				v.webContents.send("window-event", "show")
+			})), v.on("close", (function(t)
 			{
-				return p.app.isQuiting || (t.preventDefault(), d.hide()), !1
-			})), d.on("session-end", (function(t)
+				return p.app.isQuiting || (t.preventDefault(), v.hide()), !1
+			})), v.on("session-end", (function(t)
 			{
-				t.preventDefault(), d.webContents.send("app-exit")
-			})), d.on("close", (function()
+				t.preventDefault(), v.webContents.send("app-exit")
+			})), v.on("close", (function()
 			{
 				try
 				{
-					v.writeFileSync(m, s()(
+					d.writeFileSync(m, s()(
 					{
-						bounds: d.getBounds()
+						bounds: v.getBounds()
 					}))
 				}
 				catch (t)
 				{}
-			})), d.webContents.on("crashed", u()(i.a.mark((function n()
+			})), v.webContents.on("crashed", u()(i.a.mark((function n()
 			{
 				var e, r;
 				return i.a.wrap((function(t)
@@ -710,7 +712,7 @@ module.exports = function(t)
 								title: "Clash for Windows",
 								message: "面板崩溃了！",
 								buttons: ["刷新", "退出"]
-							}, t.next = 3, p.dialog.showMessageBox(d, e);
+							}, t.next = 3, p.dialog.showMessageBox(v, e);
 						case 3:
 							r = t.sent, 0 === r.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
 						case 6:
@@ -721,37 +723,54 @@ module.exports = function(t)
 			})))), e(0)
 			.powerMonitor.on("resume", (function()
 			{
-				d.webContents.send("app-resume")
-			})), (y = new p.Tray(e(24)
-				.join(__static, "tray_normal_Z8R_icon.ico")))
-			.setToolTip("Clash for Windows"), y.on("click", (function()
-			{
-				d.show()
-			})), p.ipcMain.on("cleanup-done", (function()
-			{
-				p.app.isQuiting = !0, p.app.quit()
-			})), p.ipcMain.on("status-changed", (function(t, n)
-			{
-				try
-				{
-					y.setImage(n)
-				}
-				catch (n)
-				{}
-			})), p.ipcMain.on("show-notification", (function(t, n)
-			{
-				var e = new p.Notification(n);
-				void 0 !== n.folder && e.on("click", (function()
-				{
-					p.shell.openItem(n.folder)
-				})), e.show()
+				v.webContents.send("app-resume")
 			}));
-		var o = p.Menu.buildFromTemplate([
+		var o = p.nativeImage.createFromPath(e(24)
+				.join(__static, "imgs", "logo_64.png"))
+			.resize(
+			{
+				width: 24,
+				height: 24
+			}),
+			c = h.join(__static, "tray_normal_Z8R_icon.ico");
+		(y = new p.Tray("darwin" === process.platform ? o : c))
+		.setToolTip("Clash for Windows"), y.on("click", (function()
+		{
+			v.show()
+		})), p.ipcMain.on("cleanup-done", (function()
+		{
+			try
+			{
+				d.writeFileSync(m, s()(
+				{
+					bounds: v.getBounds()
+				}))
+			}
+			catch (t)
+			{}
+			p.app.isQuiting = !0, p.app.quit()
+		})), p.ipcMain.on("status-changed", (function(t, n)
+		{
+			try
+			{
+				"darwin" !== process.platform && y.setImage(n)
+			}
+			catch (n)
+			{}
+		})), p.ipcMain.on("show-notification", (function(t, n)
+		{
+			var e = new p.Notification(n);
+			void 0 !== n.folder && e.on("click", (function()
+			{
+				p.shell.openItem(n.folder)
+			})), e.show()
+		}));
+		var a = p.Menu.buildFromTemplate([
 		{
 			label: "显示面板",
 			click: function()
 			{
-				return d.show()
+				return v.show()
 			}
 		},
 		{
@@ -764,7 +783,7 @@ module.exports = function(t)
 			click: function(t)
 			{
 				var n = t.checked;
-				d.webContents.send("system-proxy-changed", n)
+				v.webContents.send("system-proxy-changed", n)
 			}
 		},
 		{
@@ -774,7 +793,7 @@ module.exports = function(t)
 			click: function(t)
 			{
 				var n = t.checked;
-				d.webContents.send("mixin-changed", n)
+				v.webContents.send("mixin-changed", n)
 			}
 		},
 		{
@@ -790,7 +809,7 @@ module.exports = function(t)
 				id: "mode-global",
 				click: function()
 				{
-					return d.webContents.send("mode-changed", "Global")
+					return v.webContents.send("mode-changed", "Global")
 				}
 			},
 			{
@@ -799,7 +818,7 @@ module.exports = function(t)
 				id: "mode-rule",
 				click: function()
 				{
-					return d.webContents.send("mode-changed", "Rule")
+					return v.webContents.send("mode-changed", "Rule")
 				}
 			},
 			{
@@ -808,7 +827,7 @@ module.exports = function(t)
 				id: "mode-direct",
 				click: function()
 				{
-					return d.webContents.send("mode-changed", "Direct")
+					return v.webContents.send("mode-changed", "Direct")
 				}
 			}]
 		},
@@ -826,59 +845,62 @@ module.exports = function(t)
 			label: "退出",
 			click: function()
 			{
-				return d.webContents.send("app-exit")
+				return v.webContents.send("app-exit")
 			}
 		}]);
 		p.ipcMain.on("clash-core-status-change", (function(t, n)
 		{
-			var e = o.getMenuItemById("system-proxy");
+			var e = a.getMenuItemById("system-proxy");
 			e && (e.enabled = 1 !== n);
-			var r = o.getMenuItemById("mode");
+			var r = a.getMenuItemById("mode");
 			r && (r.enabled = 1 !== n)
 		})), p.ipcMain.on("mode-changed", (function(t, n)
 		{
 			var e = "mode-" + n.toLowerCase(),
-				r = o.getMenuItemById(e);
+				r = a.getMenuItemById(e);
 			r && (r.checked = !0)
 		})), p.ipcMain.on("system-proxy-changed", (function(t, n)
 		{
-			var e = o.getMenuItemById("system-proxy");
+			var e = a.getMenuItemById("system-proxy");
 			e && (e.checked = n)
 		})), p.ipcMain.on("mixin-changed", (function(t, n)
 		{
-			var e = o.getMenuItemById("mixin");
+			var e = a.getMenuItemById("mixin");
 			e && (e.checked = n)
-		})), y.setContextMenu(o)
+		})), y.setContextMenu(a)
 	}
 	e.r(n);
 	var o = e(25),
 		i = e.n(o),
-		c = e(41),
+		c = e(42),
 		u = e.n(c),
-		a = e(42),
+		a = e(26),
 		s = e.n(a),
 		f = e(43),
 		l = e.n(f),
 		p = e(0),
 		h = (e.n(p), e(24)),
-		v = e(87);
+		d = e(87);
 	global.__static = e(24)
 		.join(__dirname, "/static")
 		.replace(/\\/g, "\\\\"), p.app.disableHardwareAcceleration();
-	var d = void 0,
+	var v = void 0,
 		y = void 0,
 		m = h.join(p.app.getPath("userData"), "window_ocnfig.json"),
 		g = "file://" + __dirname + "/index.html",
 		x = p.app.requestSingleInstanceLock();
-	p.app.setAppUserModelId("com.lbyczf.clashwin"), p.app.setAsDefaultProtocolClient("clash"), x ? (p.app.on("second-instance", (function(t, n)
+	p.app.setAppUserModelId("com.lbyczf.clashwin"), p.app.setAsDefaultProtocolClient("clash"), p.app.on("open-url", (function(t, n)
 	{
-		d && (d.webContents.send("app-open", n), d.isMinimized() && d.restore(), d.show())
+		v.webContents.send("app-open", [n])
+	})), x ? (p.app.on("second-instance", (function(t, n)
+	{
+		v && (v.webContents.send("app-open", n), v.isMinimized() && v.restore(), v.show())
 	})), p.app.on("ready", (function()
 	{
 		r()
 	}))) : p.app.quit(), p.app.on("activate", (function()
 	{
-		null === d && r()
+		null === v ? r() : v.show()
 	}))
 }, function(t, n, e)
 {
@@ -990,7 +1012,7 @@ module.exports = function(t)
 
 		function s(t, n, e)
 		{
-			var o = j;
+			var o = O;
 			return function(i, c)
 			{
 				if(o == L) throw new Error("Generator is already running");
@@ -1017,7 +1039,7 @@ module.exports = function(t)
 					if("next" === e.method) e.sent = e._sent = e.arg;
 					else if("throw" === e.method)
 					{
-						if(o == j) throw o = M, e.arg;
+						if(o == O) throw o = M, e.arg;
 						e.dispatchException(e.arg)
 					}
 					else "return" === e.method && e.abrupt("return", e.arg);
@@ -1077,7 +1099,7 @@ module.exports = function(t)
 			}], t.forEach(l, this), this.reset(!0)
 		}
 
-		function v(t)
+		function d(t)
 		{
 			if(t)
 			{
@@ -1097,11 +1119,11 @@ module.exports = function(t)
 				}
 			}
 			return {
-				next: d
+				next: v
 			}
 		}
 
-		function d()
+		function v()
 		{
 			return {
 				value: void 0,
@@ -1116,14 +1138,14 @@ module.exports = function(t)
 			w = g.asyncIterator || "@@asyncIterator",
 			b = g.toStringTag || "@@toStringTag",
 			_ = "object" == typeof t,
-			O = n.regeneratorRuntime;
-		if(O) _ && (t.exports = O);
+			j = n.regeneratorRuntime;
+		if(j) _ && (t.exports = j);
 		else
 		{
-			(O = n.regeneratorRuntime = _ ? t.exports :
+			(j = n.regeneratorRuntime = _ ? t.exports :
 			{})
 			.wrap = e;
-			var j = "suspendedStart",
+			var O = "suspendedStart",
 				S = "suspendedYield",
 				L = "executing",
 				M = "completed",
@@ -1134,17 +1156,17 @@ module.exports = function(t)
 				return this
 			};
 			var E = Object.getPrototypeOf,
-				T = E && E(E(v([])));
+				T = E && E(E(d([])));
 			T && T !== y && m.call(T, x) && (k = T);
 			var C = c.prototype = o.prototype = Object.create(k);
-			i.prototype = C.constructor = c, c.constructor = i, c[b] = i.displayName = "GeneratorFunction", O.isGeneratorFunction = function(t)
+			i.prototype = C.constructor = c, c.constructor = i, c[b] = i.displayName = "GeneratorFunction", j.isGeneratorFunction = function(t)
 			{
 				var n = "function" == typeof t && t.constructor;
 				return !!n && (n === i || "GeneratorFunction" === (n.displayName || n.name))
-			}, O.mark = function(t)
+			}, j.mark = function(t)
 			{
 				return Object.setPrototypeOf ? Object.setPrototypeOf(t, c) : (t.__proto__ = c, !(b in t) && (t[b] = "GeneratorFunction")), t.prototype = Object.create(C), t
-			}, O.awrap = function(t)
+			}, j.awrap = function(t)
 			{
 				return {
 					__await: t
@@ -1152,10 +1174,10 @@ module.exports = function(t)
 			}, u(a.prototype), a.prototype[w] = function()
 			{
 				return this
-			}, O.AsyncIterator = a, O.async = function(t, n, r, o)
+			}, j.AsyncIterator = a, j.async = function(t, n, r, o)
 			{
 				var i = new a(e(t, n, r, o));
-				return O.isGeneratorFunction(n) ? i : i.next()
+				return j.isGeneratorFunction(n) ? i : i.next()
 					.then((function(t)
 					{
 						return t.done ? t.value : i.next()
@@ -1166,7 +1188,7 @@ module.exports = function(t)
 			}, C.toString = function()
 			{
 				return "[object Generator]"
-			}, O.keys = function(t)
+			}, j.keys = function(t)
 			{
 				var n = [];
 				for(var e in t) n.push(e);
@@ -1180,7 +1202,7 @@ module.exports = function(t)
 						}
 						return e.done = !0, e
 					}
-			}, O.values = v, h.prototype = {
+			}, j.values = d, h.prototype = {
 				constructor: h,
 				reset: function(t)
 				{
@@ -1269,7 +1291,7 @@ module.exports = function(t)
 				delegateYield: function(t, n, e)
 				{
 					return this.delegate = {
-						iterator: v(t),
+						iterator: d(t),
 						resultName: n,
 						nextLoc: e
 					}, "next" === this.method && (this.arg = void 0), P
@@ -1294,7 +1316,7 @@ module.exports = function(t)
 {
 	"use strict";
 	var r = e(51)(!0);
-	e(26)(String, "String", (function(t)
+	e(27)(String, "String", (function(t)
 	{
 		this._t = t + "", this._i = 0
 	}), (function()
@@ -1357,7 +1379,7 @@ module.exports = function(t)
 {
 	"use strict";
 	var r = e(56),
-		o = e(27),
+		o = e(28),
 		i = e(22),
 		c = {};
 	e(5)(c, e(2)("iterator"), (function()
@@ -1374,7 +1396,7 @@ module.exports = function(t)
 {
 	var r = e(4),
 		o = e(57),
-		i = e(33),
+		i = e(34),
 		c = e(21)("IE_PROTO"),
 		u = function() {},
 		a = "prototype",
@@ -1382,7 +1404,7 @@ module.exports = function(t)
 		{
 			var t, n = e(19)("iframe"),
 				r = i.length;
-			for(n.style.display = "none", e(34)
+			for(n.style.display = "none", e(35)
 				.appendChild(n), n.src = "javascript:", (t = n.contentWindow.document)
 				.open(), t.write("<script>document.F=Object<\/script>"), t.close(), s = t.F; r--;) delete s[a][i[r]];
 			return s()
@@ -1396,7 +1418,7 @@ module.exports = function(t)
 {
 	var r = e(12),
 		o = e(4),
-		i = e(28);
+		i = e(29);
 	t.exports = e(8) ? Object.defineProperties : function(t, n)
 	{
 		o(t);
@@ -1421,7 +1443,7 @@ module.exports = function(t)
 }, function(t, n, e)
 {
 	var r = e(20),
-		o = e(30),
+		o = e(31),
 		i = e(60);
 	t.exports = function(t)
 	{
@@ -1453,7 +1475,7 @@ module.exports = function(t)
 }, function(t, n, e)
 {
 	var r = e(13),
-		o = e(35),
+		o = e(36),
 		i = e(21)("IE_PROTO"),
 		c = Object.prototype;
 	t.exports = Object.getPrototypeOf || function(t)
@@ -1477,7 +1499,7 @@ module.exports = function(t)
 		o = e(65),
 		i = e(9),
 		c = e(20);
-	t.exports = e(26)(Array, "Array", (function(t, n)
+	t.exports = e(27)(Array, "Array", (function(t, n)
 	{
 		this._t = c(t), this._i = 0, this._k = n
 	}), (function()
@@ -1505,26 +1527,26 @@ module.exports = function(t)
 	var r, o, i, c, u = e(17),
 		a = e(1),
 		s = e(10),
-		f = e(36),
+		f = e(37),
 		l = e(6),
 		p = e(7),
 		h = e(11),
-		v = e(67),
-		d = e(68),
-		y = e(37),
-		m = e(38)
+		d = e(67),
+		v = e(68),
+		y = e(38),
+		m = e(39)
 		.set,
 		g = e(73)(),
 		x = e(23),
-		w = e(39),
+		w = e(40),
 		b = e(74),
-		_ = e(40),
-		O = "Promise",
-		j = a.TypeError,
+		_ = e(41),
+		j = "Promise",
+		O = a.TypeError,
 		S = a.process,
 		L = S && S.versions,
 		M = L && L.v8 || "",
-		P = a[O],
+		P = a[j],
 		k = "process" == f(S),
 		E = function() {},
 		T = o = x.f,
@@ -1563,23 +1585,23 @@ module.exports = function(t)
 							f = n.domain;
 						try
 						{
-							u ? (!o && (2 == t._h && N(t), t._h = 1), !0 === u ? e = r : (f && f.enter(), e = u(r), f && (f.exit(), c = !0)), e === n.promise ? s(j("Promise-chain cycle")) : (i = I(e)) ? i.call(e, a, s) : a(e)) : s(r)
+							u ? (!o && (2 == t._h && N(t), t._h = 1), !0 === u ? e = r : (f && f.enter(), e = u(r), f && (f.exit(), c = !0)), e === n.promise ? s(O("Promise-chain cycle")) : (i = I(e)) ? i.call(e, a, s) : a(e)) : s(r)
 						}
 						catch (n)
 						{
 							f && !c && f.exit(), s(n)
 						}
 					}; e.length > i;) c(e[i++]);
-					t._c = [], t._n = !1, n && !t._h && A(t)
+					t._c = [], t._n = !1, n && !t._h && F(t)
 				}))
 			}
 		},
-		A = function(t)
+		F = function(t)
 		{
 			m.call(a, (function()
 			{
 				var n, e, r, o = t._v,
-					i = F(t);
+					i = A(t);
 				if(i && (n = w((function()
 				{
 					k ? S.emit("unhandledRejection", o, t) : (e = a.onunhandledrejection) ? e(
@@ -1587,10 +1609,10 @@ module.exports = function(t)
 						promise: t,
 						reason: o
 					}) : (r = a.console) && r.error && r.error("Unhandled promise rejection", o)
-				})), t._h = k || F(t) ? 2 : 1), t._a = void 0, i && n.e) throw n.v
+				})), t._h = k || A(t) ? 2 : 1), t._a = void 0, i && n.e) throw n.v
 			}))
 		},
-		F = function(t)
+		A = function(t)
 		{
 			return 1 !== t._h && 0 === (t._a || t._c)
 				.length
@@ -1621,7 +1643,7 @@ module.exports = function(t)
 				e._d = !0, e = e._w || e;
 				try
 				{
-					if(e === t) throw j("Promise can't be resolved itself");
+					if(e === t) throw O("Promise can't be resolved itself");
 					(n = I(t)) ? g((function()
 					{
 						var r = {
@@ -1650,7 +1672,7 @@ module.exports = function(t)
 		};
 	C || (P = function(t)
 		{
-			v(this, P, O, "_h"), h(t), r.call(this);
+			d(this, P, j, "_h"), h(t), r.call(this);
 			try
 			{
 				t(s(D, this, 1), s(G, this, 1))
@@ -1684,14 +1706,14 @@ module.exports = function(t)
 		}), l(l.G + l.W + l.F * !C,
 	{
 		Promise: P
-	}), e(22)(P, O), e(76)(O), c = e(3)[O], l(l.S + l.F * !C, O,
+	}), e(22)(P, j), e(76)(j), c = e(3)[j], l(l.S + l.F * !C, j,
 	{
 		reject: function(t)
 		{
 			var n = T(this);
 			return (0, n.reject)(t), n.promise
 		}
-	}), l(l.S + l.F * (u || !C), O,
+	}), l(l.S + l.F * (u || !C), j,
 	{
 		resolve: function(t)
 		{
@@ -1701,7 +1723,7 @@ module.exports = function(t)
 	{
 		P.all(t)
 			.catch(E)
-	}))), O,
+	}))), j,
 	{
 		all: function(t)
 		{
@@ -1714,7 +1736,7 @@ module.exports = function(t)
 					var e = [],
 						i = 0,
 						c = 1;
-					d(t, !1, (function(t)
+					v(t, !1, (function(t)
 					{
 						var u = i++,
 							a = !1;
@@ -1734,7 +1756,7 @@ module.exports = function(t)
 				r = e.reject,
 				o = w((function()
 				{
-					d(t, !1, (function(t)
+					v(t, !1, (function(t)
 					{
 						n.resolve(t)
 							.then(e.resolve, r)
@@ -1756,13 +1778,13 @@ module.exports = function(t)
 		o = e(69),
 		i = e(70),
 		c = e(4),
-		u = e(30),
+		u = e(31),
 		a = e(71),
 		s = {},
 		f = {};
 	(n = t.exports = function(t, n, e, l, p)
 	{
-		var h, v, d, y, m = p ? function()
+		var h, d, v, y, m = p ? function()
 			{
 				return t
 			} : a(t),
@@ -1772,12 +1794,12 @@ module.exports = function(t)
 		if(i(m))
 		{
 			for(h = u(t.length); h > x; x++)
-				if((y = n ? g(c(v = t[x])[0], v[1]) : g(t[x])) === s || y === f) return y
+				if((y = n ? g(c(d = t[x])[0], d[1]) : g(t[x])) === s || y === f) return y
 		}
 		else
-			for(d = m.call(t); !(v = d.next())
+			for(v = m.call(t); !(d = v.next())
 				.done;)
-				if((y = o(d, g, v.value, n)) === s || y === f) return y
+				if((y = o(v, g, d.value, n)) === s || y === f) return y
 	})
 	.BREAK = s, n.RETURN = f
 }, function(t, n, e)
@@ -1806,7 +1828,7 @@ module.exports = function(t)
 	}
 }, function(t, n, e)
 {
-	var r = e(36),
+	var r = e(37),
 		o = e(2)("iterator"),
 		i = e(9);
 	t.exports = e(3)
@@ -1837,7 +1859,7 @@ module.exports = function(t)
 }, function(t, n, e)
 {
 	var r = e(1),
-		o = e(38)
+		o = e(39)
 		.set,
 		i = r.MutationObserver || r.WebKitMutationObserver,
 		c = r.process,
@@ -1979,8 +2001,8 @@ module.exports = function(t)
 	var r = e(6),
 		o = e(3),
 		i = e(1),
-		c = e(37),
-		u = e(40);
+		c = e(38),
+		u = e(41);
 	r(r.P + r.R, "Promise",
 	{
 		finally: function(t)
@@ -2009,7 +2031,7 @@ module.exports = function(t)
 	"use strict";
 	var r = e(6),
 		o = e(23),
-		i = e(39);
+		i = e(40);
 	r(r.S, "Promise",
 	{
 		try: function(t)
@@ -2049,11 +2071,11 @@ module.exports = function(t)
 }, function(t, n, e)
 {
 	"use strict";
-	var r = e(28),
+	var r = e(29),
 		o = e(85),
 		i = e(86),
-		c = e(35),
-		u = e(29),
+		c = e(36),
+		u = e(30),
 		a = Object.assign;
 	t.exports = !a || e(18)((function()
 	{
@@ -2073,7 +2095,7 @@ module.exports = function(t)
 	{
 		for(var n = c(t), e = arguments.length, a = 1, s = o.f, f = i.f; e > a;)
 			for(var l, p = u(arguments[a++]), h = s ? r(p)
-				.concat(s(p)) : r(p), v = h.length, d = 0; v > d;) f.call(p, l = h[d++]) && (n[l] = p[l]);
+				.concat(s(p)) : r(p), d = h.length, v = 0; d > v;) f.call(p, l = h[v++]) && (n[l] = p[l]);
 		return n
 	} : a
 }, function(t, n)
