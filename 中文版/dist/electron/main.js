@@ -697,7 +697,7 @@ module.exports = function(t)
 					{}
 					p.app.exit()
 				}
-				else t.preventDefault(), v.hide(), p.app.dock.hide();
+				else t.preventDefault(), v.hide(), "darwin" === process.platform && p.app.dock.hide();
 				return !1
 			})), v.on("session-end", (function(t)
 			{
@@ -720,8 +720,8 @@ module.exports = function(t)
 							return n = {
 								type: "error",
 								title: "Clash for Windows",
-								message: "面板崩溃了！",
-								buttons: ["刷新", "退出"]
+								message: "控制面板崩溃啦！",
+								buttons: ["重载", "退出"]
 							}, t.next = 5, p.dialog.showMessageBox(v, n);
 						case 5:
 							r = t.sent, 0 === r.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
@@ -782,7 +782,7 @@ module.exports = function(t)
 		}));
 		var u = p.Menu.buildFromTemplate([
 		{
-			label: "显示面板",
+			label: "控制面板",
 			click: function()
 			{
 				return v.show()
@@ -802,7 +802,7 @@ module.exports = function(t)
 			}
 		},
 		{
-			label: "混合配置",
+			label: "混合模式",
 			type: "checkbox",
 			id: "mixin",
 			click: function(t)
