@@ -4,6 +4,8 @@ setlocal
 set DEVICE_NAME=cfw-tap
 set DEVICE_HWID=tap0901
 
+set SCRIPT_DIR=%~dp0
+
 set PATH=%PATH%;%SystemRoot%\system32;%SystemRoot%\system32\wbem;%SystemRoot%\system32\WindowsPowerShell/v1.0
 
 netsh interface show interface name=%DEVICE_NAME% >nul
@@ -25,7 +27,7 @@ if %errorlevel% neq 0 (
 type "%BEFORE_DEVICES%"
 
 echo Creating TAP network device...
-%1\amd64\tapinstall install %1\amd64\OemVista.inf %DEVICE_HWID%
+"%SCRIPT_DIR%\amd64\tapinstall" install "%SCRIPT_DIR%\amd64\OemVista.inf" %DEVICE_HWID%
 if %errorlevel% neq 0 (
   echo Could not create TAP network device. >&2
   exit /b 1

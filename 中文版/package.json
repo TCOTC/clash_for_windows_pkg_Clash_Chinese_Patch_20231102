@@ -1,6 +1,6 @@
 {
   "name": "clash_win",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "author": "Fndroid <18825176954@163.com>",
   "description": "A Windows client based on Clash",
   "license": "MIT",
@@ -12,6 +12,7 @@
     "got": "^9.6.0",
     "lodash": "^4.17.15",
     "moment": "^2.22.2",
+    "mousetrap": "^1.6.5",
     "regedit": "^3.0.3",
     "require-from-string": "^2.0.2",
     "sudo-prompt": "^9.2.1",
