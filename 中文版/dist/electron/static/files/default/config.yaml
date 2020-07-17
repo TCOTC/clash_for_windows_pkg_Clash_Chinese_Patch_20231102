@@ -1,9 +1,9 @@
 mixed-port: 7890
 allow-lan: false
-mode: rule
 log-level: info
 external-controller: '127.0.0.1:9090'
 secret: ''
+ipv6: false
 
 # Will be ignored after profile selection
 proxies:
