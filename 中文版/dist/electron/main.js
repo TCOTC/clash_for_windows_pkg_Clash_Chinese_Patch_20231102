@@ -1,4 +1,4 @@
-module.exports = function(t)
+﻿module.exports = function(t)
 {
 	function n(r)
 	{
@@ -657,7 +657,7 @@ module.exports = function(t)
 			minHeight: 603,
 			backgroundColor: "#f5f5f5",
 			useContentSize: !0,
-			show: "darwin" === process.platform,
+			show: !1,
 			minimizable: !0,
 			frame: !1,
 			titleBarStyle: "hidden",
@@ -678,7 +678,7 @@ module.exports = function(t)
 				userAgent: "ClashforWindows/" + p.app.getVersion()
 			}), y.on("hide", (function()
 			{
-				y.webContents.send("window-event", "hide")
+				"darwin" === process.platform && p.app.dock.hide(), y.webContents.send("window-event", "hide")
 			})), y.on("show", (function()
 			{
 				"darwin" === process.platform && p.app.dock.show(), y.webContents.send("window-event", "show")
@@ -697,7 +697,7 @@ module.exports = function(t)
 					{}
 					p.app.exit()
 				}
-				else t.preventDefault(), y.hide(), "darwin" === process.platform && p.app.dock.hide();
+				else t.preventDefault(), y.hide();
 				return !1
 			})), y.on("session-end", (function(t)
 			{
@@ -720,8 +720,8 @@ module.exports = function(t)
 							return e = {
 								type: "error",
 								title: "Clash for Windows",
-								message: "控制面板崩溃啦！",
-								buttons: ["重载", "退出"]
+								message: "面板崩溃了！",
+								buttons: ["刷新", "退出"]
 							}, t.next = 5, p.dialog.showMessageBox(y, e);
 						case 5:
 							r = t.sent, 0 === r.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
@@ -782,7 +782,7 @@ module.exports = function(t)
 		}));
 		var a = p.Menu.buildFromTemplate([
 		{
-			label: "控制面板",
+			label: "显示面板",
 			click: function()
 			{
 				return y.show()
@@ -802,7 +802,7 @@ module.exports = function(t)
 			}
 		},
 		{
-			label: "混合模式",
+			label: "混合配置",
 			type: "checkbox",
 			id: "mixin",
 			click: function(t)
