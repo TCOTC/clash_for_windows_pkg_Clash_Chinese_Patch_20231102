@@ -1,7 +1,7 @@
 {
   "name": "clash_win",
-  "version": "0.11.3",
-  "author": "Fndroid <18825176954@163.com>",
+  "version": "0.11.4",
+  "author": "Fndroid",
   "description": "A Windows client based on Clash",
   "license": "MIT",
   "main": "./dist/electron/main.js",
