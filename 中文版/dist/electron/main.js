@@ -678,7 +678,7 @@
 				userAgent: "ClashforWindows/" + p.app.getVersion()
 			}), y.on("hide", (function()
 			{
-				"darwin" === process.platform && p.app.dock.hide(), y.webContents.send("window-event", "hide")
+				y.webContents.send("window-event", "hide")
 			})), y.on("show", (function()
 			{
 				"darwin" === process.platform && p.app.dock.show(), y.webContents.send("window-event", "show")
@@ -697,7 +697,7 @@
 					{}
 					p.app.exit()
 				}
-				else t.preventDefault(), y.hide();
+				else t.preventDefault(), y.hide(), "darwin" === process.platform && p.app.dock.hide();
 				return !1
 			})), y.on("session-end", (function(t)
 			{
