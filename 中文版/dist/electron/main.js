@@ -366,32 +366,32 @@
 	t.exports = function(t, n, e, y, m, g, w)
 	{
 		a(e, n, y);
-		var x, b, _, O = function(t)
+		var x, b, _, k = function(t)
 			{
-				return !p && t in M ? M[t] : function()
+				return !p && t in L ? L[t] : function()
 				{
 					return new e(this, t)
 				}
 			},
-			j = n + " Iterator",
-			S = m == d,
-			L = !1,
-			M = t.prototype,
-			P = M[l] || M["@@iterator"] || m && M[m],
-			k = P || O(m),
-			E = m ? S ? O("entries") : k : void 0,
-			T = "Array" == n && M.entries || P;
-		if(T && ((_ = f(T.call(new t))) !== Object.prototype && _.next && (s(_, j, !0), !r && "function" != typeof _[l] && c(_, l, v))), S && P && P.name !== d && (L = !0, k = function()
+			O = n + " Iterator",
+			j = m == d,
+			S = !1,
+			L = t.prototype,
+			M = L[l] || L["@@iterator"] || m && L[m],
+			P = M || k(m),
+			C = m ? j ? k("entries") : P : void 0,
+			E = "Array" == n && L.entries || M;
+		if(E && ((_ = f(E.call(new t))) !== Object.prototype && _.next && (s(_, O, !0), !r && "function" != typeof _[l] && c(_, l, v))), j && M && M.name !== d && (S = !0, P = function()
 		{
-			return P.call(this)
-		}), (!r || w) && (p || L || !M[l]) && c(M, l, k), u[n] = k, u[j] = v, m)
+			return M.call(this)
+		}), (!r || w) && (p || S || !L[l]) && c(L, l, P), u[n] = P, u[O] = v, m)
 			if(x = {
-				values: S ? k : O(d),
-				keys: g ? k : O(h),
-				entries: E
+				values: j ? P : k(d),
+				keys: g ? P : k(h),
+				entries: C
 			}, w)
-				for(b in x) b in M || i(M, b, x[b]);
-			else o(o.P + o.F * (p || L), n, x);
+				for(b in x) b in L || i(L, b, x[b]);
+			else o(o.P + o.F * (p || S), n, x);
 		return x
 	}
 }, function(t)
@@ -644,12 +644,12 @@
 			n = {};
 		try
 		{
-			var r = JSON.parse(d.readFileSync(g, "utf8"))
+			var r = JSON.parse(y.readFileSync(x, "utf8"))
 				.bounds;
 			r && (n = r)
 		}
 		catch (n)
-		{}(y = new p.BrowserWindow(l()(
+		{}(g = new p.BrowserWindow(l()(
 		{
 			height: 603,
 			width: 850,
@@ -667,74 +667,132 @@
 				webSecurity: !0,
 				nodeIntegrationInWorker: !1,
 				enableRemoteModule: !0,
-				preload: h.resolve(h.join(__dirname, "preload.js"))
+				preload: v.resolve(v.join(__dirname, "preload.js"))
 			}
 		}, n)))
-		.setMenu(null), y.webContents.on("will-navigate", (function(t)
+		.setMenu(null), g.webContents.on("will-navigate", (function(t)
+		{
+			return t.preventDefault()
+		})), g.loadURL(b,
+		{
+			userAgent: "ClashforWindows/" + p.app.getVersion()
+		}), g.on("hide", (function()
+		{
+			g.webContents.send("window-event", "hide")
+		})), g.on("show", (function()
+		{
+			"darwin" === process.platform && p.app.dock.show(), g.webContents.send("window-event", "show")
+		})), g.on("close", (function(t)
+		{
+			if(p.app.isQuiting)
 			{
-				return t.preventDefault()
-			})), y.loadURL(w,
-			{
-				userAgent: "ClashforWindows/" + p.app.getVersion()
-			}), y.on("hide", (function()
-			{
-				y.webContents.send("window-event", "hide")
-			})), y.on("show", (function()
-			{
-				"darwin" === process.platform && p.app.dock.show(), y.webContents.send("window-event", "show")
-			})), y.on("close", (function(t)
-			{
-				if(p.app.isQuiting)
+				try
 				{
-					try
+					y.writeFileSync(x, s()(
 					{
-						d.writeFileSync(g, s()(
-						{
-							bounds: y.getBounds()
-						}))
-					}
-					catch (t)
-					{}
-					p.app.exit()
+						bounds: g.getBounds()
+					}))
 				}
-				else t.preventDefault(), y.hide(), "darwin" === process.platform && p.app.dock.hide();
-				return !1
-			})), y.on("session-end", (function(t)
+				catch (t)
+				{}
+				p.app.exit()
+			}
+			else t.preventDefault(), g.hide(), "darwin" === process.platform && p.app.dock.hide();
+			return !1
+		})), g.on("session-end", (function(t)
+		{
+			t.preventDefault(), g.webContents.send("app-exit")
+		})), g.webContents.on("crashed", u()(i.a.mark((function n()
+		{
+			var e, r;
+			return i.a.wrap((function(t)
 			{
-				t.preventDefault(), y.webContents.send("app-exit")
-			})), y.webContents.on("crashed", u()(i.a.mark((function n()
-			{
-				var e, r;
-				return i.a.wrap((function(t)
+				for(;;) switch (t.prev = t.next)
 				{
-					for(;;) switch (t.prev = t.next)
-					{
-						case 0:
-							if("darwin" !== process.platform)
-							{
-								t.next = 2;
-								break
-							}
-							return t.abrupt("return");
-						case 2:
-							return e = {
-								type: "error",
-								title: "Clash for Windows",
-								message: "面板崩溃了！",
-								buttons: ["刷新", "退出"]
-							}, t.next = 5, p.dialog.showMessageBox(y, e);
-						case 5:
-							r = t.sent, 0 === r.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
-						case 8:
-						case "end":
-							return t.stop()
-					}
-				}), n, t)
-			})))), e(0)
-			.powerMonitor.on("resume", (function()
+					case 0:
+						if("darwin" !== process.platform)
+						{
+							t.next = 2;
+							break
+						}
+						return t.abrupt("return");
+					case 2:
+						return e = {
+							type: "error",
+							title: "Clash for Windows",
+							message: "面板崩溃了！",
+							buttons: ["刷新", "退出"]
+						}, t.next = 5, p.dialog.showMessageBox(g, e);
+					case 5:
+						r = t.sent, 0 === r.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
+					case 8:
+					case "end":
+						return t.stop()
+				}
+			}), n, t)
+		})))), g.setTouchBar(new h(
+		{
+			items: [new d(
 			{
-				y.webContents.send("app-resume")
-			}));
+				label: "General",
+				backgroundColor: "#505050",
+				click: function()
+				{
+					g.webContents.send("menu-item-change", 0)
+				}
+			}), new d(
+			{
+				label: "Proxies",
+				backgroundColor: "#505050",
+				click: function()
+				{
+					g.webContents.send("menu-item-change", 1)
+				}
+			}), new d(
+			{
+				label: "Profiles",
+				backgroundColor: "#505050",
+				click: function()
+				{
+					g.webContents.send("menu-item-change", 2)
+				}
+			}), new d(
+			{
+				label: "Logs",
+				backgroundColor: "#505050",
+				click: function()
+				{
+					g.webContents.send("menu-item-change", 3)
+				}
+			}), new d(
+			{
+				label: "Connections",
+				backgroundColor: "#505050",
+				click: function()
+				{
+					g.webContents.send("menu-item-change", 4)
+				}
+			}), new d(
+			{
+				label: "Settings",
+				backgroundColor: "#505050",
+				click: function()
+				{
+					g.webContents.send("menu-item-change", 5)
+				}
+			}), new d(
+			{
+				label: "Feedback",
+				backgroundColor: "#505050",
+				click: function()
+				{
+					g.webContents.send("menu-item-change", 6)
+				}
+			})]
+		})), p.powerMonitor.on("resume", (function()
+		{
+			g.webContents.send("app-resume")
+		}));
 		var o = p.nativeImage.createFromPath(e(24)
 				.join(__static, "imgs", "logo_64.png"))
 			.resize(
@@ -742,18 +800,18 @@
 				width: 24,
 				height: 24
 			}),
-			c = h.join(__static, "tray_normal_Z8R_icon.ico");
-		(m = new p.Tray("darwin" === process.platform ? o : c))
-		.setToolTip("Clash for Windows"), m.on("click", (function()
+			c = v.join(__static, "tray_normal_Z8R_icon.ico");
+		(w = new p.Tray("darwin" === process.platform ? o : c))
+		.setToolTip("Clash for Windows"), w.on("click", (function()
 		{
-			y.show()
+			g.show()
 		})), p.ipcMain.on("cleanup-done", (function()
 		{
 			try
 			{
-				d.writeFileSync(g, s()(
+				y.writeFileSync(x, s()(
 				{
-					bounds: y.getBounds()
+					bounds: g.getBounds()
 				}))
 			}
 			catch (t)
@@ -763,13 +821,13 @@
 		{
 			try
 			{
-				"darwin" !== process.platform && m.setImage(n)
+				"darwin" !== process.platform && w.setImage(n)
 			}
 			catch (n)
 			{}
 		})), p.ipcMain.on("show-notification", (function(t, n)
 		{
-			var e = h.join(global.__static, "imgs/logo_64.png"),
+			var e = v.join(global.__static, "imgs/logo_64.png"),
 				r = new p.Notification(l()(
 				{}, n,
 				{
@@ -785,7 +843,7 @@
 			label: "显示面板",
 			click: function()
 			{
-				return y.show()
+				return g.show()
 			}
 		},
 		{
@@ -798,7 +856,7 @@
 			click: function(t)
 			{
 				var n = t.checked;
-				y.webContents.send("system-proxy-changed", n)
+				g.webContents.send("system-proxy-changed", n)
 			}
 		},
 		{
@@ -808,7 +866,7 @@
 			click: function(t)
 			{
 				var n = t.checked;
-				y.webContents.send("mixin-changed", n)
+				g.webContents.send("mixin-changed", n)
 			}
 		},
 		{
@@ -824,7 +882,7 @@
 				id: "mode-global",
 				click: function()
 				{
-					return y.webContents.send("mode-changed", "global")
+					return g.webContents.send("mode-changed", "global")
 				}
 			},
 			{
@@ -833,7 +891,7 @@
 				id: "mode-rule",
 				click: function()
 				{
-					return y.webContents.send("mode-changed", "rule")
+					return g.webContents.send("mode-changed", "rule")
 				}
 			},
 			{
@@ -842,7 +900,7 @@
 				id: "mode-direct",
 				click: function()
 				{
-					return y.webContents.send("mode-changed", "direct")
+					return g.webContents.send("mode-changed", "direct")
 				}
 			},
 			{
@@ -851,7 +909,7 @@
 				id: "mode-script",
 				click: function()
 				{
-					return y.webContents.send("mode-changed", "script")
+					return g.webContents.send("mode-changed", "script")
 				}
 			}]
 		},
@@ -869,7 +927,7 @@
 			label: "退出",
 			click: function()
 			{
-				return y.webContents.send("app-exit")
+				return g.webContents.send("app-exit")
 			}
 		}]);
 		p.ipcMain.on("clash-core-status-change", (function(t, n)
@@ -894,7 +952,7 @@
 		{
 			try
 			{
-				m && m.setImage(p.nativeImage.createFromDataURL(n)
+				w && w.setImage(p.nativeImage.createFromDataURL(n)
 					.crop(
 					{
 						x: 0,
@@ -909,12 +967,12 @@
 			}
 			catch (n)
 			{}
-		})), m.on("click", (function()
+		})), w.on("click", (function()
 		{
-			y.show()
-		})), m.on("right-click", (function()
+			g.show()
+		})), w.on("right-click", (function()
 		{
-			m.popUpContextMenu(a)
+			w.popUpContextMenu(a)
 		}))
 	}
 	e.r(n);
@@ -927,37 +985,40 @@
 		f = e(27),
 		l = e.n(f),
 		p = e(0),
-		h = (e.n(p), e(24)),
-		d = e(87),
-		v = e(88);
+		h = (e.n(p), e(0)
+			.TouchBar),
+		d = h.TouchBarButton,
+		v = e(24),
+		y = e(87),
+		m = e(88);
 	global.__static = e(24)
 		.join(__dirname, "/static")
 		.replace(/\\/g, "\\\\"), p.app.disableHardwareAcceleration(), p.app.commandLine.appendSwitch("disable-features", "OutOfBlinkCors");
-	var y = void 0,
-		m = void 0,
-		g = h.join(p.app.getPath("userData"), "window_ocnfig.json"),
-		w = "file://" + __dirname + "/index.html",
-		x = p.app.requestSingleInstanceLock();
+	var g = void 0,
+		w = void 0,
+		x = v.join(p.app.getPath("userData"), "window_ocnfig.json"),
+		b = "file://" + __dirname + "/index.html",
+		_ = p.app.requestSingleInstanceLock();
 	p.app.setAppUserModelId("com.lbyczf.clashwin"), p.app.setAsDefaultProtocolClient("clash"), p.app.on("open-url", (function(t, n)
 	{
-		y.webContents.send("app-open", [n])
-	})), x ? (p.app.on("second-instance", (function(t, n)
+		g.webContents.send("app-open", [n])
+	})), _ ? (p.app.on("second-instance", (function(t, n)
 	{
-		y && (y.webContents.send("app-open", n), y.isMinimized() && y.restore(), y.show())
+		g && (g.webContents.send("app-open", n), g.isMinimized() && g.restore(), g.show())
 	})), p.app.on("ready", (function()
 	{
 		p.powerMonitor.on("shutdown", (function(t)
 		{
-			t.preventDefault(), y.webContents.send("app-exit"), setTimeout((function()
+			t.preventDefault(), g.webContents.send("app-exit"), setTimeout((function()
 			{
 				p.app.isQuiting = !0, p.app.quit()
 			}), 5e3)
 		})), p.screen.on("display-removed", (function(t, n)
 		{
-			if(console.log("display removed", n), "win32" === process.platform && y)
+			if(console.log("display removed", n), "win32" === process.platform && g)
 			{
 				var e = n.bounds,
-					r = y.getBounds(),
+					r = g.getBounds(),
 					o = r.x,
 					i = r.y;
 				if(e)
@@ -966,7 +1027,7 @@
 						u = e.y,
 						a = e.width,
 						s = e.height;
-					if(v.inRange(o, c, c + a) && v.inRange(i, u, u + s))
+					if(m.inRange(o, c, c + a) && m.inRange(i, u, u + s))
 					{
 						var f = p.screen.getPrimaryDisplay()
 							.bounds,
@@ -974,7 +1035,7 @@
 							{} : f)
 							.x,
 							h = f.y;
-						y.setBounds(
+						g.setBounds(
 						{
 							x: l,
 							y: h
@@ -985,7 +1046,7 @@
 		})), r()
 	}))) : p.app.quit(), p.app.on("activate", (function()
 	{
-		null === y ? r() : y.show()
+		null === g ? r() : g.show()
 	}))
 }, function(t, n, e)
 {
@@ -1097,11 +1158,11 @@
 
 		function s(t, n, e)
 		{
-			var o = j;
+			var o = O;
 			return function(i, c)
 			{
-				if(o == L) throw new Error("Generator is already running");
-				if(o == M)
+				if(o == S) throw new Error("Generator is already running");
+				if(o == L)
 				{
 					if("throw" === i) throw c;
 					return {
@@ -1117,28 +1178,28 @@
 						var a = f(u, e);
 						if(a)
 						{
-							if(a === P) continue;
+							if(a === M) continue;
 							return a
 						}
 					}
 					if("next" === e.method) e.sent = e._sent = e.arg;
 					else if("throw" === e.method)
 					{
-						if(o == j) throw o = M, e.arg;
+						if(o == O) throw o = L, e.arg;
 						e.dispatchException(e.arg)
 					}
 					else "return" === e.method && e.abrupt("return", e.arg);
-					o = L;
+					o = S;
 					var s = r(t, n, e);
 					if("normal" === s.type)
 					{
-						if(o = e.done ? M : S, s.arg === P) continue;
+						if(o = e.done ? L : j, s.arg === M) continue;
 						return {
 							value: s.arg,
 							done: e.done
 						}
 					}
-					"throw" === s.type && (o = M, e.method = "throw", e.arg = s.arg)
+					"throw" === s.type && (o = L, e.method = "throw", e.arg = s.arg)
 				}
 			}
 		}
@@ -1150,15 +1211,15 @@
 			{
 				if(n.delegate = null, "throw" === n.method)
 				{
-					if(t.iterator.return && (n.method = "return", n.arg = void 0, f(t, n), "throw" === n.method)) return P;
+					if(t.iterator.return && (n.method = "return", n.arg = void 0, f(t, n), "throw" === n.method)) return M;
 					n.method = "throw", n.arg = new TypeError("The iterator does not provide a 'throw' method")
 				}
-				return P
+				return M
 			}
 			var o = r(e, t.iterator, n.arg);
-			if("throw" === o.type) return n.method = "throw", n.arg = o.arg, n.delegate = null, P;
+			if("throw" === o.type) return n.method = "throw", n.arg = o.arg, n.delegate = null, M;
 			var i = o.arg;
-			return i ? i.done ? (n[t.resultName] = i.value, n.next = t.nextLoc, "return" !== n.method && (n.method = "next", n.arg = void 0), n.delegate = null, P) : i : (n.method = "throw", n.arg = new TypeError("iterator result is not an object"), n.delegate = null, P)
+			return i ? i.done ? (n[t.resultName] = i.value, n.next = t.nextLoc, "return" !== n.method && (n.method = "next", n.arg = void 0), n.delegate = null, M) : i : (n.method = "throw", n.arg = new TypeError("iterator result is not an object"), n.delegate = null, M)
 		}
 
 		function l(t)
@@ -1223,35 +1284,35 @@
 			x = g.asyncIterator || "@@asyncIterator",
 			b = g.toStringTag || "@@toStringTag",
 			_ = "object" == typeof t,
-			O = n.regeneratorRuntime;
-		if(O) _ && (t.exports = O);
+			k = n.regeneratorRuntime;
+		if(k) _ && (t.exports = k);
 		else
 		{
-			(O = n.regeneratorRuntime = _ ? t.exports :
+			(k = n.regeneratorRuntime = _ ? t.exports :
 			{})
 			.wrap = e;
-			var j = "suspendedStart",
-				S = "suspendedYield",
-				L = "executing",
-				M = "completed",
-				P = {},
-				k = {};
-			k[w] = function()
+			var O = "suspendedStart",
+				j = "suspendedYield",
+				S = "executing",
+				L = "completed",
+				M = {},
+				P = {};
+			P[w] = function()
 			{
 				return this
 			};
-			var E = Object.getPrototypeOf,
-				T = E && E(E(d([])));
-			T && T !== y && m.call(T, w) && (k = T);
-			var C = c.prototype = o.prototype = Object.create(k);
-			i.prototype = C.constructor = c, c.constructor = i, c[b] = i.displayName = "GeneratorFunction", O.isGeneratorFunction = function(t)
+			var C = Object.getPrototypeOf,
+				E = C && C(C(d([])));
+			E && E !== y && m.call(E, w) && (P = E);
+			var T = c.prototype = o.prototype = Object.create(P);
+			i.prototype = T.constructor = c, c.constructor = i, c[b] = i.displayName = "GeneratorFunction", k.isGeneratorFunction = function(t)
 			{
 				var n = "function" == typeof t && t.constructor;
 				return !!n && (n === i || "GeneratorFunction" === (n.displayName || n.name))
-			}, O.mark = function(t)
+			}, k.mark = function(t)
 			{
-				return Object.setPrototypeOf ? Object.setPrototypeOf(t, c) : (t.__proto__ = c, !(b in t) && (t[b] = "GeneratorFunction")), t.prototype = Object.create(C), t
-			}, O.awrap = function(t)
+				return Object.setPrototypeOf ? Object.setPrototypeOf(t, c) : (t.__proto__ = c, !(b in t) && (t[b] = "GeneratorFunction")), t.prototype = Object.create(T), t
+			}, k.awrap = function(t)
 			{
 				return {
 					__await: t
@@ -1259,21 +1320,21 @@
 			}, u(a.prototype), a.prototype[x] = function()
 			{
 				return this
-			}, O.AsyncIterator = a, O.async = function(t, n, r, o)
+			}, k.AsyncIterator = a, k.async = function(t, n, r, o)
 			{
 				var i = new a(e(t, n, r, o));
-				return O.isGeneratorFunction(n) ? i : i.next()
+				return k.isGeneratorFunction(n) ? i : i.next()
 					.then((function(t)
 					{
 						return t.done ? t.value : i.next()
 					}))
-			}, u(C), C[b] = "Generator", C[w] = function()
+			}, u(T), T[b] = "Generator", T[w] = function()
 			{
 				return this
-			}, C.toString = function()
+			}, T.toString = function()
 			{
 				return "[object Generator]"
-			}, O.keys = function(t)
+			}, k.keys = function(t)
 			{
 				var n = [];
 				for(var e in t) n.push(e);
@@ -1287,7 +1348,7 @@
 						}
 						return e.done = !0, e
 					}
-			}, O.values = d, h.prototype = {
+			}, k.values = d, h.prototype = {
 				constructor: h,
 				reset: function(t)
 				{
@@ -1345,18 +1406,18 @@
 						} o && ("break" === t || "continue" === t) && o.tryLoc <= n && n <= o.finallyLoc && (o = null);
 					var i = o ? o.completion :
 					{};
-					return i.type = t, i.arg = n, o ? (this.method = "next", this.next = o.finallyLoc, P) : this.complete(i)
+					return i.type = t, i.arg = n, o ? (this.method = "next", this.next = o.finallyLoc, M) : this.complete(i)
 				},
 				complete: function(t, n)
 				{
 					if("throw" === t.type) throw t.arg;
-					return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && n && (this.next = n), P
+					return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && n && (this.next = n), M
 				},
 				finish: function(t)
 				{
 					for(var n, e = this.tryEntries.length - 1; 0 <= e; --e)
 						if((n = this.tryEntries[e])
-							.finallyLoc === t) return this.complete(n.completion, n.afterLoc), p(n), P
+							.finallyLoc === t) return this.complete(n.completion, n.afterLoc), p(n), M
 				},
 				catch: function(t)
 				{
@@ -1379,7 +1440,7 @@
 						iterator: d(t),
 						resultName: n,
 						nextLoc: e
-					}, "next" === this.method && (this.arg = void 0), P
+					}, "next" === this.method && (this.arg = void 0), M
 				}
 			}
 		}
@@ -1626,25 +1687,25 @@
 		x = e(41),
 		b = e(74),
 		_ = e(42),
-		O = "Promise",
-		j = a.TypeError,
-		S = a.process,
-		L = S && S.versions,
-		M = L && L.v8 || "",
-		P = a[O],
-		k = "process" == f(S),
-		E = function() {},
-		T = o = w.f,
-		C = !! function()
+		k = "Promise",
+		O = a.TypeError,
+		j = a.process,
+		S = j && j.versions,
+		L = S && S.v8 || "",
+		M = a[k],
+		P = "process" == f(j),
+		C = function() {},
+		E = o = w.f,
+		T = !! function()
 		{
 			try
 			{
-				var t = P.resolve(1),
+				var t = M.resolve(1),
 					n = (t.constructor = {})[e(2)("species")] = function(t)
 					{
-						t(E, E)
+						t(C, C)
 					};
-				return (k || "function" == typeof PromiseRejectionEvent) && t.then(E) instanceof n && 0 !== M.indexOf("6.6") && -1 === b.indexOf("Chrome/66")
+				return (P || "function" == typeof PromiseRejectionEvent) && t.then(C) instanceof n && 0 !== L.indexOf("6.6") && -1 === b.indexOf("Chrome/66")
 			}
 			catch (n)
 			{}
@@ -1670,7 +1731,7 @@
 							f = n.domain;
 						try
 						{
-							u ? (!o && (2 == t._h && N(t), t._h = 1), !0 === u ? e = r : (f && f.enter(), e = u(r), f && (f.exit(), c = !0)), e === n.promise ? s(j("Promise-chain cycle")) : (i = I(e)) ? i.call(e, a, s) : a(e)) : s(r)
+							u ? (!o && (2 == t._h && N(t), t._h = 1), !0 === u ? e = r : (f && f.enter(), e = u(r), f && (f.exit(), c = !0)), e === n.promise ? s(O("Promise-chain cycle")) : (i = I(e)) ? i.call(e, a, s) : a(e)) : s(r)
 						}
 						catch (n)
 						{
@@ -1689,12 +1750,12 @@
 					i = A(t);
 				if(i && (n = x((function()
 				{
-					k ? S.emit("unhandledRejection", o, t) : (e = a.onunhandledrejection) ? e(
+					P ? j.emit("unhandledRejection", o, t) : (e = a.onunhandledrejection) ? e(
 					{
 						promise: t,
 						reason: o
 					}) : (r = a.console) && r.error && r.error("Unhandled promise rejection", o)
-				})), t._h = k || A(t) ? 2 : 1), t._a = void 0, i && n.e) throw n.v
+				})), t._h = P || A(t) ? 2 : 1), t._a = void 0, i && n.e) throw n.v
 			}))
 		},
 		A = function(t)
@@ -1707,20 +1768,20 @@
 			m.call(a, (function()
 			{
 				var n;
-				k ? S.emit("rejectionHandled", t) : (n = a.onrejectionhandled) && n(
+				P ? j.emit("rejectionHandled", t) : (n = a.onrejectionhandled) && n(
 				{
 					promise: t,
 					reason: t._v
 				})
 			}))
 		},
-		D = function(t)
+		B = function(t)
 		{
 			var n = this;
 			n._d || (n._d = !0, (n = n._w || n)
 				._v = t, n._s = 2, !n._a && (n._a = n._c.slice()), R(n, !0))
 		},
-		B = function(t)
+		D = function(t)
 		{
 			var n, e = this;
 			if(!e._d)
@@ -1728,7 +1789,7 @@
 				e._d = !0, e = e._w || e;
 				try
 				{
-					if(e === t) throw j("Promise can't be resolved itself");
+					if(e === t) throw O("Promise can't be resolved itself");
 					(n = I(t)) ? g((function()
 					{
 						var r = {
@@ -1737,17 +1798,17 @@
 						};
 						try
 						{
-							n.call(t, s(B, r, 1), s(D, r, 1))
+							n.call(t, s(D, r, 1), s(B, r, 1))
 						}
 						catch (t)
 						{
-							D.call(r, t)
+							B.call(r, t)
 						}
 					})): (e._v = t, e._s = 1, R(e, !1))
 				}
 				catch (n)
 				{
-					D.call(
+					B.call(
 					{
 						_w: e,
 						_d: !1
@@ -1755,27 +1816,27 @@
 				}
 			}
 		};
-	C || (P = function(t)
+	T || (M = function(t)
 		{
-			d(this, P, O, "_h"), h(t), r.call(this);
+			d(this, M, k, "_h"), h(t), r.call(this);
 			try
 			{
-				t(s(B, this, 1), s(D, this, 1))
+				t(s(D, this, 1), s(B, this, 1))
 			}
 			catch (t)
 			{
-				D.call(this, t)
+				B.call(this, t)
 			}
 		}, (r = function()
 		{
 			this._c = [], this._a = void 0, this._s = 0, this._d = !1, this._v = void 0, this._h = 0, this._n = !1
 		})
-		.prototype = e(75)(P.prototype,
+		.prototype = e(75)(M.prototype,
 		{
 			then: function(t, n)
 			{
-				var e = T(y(this, P));
-				return e.ok = "function" != typeof t || t, e.fail = "function" == typeof n && n, e.domain = k ? S.domain : void 0, this._c.push(e), this._a && this._a.push(e), this._s && R(this, !1), e.promise
+				var e = E(y(this, M));
+				return e.ok = "function" != typeof t || t, e.fail = "function" == typeof n && n, e.domain = P ? j.domain : void 0, this._c.push(e), this._a && this._a.push(e), this._s && R(this, !1), e.promise
 			},
 			catch: function(t)
 			{
@@ -1784,36 +1845,36 @@
 		}), i = function()
 		{
 			var t = new r;
-			this.promise = t, this.resolve = s(B, t, 1), this.reject = s(D, t, 1)
-		}, w.f = T = function(t)
+			this.promise = t, this.resolve = s(D, t, 1), this.reject = s(B, t, 1)
+		}, w.f = E = function(t)
 		{
-			return t === P || t === c ? new i(t) : o(t)
-		}), l(l.G + l.W + l.F * !C,
+			return t === M || t === c ? new i(t) : o(t)
+		}), l(l.G + l.W + l.F * !T,
 	{
-		Promise: P
-	}), e(22)(P, O), e(76)(O), c = e(3)[O], l(l.S + l.F * !C, O,
+		Promise: M
+	}), e(22)(M, k), e(76)(k), c = e(3)[k], l(l.S + l.F * !T, k,
 	{
 		reject: function(t)
 		{
-			var n = T(this);
+			var n = E(this);
 			return (0, n.reject)(t), n.promise
 		}
-	}), l(l.S + l.F * (u || !C), O,
+	}), l(l.S + l.F * (u || !T), k,
 	{
 		resolve: function(t)
 		{
-			return _(u && this === c ? P : this, t)
+			return _(u && this === c ? M : this, t)
 		}
-	}), l(l.S + l.F * !(C && e(77)((function(t)
+	}), l(l.S + l.F * !(T && e(77)((function(t)
 	{
-		P.all(t)
-			.catch(E)
-	}))), O,
+		M.all(t)
+			.catch(C)
+	}))), k,
 	{
 		all: function(t)
 		{
 			var n = this,
-				e = T(n),
+				e = E(n),
 				r = e.resolve,
 				o = e.reject,
 				i = x((function()
@@ -1837,7 +1898,7 @@
 		race: function(t)
 		{
 			var n = this,
-				e = T(n),
+				e = E(n),
 				r = e.reject,
 				o = x((function()
 				{
