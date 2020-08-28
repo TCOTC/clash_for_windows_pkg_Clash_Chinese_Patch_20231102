@@ -10996,7 +10996,7 @@
 				{
 					click: e.handleCancel
 				}
-			}, [e._v("\n          Cancel\n        ")]) : e._e(), e._v(" "), n("div",
+			}, [e._v("\n          取消\n        ")]) : e._e(), e._v(" "), n("div",
 			{
 				staticClass: "btn btn-ok",
 				on:
@@ -14414,7 +14414,7 @@
 				{
 					click: e.newGroup
 				}
-			}, [e._v("Add")])]), e._v(" "), n("draggable",
+			}, [e._v("添加")])]), e._v(" "), n("draggable",
 			{
 				staticClass: "dragArea",
 				attrs:
@@ -14483,7 +14483,7 @@
 				{
 					click: e.newProxy
 				}
-			}, [e._v("Add")])]), e._v(" "), n("draggable",
+			}, [e._v("添加")])]), e._v(" "), n("draggable",
 			{
 				staticClass: "dragArea",
 				attrs:
@@ -14750,7 +14750,7 @@
 				{
 					click: e.inputDone
 				}
-			}, [e._v("Add")]), e._v(" "), n("div",
+			}, [e._v("添加")]), e._v(" "), n("div",
 			{
 				staticClass: "rule-floating-cancel",
 				on:
@@ -15134,7 +15134,7 @@
 						return e.$emit("cancel")
 					}
 				}
-			}, [e._v("\n        Cancel\n      ")])])]), e._v(" "), n("div",
+			}, [e._v("\n        取消\n      ")])])]), e._v(" "), n("div",
 			{
 				staticClass: "filter-view"
 			}, [n("input",
@@ -18057,7 +18057,7 @@
 									return t.prev = 3, t.next = 6, e.$select(
 									{
 										title: "虚拟网卡设备管理",
-										message: 'An adapter named "cfw-tap" will route your data into clash.<br /><br />If the installation box pops up, keep clicking "Next" until the installation is complete.',
+										message: '名为“ cfw-tap”的适配器会安装到Clash中。<br /><br />如果弹出安装框，请继续单击“下一步”，直到安装完成。',
 										items: ["安装", "卸载"]
 									});
 								case 6:
@@ -18614,7 +18614,7 @@
 						return e.spawnLoopback(t)
 					}
 				}
-			}, [e._v("Launch Helper")])]) : e._e(), e._v(" "), e.isWindows ? n("div",
+			}, [e._v("启动程序")])]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
@@ -18630,7 +18630,7 @@
 						return e.installTapDevice(t)
 					}
 				}
-			}, [e._v("Manage")])]) : n("div",
+			}, [e._v("管理")])]) : n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
@@ -18656,7 +18656,7 @@
 				{
 					click: e.editBtnClick
 				}
-			}, [e._v("Text Mode Edit")])]), e._v(" "), n("div",
+			}, [e._v("编辑配置信息")])]), e._v(" "), n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
