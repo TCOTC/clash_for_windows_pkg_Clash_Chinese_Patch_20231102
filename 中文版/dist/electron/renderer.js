@@ -1,4 +1,4 @@
-﻿module.exports = function(e)
+module.exports = function(e)
 {
 	function t(e)
 	{
@@ -439,7 +439,7 @@
 		})(e, t), l && l(e, t)
 	};
 	var u, f, p, h, v = !0,
-		m = "f18e24867b2b9fa26084",
+		m = "693207d579ea934ffaa2",
 		g = 1e4,
 		x = {},
 		b = [],
@@ -921,13 +921,13 @@
 }, function(e, t, n)
 {
 	e.exports = {
-		default: n(212),
+		default: n(180),
 		__esModule: !0
 	}
 }, function(e, t, n)
 {
 	e.exports = {
-		default: n(180),
+		default: n(212),
 		__esModule: !0
 	}
 }, function(e, t, n)
@@ -943,7 +943,7 @@
 	}
 	t.__esModule = !0;
 	var a = r(n(182)),
-		i = r(n(22));
+		i = r(n(21));
 	t.default = function(e, t)
 	{
 		if(Array.isArray(e)) return e;
@@ -1165,9 +1165,9 @@
 	}));
 	var r = n(105),
 		a = n.n(r),
-		i = n(21),
+		i = n(22),
 		o = n.n(i),
-		s = n(22),
+		s = n(21),
 		c = n.n(s),
 		d = n(18),
 		l = (n.n(d), n(40)),
@@ -1614,7 +1614,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("daceee9c", r, !0,
+		.default)("eb739edc", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -1623,7 +1623,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("6a6eac76", r, !0,
+		.default)("14d685e5", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -1722,7 +1722,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("6ac60e10", r, !0,
+		.default)("a4a7c852", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -1731,7 +1731,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("b5e00028", r, !0,
+		.default)("339cf5a6", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -1740,7 +1740,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("8087e032", r, !0,
+		.default)("2063a7d8", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -1749,7 +1749,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("6fb85e06", r, !0,
+		.default)("ebe8ef8e", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -1776,7 +1776,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("55aee3c0", r, !0,
+		.default)("9c02a39e", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -1785,7 +1785,7 @@
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("e910f2b6", r, !0,
+		.default)("9087abd8", r, !0,
 	{})
 }, function(e, t, n)
 {
@@ -4185,7 +4185,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".content[data-v-2439f87e]{padding:5px;flex-grow:1;overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;margin:0 auto;width:70vw;height:80vh;max-height:600px;max-width:650px}.item-light[data-v-2439f87e]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-light[data-v-2439f87e]:hover{background-color:#f1f1f1}.item-dark[data-v-2439f87e]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-dark[data-v-2439f87e]:hover{background-color:#606068}.item-red[data-v-2439f87e]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-red[data-v-2439f87e]:hover{background-color:#eda94c}.title-light[data-v-2439f87e]{color:#2c3e50}.title-dark[data-v-2439f87e],.title-light[data-v-2439f87e]{font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.title-dark[data-v-2439f87e]{color:#e9e9e9}.title-red[data-v-2439f87e]{color:#b72d29;font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.clickable-light[data-v-2439f87e]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px;border-bottom-color:rgba(50,50,50,.2)}.clickable-dark[data-v-2439f87e]{border-bottom-color:#959595}.clickable-dark[data-v-2439f87e],.clickable-red[data-v-2439f87e]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px}.clickable-red[data-v-2439f87e]{border-bottom-color:rgba(218,20,30,.247059)}.interfaces-card-light[data-v-2439f87e]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#fff;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-light[data-v-2439f87e]::-webkit-scrollbar{width:10px}.interfaces-card-light[data-v-2439f87e]::-webkit-scrollbar-thumb{background-color:#cac8c6}.interfaces-card-dark[data-v-2439f87e]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#686675;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-dark[data-v-2439f87e]::-webkit-scrollbar{width:10px}.interfaces-card-dark[data-v-2439f87e]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.interfaces-card-red[data-v-2439f87e]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#ca2b33;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-red[data-v-2439f87e]::-webkit-scrollbar{width:10px}.interfaces-card-red[data-v-2439f87e]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.interfaces-content-light[data-v-2439f87e]{color:#17224f;display:flex;align-items:flex-end;margin:10px 0;align-items:center}.interfaces-content-dark[data-v-2439f87e],.interfaces-content-red[data-v-2439f87e]{color:#fff;display:flex;align-items:flex-end;margin:10px 0;align-items:center}", ""])
+	.push([e.i, ".content[data-v-f5e20d80]{padding:5px;flex-grow:1;overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;margin:0 auto;width:70vw;height:80vh;max-height:600px;max-width:650px}.item-light[data-v-f5e20d80]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-light[data-v-f5e20d80]:hover{background-color:#f1f1f1}.item-dark[data-v-f5e20d80]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-dark[data-v-f5e20d80]:hover{background-color:#606068}.item-red[data-v-f5e20d80]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-red[data-v-f5e20d80]:hover{background-color:#eda94c}.title-light[data-v-f5e20d80]{color:#2c3e50}.title-dark[data-v-f5e20d80],.title-light[data-v-f5e20d80]{font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.title-dark[data-v-f5e20d80]{color:#e9e9e9}.title-red[data-v-f5e20d80]{color:#b72d29;font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.clickable-light[data-v-f5e20d80]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px;border-bottom-color:rgba(50,50,50,.2)}.clickable-dark[data-v-f5e20d80]{border-bottom-color:#959595}.clickable-dark[data-v-f5e20d80],.clickable-red[data-v-f5e20d80]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px}.clickable-red[data-v-f5e20d80]{border-bottom-color:rgba(218,20,30,.247059)}.interfaces-card-light[data-v-f5e20d80]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#fff;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-light[data-v-f5e20d80]::-webkit-scrollbar{width:10px}.interfaces-card-light[data-v-f5e20d80]::-webkit-scrollbar-thumb{background-color:#cac8c6}.interfaces-card-dark[data-v-f5e20d80]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#686675;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-dark[data-v-f5e20d80]::-webkit-scrollbar{width:10px}.interfaces-card-dark[data-v-f5e20d80]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.interfaces-card-red[data-v-f5e20d80]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#ca2b33;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-red[data-v-f5e20d80]::-webkit-scrollbar{width:10px}.interfaces-card-red[data-v-f5e20d80]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.interfaces-content-light[data-v-f5e20d80]{color:#17224f;display:flex;align-items:flex-end;margin:10px 0;align-items:center}.interfaces-content-dark[data-v-f5e20d80],.interfaces-content-red[data-v-f5e20d80]{color:#fff;display:flex;align-items:flex-end;margin:10px 0;align-items:center}", ""])
 }, function(e, t, n)
 {
 	"use strict";
@@ -4195,7 +4195,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, '#main-general-view[data-v-2439f87e]{display:flex;flex-direction:column;justify-content:space-between;height:calc(100vh - 25px)}.header[data-v-2439f87e]{margin-top:10px;display:flex;height:100px;width:calc(100vw - 170px);justify-content:center;align-items:center}.icon[data-v-2439f87e]{width:90px;height:90px;margin-right:20px}.title-name[data-v-2439f87e]{display:inline-block;cursor:pointer}.new-version-tag[data-v-2439f87e]{display:inline-block;color:#fff;padding:2px 4px;background-color:rgba(170,38,38,.8);border-radius:3px;font-size:.65em;position:relative;top:-8px;left:2px}.item-left[data-v-2439f87e]{display:flex;font-weight:500;font-size:1em;align-items:center}.item-right[data-v-2439f87e]{font-size:15px;font-weight:400;display:flex;align-items:center}.control-icon[data-v-2439f87e]{width:20px;height:20px;margin-right:10px;margin-top:2px;cursor:pointer}.item-path[data-v-2439f87e]{max-width:150px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.systemCheckbox[data-v-2439f87e]{width:20px;height:20px}.systemCheckbox[data-v-2439f87e]:checked{background-color:#233376;border:none}.hiddenInput[data-v-2439f87e]{width:1px;height:1px;opacity:0}.version[data-v-2439f87e]{font-size:.5em;margin-left:10px;font-weight:400;cursor:pointer;margin-top:15px}.checkmark-container[data-v-2439f87e]{display:block;position:relative;padding-left:22px;margin-bottom:22px;cursor:pointer;font-size:22px}.checkmark-container input[data-v-2439f87e]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.system-checkmark[data-v-2439f87e]{cursor:pointer;position:absolute;top:0;border-radius:20px;left:0;height:25px;width:25px;background-color:#fff;box-shadow:0 0 5px 1px rgba(50,50,50,.5)}.checkmark-container:hover input~.system-checkmark[data-v-2439f87e]{background-color:#fff}.checkmark-container input:checked~.system-checkmark[data-v-2439f87e]{background-color:#464646}.system-checkmark-unknown[data-v-2439f87e]{background-color:#beb9b9}.system-checkmark[data-v-2439f87e]:after{content:"";position:absolute;display:none}.checkmark-container input:checked~.system-checkmark[data-v-2439f87e]:after{display:block}.checkmark-container .system-checkmark[data-v-2439f87e]:after{left:8px;top:5px;width:6px;height:9px;border:solid #fff;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.interface-address[data-v-2439f87e]{font-size:1em}.interface-name[data-v-2439f87e]{font-size:.8em;margin-left:15px}.edit-btn[data-v-2439f87e]{width:25px;height:25px;border-radius:4px;cursor:pointer;background-color:#464646;box-shadow:0 0 5px 1px rgba(50,50,50,.3)}.edit-btn>img[data-v-2439f87e]{width:17px;height:17px;margin:5px;cursor:pointer}.empty-div[data-v-2439f87e]{height:50px}.icon-icon[data-v-2439f87e]{z-index:100}', ""])
+	.push([e.i, '#main-general-view[data-v-f5e20d80]{display:flex;flex-direction:column;justify-content:space-between;height:calc(100vh - 25px)}.header[data-v-f5e20d80]{margin-top:10px;display:flex;height:100px;width:calc(100vw - 170px);justify-content:center;align-items:center}.icon[data-v-f5e20d80]{width:90px;height:90px;margin-right:20px}.title-name[data-v-f5e20d80]{display:inline-block;cursor:pointer}.new-version-tag[data-v-f5e20d80]{display:inline-block;color:#fff;padding:2px 4px;background-color:rgba(170,38,38,.8);border-radius:3px;font-size:.65em;position:relative;top:-8px;left:2px}.item-left[data-v-f5e20d80]{display:flex;font-weight:500;font-size:1em;align-items:center}.item-right[data-v-f5e20d80]{font-size:15px;font-weight:400;display:flex;align-items:center}.control-icon[data-v-f5e20d80]{width:20px;height:20px;margin-right:10px;margin-top:2px;cursor:pointer}.item-path[data-v-f5e20d80]{max-width:150px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.systemCheckbox[data-v-f5e20d80]{width:20px;height:20px}.systemCheckbox[data-v-f5e20d80]:checked{background-color:#233376;border:none}.hiddenInput[data-v-f5e20d80]{width:1px;height:1px;opacity:0}.version[data-v-f5e20d80]{font-size:.5em;margin-left:10px;font-weight:400;cursor:pointer;margin-top:15px}.checkmark-container[data-v-f5e20d80]{display:block;position:relative;padding-left:22px;margin-bottom:22px;cursor:pointer;font-size:22px}.checkmark-container input[data-v-f5e20d80]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.system-checkmark[data-v-f5e20d80]{cursor:pointer;position:absolute;top:0;border-radius:20px;left:0;height:25px;width:25px;background-color:#fff;box-shadow:0 0 5px 1px rgba(50,50,50,.5)}.checkmark-container:hover input~.system-checkmark[data-v-f5e20d80]{background-color:#fff}.checkmark-container input:checked~.system-checkmark[data-v-f5e20d80]{background-color:#464646}.system-checkmark-unknown[data-v-f5e20d80]{background-color:#beb9b9}.system-checkmark[data-v-f5e20d80]:after{content:"";position:absolute;display:none}.checkmark-container input:checked~.system-checkmark[data-v-f5e20d80]:after{display:block}.checkmark-container .system-checkmark[data-v-f5e20d80]:after{left:8px;top:5px;width:6px;height:9px;border:solid #fff;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.interface-address[data-v-f5e20d80]{font-size:1em}.interface-name[data-v-f5e20d80]{font-size:.8em;margin-left:15px}.edit-btn[data-v-f5e20d80]{width:25px;height:25px;border-radius:4px;cursor:pointer;background-color:#464646;box-shadow:0 0 5px 1px rgba(50,50,50,.3)}.edit-btn>img[data-v-f5e20d80]{width:17px;height:17px;margin:5px;cursor:pointer}.empty-div[data-v-f5e20d80]{height:50px}.icon-icon[data-v-f5e20d80]{z-index:100}', ""])
 }, function(e, t, n)
 {
 	n(239), e.exports = 9007199254740991
@@ -4367,7 +4367,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".dragArea[data-v-29285fe0]{min-height:1px}.dragArea>[data-v-29285fe0]{-webkit-user-drag:element}.proxy-group[data-v-29285fe0]{flex:1;overflow-y:scroll;padding:0 20px 20px 15px}.proxy-group[data-v-29285fe0]::-webkit-scrollbar{width:10px}.proxy-group[data-v-29285fe0]::-webkit-scrollbar-thumb{background-color:rgba(101,81,122,.7)}.proxy[data-v-29285fe0]{flex:1;overflow-y:scroll;direction:rtl;padding:0 15px 20px 20px}.proxy[data-v-29285fe0]::-webkit-scrollbar{width:10px}.proxy[data-v-29285fe0]::-webkit-scrollbar-thumb{background-color:rgba(55,57,72,.7)}", ""])
+	.push([e.i, ".dragArea[data-v-48392b2b]{min-height:1px}.dragArea>[data-v-48392b2b]{-webkit-user-drag:element}.proxy-group[data-v-48392b2b]{flex:1;overflow-y:scroll;padding:0 20px 20px 15px}.proxy-group[data-v-48392b2b]::-webkit-scrollbar{width:10px}.proxy-group[data-v-48392b2b]::-webkit-scrollbar-thumb{background-color:rgba(101,81,122,.7)}.proxy[data-v-48392b2b]{flex:1;overflow-y:scroll;direction:rtl;padding:0 15px 20px 20px}.proxy[data-v-48392b2b]::-webkit-scrollbar{width:10px}.proxy[data-v-48392b2b]::-webkit-scrollbar-thumb{background-color:rgba(55,57,72,.7)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
@@ -4377,7 +4377,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, "#main-config-view[data-v-29285fe0]{height:100%;position:fixed}.floating[data-v-29285fe0]{position:fixed;left:170px;height:60px;width:calc(100vw - 170px);display:flex;justify-content:space-between;padding:0 50px 0 40px;align-items:center;box-shadow:2px 2px 4px 1px rgba(50,50,50,.2)}.floating-right[data-v-29285fe0]{display:flex;justify-content:flex-end}.hint[data-v-29285fe0]{font-size:1.1em}.main-btn[data-v-29285fe0]{cursor:pointer;margin-left:20px;box-shadow:0 0 4px 1px rgba(50,50,50,.2);text-align:center;padding:5px 0;width:80px;border-radius:5px;color:#fff}.reload[data-v-29285fe0]{background-color:#c7ca10}.save[data-v-29285fe0]{background-color:#31a7e3}.drag[data-v-29285fe0]{display:flex;padding:0 0 20px;margin-top:60px;left:20vw;height:calc(100% - 70px);width:calc(100vw - 170px);max-width:900px}.proxy>div[data-v-29285fe0],.proxy>draggable[data-v-29285fe0]{direction:ltr}.section-title[data-v-29285fe0]{display:flex;justify-content:space-between;align-items:center;margin:20px 0 0;font-size:.8em}img[data-v-29285fe0]{width:20px;height:20px;margin-left:10px;cursor:pointer}.add-icon[data-v-29285fe0]{background-color:#677a94;border-radius:5px;color:#fff;font-size:.9em;letter-spacing:1px;padding:3px 10px;cursor:pointer;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}.left-item[data-v-29285fe0]{background-color:#373948}.right-item[data-v-29285fe0]{background-color:#65517a}.group-type[data-v-29285fe0]{font-size:.7em}.proxy-item[data-v-29285fe0]{opacity:.8;cursor:pointer;font-size:1em;padding:5px 10px;margin:10px 0;display:flex;color:#fff;border-radius:5px;justify-content:space-between;align-items:center;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}", ""])
+	.push([e.i, "#main-config-view[data-v-48392b2b]{height:100%;position:fixed}.floating[data-v-48392b2b]{position:fixed;left:170px;height:60px;width:calc(100vw - 170px);display:flex;justify-content:space-between;padding:0 50px 0 40px;align-items:center;box-shadow:2px 2px 4px 1px rgba(50,50,50,.2)}.floating-right[data-v-48392b2b]{display:flex;justify-content:flex-end}.hint[data-v-48392b2b]{font-size:1.1em}.main-btn[data-v-48392b2b]{cursor:pointer;margin-left:20px;box-shadow:0 0 4px 1px rgba(50,50,50,.2);text-align:center;padding:5px 0;width:80px;border-radius:5px;color:#fff}.reload[data-v-48392b2b]{background-color:#c7ca10}.save[data-v-48392b2b]{background-color:#31a7e3}.drag[data-v-48392b2b]{display:flex;padding:0 0 20px;margin-top:60px;left:20vw;height:calc(100% - 70px);width:calc(100vw - 170px);max-width:900px}.proxy>div[data-v-48392b2b],.proxy>draggable[data-v-48392b2b]{direction:ltr}.section-title[data-v-48392b2b]{display:flex;justify-content:space-between;align-items:center;margin:20px 0 0;font-size:.8em}img[data-v-48392b2b]{width:20px;height:20px;margin-left:10px;cursor:pointer}.add-icon[data-v-48392b2b]{background-color:#677a94;border-radius:5px;color:#fff;font-size:.9em;letter-spacing:1px;padding:3px 10px;cursor:pointer;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}.left-item[data-v-48392b2b]{background-color:#373948}.right-item[data-v-48392b2b]{background-color:#65517a}.group-type[data-v-48392b2b]{font-size:.7em}.proxy-item[data-v-48392b2b]{opacity:.8;cursor:pointer;font-size:1em;padding:5px 10px;margin:10px 0;display:flex;color:#fff;border-radius:5px;justify-content:space-between;align-items:center;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
@@ -4387,7 +4387,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".model-title-dark[data-v-299c5e6e],.model-title-light[data-v-299c5e6e],.model-title-red[data-v-299c5e6e]{display:flex;font-size:1.2em;justify-content:space-between}.modal-container-light[data-v-299c5e6e]{width:500px;margin:0 auto;padding:20px 30px;background-color:#fff;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.33);transition:all .3s ease}.modal-container-light input[data-v-299c5e6e]{color:#000;background-color:#fff}.modal-container-dark[data-v-299c5e6e]{width:500px;margin:0 auto;padding:20px 30px;background-color:#2c2a38;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.33);transition:all .3s ease}.modal-container-dark input[data-v-299c5e6e]{color:#fff;background-color:#2c2a38}.modal-container-red[data-v-299c5e6e]{width:500px;margin:0 auto;padding:20px 30px;background-color:#f8b74f;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.33);transition:all .3s ease}.modal-container-red input[data-v-299c5e6e]{color:#d33928;background-color:#f8b74f}.scroll-view-light[data-v-299c5e6e]{margin-top:20px;max-height:400px;padding:0 10px;overflow-y:scroll}.scroll-view-light[data-v-299c5e6e]::-webkit-scrollbar{width:10px}.scroll-view-light[data-v-299c5e6e]::-webkit-scrollbar-thumb{background-color:#cac8c6}.scroll-view-dark[data-v-299c5e6e]{margin-top:20px;max-height:400px;padding:0 10px;overflow-y:scroll}.scroll-view-dark[data-v-299c5e6e]::-webkit-scrollbar{width:10px}.scroll-view-dark[data-v-299c5e6e]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.scroll-view-red[data-v-299c5e6e]{margin-top:20px;max-height:400px;padding:0 10px;overflow-y:scroll}.scroll-view-red[data-v-299c5e6e]::-webkit-scrollbar{width:10px}.scroll-view-red[data-v-299c5e6e]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}", ""])
+	.push([e.i, ".model-title-dark[data-v-3b2a837a],.model-title-light[data-v-3b2a837a],.model-title-red[data-v-3b2a837a]{display:flex;font-size:1.2em;justify-content:space-between}.modal-container-light[data-v-3b2a837a]{width:500px;margin:0 auto;padding:20px 30px;background-color:#fff;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.33);transition:all .3s ease}.modal-container-light input[data-v-3b2a837a]{color:#000;background-color:#fff}.modal-container-dark[data-v-3b2a837a]{width:500px;margin:0 auto;padding:20px 30px;background-color:#2c2a38;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.33);transition:all .3s ease}.modal-container-dark input[data-v-3b2a837a]{color:#fff;background-color:#2c2a38}.modal-container-red[data-v-3b2a837a]{width:500px;margin:0 auto;padding:20px 30px;background-color:#f8b74f;border-radius:2px;box-shadow:0 2px 8px rgba(0,0,0,.33);transition:all .3s ease}.modal-container-red input[data-v-3b2a837a]{color:#d33928;background-color:#f8b74f}.scroll-view-light[data-v-3b2a837a]{margin-top:20px;max-height:400px;padding:0 10px;overflow-y:scroll}.scroll-view-light[data-v-3b2a837a]::-webkit-scrollbar{width:10px}.scroll-view-light[data-v-3b2a837a]::-webkit-scrollbar-thumb{background-color:#cac8c6}.scroll-view-dark[data-v-3b2a837a]{margin-top:20px;max-height:400px;padding:0 10px;overflow-y:scroll}.scroll-view-dark[data-v-3b2a837a]::-webkit-scrollbar{width:10px}.scroll-view-dark[data-v-3b2a837a]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.scroll-view-red[data-v-3b2a837a]{margin-top:20px;max-height:400px;padding:0 10px;overflow-y:scroll}.scroll-view-red[data-v-3b2a837a]::-webkit-scrollbar{width:10px}.scroll-view-red[data-v-3b2a837a]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
@@ -4397,7 +4397,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".modal-mask[data-v-299c5e6e]{position:fixed;z-index:9998;top:0;left:170px;width:calc(100vw - 170px);height:100vh;background-color:rgba(0,0,0,.5);display:table;transition:opacity .3s ease}.modal-wrapper[data-v-299c5e6e]{display:table-cell;vertical-align:middle}.modal-header h3[data-v-299c5e6e]{margin-top:0;color:#42b983}.modal-body[data-v-299c5e6e]{margin:20px 0}.modal-default-button[data-v-299c5e6e]{float:right}.modal-enter[data-v-299c5e6e],.modal-leave-active[data-v-299c5e6e]{opacity:0}.modal-enter .modal-container[data-v-299c5e6e],.modal-leave-active .modal-container[data-v-299c5e6e]{-webkit-transform:scale(1.1);transform:scale(1.1)}input[data-v-299c5e6e]:focus{outline:none}input[data-v-299c5e6e]{height:30px;border:none;width:100%;font-size:1.3em;border-bottom:2px solid rgba(61,182,164,.3)}.rule-type-group[data-v-299c5e6e]{display:grid;grid-template-columns:repeat(2,1fr);grid-row-gap:10px;grid-column-gap:10px;grid-auto-rows:minmax(30px,auto)}.rule-type-item[data-v-299c5e6e]{text-align:center;line-height:30px;border-radius:5px;color:#fff;padding:5px 10px;background-color:rgba(101,81,122,.6)}.rule-type-selected[data-v-299c5e6e]{background-color:#65517a}.rule-proxy-group[data-v-299c5e6e]{margin-bottom:60px;display:grid;grid-template-columns:repeat(1,1fr);grid-row-gap:10px;grid-column-gap:10px;grid-auto-rows:minmax(30px,auto)}.rule-proxy-item[data-v-299c5e6e]{text-align:center;line-height:30px;border-radius:5px;color:#fff;padding:5px 10px;background-color:rgba(55,57,72,.6)}.rule-proxy-selected[data-v-299c5e6e]{background-color:#373948}.rule-section-title[data-v-299c5e6e]{font-size:1em;color:#a6a5a4;margin-top:10px;margin-bottom:5px}.rule-floating-btns[data-v-299c5e6e]{right:calc(80vw - 585px);bottom:calc(100vh - 450px);display:flex}.rule-floating-btns>div[data-v-299c5e6e]{font-size:.8em;width:80px;height:35px;margin-left:10px;line-height:50px;text-align:center;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px;color:#fff}.rule-floating-cancel[data-v-299c5e6e]{background-color:#41b883}.rule-floating-ok[data-v-299c5e6e]{background-color:#3a56c5}", ""])
+	.push([e.i, ".modal-mask[data-v-3b2a837a]{position:fixed;z-index:9998;top:0;left:170px;width:calc(100vw - 170px);height:100vh;background-color:rgba(0,0,0,.5);display:table;transition:opacity .3s ease}.modal-wrapper[data-v-3b2a837a]{display:table-cell;vertical-align:middle}.modal-header h3[data-v-3b2a837a]{margin-top:0;color:#42b983}.modal-body[data-v-3b2a837a]{margin:20px 0}.modal-default-button[data-v-3b2a837a]{float:right}.modal-enter[data-v-3b2a837a],.modal-leave-active[data-v-3b2a837a]{opacity:0}.modal-enter .modal-container[data-v-3b2a837a],.modal-leave-active .modal-container[data-v-3b2a837a]{-webkit-transform:scale(1.1);transform:scale(1.1)}input[data-v-3b2a837a]:focus{outline:none}input[data-v-3b2a837a]{height:30px;border:none;width:100%;font-size:1.3em;border-bottom:2px solid rgba(61,182,164,.3)}.rule-type-group[data-v-3b2a837a]{display:grid;grid-template-columns:repeat(2,1fr);grid-row-gap:10px;grid-column-gap:10px;grid-auto-rows:minmax(30px,auto)}.rule-type-item[data-v-3b2a837a]{text-align:center;line-height:30px;border-radius:5px;color:#fff;padding:5px 10px;background-color:rgba(101,81,122,.6)}.rule-type-selected[data-v-3b2a837a]{background-color:#65517a}.rule-proxy-group[data-v-3b2a837a]{margin-bottom:60px;display:grid;grid-template-columns:repeat(1,1fr);grid-row-gap:10px;grid-column-gap:10px;grid-auto-rows:minmax(30px,auto)}.rule-proxy-item[data-v-3b2a837a]{text-align:center;line-height:30px;border-radius:5px;color:#fff;padding:5px 10px;background-color:rgba(55,57,72,.6)}.rule-proxy-selected[data-v-3b2a837a]{background-color:#373948}.rule-section-title[data-v-3b2a837a]{font-size:1em;color:#a6a5a4;margin-top:10px;margin-bottom:5px}.rule-floating-btns[data-v-3b2a837a]{right:calc(80vw - 585px);bottom:calc(100vh - 450px);display:flex}.rule-floating-btns>div[data-v-3b2a837a]{font-size:.8em;width:80px;height:35px;margin-left:10px;line-height:50px;text-align:center;display:flex;align-items:center;justify-content:center;cursor:pointer;border-radius:3px;color:#fff}.rule-floating-cancel[data-v-3b2a837a]{background-color:#41b883}.rule-floating-ok[data-v-3b2a837a]{background-color:#3a56c5}", ""])
 }, function(e, t, n)
 {
 	"use strict";
@@ -4427,7 +4427,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".card-light[data-v-3ec9b2e7]{background-color:#fff;border-bottom:1px solid #dcdcdc}.card-dark[data-v-3ec9b2e7],.card-light[data-v-3ec9b2e7]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between}.card-dark[data-v-3ec9b2e7]{background-color:#2c2a38;border-bottom:1px solid #554f4f}.card-red[data-v-3ec9b2e7]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between;background-color:#f8b74f;border-bottom:1px solid rgba(218,20,30,.247059)}.hint-success-light[data-v-3ec9b2e7]{color:#1d2b63}.hint-success-dark[data-v-3ec9b2e7],.hint-success-red[data-v-3ec9b2e7]{color:#3aa1cc}.list-item-light[data-v-3ec9b2e7]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#7e7b7b;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-light[data-v-3ec9b2e7]:hover{opacity:1}.list-item-dark[data-v-3ec9b2e7]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#3f3f49;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-dark[data-v-3ec9b2e7]:hover{opacity:1}.list-item-red[data-v-3ec9b2e7]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#a77018;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-red[data-v-3ec9b2e7]:hover{opacity:1}.item-cur-light[data-v-3ec9b2e7]{opacity:1;background-color:#464646}.item-cur-dark[data-v-3ec9b2e7]{opacity:1;background-color:#5f5f5f}.item-cur-red[data-v-3ec9b2e7]{opacity:1;background-color:rgba(218,20,30,.6)}.main[data-v-3ec9b2e7]{display:flex;flex-direction:column}#main-server-view[data-v-3ec9b2e7]{height:100%}.list-view-light[data-v-3ec9b2e7]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-light[data-v-3ec9b2e7]::-webkit-scrollbar{width:10px}.list-view-light[data-v-3ec9b2e7]::-webkit-scrollbar-thumb{background-color:#cac8c6}.list-view-light>[data-v-3ec9b2e7]{-webkit-user-drag:element}.list-view-light i[data-v-3ec9b2e7]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-dark[data-v-3ec9b2e7]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-dark[data-v-3ec9b2e7]::-webkit-scrollbar{width:10px}.list-view-dark[data-v-3ec9b2e7]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.list-view-dark>[data-v-3ec9b2e7]{-webkit-user-drag:element}.list-view-dark i[data-v-3ec9b2e7]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-red[data-v-3ec9b2e7]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-red[data-v-3ec9b2e7]::-webkit-scrollbar{width:10px}.list-view-red[data-v-3ec9b2e7]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.list-view-red>[data-v-3ec9b2e7]{-webkit-user-drag:element}.list-view-red i[data-v-3ec9b2e7]{width:290px;margin:5px 10px;flex-grow:1;height:0}.input-container[data-v-3ec9b2e7]{display:flex;flex-grow:1;overflow:hidden;padding-right:10px;justify-content:space-between}.input-container input[data-v-3ec9b2e7]{border-top-left-radius:3px;border-bottom-left-radius:3px}.input-container img[data-v-3ec9b2e7]{border-top-right-radius:3px;border-bottom-right-radius:3px}", ""])
+	.push([e.i, ".card-light[data-v-9e2890d6]{background-color:#fff;border-bottom:1px solid #dcdcdc}.card-dark[data-v-9e2890d6],.card-light[data-v-9e2890d6]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between}.card-dark[data-v-9e2890d6]{background-color:#2c2a38;border-bottom:1px solid #554f4f}.card-red[data-v-9e2890d6]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between;background-color:#f8b74f;border-bottom:1px solid rgba(218,20,30,.247059)}.hint-success-light[data-v-9e2890d6]{color:#1d2b63}.hint-success-dark[data-v-9e2890d6],.hint-success-red[data-v-9e2890d6]{color:#3aa1cc}.list-item-light[data-v-9e2890d6]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#7e7b7b;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-light[data-v-9e2890d6]:hover{opacity:1}.list-item-dark[data-v-9e2890d6]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#3f3f49;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-dark[data-v-9e2890d6]:hover{opacity:1}.list-item-red[data-v-9e2890d6]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#a77018;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-red[data-v-9e2890d6]:hover{opacity:1}.item-cur-light[data-v-9e2890d6]{opacity:1;background-color:#464646}.item-cur-dark[data-v-9e2890d6]{opacity:1;background-color:#5f5f5f}.item-cur-red[data-v-9e2890d6]{opacity:1;background-color:rgba(218,20,30,.6)}.main[data-v-9e2890d6]{display:flex;flex-direction:column}#main-server-view[data-v-9e2890d6]{height:100%}.list-view-light[data-v-9e2890d6]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-light[data-v-9e2890d6]::-webkit-scrollbar{width:10px}.list-view-light[data-v-9e2890d6]::-webkit-scrollbar-thumb{background-color:#cac8c6}.list-view-light>[data-v-9e2890d6]{-webkit-user-drag:element}.list-view-light i[data-v-9e2890d6]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-dark[data-v-9e2890d6]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-dark[data-v-9e2890d6]::-webkit-scrollbar{width:10px}.list-view-dark[data-v-9e2890d6]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.list-view-dark>[data-v-9e2890d6]{-webkit-user-drag:element}.list-view-dark i[data-v-9e2890d6]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-red[data-v-9e2890d6]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-red[data-v-9e2890d6]::-webkit-scrollbar{width:10px}.list-view-red[data-v-9e2890d6]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.list-view-red>[data-v-9e2890d6]{-webkit-user-drag:element}.list-view-red i[data-v-9e2890d6]{width:290px;margin:5px 10px;flex-grow:1;height:0}.input-container[data-v-9e2890d6]{display:flex;flex-grow:1;overflow:hidden;padding-right:10px;justify-content:space-between}.input-container input[data-v-9e2890d6]{border-top-left-radius:3px;border-bottom-left-radius:3px}.input-container img[data-v-9e2890d6]{border-top-right-radius:3px;border-bottom-right-radius:3px}", ""])
 }, function(e, t, n)
 {
 	"use strict";
@@ -4437,7 +4437,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, "input[data-v-3ec9b2e7]{cursor:text;width:calc(100vw - 230px);height:45px;font-size:1em;border:1px solid rgba(50,50,50,.2);padding:0 10px}input[data-v-3ec9b2e7]:focus{outline:none;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.remote-view[data-v-3ec9b2e7]{display:flex;align-items:center;justify-content:space-around}.local-view[data-v-3ec9b2e7]{right:0;margin:0 2vw 20px 1vw}.list-view[data-v-3ec9b2e7]>:last-child{margin-bottom:25px}.item-name[data-v-3ec9b2e7]{font-size:1em;cursor:pointer}.item-name-top[data-v-3ec9b2e7]{display:flex;justify-content:space-between;align-items:center;cursor:pointer}.item-name-top>div[data-v-3ec9b2e7]{max-width:calc((80vw - 80px) / 2 - 65px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-name-bottom[data-v-3ec9b2e7]{margin-top:3px;width:fit-content;font-size:.8em;cursor:pointer;max-width:calc((80vw - 80px) / 2 - 35px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-icon[data-v-3ec9b2e7]{padding:5px;width:30px;height:30px;margin-right:-4px;cursor:pointer;border-radius:20px;transition:background-color .3s}.item-icon[data-v-3ec9b2e7]:hover{background-color:hsla(0,0%,100%,.2)}.item-icon-right[data-v-3ec9b2e7]{margin-left:8px}.item-icon-left[data-v-3ec9b2e7]{margin-right:4px}.item-time[data-v-3ec9b2e7]{display:flex;flex-direction:column;justify-content:space-between;height:65px;padding:4px 0 0;font-size:.8em;cursor:pointer}.item-time-now[data-v-3ec9b2e7]{color:#9eff71}.item-edit-zone[data-v-3ec9b2e7]{padding:0 15px 5px;width:calc(100% + 30px);margin-left:-15px;display:flex;justify-content:space-between}.local-icon[data-v-3ec9b2e7]{opacity:.3}.local-icon[data-v-3ec9b2e7]:hover{cursor:not-allowed;background-color:rgba(50,50,50,0)}.btns-container[data-v-3ec9b2e7]{display:flex;align-items:center;max-width:230px;justify-content:space-between}.confirm[data-v-3ec9b2e7]{height:45px;color:#fff;cursor:pointer;line-height:45px;text-align:center;background-color:#7e7b7b;border-radius:3px;padding-left:20px;padding-right:20px;font-size:.85em;box-shadow:0 2px 20px 2px rgba(50,50,50,.1)}.confirm-left[data-v-3ec9b2e7]{width:150px;padding:auto 30px}.confirm-right[data-v-3ec9b2e7]{margin-left:20px}.confirm-copy[data-v-3ec9b2e7]{border-radius:5px}.btn-error[data-v-3ec9b2e7]{background-color:#ec2658}.btn-success[data-v-3ec9b2e7]{background-color:#8ade4e}.btn-loading[data-v-3ec9b2e7]{box-shadow:2px 2px 5px 1px rgba(50,50,50,.1)}.hint-normal[data-v-3ec9b2e7]{text-align:center;font-size:1em;font-weight:500}.hint-error[data-v-3ec9b2e7]{color:#ec2658}.copy-icon[data-v-3ec9b2e7]{flex-shrink:0;height:45px;width:45px;padding:10px;background-color:#5e798b;cursor:pointer;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.rotating[data-v-3ec9b2e7]{animation:downloading-data-v-3ec9b2e7 1s infinite;animation-timing-function:linear}@keyframes downloading-data-v-3ec9b2e7{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}", ""])
+	.push([e.i, "input[data-v-9e2890d6]{cursor:text;width:calc(100vw - 230px);height:45px;font-size:1em;border:1px solid rgba(50,50,50,.2);padding:0 10px}input[data-v-9e2890d6]:focus{outline:none;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.remote-view[data-v-9e2890d6]{display:flex;align-items:center;justify-content:space-around}.local-view[data-v-9e2890d6]{right:0;margin:0 2vw 20px 1vw}.list-view[data-v-9e2890d6]>:last-child{margin-bottom:25px}.item-name[data-v-9e2890d6]{font-size:1em;cursor:pointer}.item-name-top[data-v-9e2890d6]{display:flex;justify-content:space-between;align-items:center;cursor:pointer}.item-name-top>div[data-v-9e2890d6]{max-width:calc((80vw - 80px) / 2 - 65px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-name-bottom[data-v-9e2890d6]{margin-top:3px;width:fit-content;font-size:.8em;cursor:pointer;max-width:calc((80vw - 80px) / 2 - 35px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-icon[data-v-9e2890d6]{padding:5px;width:30px;height:30px;margin-right:-4px;cursor:pointer;border-radius:20px;transition:background-color .3s}.item-icon[data-v-9e2890d6]:hover{background-color:hsla(0,0%,100%,.2)}.item-icon-right[data-v-9e2890d6]{margin-left:8px}.item-icon-left[data-v-9e2890d6]{margin-right:4px}.item-time[data-v-9e2890d6]{display:flex;flex-direction:column;justify-content:space-between;height:65px;padding:4px 0 0;font-size:.8em;cursor:pointer}.item-time-now[data-v-9e2890d6]{color:#9eff71}.item-edit-zone[data-v-9e2890d6]{padding:0 15px 5px;width:calc(100% + 30px);margin-left:-15px;display:flex;justify-content:space-between}.local-icon[data-v-9e2890d6]{opacity:.3}.local-icon[data-v-9e2890d6]:hover{cursor:not-allowed;background-color:rgba(50,50,50,0)}.btns-container[data-v-9e2890d6]{display:flex;align-items:center;max-width:230px;justify-content:space-between}.confirm[data-v-9e2890d6]{height:45px;color:#fff;cursor:pointer;line-height:45px;text-align:center;background-color:#7e7b7b;border-radius:3px;padding-left:20px;padding-right:20px;font-size:.85em;box-shadow:0 2px 20px 2px rgba(50,50,50,.1)}.confirm-left[data-v-9e2890d6]{width:150px;padding:auto 30px}.confirm-right[data-v-9e2890d6]{margin-left:20px}.confirm-copy[data-v-9e2890d6]{border-radius:5px}.btn-error[data-v-9e2890d6]{background-color:#ec2658}.btn-success[data-v-9e2890d6]{background-color:#8ade4e}.btn-loading[data-v-9e2890d6]{box-shadow:2px 2px 5px 1px rgba(50,50,50,.1)}.hint-normal[data-v-9e2890d6]{text-align:center;font-size:1em;font-weight:500}.hint-error[data-v-9e2890d6]{color:#ec2658}.copy-icon[data-v-9e2890d6]{flex-shrink:0;height:45px;width:45px;padding:10px;background-color:#5e798b;cursor:pointer;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.rotating[data-v-9e2890d6]{animation:downloading-data-v-9e2890d6 1s infinite;animation-timing-function:linear}@keyframes downloading-data-v-9e2890d6{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}", ""])
 }, function(e, t, n)
 {
 	e.exports = {
@@ -8371,9 +8371,9 @@
 				{
 					title: "Clash for Windows",
 					type: "warning",
-					message: "无法设置系统代理",
+					message: "Cannot set system proxy",
 					detail: t.stack,
-					buttons: ["是"]
+					buttons: ["Yes"]
 				}, (function(e) {}))
 			}
 			return !1
@@ -8441,7 +8441,7 @@
 	function fr(e, t)
 	{
 		var r = t.store;
-		e.prototype.$wait = nc, e.prototype.$showNotification = function(e)
+		e.prototype.$wait = ac, e.prototype.$showNotification = function(e)
 		{
 			var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
 				n = !(2 < arguments.length && void 0 !== arguments[2]) || arguments[2],
@@ -8468,7 +8468,7 @@
 			}
 			catch (t)
 			{}
-			return Object(Qs.get)(e, br()(
+			return Object(tc.get)(e, br()(
 			{
 				validateStatus: function()
 				{
@@ -8483,44 +8483,99 @@
 				responseType: "text",
 				transformResponse: void 0
 			}))
-		}, e.prototype.$parseProfile = function(e, t)
+		}, e.prototype.$parseProfile = function()
 		{
-			var a = this,
-				i = {
-					axios: n(17),
-					yaml: n(10),
-					notify: function(e)
+			var e = Xs()(Ks.a.mark((function e(t, a)
+			{
+				var i, o, s, c, d, l, u, f, p, h, v, m, g, x, b, y, w, _ = this;
+				return Ks.a.wrap((function(e)
+				{
+					for(;;) switch (e.prev = e.next)
 					{
-						var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
-							n = !(2 < arguments.length && void 0 !== arguments[2]) || arguments[2];
-						a.$showNotification(e, t, n)
+						case 0:
+							if(i = {
+								axios: n(17),
+								yaml: n(10),
+								notify: function(e)
+								{
+									var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
+										n = !(2 < arguments.length && void 0 !== arguments[2]) || arguments[2];
+									_.$showNotification(e, t, n)
+								}
+							}, o = r.state.app.settings.profileParsersText, s = [], o) try
+							{
+								c = Ms.parse(o), d = c.parsers, s = (void 0 === d ? [] : d) || []
+							}
+							catch (e)
+							{}
+							l = s.filter((function(e)
+							{
+								var n = e.url,
+									r = e.reg;
+								return n ? n === t : r ? new RegExp(r)
+									.test(t) : void 0
+							})), u = a, f = !0, p = !1, h = void 0, e.prev = 9, v = ec()(l);
+						case 11:
+							if(f = (m = v.next())
+								.done)
+							{
+								e.next = 27;
+								break
+							}
+							if(g = m.value, x = g.code, b = g.file, !x)
+							{
+								e.next = 19;
+								break
+							}
+							return y = rc("'use strict';\n" + x), e.next = 18, y.parse(u, i);
+						case 18:
+							u = e.sent;
+						case 19:
+							if(!b)
+							{
+								e.next = 24;
+								break
+							}
+							return w = rc("'use strict';\n" + nc.readFileSync(b)), e.next = 23, w.parse(u, i);
+						case 23:
+							u = e.sent;
+						case 24:
+							f = !0, e.next = 11;
+							break;
+						case 27:
+							e.next = 33;
+							break;
+						case 29:
+							e.prev = 29, e.t0 = e.catch(9), p = !0, h = e.t0;
+						case 33:
+							e.prev = 33, e.prev = 34, !f && v.return && v.return();
+						case 36:
+							if(e.prev = 36, !p)
+							{
+								e.next = 39;
+								break
+							}
+							throw h;
+						case 39:
+							return e.finish(36);
+						case 40:
+							return e.finish(33);
+						case 41:
+							return e.abrupt("return", u);
+						case 42:
+						case "end":
+							return e.stop()
 					}
-				},
-				o = r.state.app.settings.profileParsersText,
-				s = [];
-			if(o) try
+				}), e, this, [
+					[9, 29, 33, 41],
+					[34, , 36, 40]
+				])
+			})));
+			return function()
 			{
-				var c = Ms.parse(o)
-					.parsers;
-				s = (void 0 === c ? [] : c) || []
+				return e.apply(this, arguments)
 			}
-			catch (t)
-			{}
-			var d = s.find((function(t)
-			{
-				return t.url === e
-			}));
-			if(d)
-			{
-				var l = d.code,
-					u = d.file;
-				if(l) return tc("'use strict';\n" + l)
-					.parse(t, i);
-				if(u) return tc("'use strict';\n" + ec.readFileSync(u))
-					.parse(t, i)
-			}
-			return t
-		}
+		}()
 	}
 	var pr = Math.max;
 	n.r(t);
@@ -10524,7 +10579,7 @@
 		Rs = n(107),
 		Fs = n(18),
 		zs = n(3),
-		Us = n(21),
+		Us = n(22),
 		Hs = n.n(Us),
 		Bs = n(13),
 		Gs = n.n(Bs),
@@ -10641,17 +10696,19 @@
 				return e.apply(this, arguments)
 			}
 		}(),
-		Qs = n(17),
-		ec = n(6),
-		tc = n(148),
-		nc = function(e)
+		Qs = n(21),
+		ec = n.n(Qs),
+		tc = n(17),
+		nc = n(6),
+		rc = n(148),
+		ac = function(e)
 		{
 			return new Gs.a((function(t)
 			{
 				return setTimeout(t, e)
 			}))
 		},
-		rc = (n(306), Object(ys.a)(
+		ic = (n(306), Object(ys.a)(
 		{
 			name: "InputView",
 			props: [],
@@ -10798,27 +10855,27 @@
 				{
 					click: e.handleCancel
 				}
-			}, [e._v("取消")]), e._v(" "), n("div",
+			}, [e._v("Cancel")]), e._v(" "), n("div",
 			{
 				staticClass: "btn btn-ok",
 				on:
 				{
 					click: e.handleDone
 				}
-			}, [e._v("确认")])])], 2)])]) : e._e()
+			}, [e._v("OK")])])], 2)])]) : e._e()
 		}), [], !1, null, "167ce269", null));
-	rc.options.__file = "InputView.vue";
-	var ac = rc.exports,
-		ic = {
+	ic.options.__file = "InputView.vue";
+	var oc = ic.exports,
+		sc = {
 			install: function(e)
 			{
-				var t = new(e.extend(ac)),
+				var t = new(e.extend(oc)),
 					n = t.$mount()
 					.$el;
 				document.body.appendChild(n), e.prototype.$input = t.show
 			}
 		},
-		oc = (n(308), Object(ys.a)(
+		cc = (n(308), Object(ys.a)(
 		{
 			name: "PreviewView",
 			props: [],
@@ -10896,18 +10953,18 @@
 				}, [e._v(e._s(e.data[t] || "--"))])])
 			}))], 2)])]) : e._e()
 		}), [], !1, null, "75031d18", null));
-	oc.options.__file = "PreviewView.vue";
-	var sc = oc.exports,
-		cc = {
+	cc.options.__file = "PreviewView.vue";
+	var dc = cc.exports,
+		lc = {
 			install: function(e)
 			{
-				var t = new(e.extend(sc)),
+				var t = new(e.extend(dc)),
 					n = t.$mount()
 					.$el;
 				document.body.appendChild(n), e.prototype.$preview = t.show
 			}
 		},
-		dc = {
+		uc = {
 			name: "AlertView",
 			props: [],
 			data: function()
@@ -10954,7 +11011,7 @@
 				}
 			}
 		},
-		lc = (n(310), Object(ys.a)(dc, (function()
+		fc = (n(310), Object(ys.a)(uc, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -10996,23 +11053,23 @@
 				{
 					click: e.handleCancel
 				}
-			}, [e._v("\n          取消\n        ")]) : e._e(), e._v(" "), n("div",
+			}, [e._v("\n          Cancel\n        ")]) : e._e(), e._v(" "), n("div",
 			{
 				staticClass: "btn btn-ok",
 				on:
 				{
 					click: e.handleDone
 				}
-			}, [e._v("确认")])])])])]) : e._e()
+			}, [e._v("OK")])])])])]) : e._e()
 		}), [], !1, null, "daa6cfce", null));
-	lc.options.__file = "AlertView.vue";
-	var uc = lc.exports,
-		fc = {
+	fc.options.__file = "AlertView.vue";
+	var pc = fc.exports,
+		hc = {
 			install: function(e, t)
 			{
 				var n = t.store,
 					r = new(e.extend(br()(
-					{}, uc,
+					{}, pc,
 					{
 						store: n
 					}))),
@@ -11021,7 +11078,7 @@
 				document.body.appendChild(a), e.prototype.$alert = r.show
 			}
 		},
-		pc = {
+		vc = {
 			name: "SelectView",
 			props: [],
 			data: function()
@@ -11046,7 +11103,7 @@
 						n = e.items,
 						r = void 0 === n ? [] : n,
 						a = e.title,
-						i = void 0 === a ? "选择" : a,
+						i = void 0 === a ? "Select" : a,
 						o = e.message,
 						s = void 0 === o ? "" : o;
 					return this.isShow = !0, this.title = i, this.items = r, this.message = s, new Gs.a((function(e, n)
@@ -11073,7 +11130,7 @@
 				}
 			}
 		},
-		hc = (n(312), Object(ys.a)(pc, (function()
+		mc = (n(312), Object(ys.a)(vc, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11128,14 +11185,14 @@
 				}, [e._v(e._s(t))])
 			})), 0)])])]) : e._e()
 		}), [], !1, null, "d540aa8e", null));
-	hc.options.__file = "SelectView.vue";
-	var vc = hc.exports,
-		mc = {
+	mc.options.__file = "SelectView.vue";
+	var gc = mc.exports,
+		xc = {
 			install: function(e, t)
 			{
 				var n = t.store,
 					r = new(e.extend(br()(
-					{}, vc,
+					{}, gc,
 					{
 						store: n
 					}))),
@@ -11144,8 +11201,8 @@
 				document.body.appendChild(a), e.prototype.$select = r.show
 			}
 		},
-		gc = n(110),
-		xc = (n(314), n(315), n(316), n(317), n(149),
+		bc = n(110),
+		yc = (n(314), n(315), n(316), n(317), n(149),
 		{
 			name: "CodeView",
 			props: [],
@@ -11170,7 +11227,7 @@
 			{
 				code: function()
 				{
-					return Object(gc.highlight)(this.rawCode, "js" === this.language ? gc.languages.javascript : gc.languages.yaml, this.language)
+					return Object(bc.highlight)(this.rawCode, "js" === this.language ? bc.languages.javascript : bc.languages.yaml, this.language)
 				}
 			}),
 			methods:
@@ -11244,7 +11301,7 @@
 			mounted: function() {},
 			beforeDestroy: function() {}
 		}),
-		bc = (n(319), Object(ys.a)(xc, (function()
+		wc = (n(319), Object(ys.a)(yc, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11326,14 +11383,14 @@
 				staticClass: "error-hint"
 			}, [e._v(e._s(e.error))]) : e._e()])]) : e._e()
 		}), [], !1, null, "3225f475", null));
-	bc.options.__file = "CodeView.vue";
-	var yc = bc.exports,
-		wc = {
+	wc.options.__file = "CodeView.vue";
+	var _c = wc.exports,
+		kc = {
 			install: function(e, t)
 			{
 				var n = t.store,
 					r = new(e.extend(br()(
-					{}, yc,
+					{}, _c,
 					{
 						store: n
 					}))),
@@ -11348,18 +11405,18 @@
 	}), vs.use(mr), vs.use(gr,
 	{
 		store: Es
-	}), vs.use(ic), vs.use(cc), vs.use(fc,
+	}), vs.use(sc), vs.use(lc), vs.use(hc,
 	{
 		store: Es
-	}), vs.use(mc,
+	}), vs.use(xc,
 	{
 		store: Es
-	}), vs.use(wc,
+	}), vs.use(kc,
 	{
 		store: Es
 	}), vs.config.productionTip = !1;
-	var _c = gs.a.join(gs.a.dirname(vs.prototype.$electron.remote.app.getPath("exe")), "./resources/node_modules/regedit/vbs");
-	bs.a.setExternalVBSLocation(_c), vs.prototype.$regedit = bs.a, vs.mixin(
+	var Cc = gs.a.join(gs.a.dirname(vs.prototype.$electron.remote.app.getPath("exe")), "./resources/node_modules/regedit/vbs");
+	bs.a.setExternalVBSLocation(Cc), vs.prototype.$regedit = bs.a, vs.mixin(
 		{
 			data: function()
 			{
@@ -11408,7 +11465,7 @@
 	n.r(t);
 	var a = n(105),
 		i = n.n(a),
-		o = n(22),
+		o = n(21),
 		s = n.n(o),
 		c = n(23),
 		d = n.n(c),
@@ -11632,25 +11689,25 @@
 				return {
 					tabs: [
 					{
-						title: "常规"
+						title: "General"
 					},
 					{
-						title: "代理"
+						title: "Proxies"
 					},
 					{
-						title: "配置"
+						title: "Profiles"
 					},
 					{
-						title: "日志"
+						title: "Logs"
 					},
 					{
-						title: "连接"
+						title: "Connections"
 					},
 					{
-						title: "设置"
+						title: "Settings"
 					},
 					{
-						title: "反馈"
+						title: "Feedback"
 					}]
 				}
 			},
@@ -12012,7 +12069,7 @@
 				statusHint: function()
 				{
 					return 0 < this.pkgDownloadProgress && 1 > this.pkgDownloadProgress ? "Download progress: " + (100 * this.pkgDownloadProgress)
-						.toFixed(2) + "%" : this.clashStatus === b.a.CONNECTED ? "连接成功" : this.clashStatus === b.a.DISCONNECTED ? "断开连接" : this.clashStatus === b.a.INSTALLING_TAP ? "正在安装" : this.clashStatus === b.a.UNINSTALLING_TAP ? "正在卸载" : void 0
+						.toFixed(2) + "%" : this.clashStatus === b.a.CONNECTED ? "Connected" : this.clashStatus === b.a.DISCONNECTED ? "Disconnected" : this.clashStatus === b.a.INSTALLING_TAP ? "Installing" : this.clashStatus === b.a.UNINSTALLING_TAP ? "Uninstalling" : void 0
 				},
 				statusIcon: function()
 				{
@@ -13196,7 +13253,7 @@
 								}
 								return t.next = 29, e.handlerRestartClash();
 							case 29:
-								e.showStartup || (e.showStartup = !0, e.$showNotification("Clash 已经在后台运行", "享受你的自由时光！")), (l = function()
+								e.showStartup || (e.showStartup = !0, e.$showNotification("Clash is running in the background", "Enjoy your free time!")), (l = function()
 									{
 										var t = Object(Z.a)();
 										t && t !== e.detectedInterfaceName && e.setDetectedInterfaceName(
@@ -13314,7 +13371,7 @@
 	n.r(t);
 	var a = n(48),
 		i = n.n(a),
-		o = n(22),
+		o = n(21),
 		s = n.n(o),
 		c = n(0),
 		d = n.n(c),
@@ -13465,7 +13522,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v(e._s(e.data ? "编辑" : "New") + " Proxy Group")]), e._v(" "), n("input",
+			}, [e._v(e._s(e.data ? "Edit" : "New") + " Proxy Group")]), e._v(" "), n("input",
 			{
 				directives: [
 				{
@@ -13543,7 +13600,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "地址"
+					placeholder: "URL"
 				},
 				domProps:
 				{
@@ -13587,7 +13644,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v(e._s(e.data ? "编辑" : "New") + " Proxy")]), e._v(" "), n("input",
+			}, [e._v(e._s(e.data ? "Edit" : "New") + " Proxy")]), e._v(" "), n("input",
 			{
 				directives: [
 				{
@@ -13690,7 +13747,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "代理端口"
+					placeholder: "Port"
 				},
 				domProps:
 				{
@@ -14153,14 +14210,14 @@
 						return e.$emit("inputCancel")
 					}
 				}
-			}, [e._v("取消")]), e._v(" "), n("div",
+			}, [e._v("Cancel")]), e._v(" "), n("div",
 			{
 				staticClass: "btn confirm",
 				on:
 				{
 					click: e.confirmInput
 				}
-			}, [e._v("确认")])])])
+			}, [e._v("OK")])])])
 		}), [], !1, null, "15e4a5f6", null);
 	S.options.__file = "AppendProxyView.vue";
 	var P = S.exports,
@@ -14191,7 +14248,7 @@
 					}],
 					addType: -1,
 					addData: null,
-					saveBtn: "保存"
+					saveBtn: "Save"
 				}
 			},
 			computed: p()(
@@ -14289,7 +14346,11 @@
 				},
 				editGroup: function(e, t)
 				{
-					this.addType = 0, e._index = t, this.addData = e
+					var n = e.type;
+					return ["url-test", "fallback", "select", "load-balance"].includes(n) ? (this.addType = 0, e._index = t, void(this.addData = e)) : void this.$alert(
+					{
+						content: "Could not edit proxy gorup type [" + n + "]."
+					})
 				},
 				newProxy: function()
 				{
@@ -14297,7 +14358,11 @@
 				},
 				editProxy: function(e, t)
 				{
-					this.addType = 1, e._index = t, this.addData = e
+					var n = e.type;
+					return ["ss", "vmess", "http", "socks"].includes(n) ? (this.addType = 1, e._index = t, void(this.addData = e)) : void this.$alert(
+					{
+						content: "Could not edit proxy type [" + n + "]."
+					})
 				},
 				loadData: function()
 				{
@@ -14312,7 +14377,7 @@
 				},
 				saveData: function()
 				{
-					if("保存" === this.saveBtn) try
+					if("Save" === this.saveBtn) try
 					{
 						var e = A.a.join(this.profilesPath, this.profileName);
 						$.a.writeFileSync(e, g.a.stringify(this.conf)), this.$emit("done")
@@ -14345,7 +14410,7 @@
 			}, [n("div",
 			{
 				staticClass: "hint"
-			}, [e._v("拖动以排序或添加到右侧列表中。")]), e._v(" "), n("div",
+			}, [e._v("Drag to sort or add to the list on the right.")]), e._v(" "), n("div",
 			{
 				staticClass: "floating-right"
 			}, [n("div",
@@ -14365,7 +14430,7 @@
 						return e.$emit("cancel")
 					}
 				}
-			}, [e._v("取消")])])]), e._v(" "), e.conf ? n("div",
+			}, [e._v("Cancel")])])]), e._v(" "), e.conf ? n("div",
 			{
 				staticClass: "drag"
 			}, [n("div",
@@ -14414,7 +14479,7 @@
 				{
 					click: e.newGroup
 				}
-			}, [e._v("添加")])]), e._v(" "), n("draggable",
+			}, [e._v("Add")])]), e._v(" "), n("draggable",
 			{
 				staticClass: "dragArea",
 				attrs:
@@ -14476,14 +14541,14 @@
 			})), 0), e._v(" "), n("div",
 			{
 				staticClass: "section-title"
-			}, [n("h2", [e._v("代理")]), e._v(" "), n("div",
+			}, [n("h2", [e._v("Proxies")]), e._v(" "), n("div",
 			{
 				staticClass: "add-icon",
 				on:
 				{
 					click: e.newProxy
 				}
-			}, [e._v("添加")])]), e._v(" "), n("draggable",
+			}, [e._v("Add")])]), e._v(" "), n("draggable",
 			{
 				staticClass: "dragArea",
 				attrs:
@@ -14639,14 +14704,14 @@
 			{
 				staticClass: "section-title"
 			}, [n("h2", [e._v("Special Proxies")])])
-		}], !1, null, "29285fe0", null));
+		}], !1, null, "48392b2b", null));
 	N.options.__file = "ConfigView.vue";
 	var L = N.exports,
 		M = n(13),
 		R = n.n(M),
 		F = n(23),
 		z = n.n(F),
-		U = n(21),
+		U = n(22),
 		H = n.n(U),
 		B = (n(17),
 		{
@@ -14654,7 +14719,7 @@
 			data: function()
 			{
 				return {
-					ruleTypes: ["DOMAIN-SUFFIX", "DOMAIN", "DOMAIN-KEYWORD", "IP-CIDR", "SRC-IP-CIDR", "GEOIP", "DST-PORT", "SRC-PORT", "MATCH"],
+					ruleTypes: ["DOMAIN-SUFFIX", "DOMAIN", "DOMAIN-KEYWORD", "IP-CIDR", "SRC-IP-CIDR", "GEOIP", "PROCESS-NAME", "DST-PORT", "SRC-PORT", "MATCH"],
 					selectedType: "",
 					proxyGroups: [],
 					selectedGroup: "",
@@ -14750,7 +14815,7 @@
 				{
 					click: e.inputDone
 				}
-			}, [e._v("添加")]), e._v(" "), n("div",
+			}, [e._v("Add")]), e._v(" "), n("div",
 			{
 				staticClass: "rule-floating-cancel",
 				on:
@@ -14760,13 +14825,13 @@
 						return e.$emit("close")
 					}
 				}
-			}, [e._v("\n                取消\n              ")])])]), e._v(" "), n("div",
+			}, [e._v("\n                Cancel\n              ")])])]), e._v(" "), n("div",
 			{
 				class: ["scroll-view-" + e.theme]
 			}, ["MATCH" === e.selectedType ? e._e() : n("div",
 			{
 				staticClass: "rule-section-title"
-			}, [e._v("\n              内容\n            ")]), e._v(" "), n("div", ["MATCH" === e.selectedType ? e._e() : n("input",
+			}, [e._v("\n              Content\n            ")]), e._v(" "), n("div", ["MATCH" === e.selectedType ? e._e() : n("input",
 			{
 				directives: [
 				{
@@ -14795,7 +14860,7 @@
 			})]), e._v(" "), n("div",
 			{
 				staticClass: "rule-section-title"
-			}, [e._v("类型")]), e._v(" "), n("div",
+			}, [e._v("Type")]), e._v(" "), n("div",
 			{
 				staticClass: "rule-type-group"
 			}, e._l(e.ruleTypes, (function(t, r)
@@ -14843,7 +14908,7 @@
 					}
 				}, [e._v("\n                " + e._s(t) + "\n              ")])
 			})), 0)])])])])])], 1)
-		}), [], !1, null, "299c5e6e", null));
+		}), [], !1, null, "3b2a837a", null));
 	G.options.__file = "RuleAlterView.vue";
 	var V = G.exports,
 		W = n(25),
@@ -14856,7 +14921,7 @@
 					listData: [],
 					memoryData: [],
 					showAlterModel: !1,
-					saveBtnText: "保存",
+					saveBtnText: "Save",
 					axiosSource: null,
 					filterKeywords: "",
 					providers:
@@ -15017,7 +15082,7 @@
 									}
 									setTimeout((function()
 									{
-										e.saveBtnText = "保存"
+										e.saveBtnText = "Save"
 									}), 3e3);
 								case 2:
 								case "end":
@@ -15104,7 +15169,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("前100个匹配规则(" + e._s(e.memoryData.length) + ").")]), e._v(" "), n("div",
+			}, [e._v("Top 100 matching rules(" + e._s(e.memoryData.length) + ").")]), e._v(" "), n("div",
 			{
 				staticClass: "header-btns"
 			}, [n("div",
@@ -15117,7 +15182,7 @@
 						e.showAlterModel = !0
 					}
 				}
-			}, [e._v("\n        添加\n      ")]), e._v(" "), n("div",
+			}, [e._v("\n        Add\n      ")]), e._v(" "), n("div",
 			{
 				staticClass: "btn btn-save md-button",
 				on:
@@ -15134,7 +15199,7 @@
 						return e.$emit("cancel")
 					}
 				}
-			}, [e._v("\n        取消\n      ")])])]), e._v(" "), n("div",
+			}, [e._v("\n        Cancel\n      ")])])]), e._v(" "), n("div",
 			{
 				staticClass: "filter-view"
 			}, [n("input",
@@ -15149,7 +15214,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "按关键字过滤"
+					placeholder: "fiter by keywords"
 				},
 				domProps:
 				{
@@ -15274,7 +15339,7 @@
 			{
 				return {
 					btnType: 0,
-					resultHint: "填入配置地址",
+					resultHint: "Download from a URL",
 					editProfileName: "",
 					editProfileType: -1,
 					fileWatcher: null,
@@ -15347,7 +15412,7 @@
 				},
 				getBtnText: function()
 				{
-					return 3 === this.btnType ? "下载中……" : 1 === this.btnType ? "错误!" : 2 === this.btnType ? "成功!" : "下载"
+					return 3 === this.btnType ? "Downloading" : 1 === this.btnType ? "Error!" : 2 === this.btnType ? "Success!" : "Download"
 				},
 				getRightBtnText: function()
 				{
@@ -15428,13 +15493,13 @@
 								case 0:
 									return r = [
 									{
-										name: "备注",
+										name: "Name",
 										key: "filename",
-										placeholder: "填入新的备注",
+										placeholder: "Input a new file name",
 										required: !0
 									}], n.prev = 1, n.next = 4, t.$input(
 									{
-										title: "复制配置",
+										title: "Copy profile",
 										data: r
 									});
 								case 4:
@@ -15463,21 +15528,21 @@
 							{
 								case 0:
 									return r = p()(
-									{}, t.pfs.files[e]), "编辑配置信息", a = r.interval, i = void 0 === a ? 0 : a, o = [
+									{}, t.pfs.files[e]), "Edit profile information", a = r.interval, i = void 0 === a ? 0 : a, o = [
 									{
 										key: "name",
-										name: "备注",
+										name: "Name",
 										required: !0,
 										value: r.name
 									},
 									{
 										key: "url",
-										name: "地址",
+										name: "URL",
 										value: r.url
 									},
 									{
 										key: "interval",
-										name: "更新间隔 (小时)",
+										name: "Update Interval (hour)",
 										validate: function(e)
 										{
 											return /^\d+$/.test(e) ? "" : "Update Interval must be an integer"
@@ -15485,7 +15550,7 @@
 										value: i
 									}], n.prev = 4, n.next = 7, t.$input(
 									{
-										title: "编辑配置信息",
+										title: "Edit profile information",
 										data: o
 									});
 								case 7:
@@ -15738,8 +15803,8 @@
 									{
 										title: "Clash for Windows",
 										type: "warning",
-										message: '您确定要删除 "' + a + '"?',
-										buttons: ["是", "否"]
+										message: 'Are you sure to delete "' + a + '"?',
+										buttons: ["Yes", "No"]
 									});
 								case 4:
 									o = n.sent, 0 === o.response && t.deleteProfile(
@@ -15797,7 +15862,7 @@
 										type: "error",
 										message: "Could not switch to this profile!",
 										detail: i || "",
-										buttons: ["确认", "文本编辑"]
+										buttons: ["OK", "Edit in Text Mode"]
 									}, (function(e)
 									{
 										1 === e && t.openProfile(t.pfs.files[e])
@@ -15881,7 +15946,7 @@
 				},
 				parseDomain: function(e)
 				{
-					return /https?:\/\/(.*?)\//.test(e) ? "➥ " + RegExp.$1.trim() : "➥ 本地配置"
+					return /https?:\/\/(.*?)\//.test(e) ? "➥ " + RegExp.$1.trim() : "➥ local file"
 				},
 				parseDate: function(e)
 				{
@@ -15908,25 +15973,25 @@
 										cancelToken: a
 									}, t.confData);
 								case 3:
-									return r = e.sent, o = r.status, s = r.headers, c = void 0 === s ?
-									{} : s, l = r.data, e.next = 10, t.$parseProfile(n, l, t.confData);
-								case 10:
-									u = e.sent, f = "config.yaml", h = (new Date)
+									r = e.sent, o = r.status, s = r.headers, c = void 0 === s ?
+										{} : s, l = r.data, u = "config.yaml", f = (new Date)
 										.getTime() + ".yml";
 									try
 									{
-										f = Z.basename(n)
+										u = Z.basename(n)
 									}
 									catch (e)
 									{
 										console.error(e.stack)
 									}
-									if(/([^\/]*?)(?:$|\?)/.test(n) && (f = decodeURIComponent(RegExp.$1.trim())), v = c["profile-update-interval"], m = void 0 === v ? 0 : v, (g = c["content-disposition"]) && /filename="*(.*?)(?:$|;|")/.test(g) && (f = decodeURIComponent(RegExp.$1.trim())), x = parseInt(m) || 0, b = Z.join(t.profilesPath, h), y = -1, 200 !== o)
+									if(/([^\/]*?)(?:$|\?)/.test(n) && (u = decodeURIComponent(RegExp.$1.trim())), h = c["profile-update-interval"], v = void 0 === h ? 0 : h, (m = c["content-disposition"]) && /filename="*(.*?)(?:$|;|")/.test(m) && (u = decodeURIComponent(RegExp.$1.trim())), g = parseInt(v) || 0, x = Z.join(t.profilesPath, f), b = -1, 200 !== o)
 									{
 										e.next = 33;
 										break
 									}
-									if("", w = t.pfs, _ = w.files, k = void 0 === _ ? [] : _, C = w.index, void 0 === C ? -1 : C, -1 < (S = k.findIndex((function(e)
+									return e.next = 20, t.$parseProfile(n, l, t.confData);
+								case 20:
+									if(y = e.sent, "", w = t.pfs, _ = w.files, k = void 0 === _ ? [] : _, C = w.index, void 0 === C ? -1 : C, -1 < (S = k.findIndex((function(e)
 									{
 										return e.url === n
 									}))))
@@ -15939,28 +16004,28 @@
 										}
 										catch (e)
 										{}
-										P.time = h, y = S, t.changeProfile(
+										P.time = f, b = S, t.changeProfile(
 										{
 											index: S,
 											profile: P
 										})
 									}
 									else T = {
-										time: h,
-										name: f,
+										time: f,
+										name: u,
 										url: n,
 										selected: [],
-										interval: x
+										interval: g
 									}, t.appendProfile(
 									{
 										profile: T
-									}), y = k.length;
-									if(J.writeFileSync(b, u), $ = t.settings.selectAfterUpdated, E = void 0 !== $ && $, !(void 0 !== i && i || E))
+									}), b = k.length;
+									if(J.writeFileSync(x, y), $ = t.settings.selectAfterUpdated, E = void 0 !== $ && $, !(void 0 !== i && i || E))
 									{
 										e.next = 30;
 										break
 									}
-									return e.next = 30, t.switchProfile(y);
+									return e.next = 30, t.switchProfile(b);
 								case 30:
 									return e.abrupt("return", !0);
 								case 33:
@@ -16157,7 +16222,7 @@
 				{
 					spellcheck: "false",
 					type: "text",
-					placeholder: "填入配置地址"
+					placeholder: "Download from a URL"
 				},
 				domProps:
 				{
@@ -16283,7 +16348,7 @@
 					{
 						"item-time": !0
 					}
-				}, [e._v("\n          " + e._s("上次更新: " + e.parseDate(t.time)) + "\n          "), n("div",
+				}, [e._v("\n          " + e._s("Last Updated: " + e.parseDate(t.time)) + "\n          "), n("div",
 				{
 					staticClass: "item-edit-zone",
 					on:
@@ -16298,7 +16363,7 @@
 					staticClass: "item-icon item-icon-left",
 					attrs:
 					{
-						title: "文本编辑",
+						title: "Edit in text mode",
 						src: "static/imgs/config-icon.png"
 					},
 					on:
@@ -16316,7 +16381,7 @@
 					staticClass: "item-icon",
 					attrs:
 					{
-						title: "策略编辑",
+						title: "Edit policies",
 						src: "static/imgs/edit-proxy-icon.png"
 					},
 					on:
@@ -16334,7 +16399,7 @@
 					staticClass: "item-icon item-icon-right",
 					attrs:
 					{
-						title: "规则编辑",
+						title: "Edit rules",
 						src: "static/imgs/rule-icon.png"
 					},
 					on:
@@ -16352,7 +16417,7 @@
 					staticClass: "item-icon item-icon-right",
 					attrs:
 					{
-						title: "复制配置文件",
+						title: "Duplicate profile",
 						src: "static/imgs/copy-icon.png"
 					},
 					on:
@@ -16370,7 +16435,7 @@
 					staticClass: "item-icon item-icon-right",
 					attrs:
 					{
-						title: "修改配置文件信息",
+						title: "Change information",
 						src: "static/imgs/info-icon2.png"
 					},
 					on:
@@ -16391,7 +16456,7 @@
 					},
 					attrs:
 					{
-						title: "更新配置文件",
+						title: "Update this profile",
 						src: "static/imgs/refresh-icon.png"
 					},
 					on:
@@ -16412,7 +16477,7 @@
 					key: "hidden" + t
 				})
 			}))], 2)], 1)], 1)
-		}), [], !1, null, "3ec9b2e7", null));
+		}), [], !1, null, "9e2890d6", null));
 	re.options.__file = "ServerView.vue", t.default = re.exports
 }, function(e, t, n)
 {
@@ -17013,7 +17078,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [n("div", [e._v("设置")]), e._v(" "), n("div",
+			}, [n("div", [e._v("Settings")]), e._v(" "), n("div",
 			{
 				staticClass: "btns"
 			}, [n("div",
@@ -17023,7 +17088,7 @@
 				{
 					click: e.handleReset
 				}
-			}, [e._v("重置所有设置")])])]), e._v(" "), e.settings ? n("div",
+			}, [e._v("Reset All Settings")])])]), e._v(" "), e.settings ? n("div",
 			{
 				ref: "mixin-scroll-content",
 				staticClass: "content"
@@ -17031,16 +17096,16 @@
 			{
 				attrs:
 				{
-					title: "外观"
+					title: "Appearance"
 				}
 			}, [e.settings.systemTheme ? e._e() : n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("主题")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("Theme")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
-					items: ["白亮", "暗黑", "2020"]
+					items: ["Light", "Dark", "2020"]
 				},
 				model:
 				{
@@ -17054,7 +17119,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("跟随系统主题")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("Follow System Theme")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -17068,7 +17133,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("字体")]), e._v(" "), n("SimpleInput",
+			}, [n("div", [e._v("Font Family")]), e._v(" "), n("SimpleInput",
 			{
 				attrs:
 				{
@@ -17086,7 +17151,7 @@
 			})], 1), e._v(" "), e.isWindows ? n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("默认图标路径")]), e._v(" "), n("div",
+			}, [n("div", [e._v("Default Icon Path")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
@@ -17110,7 +17175,7 @@
 				staticClass: "hint",
 				attrs:
 				{
-					text: "选择"
+					text: "Select"
 				},
 				on:
 				{
@@ -17119,7 +17184,7 @@
 			})], 1)]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("系统代理开启时的图标路径")]), e._v(" "), n("div",
+			}, [n("div", [e._v("System Proxy On Icon Path")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
@@ -17143,7 +17208,7 @@
 				staticClass: "hint",
 				attrs:
 				{
-					text: "选择"
+					text: "Select"
 				},
 				on:
 				{
@@ -17166,7 +17231,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("通知")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("Notifications")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -17181,17 +17246,17 @@
 			{
 				attrs:
 				{
-					title: "系统代理白名单"
+					title: "System Proxy Bypass"
 				}
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("域名或IP")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("Domain or IPNet")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
 				{
-					text: "编辑"
+					text: "Edit"
 				},
 				on:
 				{
@@ -17201,12 +17266,12 @@
 			{
 				attrs:
 				{
-					title: "混合类型"
+					title: "Profile Mixin"
 				}
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("类型")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("Type")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
@@ -17229,7 +17294,7 @@
 				staticClass: "hint",
 				attrs:
 				{
-					text: "编辑"
+					text: "Edit"
 				},
 				on:
 				{
@@ -17243,7 +17308,7 @@
 				staticClass: "hint",
 				attrs:
 				{
-					text: "编辑"
+					text: "Edit"
 				},
 				on:
 				{
@@ -17253,16 +17318,16 @@
 			{
 				attrs:
 				{
-					title: "代理"
+					title: "Proxies"
 				}
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("排序方式")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("Order By")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
-					items: ["默认", "延迟", "字母表"]
+					items: ["Default", "Latency", "Alphabet"]
 				},
 				model:
 				{
@@ -17276,7 +17341,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("延迟测试URL")]), e._v(" "), n("SimpleInput",
+			}, [n("div", [e._v("Latency Test URL")]), e._v(" "), n("SimpleInput",
 			{
 				attrs:
 				{
@@ -17294,7 +17359,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("延迟测试超时阈值")]), e._v(" "), n("SimpleInput",
+			}, [n("div", [e._v("Latency Test Timeout")]), e._v(" "), n("SimpleInput",
 			{
 				attrs:
 				{
@@ -17315,16 +17380,16 @@
 			{
 				attrs:
 				{
-					title: "连接"
+					title: "Connections"
 				}
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("切换节点时断开")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("Break When Proxy Change")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
-					items: ["否", "仅连接", "所有"]
+					items: ["None", "Chain", "All"]
 				},
 				model:
 				{
@@ -17338,7 +17403,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("切换配置时断开")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("Break When Profile Change")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -17352,7 +17417,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("切换模式时断开")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("Break When Mode Change")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -17366,11 +17431,11 @@
 			})], 1), e._v(" "), n("separator"), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("显示类型")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("Display Type")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
-					items: ["全部", "TCP", "UDP"]
+					items: ["All", "TCP", "UDP"]
 				},
 				model:
 				{
@@ -17384,7 +17449,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("保持断开连接")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("Keep Disconnected")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -17399,12 +17464,12 @@
 			{
 				attrs:
 				{
-					title: "出站"
+					title: "Outbound"
 				}
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("接口名")]), e._v(" "), n("div",
+			}, [n("div", [e._v("Interface Name")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [e.detectedInterfaceName ? n("MoreHint",
@@ -17412,7 +17477,7 @@
 				staticClass: "interface-hint",
 				attrs:
 				{
-					text: "已检测到： " + e.detectedInterfaceName,
+					text: "Detected: " + e.detectedInterfaceName,
 					clickable: !1
 				}
 			}) : e._e(), e._v(" "), n("MoreHint",
@@ -17420,7 +17485,7 @@
 				staticClass: "hint",
 				attrs:
 				{
-					text: e.settings.interfaceName || "选择"
+					text: e.settings.interfaceName || "Select"
 				},
 				on:
 				{
@@ -17430,17 +17495,17 @@
 			{
 				attrs:
 				{
-					title: "子进程"
+					title: "Child Processes"
 				}
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("进程")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("Processes")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
 				{
-					text: "编辑"
+					text: "Edit"
 				},
 				on:
 				{
@@ -17450,17 +17515,17 @@
 			{
 				attrs:
 				{
-					title: "配置"
+					title: "Profiles"
 				}
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("解析器")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("Parsers")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
 				{
-					text: "编辑"
+					text: "Edit"
 				},
 				on:
 				{
@@ -17469,7 +17534,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("文件夹路径")]), e._v(" "), n("div",
+			}, [n("div", [e._v("Folder Path")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
@@ -17477,7 +17542,7 @@
 				staticClass: "short-input",
 				attrs:
 				{
-					placeholder: "配置文件夹路径"
+					placeholder: "Profiles folder path"
 				},
 				model:
 				{
@@ -17493,7 +17558,7 @@
 				staticClass: "hint",
 				attrs:
 				{
-					text: "选择"
+					text: "Select"
 				},
 				on:
 				{
@@ -17502,12 +17567,12 @@
 			})], 1)]), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("请求头")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("Request Headers")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
 				{
-					text: "编辑"
+					text: "Edit"
 				},
 				on:
 				{
@@ -17516,7 +17581,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("更新后启用")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("Select After Updated")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -17613,9 +17678,9 @@
 									{
 										title: "Clash for Windows",
 										type: "warning",
-										message: "请确认",
-										detail: "config.yaml和country.mmdb将被删除。",
-										buttons: ["是", "否"]
+										message: "Please confirm",
+										detail: "config.yaml and country.mmdb will be removed.",
+										buttons: ["Yes", "No"]
 									});
 								case 3:
 									r = t.sent, 0 === r.response && e.$parent.autoFix();
@@ -17644,7 +17709,7 @@
 									.join("<br /><br />")
 							}(Object(m.readFileSync)(e.logFilePath)
 								.toString());
-							e.logs = t || (0 < e.errors.length ? e.errors.join("<br /><br />") : "无法连接到Clash Core")
+							e.logs = t || (0 < e.errors.length ? e.errors.join("<br /><br />") : "Could not connect to Clash Core")
 						}
 						catch (e)
 						{}
@@ -17674,7 +17739,7 @@
 				{
 					id: "error-title"
 				}
-			}, [e._v("卧槽，这里出现错误")]), e._v(" "), n("div",
+			}, [e._v("oops, got an error here")]), e._v(" "), n("div",
 			{
 				class: ["error-content-" + e.theme],
 				domProps:
@@ -17705,7 +17770,7 @@
 				{
 					click: e.autoFix
 				}
-			}, [e._v("尝试修复")])])])
+			}, [e._v("Try to repair")])])])
 		}), [], !1, null, "5dfca82f", null);
 	D.options.__file = "ErrorView.vue";
 	var N = D.exports,
@@ -17863,7 +17928,7 @@
 				},
 				autoLaunchHint: function()
 				{
-					return "darwin" === process.platform ? "Start with macOS" : "开机自启动"
+					return "darwin" === process.platform ? "Start with macOS" : "Start with Windows"
 				}
 			}),
 			methods: f()(
@@ -17995,15 +18060,15 @@
 				itemTheme: function(e)
 				{
 					var t = [];
-					return this.isClickableValue(e) && t.push("clickable-" + this.theme), "配置文件目录" === e.key && t.push("item-path"), t
+					return this.isClickableValue(e) && t.push("clickable-" + this.theme), "Home Directory" === e.key && t.push("item-path"), t
 				},
 				isClickableValue: function(e)
 				{
-					return -1 < ["代理端口", "配置文件目录", "GeoIP 数据库"].indexOf(e.key)
+					return -1 < ["Port", "Home Directory", "GeoIP Database"].indexOf(e.key)
 				},
 				showPortContrller: function(e)
 				{
-					return -1 < ["代理端口"].indexOf(e.key)
+					return -1 < ["Port"].indexOf(e.key)
 				},
 				authClashBinary: function()
 				{
@@ -18056,9 +18121,9 @@
 								case 3:
 									return t.prev = 3, t.next = 6, e.$select(
 									{
-										title: "虚拟网卡设备管理",
-										message: '名为“ cfw-tap”的适配器会安装到Clash中。<br /><br />如果弹出安装框，请继续单击“下一步”，直到安装完成。',
-										items: ["安装", "卸载"]
+										title: "TAP device management",
+										message: 'An adapter named "cfw-tap" will route your data into clash.<br /><br />If the installation box pops up, keep clicking "Next" until the installation is complete.',
+										items: ["Install", "Remove"]
 									});
 								case 6:
 									n = t.sent, e.$parent.setupTapDevice(0 === n), t.next = 12;
@@ -18088,7 +18153,7 @@
 									return r = "http", "SOCKS5 Port" === e.key && (r = "socks5"), n.prev = 2, n.next = 5, t.$select(
 									{
 										title: "Open terminal with proxy set up",
-										message: "选择终端类型",
+										message: "Select a terminal",
 										items: ["CMD", "Powershell", "Windows Terminal"]
 									});
 								case 5:
@@ -18183,7 +18248,7 @@
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
-									if("配置文件目录" !== t.key)
+									if("Home Directory" !== t.key)
 									{
 										e.next = 4;
 										break
@@ -18191,7 +18256,7 @@
 									n.$electron.shell.openPath(v.a.resolve(n.clashPath)), e.next = 26;
 									break;
 								case 4:
-									if("GeoIP 数据库" !== t.key)
+									if("GeoIP Database" !== t.key)
 									{
 										e.next = 8;
 										break
@@ -18199,7 +18264,7 @@
 									n.updateGeoipDB(), e.next = 26;
 									break;
 								case 8:
-									if("代理端口" !== t.key)
+									if("Port" !== t.key)
 									{
 										e.next = 26;
 										break
@@ -18214,8 +18279,8 @@
 								case 16:
 									return e.prev = 16, e.next = 19, n.$select(
 									{
-										title: "复制终端代理命令",
-										message: "选择终端类型",
+										title: "Copy proxy setting commands",
+										message: "Select a terminal",
 										items: ["CMD", "Powershell"]
 									});
 								case 19:
@@ -18224,7 +18289,7 @@
 								case 23:
 									e.prev = 23, e.t0 = e.catch(16);
 								case 25:
-									s && (n.$electron.clipboard.writeText(s), n.$showNotification("命令已复制到剪贴板！", s, !0));
+									s && (n.$electron.clipboard.writeText(s), n.$showNotification("Commands have been copied to Clipboad!", s, !0));
 								case 26:
 								case "end":
 									return e.stop()
@@ -18268,13 +18333,13 @@
 									}
 									return e.$alert(
 									{
-										content: "CFW不允许更新GeoIP数据库，请手动进行。",
-										title: "请确认"
+										content: "Updating GeoIP database is not allowed in CFW, please do it manually.",
+										title: "Note"
 									}), t.abrupt("return");
 								case 3:
 									if(e.intervalID && (clearInterval(e.intervalID), e.intervalID = null), n = e.info.find((function(e)
 									{
-										return "GeoIP 数据库" === e.key
+										return "GeoIP Database" === e.key
 									})), r = n.value, n)
 									{
 										t.next = 8;
@@ -18297,7 +18362,7 @@
 										value: A.a.get(E.a.GEOIP_TOKEN) || ""
 									},
 									{
-										name: "地址",
+										name: "URL",
 										key: "url",
 										placeholder: "",
 										value: A.a.get(E.a.GEOIP_URL) || "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
@@ -18408,19 +18473,19 @@
 								case 6:
 									i = t.sent, s = a()(i, 1), d = s[0], l = d.status, u = d.data, 200 === l && n.$parent.clashStatus === $.a.CONNECTED ? (r = [
 									{
-										key: "代理端口",
+										key: "Port",
 										value: u["mixed-port"]
 									},
 									{
-										key: "局域网代理",
+										key: "Allow LAN",
 										value: u["allow-lan"]
 									},
 									{
-										key: "配置文件目录",
-										value: "打开文件夹"
+										key: "Home Directory",
+										value: "Open Folder"
 									},
 									{
-										key: "GeoIP 数据库",
+										key: "GeoIP Database",
 										value: b()(g.a.statSync(v.a.join(e.clashPath, "Country.mmdb"))
 												.mtimeMs)
 											.format("YYYY-MM-DD HH:mm")
@@ -18503,7 +18568,7 @@
 			}, [e._v("\n        " + e._s(e.version) + "\n        "), "" === e.$parent.latestVersion ? e._e() : n("div",
 			{
 				staticClass: "new-version-tag"
-			}, [e._v("New")])])])]), e._v(" "), e.noInfo ? n("div", [2 < e.errorCount ? n("error-view") : e._e(), e._v(" "), 2 >= e.errorCount ? n("loading-view") : e._e()], 1) : n("div",
+			}, [e._v("\n          New\n        ")])])])]), e._v(" "), e.noInfo ? n("div", [2 < e.errorCount ? n("error-view") : e._e(), e._v(" "), 2 >= e.errorCount ? n("loading-view") : e._e()], 1) : n("div",
 			{
 				staticClass: "content",
 				on:
@@ -18536,11 +18601,11 @@
 					{
 						"item-left": !0, clickable: 10 === r
 					}
-				}, [e._v(e._s(t.key))]), e._v(" "), n("div",
+				}, [e._v("\n        " + e._s(t.key) + "\n      ")]), e._v(" "), n("div",
 				{
 					class:
 					{
-						"item-right": "局域网代理" !== t.key
+						"item-right": "Allow LAN" !== t.key
 					},
 					on:
 					{
@@ -18565,7 +18630,7 @@
 							return n.stopPropagation(), e.openCmdWithProxy(t)
 						}
 					}
-				}) : e._e(), e._v(" "), "局域网代理" === t.key ? n("switch-view",
+				}) : e._e(), e._v(" "), "Allow LAN" === t.key ? n("switch-view",
 				{
 					attrs:
 					{
@@ -18581,7 +18646,7 @@
 				}) : n("div",
 				{
 					class: e.itemTheme(t)
-				}, [e._v(e._s(t.value))])], 1), e._v(" "), e.showInterfaces && 1 === r && e.info[1].value ? n("div",
+				}, [e._v("\n          " + e._s(t.value) + "\n        ")])], 1), e._v(" "), e.showInterfaces && 1 === r && e.info[1].value ? n("div",
 				{
 					class: ["interfaces-card-" + e.theme]
 				}, e._l(e.networkInterfaces, (function(t, r)
@@ -18604,7 +18669,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("UWP应用联网限制解除工具")]), e._v(" "), n("div",
+			}, [e._v("UWP Loopback")]), e._v(" "), n("div",
 			{
 				class: ["item-right", "clickable-" + e.theme],
 				on:
@@ -18614,13 +18679,13 @@
 						return e.spawnLoopback(t)
 					}
 				}
-			}, [e._v("启动程序")])]) : e._e(), e._v(" "), e.isWindows ? n("div",
+			}, [e._v("\n        Launch Helper\n      ")])]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("虚拟网卡驱动")]), e._v(" "), n("div",
+			}, [e._v("TAP Device")]), e._v(" "), n("div",
 			{
 				class: ["item-right", "clickable-" + e.theme],
 				on:
@@ -18630,7 +18695,7 @@
 						return e.installTapDevice(t)
 					}
 				}
-			}, [e._v("管理")])]) : n("div",
+			}, [e._v("\n        Manage\n      ")])]) : n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
@@ -18643,26 +18708,26 @@
 				{
 					click: e.authClashBinary
 				}
-			}, [e._v(e._s(e.isClashOwnByRoot() ? "🎉" : "Authorize"))])]), e._v(" "), n("div",
+			}, [e._v("\n        " + e._s(e.isClashOwnByRoot() ? "🎉" : "Authorize") + "\n      ")])]), e._v(" "), n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("基础配置文件")]), e._v(" "), n("div",
+			}, [e._v("General YAML")]), e._v(" "), n("div",
 			{
 				class: ["item-right", "clickable-" + e.theme],
 				on:
 				{
 					click: e.editBtnClick
 				}
-			}, [e._v("编辑配置信息")])]), e._v(" "), n("div",
+			}, [e._v("\n        Text Mode Edit\n      ")])]), e._v(" "), n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [n("div", [e._v("混合配置")]), e._v(" "), n("info-icon",
+			}, [n("div", [e._v("Mixin")]), e._v(" "), n("info-icon",
 			{
 				staticClass: "icon-icon"
 			}, [e._v("\n          Mixin allows you to overwrite the original configuration file.\n          "), n("a",
@@ -18687,7 +18752,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("系统代理")]), e._v(" "), n("switch-view",
+			}, [e._v("System Proxy")]), e._v(" "), n("switch-view",
 			{
 				attrs:
 				{
@@ -18717,14 +18782,14 @@
 			{
 				staticClass: "empty-div"
 			})])
-		}), [], !1, null, "2439f87e", null));
+		}), [], !1, null, "f5e20d80", null));
 	G.options.__file = "GeneralView.vue", t.default = G.exports
 }, function(e, t, n)
 {
 	"use strict";
 	var r = Math.floor;
 	n.r(t);
-	var a = n(21),
+	var a = n(22),
 		i = n.n(a),
 		o = n(13),
 		s = n.n(o),
@@ -18732,7 +18797,7 @@
 		d = n.n(c),
 		l = n(152),
 		u = n.n(l),
-		f = n(22),
+		f = n(21),
 		p = n.n(f),
 		h = n(0),
 		v = n.n(h),
@@ -19883,7 +19948,7 @@
 					staticClass: "proxy-section-test-btn",
 					attrs:
 					{
-						title: "延迟测试",
+						title: "Test latency",
 						src: e.latencyBtnSrc(t.data.all)
 					},
 					on:
@@ -20169,7 +20234,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("相关链接")]), e._v(" "), n("div",
+			}, [e._v("Relevance")]), e._v(" "), n("div",
 			{
 				staticClass: "chat-list"
 			}, [n("div",
@@ -20208,7 +20273,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("鸣谢")]), e._v(" "), n("div",
+			}, [e._v("Thanks")]), e._v(" "), n("div",
 			{
 				staticClass: "chat-list"
 			}, [n("div",
@@ -20297,7 +20362,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("广告")]), e._v(" "), n("div",
+			}, [e._v("Advertisement")]), e._v(" "), n("div",
 			{
 				staticClass: "ad-img-list"
 			}, e._l(e.adImages, (function(t, r)
@@ -20333,7 +20398,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("开发者")]), e._v(" "), n("div",
+			}, [e._v("Developer")]), e._v(" "), n("div",
 			{
 				staticClass: "content"
 			}, [e._v("404 Frror")])])
@@ -20383,7 +20448,7 @@
 			{
 				buttonText: function()
 				{
-					return this.client && 1 === this.client.readyState ? "停止" : "开始"
+					return this.client && 1 === this.client.readyState ? "Stop" : "Start"
 				},
 				buttonStyle: function()
 				{
@@ -20556,10 +20621,10 @@
 			}, [n("div",
 			{
 				staticClass: "text"
-			}, [n("div", [e._v("请求日志")]), e._v(" "), n("div",
+			}, [n("div", [e._v("Request Logs")]), e._v(" "), n("div",
 			{
 				staticClass: "hint"
-			}, [e._v("模式: " + e._s(e.mode))])]), e._v(" "), n("div",
+			}, [e._v("mode: " + e._s(e.mode))])]), e._v(" "), n("div",
 			{
 				staticClass: "btns"
 			}, [n("div",
@@ -20569,7 +20634,7 @@
 				{
 					click: e.handleClear
 				}
-			}, [e._v("清除")]), e._v(" "), n("div",
+			}, [e._v("Clear")]), e._v(" "), n("div",
 			{
 				class: e.buttonStyle,
 				on:
@@ -20583,7 +20648,7 @@
 			}, [0 === e.listData.length ? n("div",
 			{
 				staticClass: "empty-list"
-			}, [n("div", [e._v("空日志列表")]), e._v(" "), n("div", [e._v("刷新浏览器以发出请求。")])]) : e._l(e.listData, (function(t, r)
+			}, [n("div", [e._v("Empty log list")]), e._v(" "), n("div", [e._v("Refresh your browser to make requests.")])]) : e._l(e.listData, (function(t, r)
 			{
 				return n("div",
 				{
@@ -20661,7 +20726,7 @@
 						downloadTotal: 0,
 						connections: []
 					},
-					labels: ["上传速度", "下载速度", "上传流量", "下载流量", "连接时间"],
+					labels: ["Upload Speed", "Download Speed", "Upload Traffic", "Download Traffic", "Time"],
 					labelSelected: 4
 				}
 			},
@@ -20915,13 +20980,13 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v(e._s("连接"))]), e._v(" "), n("div",
+			}, [e._v(e._s("Connections"))]), e._v(" "), n("div",
 			{
 				staticClass: "header-right"
 			}, [n("div",
 			{
 				staticClass: "total-hint"
-			}, [e._v("\n        " + e._s("总计: ↑" + e.traffic(e.data.uploadTotal) + " ↓" + e.traffic(e.data.downloadTotal)) + "\n      ")])])]), e._v(" "), n("div",
+			}, [e._v("\n        " + e._s("Total: ↑" + e.traffic(e.data.uploadTotal) + " ↓" + e.traffic(e.data.downloadTotal)) + "\n      ")])])]), e._v(" "), n("div",
 			{
 				staticClass: "control-view"
 			}, [n("div",
@@ -20948,7 +21013,7 @@
 				{
 					click: e.handleCloseAllConnections
 				}
-			}, [e._v("\n      全部断开\n    ")])]), e._v(" "), n("div",
+			}, [e._v("\n      Close All\n    ")])]), e._v(" "), n("div",
 			{
 				class: ["scroll-view-" + e.theme]
 			}, e._l(e.orderedConnections, (function(t)
