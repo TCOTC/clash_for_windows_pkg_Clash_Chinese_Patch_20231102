@@ -646,7 +646,10 @@
 		{
 			var r = JSON.parse(y.readFileSync(x, "utf8"))
 				.bounds;
-			r && (n = r)
+			r && (n = {
+				width: r.width,
+				height: r.height
+			})
 		}
 		catch (n)
 		{}(g = new p.BrowserWindow(l()(
