@@ -1,4 +1,4 @@
-﻿module.exports = function(t)
+module.exports = function(t)
 {
 	function n(r)
 	{
@@ -698,7 +698,7 @@
 				}
 				catch (t)
 				{}
-				p.app.exit()
+				p.globalShortcut.unregisterAll(), p.app.exit()
 			}
 			else t.preventDefault(), g.hide(), "darwin" === process.platform && p.app.dock.hide();
 			return !1
@@ -723,8 +723,8 @@
 						return e = {
 							type: "error",
 							title: "Clash for Windows",
-							message: "面板崩溃了！",
-							buttons: ["刷新", "退出"]
+							message: "Dashboard has crashed!",
+							buttons: ["Reload", "Exit"]
 						}, t.next = 5, p.dialog.showMessageBox(g, e);
 					case 5:
 						r = t.sent, 0 === r.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
@@ -843,7 +843,7 @@
 		}));
 		var a = p.Menu.buildFromTemplate([
 		{
-			label: "显示面板",
+			label: "Dashboard",
 			click: function()
 			{
 				return g.show()
@@ -853,7 +853,7 @@
 			type: "separator"
 		},
 		{
-			label: "系统代理",
+			label: "System Proxy",
 			type: "checkbox",
 			id: "system-proxy",
 			click: function(t)
@@ -863,7 +863,7 @@
 			}
 		},
 		{
-			label: "混合配置",
+			label: "Mixin",
 			type: "checkbox",
 			id: "mixin",
 			click: function(t)
@@ -876,11 +876,11 @@
 			type: "separator"
 		},
 		{
-			label: "代理模式",
+			label: "Proxy Mode",
 			id: "mode",
 			submenu: [
 			{
-				label: "全局",
+				label: "Global",
 				type: "radio",
 				id: "mode-global",
 				click: function()
@@ -889,7 +889,7 @@
 				}
 			},
 			{
-				label: "规则",
+				label: "Rule",
 				type: "radio",
 				id: "mode-rule",
 				click: function()
@@ -898,7 +898,7 @@
 				}
 			},
 			{
-				label: "直连",
+				label: "Direct",
 				type: "radio",
 				id: "mode-direct",
 				click: function()
@@ -907,7 +907,7 @@
 				}
 			},
 			{
-				label: "脚本",
+				label: "Script",
 				type: "radio",
 				id: "mode-script",
 				click: function()
@@ -920,14 +920,14 @@
 			type: "separator"
 		},
 		{
-			label: "强制退出",
+			label: "Force Quit",
 			click: function()
 			{
 				p.app.isQuiting = !0, p.app.quit()
 			}
 		},
 		{
-			label: "退出",
+			label: "Quit",
 			click: function()
 			{
 				return g.webContents.send("app-exit")
