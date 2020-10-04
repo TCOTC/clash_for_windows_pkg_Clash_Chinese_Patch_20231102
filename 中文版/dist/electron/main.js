@@ -115,13 +115,13 @@
 				d = t & s.G,
 				v = t & s.S,
 				y = t & s.P,
-				m = t & s.B,
-				g = t & s.W,
+				g = t & s.B,
+				m = t & s.W,
 				w = d ? o : o[n] || (o[n] = {}),
 				x = w[a],
 				b = d ? r : v ? r[n] : (r[n] ||
 				{})[a];
-			for(f in d && (e = n), e)(l = !h && b && void 0 !== b[f]) && u(w, f) || (p = l ? b[f] : e[f], w[f] = d && "function" != typeof b[f] ? e[f] : m && l ? i(p, r) : g && b[f] == p ? function(t)
+			for(f in d && (e = n), e)(l = !h && b && void 0 !== b[f]) && u(w, f) || (p = l ? b[f] : e[f], w[f] = d && "function" != typeof b[f] ? e[f] : g && l ? i(p, r) : m && b[f] == p ? function(t)
 			{
 				var n = function(n, e, r)
 				{
@@ -363,7 +363,7 @@
 		{
 			return this
 		};
-	t.exports = function(t, n, e, y, m, g, w)
+	t.exports = function(t, n, e, y, g, m, w)
 	{
 		a(e, n, y);
 		var x, b, _, k = function(t)
@@ -374,20 +374,20 @@
 				}
 			},
 			O = n + " Iterator",
-			j = m == d,
+			j = g == d,
 			S = !1,
 			L = t.prototype,
-			M = L[l] || L["@@iterator"] || m && L[m],
-			P = M || k(m),
-			C = m ? j ? k("entries") : P : void 0,
+			M = L[l] || L["@@iterator"] || g && L[g],
+			P = M || k(g),
+			C = g ? j ? k("entries") : P : void 0,
 			E = "Array" == n && L.entries || M;
 		if(E && ((_ = f(E.call(new t))) !== Object.prototype && _.next && (s(_, O, !0), !r && "function" != typeof _[l] && c(_, l, v))), j && M && M.name !== d && (S = !0, P = function()
 		{
 			return M.call(this)
-		}), (!r || w) && (p || S || !L[l]) && c(L, l, P), u[n] = P, u[O] = v, m)
+		}), (!r || w) && (p || S || !L[l]) && c(L, l, P), u[n] = P, u[O] = v, g)
 			if(x = {
 				values: j ? P : k(d),
-				keys: g ? P : k(h),
+				keys: m ? P : k(h),
 				entries: C
 			}, w)
 				for(b in x) b in L || i(L, b, x[b]);
@@ -515,15 +515,15 @@
 		d = f.MessageChannel,
 		v = f.Dispatch,
 		y = 0,
-		m = {},
-		g = "onreadystatechange",
+		g = {},
+		m = "onreadystatechange",
 		w = function()
 		{
 			var t = +this;
-			if(m.hasOwnProperty(t))
+			if(g.hasOwnProperty(t))
 			{
-				var n = m[t];
-				delete m[t], n()
+				var n = g[t];
+				delete g[t], n()
 			}
 		},
 		x = function(t)
@@ -533,13 +533,13 @@
 	p && h || (p = function(t)
 	{
 		for(var n = [], e = 1; arguments.length > e;) n.push(arguments[e++]);
-		return m[++y] = function()
+		return g[++y] = function()
 		{
 			u("function" == typeof t ? t : Function(t), n)
 		}, r(y), y
 	}, h = function(t)
 	{
-		delete m[t]
+		delete g[t]
 	}, "process" == e(14)(l) ? r = function(t)
 	{
 		l.nextTick(c(w, t, 1))
@@ -550,9 +550,9 @@
 		.port2, o.port1.onmessage = x, r = c(i.postMessage, i, 1)) : f.addEventListener && "function" == typeof postMessage && !f.importScripts ? (r = function(t)
 	{
 		f.postMessage(t + "", "*")
-	}, f.addEventListener("message", x, !1)) : r = g in s("script") ? function(t)
+	}, f.addEventListener("message", x, !1)) : r = m in s("script") ? function(t)
 	{
-		a.appendChild(s("script"))[g] = function()
+		a.appendChild(s("script"))[m] = function()
 		{
 			a.removeChild(this), w.call(t)
 		}
@@ -644,15 +644,11 @@
 			n = {};
 		try
 		{
-			var r = JSON.parse(y.readFileSync(x, "utf8"))
-				.bounds;
-			r && (n = {
-				width: r.width,
-				height: r.height
-			})
+			n = JSON.parse(g.readFileSync(b, "utf8"))
+				.bounds
 		}
 		catch (n)
-		{}(g = new p.BrowserWindow(l()(
+		{}(w = new h.BrowserWindow(p()(
 		{
 			height: 603,
 			width: 850,
@@ -670,45 +666,45 @@
 				webSecurity: !0,
 				nodeIntegrationInWorker: !1,
 				enableRemoteModule: !0,
-				preload: v.resolve(v.join(__dirname, "preload.js"))
+				preload: y.resolve(y.join(__dirname, "preload.js"))
 			}
 		}, n)))
-		.setMenu(null), g.webContents.on("will-navigate", (function(t)
+		.setMenu(null), w.webContents.on("will-navigate", (function(t)
 		{
 			return t.preventDefault()
-		})), g.loadURL(b,
+		})), w.loadURL(_,
 		{
-			userAgent: "ClashforWindows/" + p.app.getVersion()
-		}), g.on("hide", (function()
+			userAgent: "ClashforWindows/" + h.app.getVersion()
+		}), w.on("hide", (function()
 		{
-			g.webContents.send("window-event", "hide")
-		})), g.on("show", (function()
+			w.webContents.send("window-event", "hide")
+		})), w.on("show", (function()
 		{
-			"darwin" === process.platform && p.app.dock.show(), g.webContents.send("window-event", "show")
-		})), g.on("close", (function(t)
+			"darwin" === process.platform && h.app.dock.show(), w.webContents.send("window-event", "show"), w.setBounds(o(w.getBounds()))
+		})), w.on("close", (function(t)
 		{
-			if(p.app.isQuiting)
+			if(h.app.isQuiting)
 			{
 				try
 				{
-					y.writeFileSync(x, s()(
+					g.writeFileSync(b, f()(
 					{
-						bounds: g.getBounds()
+						bounds: w.getBounds()
 					}))
 				}
 				catch (t)
 				{}
-				p.globalShortcut.unregisterAll(), p.app.exit()
+				h.globalShortcut.unregisterAll(), h.app.exit()
 			}
-			else t.preventDefault(), g.hide(), "darwin" === process.platform && p.app.dock.hide();
+			else t.preventDefault(), w.hide(), "darwin" === process.platform && h.app.dock.hide();
 			return !1
-		})), g.on("session-end", (function(t)
+		})), w.on("session-end", (function(t)
 		{
-			t.preventDefault(), g.webContents.send("app-exit")
-		})), g.webContents.on("crashed", u()(i.a.mark((function n()
+			t.preventDefault(), w.webContents.send("app-exit")
+		})), w.webContents.on("crashed", a()(c.a.mark((function n()
 		{
 			var e, r;
-			return i.a.wrap((function(t)
+			return c.a.wrap((function(t)
 			{
 				for(;;) switch (t.prev = t.next)
 				{
@@ -725,128 +721,128 @@
 							title: "Clash for Windows",
 							message: "面板崩溃了！",
 							buttons: ["刷新", "退出"]
-						}, t.next = 5, p.dialog.showMessageBox(g, e);
+						}, t.next = 5, h.dialog.showMessageBox(w, e);
 					case 5:
-						r = t.sent, 0 === r.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
+						r = t.sent, 0 === r.response ? (h.app.relaunch(), h.app.exit(0)) : h.app.quit();
 					case 8:
 					case "end":
 						return t.stop()
 				}
 			}), n, t)
-		})))), g.setTouchBar(new h(
+		})))), w.setTouchBar(new d(
 		{
-			items: [new d(
+			items: [new v(
 			{
-				label: "常规",
+				label: "General",
 				backgroundColor: "#505050",
 				click: function()
 				{
-					g.webContents.send("menu-item-change", 0)
+					w.webContents.send("menu-item-change", 0)
 				}
-			}), new d(
+			}), new v(
 			{
-				label: "代理",
+				label: "Proxies",
 				backgroundColor: "#505050",
 				click: function()
 				{
-					g.webContents.send("menu-item-change", 1)
+					w.webContents.send("menu-item-change", 1)
 				}
-			}), new d(
+			}), new v(
 			{
-				label: "配置",
+				label: "Profiles",
 				backgroundColor: "#505050",
 				click: function()
 				{
-					g.webContents.send("menu-item-change", 2)
+					w.webContents.send("menu-item-change", 2)
 				}
-			}), new d(
+			}), new v(
 			{
-				label: "日志",
+				label: "Logs",
 				backgroundColor: "#505050",
 				click: function()
 				{
-					g.webContents.send("menu-item-change", 3)
+					w.webContents.send("menu-item-change", 3)
 				}
-			}), new d(
+			}), new v(
 			{
-				label: "连接",
+				label: "Connections",
 				backgroundColor: "#505050",
 				click: function()
 				{
-					g.webContents.send("menu-item-change", 4)
+					w.webContents.send("menu-item-change", 4)
 				}
-			}), new d(
+			}), new v(
 			{
-				label: "设置",
+				label: "Settings",
 				backgroundColor: "#505050",
 				click: function()
 				{
-					g.webContents.send("menu-item-change", 5)
+					w.webContents.send("menu-item-change", 5)
 				}
-			}), new d(
+			}), new v(
 			{
-				label: "反馈",
+				label: "Feedback",
 				backgroundColor: "#505050",
 				click: function()
 				{
-					g.webContents.send("menu-item-change", 6)
+					w.webContents.send("menu-item-change", 6)
 				}
 			})]
-		})), p.powerMonitor.on("resume", (function()
+		})), h.powerMonitor.on("resume", (function()
 		{
-			g.webContents.send("app-resume")
+			w.webContents.send("app-resume")
 		}));
-		var o = p.nativeImage.createFromPath(e(24)
+		var r = h.nativeImage.createFromPath(e(24)
 				.join(__static, "imgs", "logo_64.png"))
 			.resize(
 			{
 				width: 24,
 				height: 24
 			}),
-			c = v.join(__static, "tray_normal_Z8R_icon.ico");
-		(w = new p.Tray("darwin" === process.platform ? o : c))
-		.setToolTip("Clash for Windows"), w.on("click", (function()
+			i = y.join(__static, "tray_normal_Z8R_icon.ico");
+		(x = new h.Tray("darwin" === process.platform ? r : i))
+		.setToolTip("Clash for Windows"), x.on("click", (function()
 		{
-			g.show()
-		})), p.ipcMain.on("cleanup-done", (function()
+			w.setBounds(o(w.getBounds())), w.show()
+		})), h.ipcMain.on("cleanup-done", (function()
 		{
 			try
 			{
-				y.writeFileSync(x, s()(
+				g.writeFileSync(b, f()(
 				{
-					bounds: g.getBounds()
+					bounds: w.getBounds()
 				}))
 			}
 			catch (t)
 			{}
-			p.app.isQuiting = !0, p.app.quit()
-		})), p.ipcMain.on("status-changed", (function(t, n)
+			h.app.isQuiting = !0, h.app.quit()
+		})), h.ipcMain.on("status-changed", (function(t, n)
 		{
 			try
 			{
-				"darwin" !== process.platform && w.setImage(n)
+				"darwin" !== process.platform && x.setImage(n)
 			}
 			catch (n)
 			{}
-		})), p.ipcMain.on("show-notification", (function(t, n)
+		})), h.ipcMain.on("show-notification", (function(t, n)
 		{
-			var e = v.join(global.__static, "imgs/logo_64.png"),
-				r = new p.Notification(l()(
+			var e = y.join(global.__static, "imgs/logo_64.png"),
+				r = new h.Notification(p()(
 				{}, n,
 				{
-					icon: "darwin" === process.platform ? null : p.nativeImage.createFromPath(e)
+					icon: "darwin" === process.platform ? null : h.nativeImage.createFromPath(e)
 				}));
 			n.folder && r.on("click", (function()
 			{
-				p.shell.openPath(n.folder)
+				h.shell.openPath(n.folder)
 			})), r.show()
 		}));
-		var a = p.Menu.buildFromTemplate([
+		var u = h.Menu.buildFromTemplate([
 		{
 			label: "显示面板",
 			click: function()
 			{
-				return g.show()
+				return w.show()
 			}
 		},
 		{
@@ -859,7 +855,7 @@
 			click: function(t)
 			{
 				var n = t.checked;
-				g.webContents.send("system-proxy-changed", n)
+				w.webContents.send("system-proxy-changed", n)
 			}
 		},
 		{
@@ -869,7 +865,7 @@
 			click: function(t)
 			{
 				var n = t.checked;
-				g.webContents.send("mixin-changed", n)
+				w.webContents.send("mixin-changed", n)
 			}
 		},
 		{
@@ -885,7 +881,7 @@
 				id: "mode-global",
 				click: function()
 				{
-					return g.webContents.send("mode-changed", "global")
+					return w.webContents.send("mode-changed", "global")
 				}
 			},
 			{
@@ -894,7 +890,7 @@
 				id: "mode-rule",
 				click: function()
 				{
-					return g.webContents.send("mode-changed", "rule")
+					return w.webContents.send("mode-changed", "rule")
 				}
 			},
 			{
@@ -903,7 +899,7 @@
 				id: "mode-direct",
 				click: function()
 				{
-					return g.webContents.send("mode-changed", "direct")
+					return w.webContents.send("mode-changed", "direct")
 				}
 			},
 			{
@@ -912,7 +908,7 @@
 				id: "mode-script",
 				click: function()
 				{
-					return g.webContents.send("mode-changed", "script")
+					return w.webContents.send("mode-changed", "script")
 				}
 			}]
 		},
@@ -923,39 +919,39 @@
 			label: "强制退出",
 			click: function()
 			{
-				p.app.isQuiting = !0, p.app.quit()
+				h.app.isQuiting = !0, h.app.quit()
 			}
 		},
 		{
 			label: "退出",
 			click: function()
 			{
-				return g.webContents.send("app-exit")
+				return w.webContents.send("app-exit")
 			}
 		}]);
-		p.ipcMain.on("clash-core-status-change", (function(t, n)
+		h.ipcMain.on("clash-core-status-change", (function(t, n)
 		{
-			var e = a.getMenuItemById("system-proxy");
+			var e = u.getMenuItemById("system-proxy");
 			e && (e.enabled = 1 !== n);
-			var r = a.getMenuItemById("mode");
+			var r = u.getMenuItemById("mode");
 			r && (r.enabled = 1 !== n)
-		})), p.ipcMain.on("mode-changed", (function(t, n)
+		})), h.ipcMain.on("mode-changed", (function(t, n)
 		{
-			var e = a.getMenuItemById("mode-" + n);
+			var e = u.getMenuItemById("mode-" + n);
 			e && (e.checked = !0)
-		})), p.ipcMain.on("system-proxy-changed", (function(t, n)
+		})), h.ipcMain.on("system-proxy-changed", (function(t, n)
 		{
-			var e = a.getMenuItemById("system-proxy");
+			var e = u.getMenuItemById("system-proxy");
 			e && (e.checked = n)
-		})), p.ipcMain.on("mixin-changed", (function(t, n)
+		})), h.ipcMain.on("mixin-changed", (function(t, n)
 		{
-			var e = a.getMenuItemById("mixin");
+			var e = u.getMenuItemById("mixin");
 			e && (e.checked = n)
-		})), p.ipcMain.on("speed-update", (function(t, n, e)
+		})), h.ipcMain.on("speed-update", (function(t, n, e)
 		{
 			try
 			{
-				w && w.setImage(p.nativeImage.createFromDataURL(n)
+				x && x.setImage(h.nativeImage.createFromDataURL(n)
 					.crop(
 					{
 						x: 0,
@@ -970,86 +966,91 @@
 			}
 			catch (n)
 			{}
-		})), w.on("click", (function()
+		})), x.on("click", (function()
 		{
-			g.show()
-		})), w.on("right-click", (function()
+			w.show()
+		})), x.on("right-click", (function()
 		{
-			w.popUpContextMenu(a)
+			x.popUpContextMenu(u)
 		}))
 	}
+
+	function o(t)
+	{
+		var n = t.x,
+			e = t.y;
+		if(!h.screen.getAllDisplays()
+			.find((function(t)
+			{
+				var r = t.bounds;
+				if(r)
+				{
+					var o = r.x,
+						i = r.y,
+						c = r.width,
+						u = r.height;
+					return m.inRange(n, o, o + c) && m.inRange(e, i, i + u)
+				}
+			})))
+		{
+			var r = h.screen.getDisplayNearestPoint(
+				{
+					x: n,
+					y: e
+				})
+				.bounds;
+			if(r) return {
+				x: r.x,
+				y: r.y
+			}
+		}
+		return {
+			x: n,
+			y: e
+		}
+	}
 	e.r(n);
-	var o = e(25),
-		i = e.n(o),
-		c = e(43),
-		u = e.n(c),
-		a = e(26),
-		s = e.n(a),
-		f = e(27),
-		l = e.n(f),
-		p = e(0),
-		h = (e.n(p), e(0)
+	var i = e(25),
+		c = e.n(i),
+		u = e(43),
+		a = e.n(u),
+		s = e(26),
+		f = e.n(s),
+		l = e(27),
+		p = e.n(l),
+		h = e(0),
+		d = (e.n(h), e(0)
 			.TouchBar),
-		d = h.TouchBarButton,
-		v = e(24),
-		y = e(87),
+		v = d.TouchBarButton,
+		y = e(24),
+		g = e(87),
 		m = e(88);
 	global.__static = e(24)
 		.join(__dirname, "/static")
-		.replace(/\\/g, "\\\\"), p.app.disableHardwareAcceleration(), p.app.commandLine.appendSwitch("disable-features", "OutOfBlinkCors");
-	var g = void 0,
-		w = void 0,
-		x = v.join(p.app.getPath("userData"), "window_ocnfig.json"),
-		b = "file://" + __dirname + "/index.html",
-		_ = p.app.requestSingleInstanceLock();
-	p.app.setAppUserModelId("com.lbyczf.clashwin"), p.app.setAsDefaultProtocolClient("clash"), p.app.on("open-url", (function(t, n)
+		.replace(/\\/g, "\\\\"), h.app.disableHardwareAcceleration(), h.app.commandLine.appendSwitch("disable-features", "OutOfBlinkCors");
+	var w = void 0,
+		x = void 0,
+		b = y.join(h.app.getPath("userData"), "window_ocnfig.json"),
+		_ = "file://" + __dirname + "/index.html",
+		k = h.app.requestSingleInstanceLock();
+	h.app.setAppUserModelId("com.lbyczf.clashwin"), h.app.setAsDefaultProtocolClient("clash"), h.app.on("open-url", (function(t, n)
 	{
-		g.webContents.send("app-open", [n])
-	})), _ ? (p.app.on("second-instance", (function(t, n)
+		w.webContents.send("app-open", [n])
+	})), k ? (h.app.on("second-instance", (function(t, n)
 	{
-		g && (g.webContents.send("app-open", n), g.isMinimized() && g.restore(), g.show())
-	})), p.app.on("ready", (function()
+		w && (w.webContents.send("app-open", n), w.isMinimized() && w.restore(), w.show())
+	})), h.app.on("ready", (function()
 	{
-		p.powerMonitor.on("shutdown", (function(t)
+		h.powerMonitor.on("shutdown", (function(t)
 		{
-			t.preventDefault(), g.webContents.send("app-exit"), setTimeout((function()
+			t.preventDefault(), w.webContents.send("app-exit"), setTimeout((function()
 			{
-				p.app.isQuiting = !0, p.app.quit()
+				h.app.isQuiting = !0, h.app.quit()
 			}), 5e3)
-		})), p.screen.on("display-removed", (function(t, n)
-		{
-			if(console.log("display removed", n), "win32" === process.platform && g)
-			{
-				var e = n.bounds,
-					r = g.getBounds(),
-					o = r.x,
-					i = r.y;
-				if(e)
-				{
-					var c = e.x,
-						u = e.y,
-						a = e.width,
-						s = e.height;
-					if(m.inRange(o, c, c + a) && m.inRange(i, u, u + s))
-					{
-						var f = p.screen.getPrimaryDisplay()
-							.bounds,
-							l = (f = void 0 === f ?
-							{} : f)
-							.x,
-							h = f.y;
-						g.setBounds(
-						{
-							x: l,
-							y: h
-						})
-					}
-				}
-			}
 		})), r()
-	}))) : p.app.quit(), p.app.on("activate", (function()
+	}))) : h.app.quit(), h.app.on("activate", (function()
 	{
-		null === g ? r() : g.show()
+		null === w ? r() : w.show()
 	}))
 }, function(t, n, e)
 {
@@ -1130,7 +1131,7 @@
 				{
 					var a = u.arg,
 						s = a.value;
-					return s && "object" == typeof s && m.call(s, "__await") ? Promise.resolve(s.__await)
+					return s && "object" == typeof s && g.call(s, "__await") ? Promise.resolve(s.__await)
 						.then((function(t)
 						{
 							n("next", t, i, c)
@@ -1261,7 +1262,7 @@
 						r = function n()
 						{
 							for(; ++e < t.length;)
-								if(m.call(t, e)) return n.value = t[e], n.done = !1, n;
+								if(g.call(t, e)) return n.value = t[e], n.done = !1, n;
 							return n.value = void 0, n.done = !0, n
 						};
 					return r.next = r
@@ -1280,12 +1281,12 @@
 			}
 		}
 		var y = Object.prototype,
-			m = y.hasOwnProperty,
-			g = "function" == typeof Symbol ? Symbol :
+			g = y.hasOwnProperty,
+			m = "function" == typeof Symbol ? Symbol :
 			{},
-			w = g.iterator || "@@iterator",
-			x = g.asyncIterator || "@@asyncIterator",
-			b = g.toStringTag || "@@toStringTag",
+			w = m.iterator || "@@iterator",
+			x = m.asyncIterator || "@@asyncIterator",
+			b = m.toStringTag || "@@toStringTag",
 			_ = "object" == typeof t,
 			k = n.regeneratorRuntime;
 		if(k) _ && (t.exports = k);
@@ -1306,7 +1307,7 @@
 			};
 			var C = Object.getPrototypeOf,
 				E = C && C(C(d([])));
-			E && E !== y && m.call(E, w) && (P = E);
+			E && E !== y && g.call(E, w) && (P = E);
 			var T = c.prototype = o.prototype = Object.create(P);
 			i.prototype = T.constructor = c, c.constructor = i, c[b] = i.displayName = "GeneratorFunction", k.isGeneratorFunction = function(t)
 			{
@@ -1356,7 +1357,7 @@
 				reset: function(t)
 				{
 					if(this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = !1, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(p), !t)
-						for(var n in this) "t" === n.charAt(0) && m.call(this, n) && !isNaN(+n.slice(1)) && (this[n] = void 0)
+						for(var n in this) "t" === n.charAt(0) && g.call(this, n) && !isNaN(+n.slice(1)) && (this[n] = void 0)
 				},
 				stop: function()
 				{
@@ -1379,8 +1380,8 @@
 						if("root" === o.tryLoc) return n("end");
 						if(o.tryLoc <= this.prev)
 						{
-							var c = m.call(o, "catchLoc"),
-								u = m.call(o, "finallyLoc");
+							var c = g.call(o, "catchLoc"),
+								u = g.call(o, "finallyLoc");
 							if(c && u)
 							{
 								if(this.prev < o.catchLoc) return n(o.catchLoc, !0);
@@ -1402,7 +1403,7 @@
 				{
 					for(var e, r = this.tryEntries.length - 1; 0 <= r; --r)
 						if((e = this.tryEntries[r])
-							.tryLoc <= this.prev && m.call(e, "finallyLoc") && this.prev < e.finallyLoc)
+							.tryLoc <= this.prev && g.call(e, "finallyLoc") && this.prev < e.finallyLoc)
 						{
 							var o = e;
 							break
@@ -1683,9 +1684,9 @@
 		d = e(67),
 		v = e(68),
 		y = e(39),
-		m = e(40)
+		g = e(40)
 		.set,
-		g = e(73)(),
+		m = e(73)(),
 		w = e(23),
 		x = e(41),
 		b = e(74),
@@ -1724,7 +1725,7 @@
 			{
 				t._n = !0;
 				var e = t._c;
-				g((function()
+				m((function()
 				{
 					for(var r = t._v, o = 1 == t._s, i = 0, c = function(n)
 					{
@@ -1734,7 +1735,7 @@
 							f = n.domain;
 						try
 						{
-							u ? (!o && (2 == t._h && N(t), t._h = 1), !0 === u ? e = r : (f && f.enter(), e = u(r), f && (f.exit(), c = !0)), e === n.promise ? s(O("Promise-chain cycle")) : (i = I(e)) ? i.call(e, a, s) : a(e)) : s(r)
+							u ? (!o && (2 == t._h && B(t), t._h = 1), !0 === u ? e = r : (f && f.enter(), e = u(r), f && (f.exit(), c = !0)), e === n.promise ? s(O("Promise-chain cycle")) : (i = I(e)) ? i.call(e, a, s) : a(e)) : s(r)
 						}
 						catch (n)
 						{
@@ -1747,7 +1748,7 @@
 		},
 		F = function(t)
 		{
-			m.call(a, (function()
+			g.call(a, (function()
 			{
 				var n, e, r, o = t._v,
 					i = A(t);
@@ -1766,9 +1767,9 @@
 			return 1 !== t._h && 0 === (t._a || t._c)
 				.length
 		},
-		N = function(t)
+		B = function(t)
 		{
-			m.call(a, (function()
+			g.call(a, (function()
 			{
 				var n;
 				P ? j.emit("rejectionHandled", t) : (n = a.onrejectionhandled) && n(
@@ -1778,7 +1779,7 @@
 				})
 			}))
 		},
-		B = function(t)
+		N = function(t)
 		{
 			var n = this;
 			n._d || (n._d = !0, (n = n._w || n)
@@ -1793,7 +1794,7 @@
 				try
 				{
 					if(e === t) throw O("Promise can't be resolved itself");
-					(n = I(t)) ? g((function()
+					(n = I(t)) ? m((function()
 					{
 						var r = {
 							_w: e,
@@ -1801,17 +1802,17 @@
 						};
 						try
 						{
-							n.call(t, s(D, r, 1), s(B, r, 1))
+							n.call(t, s(D, r, 1), s(N, r, 1))
 						}
 						catch (t)
 						{
-							B.call(r, t)
+							N.call(r, t)
 						}
 					})): (e._v = t, e._s = 1, R(e, !1))
 				}
 				catch (n)
 				{
-					B.call(
+					N.call(
 					{
 						_w: e,
 						_d: !1
@@ -1824,11 +1825,11 @@
 			d(this, M, k, "_h"), h(t), r.call(this);
 			try
 			{
-				t(s(D, this, 1), s(B, this, 1))
+				t(s(D, this, 1), s(N, this, 1))
 			}
 			catch (t)
 			{
-				B.call(this, t)
+				N.call(this, t)
 			}
 		}, (r = function()
 		{
@@ -1848,7 +1849,7 @@
 		}), i = function()
 		{
 			var t = new r;
-			this.promise = t, this.resolve = s(D, t, 1), this.reject = s(B, t, 1)
+			this.promise = t, this.resolve = s(D, t, 1), this.reject = s(N, t, 1)
 		}, w.f = E = function(t)
 		{
 			return t === M || t === c ? new i(t) : o(t)
@@ -1933,22 +1934,22 @@
 		f = {};
 	(n = t.exports = function(t, n, e, l, p)
 	{
-		var h, d, v, y, m = p ? function()
+		var h, d, v, y, g = p ? function()
 			{
 				return t
 			} : a(t),
-			g = r(e, l, n ? 2 : 1),
+			m = r(e, l, n ? 2 : 1),
 			w = 0;
-		if("function" != typeof m) throw TypeError(t + " is not iterable!");
-		if(i(m))
+		if("function" != typeof g) throw TypeError(t + " is not iterable!");
+		if(i(g))
 		{
 			for(h = u(t.length); h > w; w++)
-				if((y = n ? g(c(d = t[w])[0], d[1]) : g(t[w])) === s || y === f) return y
+				if((y = n ? m(c(d = t[w])[0], d[1]) : m(t[w])) === s || y === f) return y
 		}
 		else
-			for(v = m.call(t); !(d = v.next())
+			for(v = g.call(t); !(d = v.next())
 				.done;)
-				if((y = o(v, g, d.value, n)) === s || y === f) return y
+				if((y = o(v, m, d.value, n)) === s || y === f) return y
 	})
 	.BREAK = s, n.RETURN = f
 }, function(t, n, e)
