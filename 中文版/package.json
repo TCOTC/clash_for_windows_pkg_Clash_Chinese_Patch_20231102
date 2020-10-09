@@ -1,6 +1,6 @@
 {
   "name": "clash_win",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "author": "Fndroid",
   "description": "A Windows client based on Clash",
   "license": "MIT",
@@ -10,6 +10,7 @@
     "electron-is-dev": "^1.1.0",
     "electron-log": "^4.1.0",
     "got": "^9.6.0",
+    "koa": "^2.13.0",
     "lodash": "^4.17.20",
     "moment": "^2.22.2",
     "mousetrap": "^1.6.5",
