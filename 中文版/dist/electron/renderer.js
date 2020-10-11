@@ -20038,7 +20038,7 @@
 			}))], 2) : n("div",
 			{
 				staticClass: "hint"
-			}, [e._v("No provider in this profile.")])])])])
+			}, [e._v("此配置文件中没有提供程序。")])])])])
 		}), [], !1, null, "7c7f8c4f", null));
 	I.options.__file = "ProviderView.vue";
 	var j = I.exports,
