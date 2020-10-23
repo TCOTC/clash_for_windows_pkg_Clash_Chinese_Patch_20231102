@@ -18335,14 +18335,14 @@
 				{
 					click: e.openHomeDir
 				}
-			}, [e._v("\n      Home Directory\n    ")]), e._v(" "), n("div",
+			}, [e._v("\n      配置文件目录\n    ")]), e._v(" "), n("div",
 			{
 				class: ["error-hint-" + e.theme],
 				on:
 				{
 					click: e.openLogsFolder
 				}
-			}, [e._v("\n      Logs Folder\n    ")]), e._v(" "), n("div",
+			}, [e._v("\n      日志\n    ")]), e._v(" "), n("div",
 			{
 				class: ["error-hint-" + e.theme],
 				on:
