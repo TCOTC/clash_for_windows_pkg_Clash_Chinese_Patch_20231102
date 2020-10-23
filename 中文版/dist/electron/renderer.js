@@ -10010,7 +10010,7 @@
 								a = n.end;
 							void 0 !== r && void 0 !== a && (t = ', at "'.concat(this.rawCode.slice(r, a), '"'))
 						}
-						this.error = "Error: ".concat(i.message)
+						this.error = "错误： ".concat(i.message)
 							.concat(t), setTimeout((function()
 							{
 								e.error = ""
@@ -13301,7 +13301,7 @@
 									break;
 								case 64:
 									t.prev = 64, t.t1 = t.catch(9), ie = "", (oe = t.t1.linePos) && ((se = oe.start) && (ce = se.line, de = se.col, ie = ", on line: ".concat(ce, ", at column: ")
-											.concat(de))), a = "Error: ".concat(t.t1.message)
+											.concat(de))), a = "错误： ".concat(t.t1.message)
 										.concat(ie), G.warn("fail to restore last profile with error: ".concat(t.t1));
 								case 71:
 									if(le = d.selected, pe = d.mode, !r || !le)
@@ -13893,7 +13893,7 @@
 						}
 						this.appendError(
 						{
-							error: "Error: ".concat(t)
+							error: "错误： ".concat(t)
 								.concat(r)
 						}), G.warn("fail to load general config.yaml with error: ".concat(t))
 					}
@@ -17297,7 +17297,7 @@
 									{
 										title: "Clash for Windows",
 										type: "error",
-										message: "Could not switch to this profile!",
+										message: "无法切换到此配置文件！",
 										detail: i || "",
 										buttons: ["确认", "文本编辑"]
 									}, (function(e)
