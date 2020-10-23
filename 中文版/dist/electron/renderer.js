@@ -2,11 +2,11 @@
 {
 	function t(e)
 	{
-		var t = $[e];
+		var t = j[e];
 		if(!t) return d;
 		var n = function(n)
 			{
-				return t.hot.active ? ($[n] ? -1 === $[n].parents.indexOf(e) && $[n].parents.push(e) : (b = [e], u = n), -1 === t.children.indexOf(n) && t.children.push(n)) : (console.warn("[HMR] unexpected require(" + n + ") from disposed module " + e), b = []), d(n)
+				return t.hot.active ? (j[n] ? -1 === j[n].parents.indexOf(e) && j[n].parents.push(e) : (x = [e], u = n), -1 === t.children.indexOf(n) && t.children.push(n)) : (console.warn("[HMR] unexpected require(" + n + ") from disposed module " + e), x = []), d(n)
 			},
 			a = function(e)
 			{
@@ -28,9 +28,9 @@
 		{
 			function t()
 			{
-				C--, "prepare" === _ && (!S[e] && o(e), 0 === C && 0 === k && s())
+				C--, "prepare" === k && (!O[e] && o(e), 0 === C && 0 === _ && s())
 			}
-			return "ready" === _ && r("prepare"), C++, d.e(e)
+			return "ready" === k && r("prepare"), C++, d.e(e)
 				.then(t, (function(e)
 				{
 					throw t(), e
@@ -85,7 +85,7 @@
 			apply: c,
 			status: function(e)
 			{
-				return e ? void w.push(e) : _
+				return e ? void w.push(e) : k
 			},
 			addStatusHandler: function(e)
 			{
@@ -96,14 +96,14 @@
 				var t = w.indexOf(e);
 				0 <= t && w.splice(t, 1)
 			},
-			data: x[e]
+			data: b[e]
 		};
 		return u = void 0, t
 	}
 
 	function r(e)
 	{
-		_ = e;
+		k = e;
 		for(var t = 0; t < w.length; t++) w[t].call(null, e)
 	}
 
@@ -114,7 +114,7 @@
 
 	function i(e)
 	{
-		if("idle" !== _) throw new Error("check() is only allowed in idle status");
+		if("idle" !== k) throw new Error("check() is only allowed in idle status");
 		return v = e, r("check"),
 			function(e)
 			{
@@ -155,7 +155,7 @@
 			.then((function(e)
 			{
 				if(!e) return r("idle"), null;
-				P = {}, S = {}, T = e.c, h = e.h, r("prepare");
+				P = {}, O = {}, S = e.c, h = e.h, r("prepare");
 				var t = new Promise((function(e, t)
 				{
 					p = {
@@ -163,17 +163,17 @@
 						reject: t
 					}
 				}));
-				return f = {}, o(0), "prepare" === _ && 0 === C && 0 == k && s(), t
+				return f = {}, o(0), "prepare" === k && 0 === C && 0 == _ && s(), t
 			}))
 	}
 
 	function o(e)
 	{
-		T[e] ? (P[e] = !0, k++, function(e)
+		S[e] ? (P[e] = !0, _++, function(e)
 		{
 			var t = document.createElement("script");
 			t.charset = "utf-8", t.src = d.p + "" + e + "." + m + ".hot-update.js", document.head.appendChild(t)
-		}(e)) : S[e] = !0
+		}(e)) : O[e] = !0
 	}
 
 	function s()
@@ -216,7 +216,7 @@
 				var a = r.pop(),
 					o = a.id,
 					s = a.chain;
-				if((l = $[o]) && !l.hot._selfAccepted)
+				if((l = j[o]) && !l.hot._selfAccepted)
 				{
 					if(l.hot._selfDeclined) return {
 						type: "self-declined",
@@ -231,7 +231,7 @@
 					for(var c = 0; c < l.parents.length; c++)
 					{
 						var d = l.parents[c],
-							u = $[d];
+							u = j[d];
 						if(u)
 						{
 							if(u.hot._declinedDependencies[o]) return {
@@ -269,7 +269,7 @@
 		{
 			for(var n, r = 0; r < t.length; r++) n = t[r], -1 === e.indexOf(n) && e.push(n)
 		}
-		if("ready" !== _) throw new Error("apply() is only allowed in ready status");
+		if("ready" !== k) throw new Error("apply() is only allowed in ready status");
 		t = t ||
 		{};
 		var o, s, c, l, u, p = {},
@@ -277,91 +277,91 @@
 			g = {},
 			y = function()
 			{
-				console.warn("[HMR] unexpected require(" + k.moduleId + ") to disposed module")
+				console.warn("[HMR] unexpected require(" + _.moduleId + ") to disposed module")
 			};
 		for(var w in f)
 			if(Object.prototype.hasOwnProperty.call(f, w))
 			{
 				u = a(w);
-				var k = f[w] ? n(u) :
+				var _ = f[w] ? n(u) :
 					{
 						type: "disposed",
 						moduleId: w
 					},
 					C = !1,
-					S = !1,
+					O = !1,
 					P = !1,
 					E = "";
-				switch (k.chain && (E = "\nUpdate propagation: " + k.chain.join(" -> ")), k.type)
+				switch (_.chain && (E = "\nUpdate propagation: " + _.chain.join(" -> ")), _.type)
 				{
 					case "self-declined":
-						t.onDeclined && t.onDeclined(k), t.ignoreDeclined || (C = new Error("Aborted because of self decline: " + k.moduleId + E));
+						t.onDeclined && t.onDeclined(_), t.ignoreDeclined || (C = new Error("Aborted because of self decline: " + _.moduleId + E));
 						break;
 					case "declined":
-						t.onDeclined && t.onDeclined(k), t.ignoreDeclined || (C = new Error("Aborted because of declined dependency: " + k.moduleId + " in " + k.parentId + E));
+						t.onDeclined && t.onDeclined(_), t.ignoreDeclined || (C = new Error("Aborted because of declined dependency: " + _.moduleId + " in " + _.parentId + E));
 						break;
 					case "unaccepted":
-						t.onUnaccepted && t.onUnaccepted(k), t.ignoreUnaccepted || (C = new Error("Aborted because " + u + " is not accepted" + E));
+						t.onUnaccepted && t.onUnaccepted(_), t.ignoreUnaccepted || (C = new Error("Aborted because " + u + " is not accepted" + E));
 						break;
 					case "accepted":
-						t.onAccepted && t.onAccepted(k), S = !0;
+						t.onAccepted && t.onAccepted(_), O = !0;
 						break;
 					case "disposed":
-						t.onDisposed && t.onDisposed(k), P = !0;
+						t.onDisposed && t.onDisposed(_), P = !0;
 						break;
 					default:
-						throw new Error("Unexception type " + k.type)
+						throw new Error("Unexception type " + _.type)
 				}
 				if(C) return r("abort"), Promise.reject(C);
-				if(S)
-					for(u in g[u] = f[u], i(v, k.outdatedModules), k.outdatedDependencies) Object.prototype.hasOwnProperty.call(k.outdatedDependencies, u) && (p[u] || (p[u] = []), i(p[u], k.outdatedDependencies[u]));
-				P && (i(v, [k.moduleId]), g[u] = y)
-			} var A, O, I = [];
-		for(s = 0; s < v.length; s++) u = v[s], $[u] && $[u].hot._selfAccepted && g[u] !== y && I.push(
+				if(O)
+					for(u in g[u] = f[u], i(v, _.outdatedModules), _.outdatedDependencies) Object.prototype.hasOwnProperty.call(_.outdatedDependencies, u) && (p[u] || (p[u] = []), i(p[u], _.outdatedDependencies[u]));
+				P && (i(v, [_.moduleId]), g[u] = y)
+			} var T, $, D = [];
+		for(s = 0; s < v.length; s++) u = v[s], j[u] && j[u].hot._selfAccepted && g[u] !== y && D.push(
 		{
 			module: u,
-			errorHandler: $[u].hot._selfAccepted
+			errorHandler: j[u].hot._selfAccepted
 		});
-		r("dispose"), Object.keys(T)
+		r("dispose"), Object.keys(S)
 			.forEach((function(e)
 			{
-				!1 === T[e] && function(e)
+				!1 === S[e] && function(e)
 				{
 					delete installedChunks[e]
 				}(e)
 			}));
-		for(var j, D = v.slice(); 0 < D.length;)
-			if(u = D.pop(), l = $[u])
+		for(var A, I = v.slice(); 0 < I.length;)
+			if(u = I.pop(), l = j[u])
 			{
-				var N = {},
-					L = l.hot._disposeHandlers;
-				for(c = 0; c < L.length; c++)(o = L[c])(N);
-				for(x[u] = N, l.hot.active = !1, delete $[u], delete p[u], c = 0; c < l.children.length; c++)
+				var L = {},
+					N = l.hot._disposeHandlers;
+				for(c = 0; c < N.length; c++)(o = N[c])(L);
+				for(b[u] = L, l.hot.active = !1, delete j[u], delete p[u], c = 0; c < l.children.length; c++)
 				{
-					var M = $[l.children[c]];
-					M && (0 <= (j = M.parents.indexOf(u)) && M.parents.splice(j, 1))
+					var M = j[l.children[c]];
+					M && (0 <= (A = M.parents.indexOf(u)) && M.parents.splice(A, 1))
 				}
 			} for(u in p)
-			if(Object.prototype.hasOwnProperty.call(p, u) && (l = $[u]))
-				for(O = p[u], c = 0; c < O.length; c++) A = O[c], 0 <= (j = l.children.indexOf(A)) && l.children.splice(j, 1);
+			if(Object.prototype.hasOwnProperty.call(p, u) && (l = j[u]))
+				for($ = p[u], c = 0; c < $.length; c++) T = $[c], 0 <= (A = l.children.indexOf(T)) && l.children.splice(A, 1);
 		for(u in r("apply"), m = h, g) Object.prototype.hasOwnProperty.call(g, u) && (e[u] = g[u]);
 		var R = null;
 		for(u in p)
-			if(Object.prototype.hasOwnProperty.call(p, u) && (l = $[u]))
+			if(Object.prototype.hasOwnProperty.call(p, u) && (l = j[u]))
 			{
-				O = p[u];
-				var F = [];
-				for(s = 0; s < O.length; s++)
-					if(A = O[s], o = l.hot._acceptedDependencies[A])
+				$ = p[u];
+				var z = [];
+				for(s = 0; s < $.length; s++)
+					if(T = $[s], o = l.hot._acceptedDependencies[T])
 					{
-						if(-1 !== F.indexOf(o)) continue;
-						F.push(o)
-					} for(s = 0; s < F.length; s++)
+						if(-1 !== z.indexOf(o)) continue;
+						z.push(o)
+					} for(s = 0; s < z.length; s++)
 				{
-					o = F[s];
+					o = z[s];
 					try
 					{
-						o(O)
+						o($)
 					}
 					catch (e)
 					{
@@ -369,24 +369,24 @@
 						{
 							type: "accept-errored",
 							moduleId: u,
-							dependencyId: O[s],
+							dependencyId: $[s],
 							error: e
 						}), t.ignoreErrored || R || (R = e)
 					}
 				}
-			} for(s = 0; s < I.length; s++)
+			} for(s = 0; s < D.length; s++)
 		{
-			var U = I[s];
-			u = U.module, b = [u];
+			var F = D[s];
+			u = F.module, x = [u];
 			try
 			{
 				d(u)
 			}
 			catch (e)
 			{
-				if("function" == typeof U.errorHandler) try
+				if("function" == typeof F.errorHandler) try
 				{
-					U.errorHandler(e)
+					F.errorHandler(e)
 				}
 				catch (n)
 				{
@@ -414,14 +414,14 @@
 
 	function d(r)
 	{
-		if($[r]) return $[r].exports;
-		var a = $[r] = {
+		if(j[r]) return j[r].exports;
+		var a = j[r] = {
 			i: r,
 			l: !1,
 			exports:
 			{},
 			hot: n(r),
-			parents: (y = b, b = [], y),
+			parents: (y = x, x = [], y),
 			children: []
 		};
 		return e[r].call(a.exports, a, a.exports, t(r)), a.l = !0, a.exports
@@ -431,28 +431,28 @@
 	{
 		(function(e, t)
 		{
-			if(T[e] && P[e])
+			if(S[e] && P[e])
 			{
 				for(var n in P[e] = !1, t) Object.prototype.hasOwnProperty.call(t, n) && (f[n] = t[n]);
-				0 == --k && 0 === C && s()
+				0 == --_ && 0 === C && s()
 			}
 		})(e, t), l && l(e, t)
 	};
 	var u, p, f, h, v = !0,
-		m = "53f689f7d18c40b91462",
+		m = "78ac4041285f1cd185b7",
 		g = 1e4,
-		x = {},
-		b = [],
+		b = {},
+		x = [],
 		y = [],
 		w = [],
-		_ = "idle",
-		k = 0,
+		k = "idle",
+		_ = 0,
 		C = 0,
-		S = {},
+		O = {},
 		P = {},
-		T = {},
-		$ = {};
-	return d.m = e, d.c = $, d.d = function(e, t, n)
+		S = {},
+		j = {};
+	return d.m = e, d.c = j, d.d = function(e, t, n)
 	{
 		d.o(e, t) || Object.defineProperty(e, t,
 		{
@@ -499,68 +499,63 @@
 	}, d.p = "", d.h = function()
 	{
 		return m
-	}, t(329)(d.s = 329)
+	}, t(220)(d.s = 220)
 }([function(e, t, n)
 {
-	e.exports = n(189)
-}, function(e, t, n)
+	e.exports = n(105)
+}, function(e)
 {
-	"use strict";
-	t.__esModule = !0;
-	var r = function(e)
+	function t(e, t, n, r, a, i, o)
 	{
-		return e && e.__esModule ? e :
+		try
 		{
-			default: e
+			var s = e[i](o),
+				c = s.value
 		}
-	}(n(14));
-	t.default = function(e)
+		catch (e)
+		{
+			return void n(e)
+		}
+		s.done ? t(c) : Promise.resolve(c)
+			.then(r, a)
+	}
+	e.exports = function(e)
 	{
 		return function()
 		{
-			var t = e.apply(this, arguments);
-			return new r.default((function(e, n)
+			var n = this,
+				r = arguments;
+			return new Promise((function(a, i)
 			{
-				return function a(i, o)
+				function o(e)
 				{
-					try
-					{
-						var s = t[i](o),
-							c = s.value
-					}
-					catch (e)
-					{
-						return void n(e)
-					}
-					return s.done ? void e(c) : r.default.resolve(c)
-						.then((function(e)
-						{
-							a("next", e)
-						}), (function(e)
-						{
-							a("throw", e)
-						}))
-				}("next")
+					t(c, a, i, o, s, "next", e)
+				}
+
+				function s(e)
+				{
+					t(c, a, i, o, s, "throw", e)
+				}
+				var c = e.apply(n, r);
+				o(void 0)
 			}))
 		}
 	}
-}, function(e, t, n)
+}, function(e)
 {
-	"use strict";
-	t.__esModule = !0;
-	var r = function(e)
+	e.exports = function(e, t, n)
 	{
-		return e && e.__esModule ? e :
+		return t in e ? Object.defineProperty(e, t,
 		{
-			default: e
-		}
-	}(n(158));
-	t.default = r.default || function(e)
-	{
-		for(var t, n = 1; n < arguments.length; n++)
-			for(var r in t = arguments[n]) Object.prototype.hasOwnProperty.call(t, r) && (e[r] = t[r]);
-		return e
+			value: n,
+			enumerable: !0,
+			configurable: !0,
+			writable: !0
+		}) : e[t] = n, e
 	}
+}, function(e)
+{
+	e.exports = require("path")
 }, function(e, t, n)
 {
 	"use strict";
@@ -601,9 +596,6 @@
 }, function(e)
 {
 	e.exports = require("vuex")
-}, function(e)
-{
-	e.exports = require("path")
 }, function(e)
 {
 	e.exports = require("fs")
@@ -738,13 +730,13 @@
 
 	function s(e)
 	{
-		var t, n, r = document.querySelector("style[" + x + '~="' + e.id + '"]');
+		var t, n, r = document.querySelector("style[" + b + '~="' + e.id + '"]');
 		if(r)
 		{
 			if(v) return m;
 			r.parentNode.removeChild(r)
 		}
-		if(b)
+		if(x)
 		{
 			var a = h++;
 			r = f || (f = o()), t = c.bind(null, r, a, !1), n = c.bind(null, r, a, !0)
@@ -782,7 +774,7 @@
 		var n = t.css,
 			r = t.media,
 			a = t.sourceMap;
-		if(r && e.setAttribute("media", r), g.ssrId && e.setAttribute(x, t.id), a && (n += "\n/*# sourceURL=" + a.sources[0] + " */", n += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(a)))) + " */"), e.styleSheet) e.styleSheet.cssText = n;
+		if(r && e.setAttribute("media", r), g.ssrId && e.setAttribute(b, t.id), a && (n += "\n/*# sourceURL=" + a.sources[0] + " */", n += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(a)))) + " */"), e.styleSheet) e.styleSheet.cssText = n;
 		else
 		{
 			for(; e.firstChild;) e.removeChild(e.firstChild);
@@ -802,8 +794,8 @@
 		v = !1,
 		m = function() {},
 		g = null,
-		x = "data-vue-ssr-id",
-		b = "undefined" != typeof navigator && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase()),
+		b = "data-vue-ssr-id",
+		x = "undefined" != typeof navigator && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase()),
 		y = function()
 		{
 			var e = [];
@@ -816,12 +808,62 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(41),
-		a = n.n(r);
+	n.d(t, "c", (function()
+	{
+		return r
+	})), n.d(t, "b", (function()
+	{
+		return a
+	})), n.d(t, "a", (function()
+	{
+		return s
+	})), n.d(t, "d", (function()
+	{
+		return l
+	})), n.d(t, "f", (function()
+	{
+		return u
+	})), n.d(t, "e", (function()
+	{
+		return p
+	}));
+	var r = Symbol(),
+		a = Symbol(),
+		i = Symbol(),
+		o = Symbol(),
+		s = Symbol(),
+		c = Symbol(),
+		d = function()
+		{
+			if("win32" === process.platform)
+			{
+				if("x64" === process.arch) return r;
+				if("ia32" === process.arch) return a;
+				if("arm" === process.arch) return i;
+				if("arm64" === process.arch) return o
+			}
+			return "darwin" === process.platform && "x64" === process.arch ? s : c
+		},
+		l = function()
+		{
+			var e = d();
+			return [a, i, o].includes(e) ? a : e
+		},
+		u = function()
+		{
+			return [i, o, a, r].includes(d())
+		},
+		p = function()
+		{
+			return [s].includes(d())
+		}
+}, function(e, t)
+{
+	"use strict";
 	t.a = {
 		put: function(e, t)
 		{
-			window.localStorage.setItem(e, a()(t))
+			window.localStorage.setItem(e, JSON.stringify(t))
 		},
 		get: function(e)
 		{
@@ -833,7 +875,7 @@
 			}
 			catch (n)
 			{
-				console.error("get [" + e + "] from cache failed with error:", n)
+				console.error("get [".concat(e, "] from cache failed with error:"), n)
 			}
 		}
 	}
@@ -862,33 +904,25 @@
 	"use strict";
 	n.d(t, "b", (function()
 	{
-		return i
+		return r
 	})), n.d(t, "a", (function()
 	{
-		return o
+		return a
 	}));
-	var r = n(29),
-		a = n.n(r),
-		i = {
-			INIT: a()(),
-			DEFAULT: a()(),
-			SYSTEM_PROXY: a()()
+	var r = {
+			INIT: Symbol(),
+			DEFAULT: Symbol(),
+			SYSTEM_PROXY: Symbol()
 		},
-		o = {
-			CONNECTED: a()(),
-			DISCONNECTED: a()(),
-			INSTALLING_TAP: a()(),
-			UNINSTSLLING_TAP: a()()
+		a = {
+			CONNECTED: Symbol(),
+			DISCONNECTED: Symbol(),
+			INSTALLING_TAP: Symbol(),
+			UNINSTSLLING_TAP: Symbol()
 		}
 }, function(e)
 {
 	e.exports = require("moment")
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(178),
-		__esModule: !0
-	}
 }, function(e)
 {
 	e.exports = require("electron-log")
@@ -996,13 +1030,13 @@
 		return e
 	}
 
-	function x(e)
+	function b(e)
 	{
 		for(var t = {}, n = 0; n < e.length; n++) e[n] && g(t, e[n]);
 		return t
 	}
 
-	function b()
+	function x()
 	{}
 
 	function y(e, t)
@@ -1044,7 +1078,7 @@
 		return -1
 	}
 
-	function _(e)
+	function k(e)
 	{
 		var t = !1;
 		return function()
@@ -1053,7 +1087,7 @@
 		}
 	}
 
-	function k(e)
+	function _(e)
 	{
 		var t = (e + "")
 			.charCodeAt(0);
@@ -1071,7 +1105,7 @@
 		})
 	}
 
-	function S(e)
+	function O(e)
 	{
 		return "function" == typeof e && /native code/.test(e.toString())
 	}
@@ -1081,12 +1115,12 @@
 		qr.push(e), Kr.target = e
 	}
 
-	function T()
+	function S()
 	{
 		qr.pop(), Kr.target = qr[qr.length - 1]
 	}
 
-	function $(e)
+	function j(e)
 	{
 		return new Yr(void 0, void 0, void 0, e + "")
 	}
@@ -1097,18 +1131,18 @@
 		return t.ns = e.ns, t.isStatic = e.isStatic, t.key = e.key, t.isComment = e.isComment, t.fnContext = e.fnContext, t.fnOptions = e.fnOptions, t.fnScopeId = e.fnScopeId, t.asyncMeta = e.asyncMeta, t.isCloned = !0, t
 	}
 
-	function A(e)
+	function T(e)
 	{
 		ta = e
 	}
 
-	function O(e, t)
+	function $(e, t)
 	{
 		var n;
 		if(o(e) && !(e instanceof Yr)) return h(e, "__ob__") && e.__ob__ instanceof na ? n = e.__ob__ : ta && !Hr() && (Array.isArray(e) || s(e)) && Object.isExtensible(e) && !e._isVue && (n = new na(e)), t && n && n.vmCount++, n
 	}
 
-	function I(e, t, n, r, a)
+	function D(e, t, n, r, a)
 	{
 		var i = new Kr,
 			o = Object.getOwnPropertyDescriptor(e, t);
@@ -1117,7 +1151,7 @@
 			var s = o && o.get,
 				c = o && o.set;
 			(!s || c) && 2 === arguments.length && (n = e[t]);
-			var d = !a && O(n);
+			var d = !a && $(n);
 			Object.defineProperty(e, t,
 			{
 				enumerable: !0,
@@ -1125,26 +1159,26 @@
 				get: function()
 				{
 					var t = s ? s.call(e) : n;
-					return Kr.target && (i.depend(), d && (d.dep.depend(), Array.isArray(t) && N(t))), t
+					return Kr.target && (i.depend(), d && (d.dep.depend(), Array.isArray(t) && L(t))), t
 				},
 				set: function(t)
 				{
 					var r = s ? s.call(e) : n;
-					t !== r && (t == t || r == r) && (s && !c || (c ? c.call(e, t) : n = t, d = !a && O(t), i.notify()))
+					t !== r && (t == t || r == r) && (s && !c || (c ? c.call(e, t) : n = t, d = !a && $(t), i.notify()))
 				}
 			})
 		}
 	}
 
-	function j(e, t, n)
+	function A(e, t, n)
 	{
 		if(Array.isArray(e) && c(t)) return e.length = sr(e.length, t), e.splice(t, 1, n), n;
 		if(t in e && !(t in Object.prototype)) return e[t] = n, n;
 		var r = e.__ob__;
-		return e._isVue || r && r.vmCount ? n : r ? (I(r.value, t, n), r.dep.notify(), n) : (e[t] = n, n)
+		return e._isVue || r && r.vmCount ? n : r ? (D(r.value, t, n), r.dep.notify(), n) : (e[t] = n, n)
 	}
 
-	function D(e, t)
+	function I(e, t)
 	{
 		if(Array.isArray(e) && c(t)) e.splice(t, 1);
 		else
@@ -1154,15 +1188,15 @@
 		}
 	}
 
-	function N(e)
+	function L(e)
 	{
-		for(var t = void 0, n = 0, r = e.length; n < r; n++)(t = e[n]) && t.__ob__ && t.__ob__.dep.depend(), Array.isArray(t) && N(t)
+		for(var t = void 0, n = 0, r = e.length; n < r; n++)(t = e[n]) && t.__ob__ && t.__ob__.dep.depend(), Array.isArray(t) && L(t)
 	}
 
-	function L(e, t)
+	function N(e, t)
 	{
 		if(!t) return e;
-		for(var n, r, a, i = Br ? Reflect.ownKeys(t) : Object.keys(t), o = 0; o < i.length; o++) "__ob__" !== (n = i[o]) && (r = e[n], a = t[n], h(e, n) ? r !== a && s(r) && s(a) && L(r, a) : j(e, n, a));
+		for(var n, r, a, i = Br ? Reflect.ownKeys(t) : Object.keys(t), o = 0; o < i.length; o++) "__ob__" !== (n = i[o]) && (r = e[n], a = t[n], h(e, n) ? r !== a && s(r) && s(a) && N(r, a) : A(e, n, a));
 		return e
 	}
 
@@ -1172,10 +1206,10 @@
 		{
 			var r = "function" == typeof t ? t.call(n, n) : t,
 				a = "function" == typeof e ? e.call(n, n) : e;
-			return r ? L(r, a) : a
+			return r ? N(r, a) : a
 		} : t ? e ? function()
 		{
-			return L("function" == typeof t ? t.call(this, this) : t, "function" == typeof e ? e.call(this, this) : e)
+			return N("function" == typeof t ? t.call(this, this) : t, "function" == typeof e ? e.call(this, this) : e)
 		} : t : e
 	}
 
@@ -1189,13 +1223,13 @@
 		}(n) : n
 	}
 
-	function F(e, t)
+	function z(e, t)
 	{
 		var n = Object.create(e || null);
 		return t ? g(n, t) : n
 	}
 
-	function U(e, t, n)
+	function F(e, t, n)
 	{
 		function r(r)
 		{
@@ -1254,15 +1288,15 @@
 						update: r
 					})
 				}
-		}(t), !t._base && (t.extends && (e = U(e, t.extends, n)), t.mixins))
-			for(var a = 0, i = t.mixins.length; a < i; a++) e = U(e, t.mixins[a], n);
+		}(t), !t._base && (t.extends && (e = F(e, t.extends, n)), t.mixins))
+			for(var a = 0, i = t.mixins.length; a < i; a++) e = F(e, t.mixins[a], n);
 		var o, c = {};
 		for(o in e) r(o);
 		for(o in t) h(e, o) || r(o);
 		return c
 	}
 
-	function z(e, t, n)
+	function U(e, t, n)
 	{
 		if("string" == typeof n)
 		{
@@ -1280,12 +1314,12 @@
 		var a = t[e],
 			i = !h(n, e),
 			o = n[e],
-			s = V(Boolean, a.type);
+			s = G(Boolean, a.type);
 		if(-1 < s)
 			if(i && !h(a, "default")) o = !1;
 			else if("" === o || o === gr(e))
 		{
-			var c = V(String, a.type);
+			var c = G(String, a.type);
 			(0 > c || s < c) && (o = !0)
 		}
 		if(void 0 === o)
@@ -1295,16 +1329,16 @@
 				if(h(t, "default"))
 				{
 					var r = t.default;
-					return e && e.$options.propsData && void 0 === e.$options.propsData[n] && void 0 !== e._props[n] ? e._props[n] : "function" == typeof r && "Function" !== G(t.type) ? r.call(e) : r
+					return e && e.$options.propsData && void 0 === e.$options.propsData[n] && void 0 !== e._props[n] ? e._props[n] : "function" == typeof r && "Function" !== V(t.type) ? r.call(e) : r
 				}
 			}(r, a, e);
 			var d = ta;
-			A(!0), O(o), A(d)
+			T(!0), $(o), T(d)
 		}
 		return o
 	}
 
-	function G(e)
+	function V(e)
 	{
 		var t = e && e.toString()
 			.match(/^\s*function (\w+)/);
@@ -1313,10 +1347,10 @@
 
 	function B(e, t)
 	{
-		return G(e) === G(t)
+		return V(e) === V(t)
 	}
 
-	function V(e, t)
+	function G(e, t)
 	{
 		if(!Array.isArray(t)) return B(t, e) ? 0 : -1;
 		for(var n = 0, r = t.length; n < r; n++)
@@ -1344,7 +1378,7 @@
 		}
 		finally
 		{
-			T()
+			S()
 		}
 	}
 
@@ -1380,7 +1414,7 @@
 
 	function Y(e)
 	{
-		if(!$r && !Er || "undefined" == typeof console) throw e;
+		if(!jr && !Er || "undefined" == typeof console) throw e;
 		console.error(e)
 	}
 
@@ -1477,10 +1511,10 @@
 
 	function re(e)
 	{
-		return i(e) ? [$(e)] : Array.isArray(e) ? function e(t, o)
+		return i(e) ? [j(e)] : Array.isArray(e) ? function e(t, o)
 		{
 			var s, c, d, l, u = [];
-			for(s = 0; s < t.length; s++) !n(c = t[s]) && "boolean" != typeof c && (d = u.length - 1, l = u[d], Array.isArray(c) ? 0 < c.length && (ae((c = e(c, (o || "") + "_" + s))[0]) && ae(l) && (u[d] = $(l.text + c[0].text), c.shift()), u.push.apply(u, c)) : i(c) ? ae(l) ? u[d] = $(l.text + c) : "" !== c && u.push($(c)) : ae(c) && ae(l) ? u[d] = $(l.text + c.text) : (a(t._isVList) && r(c.tag) && n(c.key) && r(o) && (c.key = "__vlist" + o + "_" + s + "__"), u.push(c)));
+			for(s = 0; s < t.length; s++) !n(c = t[s]) && "boolean" != typeof c && (d = u.length - 1, l = u[d], Array.isArray(c) ? 0 < c.length && (ae((c = e(c, (o || "") + "_" + s))[0]) && ae(l) && (u[d] = j(l.text + c[0].text), c.shift()), u.push.apply(u, c)) : i(c) ? ae(l) ? u[d] = j(l.text + c) : "" !== c && u.push(j(c)) : ae(c) && ae(l) ? u[d] = j(l.text + c.text) : (a(t._isVList) && r(c.tag) && n(c.key) && r(o) && (c.key = "__vlist" + o + "_" + s + "__"), u.push(c)));
 			return u
 		}(e) : void 0
 	}
@@ -1617,7 +1651,7 @@
 
 	function fe(e)
 	{
-		return z(this.$options, "filters", e) || yr
+		return U(this.$options, "filters", e) || yr
 	}
 
 	function he(e, t)
@@ -1636,7 +1670,7 @@
 		if(n)
 			if(o(n))
 			{
-				Array.isArray(n) && (n = x(n));
+				Array.isArray(n) && (n = b(n));
 				var i, s = function(o)
 				{
 					if("class" === o || "style" === o || ur(o)) i = e;
@@ -1662,15 +1696,15 @@
 	{
 		var n = this._staticTrees || (this._staticTrees = []),
 			r = n[e];
-		return r && !t ? r : (be(r = n[e] = this.$options.staticRenderFns[e].call(this._renderProxy, null, this), "__static__" + e, !1), r)
-	}
-
-	function xe(e, t, n)
-	{
-		return be(e, "__once__" + t + (n ? "_" + n : ""), !0), e
+		return r && !t ? r : (xe(r = n[e] = this.$options.staticRenderFns[e].call(this._renderProxy, null, this), "__static__" + e, !1), r)
 	}
 
 	function be(e, t, n)
+	{
+		return xe(e, "__once__" + t + (n ? "_" + n : ""), !0), e
+	}
+
+	function xe(e, t, n)
 	{
 		if(Array.isArray(e))
 			for(var r = 0; r < e.length; r++) e[r] && "string" != typeof e[r] && ye(e[r], t + "_" + r, n);
@@ -1701,17 +1735,17 @@
 		return e
 	}
 
-	function _e(e, t, n, r)
+	function ke(e, t, n, r)
 	{
 		t = t ||
 		{
 			$stable: !n
 		};
-		for(var a, i = 0; i < e.length; i++) a = e[i], Array.isArray(a) ? _e(a, t, n) : a && (a.proxy && (a.fn.proxy = !0), t[a.key] = a.fn);
+		for(var a, i = 0; i < e.length; i++) a = e[i], Array.isArray(a) ? ke(a, t, n) : a && (a.proxy && (a.fn.proxy = !0), t[a.key] = a.fn);
 		return r && (t.$key = r), t
 	}
 
-	function ke(e, t)
+	function _e(e, t)
 	{
 		for(var n, r = 0; r < t.length; r += 2) "string" == typeof(n = t[r]) && n && (e[t[r]] = t[r + 1]);
 		return e
@@ -1722,9 +1756,9 @@
 		return "string" == typeof e ? t + e : e
 	}
 
-	function Se(e)
+	function Oe(e)
 	{
-		e._o = xe, e._n = u, e._s = l, e._l = ue, e._t = pe, e._q = y, e._i = w, e._m = ge, e._f = fe, e._k = ve, e._b = me, e._v = $, e._e = Jr, e._u = _e, e._g = we, e._d = ke, e._p = Ce
+		e._o = be, e._n = u, e._s = l, e._l = ue, e._t = pe, e._q = y, e._i = w, e._m = ge, e._f = fe, e._k = ve, e._b = me, e._v = j, e._e = Jr, e._u = ke, e._g = we, e._d = _e, e._p = Ce
 	}
 
 	function Pe(e, t, n, r, i)
@@ -1747,22 +1781,22 @@
 			}
 		}), d && (this.$options = c, this.$slots = this.slots(), this.$scopedSlots = ce(e.scopedSlots, this.$slots)), this._c = c._scopeId ? function(e, t, n, a)
 		{
-			var i = Oe(o, e, t, n, a, l);
+			var i = $e(o, e, t, n, a, l);
 			return i && !Array.isArray(i) && (i.fnScopeId = c._scopeId, i.fnContext = r), i
 		} : function(e, t, n, r)
 		{
-			return Oe(o, e, t, n, r, l)
+			return $e(o, e, t, n, r, l)
 		}
 	}
 
-	function Te(e, t, n, r)
+	function Se(e, t, n, r)
 	{
 		var a = E(e);
 		return a.fnContext = n, a.fnOptions = r, t.slot && ((a.data || (a.data = {}))
 			.slot = t.slot), a
 	}
 
-	function $e(e, t)
+	function je(e, t)
 	{
 		for(var n in t) e[hr(n)] = t[n]
 	}
@@ -1775,7 +1809,7 @@
 			if(o(e) && (e = d.extend(e)), "function" == typeof e)
 			{
 				var l;
-				if(n(e.cid) && void 0 === (e = Le(l = e, d))) return function(e, t, n, r, a)
+				if(n(e.cid) && void 0 === (e = Ne(l = e, d))) return function(e, t, n, r, a)
 				{
 					var i = Jr();
 					return i.asyncFactory = e, i.asyncMeta = {
@@ -1820,13 +1854,13 @@
 						c = o.props;
 					if(r(c))
 						for(var d in c) s[d] = H(d, c, t || cr);
-					else r(n.attrs) && $e(s, n.attrs), r(n.props) && $e(s, n.props);
+					else r(n.attrs) && je(s, n.attrs), r(n.props) && je(s, n.props);
 					var l = new Pe(n, s, i, a, e),
 						u = o.render.call(null, l._c, l);
-					if(u instanceof Yr) return Te(u, n, l.parent, o);
+					if(u instanceof Yr) return Se(u, n, l.parent, o);
 					if(Array.isArray(u))
 					{
-						for(var p = re(u) || [], f = Array(p.length), h = 0; h < p.length; h++) f[h] = Te(p[h], n, l.parent, o);
+						for(var p = re(u) || [], f = Array(p.length), h = 0; h < p.length; h++) f[h] = Se(p[h], n, l.parent, o);
 						return f
 					}
 				}(e, u, t, i, s);
@@ -1842,7 +1876,7 @@
 						var r = ga[n],
 							a = t[r],
 							i = ma[r];
-						a === i || a && a._merged || (t[r] = a ? Ae(i, a) : i)
+						a === i || a && a._merged || (t[r] = a ? Te(i, a) : i)
 					}
 				}(t);
 				var h = e.options.name || c;
@@ -1858,7 +1892,7 @@
 		}
 	}
 
-	function Ae(e, t)
+	function Te(e, t)
 	{
 		var n = function(n, r)
 		{
@@ -1867,12 +1901,12 @@
 		return n._merged = !0, n
 	}
 
-	function Oe(e, t, n, r, o, s)
+	function $e(e, t, n, r, o, s)
 	{
-		return (Array.isArray(n) || i(n)) && (o = r, r = n, n = void 0), a(s) && (o = ba), Ie(e, t, n, r, o)
+		return (Array.isArray(n) || i(n)) && (o = r, r = n, n = void 0), a(s) && (o = xa), De(e, t, n, r, o)
 	}
 
-	function Ie(e, t, n, a, i)
+	function De(e, t, n, a, i)
 	{
 		if(r(n) && r(n.__ob__)) return Jr();
 		if(r(n) && r(n.is) && (t = n.is), !t) return Jr();
@@ -1881,33 +1915,33 @@
 			{})
 			.scopedSlots = {
 				default: a[0]
-			}, a.length = 0), i === ba ? a = re(a) : i === xa && (a = function(e)
+			}, a.length = 0), i === xa ? a = re(a) : i === ba && (a = function(e)
 		{
 			for(var t = 0; t < e.length; t++)
 				if(Array.isArray(e[t])) return Array.prototype.concat.apply([], e);
 			return e
-		}(a)), "string" == typeof t) ? (s = e.$vnode && e.$vnode.ns || Cr.getTagNamespace(t), o = Cr.isReservedTag(t) ? new Yr(Cr.parsePlatformTagName(t), n, a, void 0, void 0, e) : n && n.pre || !r(c = z(e.$options, "components", t)) ? new Yr(t, n, a, void 0, void 0, e) : Ee(c, n, e, a, t)) : o = Ee(t, n, e, a);
-		return Array.isArray(o) ? o : r(o) ? (r(s) && je(o, s), r(n) && De(n), o) : Jr()
+		}(a)), "string" == typeof t) ? (s = e.$vnode && e.$vnode.ns || Cr.getTagNamespace(t), o = Cr.isReservedTag(t) ? new Yr(Cr.parsePlatformTagName(t), n, a, void 0, void 0, e) : n && n.pre || !r(c = U(e.$options, "components", t)) ? new Yr(t, n, a, void 0, void 0, e) : Ee(c, n, e, a, t)) : o = Ee(t, n, e, a);
+		return Array.isArray(o) ? o : r(o) ? (r(s) && Ae(o, s), r(n) && Ie(n), o) : Jr()
 	}
 
-	function je(e, t, i)
+	function Ae(e, t, i)
 	{
 		if(e.ns = t, "foreignObject" === e.tag && (t = void 0, i = !0), r(e.children))
 			for(var o, s = 0, c = e.children.length; s < c; s++) r((o = e.children[s])
-				.tag) && (n(o.ns) || a(i) && "svg" !== o.tag) && je(o, t, i)
+				.tag) && (n(o.ns) || a(i) && "svg" !== o.tag) && Ae(o, t, i)
 	}
 
-	function De(e)
+	function Ie(e)
 	{
 		o(e.style) && Z(e.style), o(e.class) && Z(e.class)
 	}
 
-	function Ne(e, t)
+	function Le(e, t)
 	{
 		return (e.__esModule || Br && "Module" === e[Symbol.toStringTag]) && (e = e.default), o(e) ? t.extend(e) : e
 	}
 
-	function Le(e, t)
+	function Ne(e, t)
 	{
 		if(a(e.error) && r(e.errorComp)) return e.errorComp;
 		if(r(e.resolved)) return e.resolved;
@@ -1928,16 +1962,16 @@
 					for(var t = 0, n = s.length; t < n; t++) s[t].$forceUpdate();
 					e && (s.length = 0, null != l && (clearTimeout(l), l = null), null != u && (clearTimeout(u), u = null))
 				},
-				h = _((function(n)
+				h = k((function(n)
 				{
-					e.resolved = Ne(n, t), c ? s.length = 0 : p(!0)
+					e.resolved = Le(n, t), c ? s.length = 0 : p(!0)
 				})),
-				v = _((function()
+				v = k((function()
 				{
 					r(e.errorComp) && (e.error = !0, p(!0))
 				})),
 				m = e(h, v);
-			return o(m) && (d(m) ? n(e.resolved) && m.then(h, v) : d(m.component) && (m.component.then(h, v), r(m.error) && (e.errorComp = Ne(m.error, t)), r(m.loading) && (e.loadingComp = Ne(m.loading, t), 0 === m.delay ? e.loading = !0 : l = setTimeout((function()
+			return o(m) && (d(m) ? n(e.resolved) && m.then(h, v) : d(m.component) && (m.component.then(h, v), r(m.error) && (e.errorComp = Le(m.error, t)), r(m.loading) && (e.loadingComp = Le(m.loading, t), 0 === m.delay ? e.loading = !0 : l = setTimeout((function()
 			{
 				l = null, n(e.resolved) && n(e.error) && (e.loading = !0, p(!1))
 			}), m.delay || 200)), r(m.timeout) && (u = setTimeout((function()
@@ -1959,17 +1993,17 @@
 				if(r(t = e[n]) && (r(t.componentOptions) || Me(t))) return t
 	}
 
-	function Fe(e, t)
+	function ze(e, t)
 	{
 		va.$on(e, t)
 	}
 
-	function Ue(e, t)
+	function Fe(e, t)
 	{
 		va.$off(e, t)
 	}
 
-	function ze(e, t)
+	function Ue(e, t)
 	{
 		var n = va;
 		return function r()
@@ -1982,10 +2016,10 @@
 	function He(e, t, n)
 	{
 		va = e, ee(t, n ||
-		{}, Fe, Ue, ze, e), va = void 0
+		{}, ze, Fe, Ue, e), va = void 0
 	}
 
-	function Ge(e)
+	function Ve(e)
 	{
 		var t = wa;
 		return wa = e,
@@ -2002,7 +2036,7 @@
 		return !1
 	}
 
-	function Ve(e, t)
+	function Ge(e, t)
 	{
 		if(t)
 		{
@@ -2012,7 +2046,7 @@
 		if(e._inactive || null === e._inactive)
 		{
 			e._inactive = !1;
-			for(var n = 0; n < e.$children.length; n++) Ve(e.$children[n]);
+			for(var n = 0; n < e.$children.length; n++) Ge(e.$children[n]);
 			We(e, "activated")
 		}
 	}
@@ -2023,23 +2057,23 @@
 		var n = e.$options[t];
 		if(n)
 			for(var r = 0, a = n.length; r < a; r++) K(n[r], e, null, e, t + " hook");
-		e._hasHookEvent && e.$emit("hook:" + t), T()
+		e._hasHookEvent && e.$emit("hook:" + t), S()
 	}
 
 	function Ke()
 	{
 		var e, t;
-		for($a = Ea(), Pa = !0, _a.sort((function(e, t)
+		for(ja = Ea(), Pa = !0, ka.sort((function(e, t)
 		{
 			return e.id - t.id
-		})), Ta = 0; Ta < _a.length; Ta++)(e = _a[Ta])
+		})), Sa = 0; Sa < ka.length; Sa++)(e = ka[Sa])
 			.before && e.before(), t = e.id, Ca[t] = null, e.run();
-		var n = ka.slice(),
-			r = _a.slice();
-		Ta = _a.length = ka.length = 0, Ca = {}, Sa = Pa = !1,
+		var n = _a.slice(),
+			r = ka.slice();
+		Sa = ka.length = _a.length = 0, Ca = {}, Oa = Pa = !1,
 			function(e)
 			{
-				for(var t = 0; t < e.length; t++) e[t]._inactive = !0, Ve(e[t], !0)
+				for(var t = 0; t < e.length; t++) e[t]._inactive = !0, Ge(e[t], !0)
 			}(n),
 			function(e)
 			{
@@ -2049,18 +2083,18 @@
 						r = n.vm;
 					r._watcher === n && r._isMounted && !r._isDestroyed && We(r, "updated")
 				}
-			}(r), Gr && Cr.devtools && Gr.emit("flush")
+			}(r), Vr && Cr.devtools && Vr.emit("flush")
 	}
 
 	function qe(e, t, n)
 	{
-		ja.get = function()
+		Aa.get = function()
 		{
 			return this[t][n]
-		}, ja.set = function(e)
+		}, Aa.set = function(e)
 		{
 			this[t][n] = e
-		}, Object.defineProperty(e, n, ja)
+		}, Object.defineProperty(e, n, Aa)
 	}
 
 	function Ye(e)
@@ -2073,18 +2107,18 @@
 				{},
 				r = e._props = {},
 				a = e.$options._propKeys = [];
-			!e.$parent || A(!1);
+			!e.$parent || T(!1);
 			var i = function(i)
 			{
 				a.push(i);
 				var o = H(i, t, n, e);
-				I(r, i, o), i in e || qe(e, "_props", i)
+				D(r, i, o), i in e || qe(e, "_props", i)
 			};
 			for(var o in t) i(o);
-			A(!0)
+			T(!0)
 		}(e, t.props), t.methods && function(e, t)
 		{
-			for(var n in e.$options.props, t) e[n] = "function" == typeof t[n] ? xr(t[n], e) : b
+			for(var n in e.$options.props, t) e[n] = "function" == typeof t[n] ? br(t[n], e) : x
 		}(e, t.methods), t.data ? function(e)
 		{
 			var t = e.$options.data;
@@ -2102,17 +2136,17 @@
 				}
 				finally
 				{
-					T()
+					S()
 				}
 			}(t, e) : t ||
 			{}) || (t = {});
 			for(var n = Object.keys(t), r = e.$options.props, a = (e.$options.methods, n.length); a--;)
 			{
 				var i = n[a];
-				(!r || !h(r, i)) && (!k(i) && qe(e, "_data", i))
+				(!r || !h(r, i)) && (!_(i) && qe(e, "_data", i))
 			}
-			O(t, !0)
-		}(e) : O(e._data = {}, !0), t.computed && function(e, t)
+			$(t, !0)
+		}(e) : $(e._data = {}, !0), t.computed && function(e, t)
 		{
 			var n = e._computedWatchers = Object.create(null),
 				r = Hr();
@@ -2120,7 +2154,7 @@
 			{
 				var i = t[a],
 					o = "function" == typeof i ? i : i.get;
-				r || (n[a] = new Ia(e, o || b, b, Da)), a in e || Xe(e, a, i)
+				r || (n[a] = new Da(e, o || x, x, Ia)), a in e || Xe(e, a, i)
 			}
 		}(e, t.computed), t.watch && t.watch !== Mr && function(e, t)
 		{
@@ -2137,7 +2171,7 @@
 	function Xe(e, t, n)
 	{
 		var r = !Hr();
-		"function" == typeof n ? (ja.get = r ? Je(t) : Ze(n), ja.set = b) : (ja.get = n.get ? r && !1 !== n.cache ? Je(t) : Ze(n.get) : b, ja.set = n.set || b), Object.defineProperty(e, t, ja)
+		"function" == typeof n ? (Aa.get = r ? Je(t) : Ze(n), Aa.set = x) : (Aa.get = n.get ? r && !1 !== n.cache ? Je(t) : Ze(n.get) : x, Aa.set = n.set || x), Object.defineProperty(e, t, Aa)
 	}
 
 	function Je(e)
@@ -2178,7 +2212,7 @@
 					for(var a in n) n[a] !== r[a] && (t || (t = {}), t[a] = n[a]);
 					return t
 				}(e);
-				r && g(e.extendOptions, r), (t = e.options = U(n, e.extendOptions))
+				r && g(e.extendOptions, r), (t = e.options = F(n, e.extendOptions))
 					.name && (t.components[t.name] = e)
 			}
 		}
@@ -2208,7 +2242,7 @@
 					this._init(e)
 				};
 			return (o.prototype = Object.create(n.prototype))
-				.constructor = o, o.cid = t++, o.options = U(n.options, e), o.super = n, o.options.props && function(e)
+				.constructor = o, o.cid = t++, o.options = F(n.options, e), o.super = n, o.options.props && function(e)
 				{
 					var t = e.options.props;
 					for(var n in t) qe(e.prototype, "_props", n)
@@ -2216,7 +2250,7 @@
 				{
 					var t = e.options.computed;
 					for(var n in t) Xe(e.prototype, n, t[n])
-				}(o), o.extend = n.extend, o.mixin = n.mixin, o.use = n.use, _r.forEach((function(e)
+				}(o), o.extend = n.extend, o.mixin = n.mixin, o.use = n.use, kr.forEach((function(e)
 				{
 					o[e] = n[e]
 				})), i && (o.options.components[i] = o), o.superOptions = n.options, o.extendOptions = e, o.sealedOptions = g(
@@ -2351,20 +2385,20 @@
 				s = gt(t.data.directives, t.context),
 				c = [],
 				d = [];
-			for(n in s) r = o[n], a = s[n], r ? (a.oldValue = r.value, a.oldArg = r.arg, bt(a, "update", t, e), a.def && a.def.componentUpdated && d.push(a)) : (bt(a, "bind", t, e), a.def && a.def.inserted && c.push(a));
+			for(n in s) r = o[n], a = s[n], r ? (a.oldValue = r.value, a.oldArg = r.arg, xt(a, "update", t, e), a.def && a.def.componentUpdated && d.push(a)) : (xt(a, "bind", t, e), a.def && a.def.inserted && c.push(a));
 			if(c.length)
 			{
 				var l = function()
 				{
-					for(var n = 0; n < c.length; n++) bt(c[n], "inserted", t, e)
+					for(var n = 0; n < c.length; n++) xt(c[n], "inserted", t, e)
 				};
 				i ? te(t, "insert", l) : l()
 			}
 			if(d.length && te(t, "postpatch", (function()
 			{
-				for(var n = 0; n < d.length; n++) bt(d[n], "componentUpdated", t, e)
+				for(var n = 0; n < d.length; n++) xt(d[n], "componentUpdated", t, e)
 			})), !i)
-				for(n in o) s[n] || bt(o[n], "unbind", e, e, t === ui)
+				for(n in o) s[n] || xt(o[n], "unbind", e, e, t === ui)
 		}(e, t)
 	}
 
@@ -2373,18 +2407,18 @@
 		var n, r, a = Object.create(null);
 		if(!e) return a;
 		for(n = 0; n < e.length; n++)(r = e[n])
-			.modifiers || (r.modifiers = fi), a[xt(r)] = r, r.def = z(t.$options, "directives", r.name);
+			.modifiers || (r.modifiers = fi), a[bt(r)] = r, r.def = U(t.$options, "directives", r.name);
 		return a
 	}
 
-	function xt(e)
+	function bt(e)
 	{
 		return e.rawName || e.name + "." + Object.keys(e.modifiers ||
 			{})
 			.join(".")
 	}
 
-	function bt(e, t, n, r, a)
+	function xt(e, t, n, r, a)
 	{
 		var i = e.def && e.def[t];
 		if(i) try
@@ -2409,21 +2443,21 @@
 				{};
 			for(i in r(d.__ob__) && (d = t.data.attrs = g(
 			{}, d)), d) o = d[i], c[i] !== o && wt(s, i, o);
-			for(i in (Ir || Dr) && d.value !== c.value && wt(s, "value", d.value), c) n(d[i]) && (ti(i) ? s.removeAttributeNS(ei, ni(i)) : !Xa(i) && s.removeAttribute(i))
+			for(i in (Dr || Ir) && d.value !== c.value && wt(s, "value", d.value), c) n(d[i]) && (ti(i) ? s.removeAttributeNS(ei, ni(i)) : !Xa(i) && s.removeAttribute(i))
 		}
 	}
 
 	function wt(e, t, n)
 	{
-		-1 < e.tagName.indexOf("-") ? _t(e, t, n) : Qa(t) ? ri(n) ? e.removeAttribute(t) : (n = "allowfullscreen" === t && "EMBED" === e.tagName ? "true" : t, e.setAttribute(t, n)) : Xa(t) ? e.setAttribute(t, Za(t, n)) : ti(t) ? ri(n) ? e.removeAttributeNS(ei, ni(t)) : e.setAttributeNS(ei, t, n) : _t(e, t, n)
+		-1 < e.tagName.indexOf("-") ? kt(e, t, n) : Qa(t) ? ri(n) ? e.removeAttribute(t) : (n = "allowfullscreen" === t && "EMBED" === e.tagName ? "true" : t, e.setAttribute(t, n)) : Xa(t) ? e.setAttribute(t, Za(t, n)) : ti(t) ? ri(n) ? e.removeAttributeNS(ei, ni(t)) : e.setAttributeNS(ei, t, n) : kt(e, t, n)
 	}
 
-	function _t(e, t, n)
+	function kt(e, t, n)
 	{
 		if(ri(n)) e.removeAttribute(t);
 		else
 		{
-			if(Ir && !jr && "TEXTAREA" === e.tagName && "placeholder" === t && "" !== n && !e.__ieph)
+			if(Dr && !Ar && "TEXTAREA" === e.tagName && "placeholder" === t && "" !== n && !e.__ieph)
 			{
 				var r = function(t)
 				{
@@ -2435,7 +2469,7 @@
 		}
 	}
 
-	function kt(e, t)
+	function _t(e, t)
 	{
 		var a = t.elm,
 			i = t.data,
@@ -2481,11 +2515,11 @@
 			.trim()) : t();
 		if(void 0 === i ? i = e.slice(0, a)
 			.trim() : 0 !== h && t(), o)
-			for(a = 0; a < o.length; a++) i = St(i, o[a]);
+			for(a = 0; a < o.length; a++) i = Ot(i, o[a]);
 		return i
 	}
 
-	function St(e, t)
+	function Ot(e, t)
 	{
 		var n = t.indexOf("(");
 		if(0 > n) return '_f("' + t + '")(' + e + ")";
@@ -2499,7 +2533,7 @@
 		console.error("[Vue compiler]: " + e)
 	}
 
-	function Tt(e, t)
+	function St(e, t)
 	{
 		return e ? e.map((function(e)
 			{
@@ -2511,7 +2545,7 @@
 			})) : []
 	}
 
-	function $t(e, t, n, r, a)
+	function jt(e, t, n, r, a)
 	{
 		(e.props || (e.props = []))
 		.push(Mt(
@@ -2533,7 +2567,7 @@
 		}, r)), e.plain = !1
 	}
 
-	function At(e, t, n, r)
+	function Tt(e, t, n, r)
 	{
 		e.attrsMap[t] = n, e.attrsList.push(Mt(
 		{
@@ -2542,7 +2576,7 @@
 		}, r))
 	}
 
-	function Ot(e, t, n, r, a, i, o, s)
+	function $t(e, t, n, r, a, i, o, s)
 	{
 		(e.directives || (e.directives = []))
 		.push(Mt(
@@ -2556,16 +2590,16 @@
 		}, s)), e.plain = !1
 	}
 
-	function It(e, t, n)
+	function Dt(e, t, n)
 	{
 		return n ? "_p(" + t + ',"' + e + '")' : e + t
 	}
 
-	function jt(e, t, n, r, a, i, o, s)
+	function At(e, t, n, r, a, i, o, s)
 	{
 		var c;
 		(r = r || cr)
-		.right ? s ? t = "(" + t + ")==='click'?'contextmenu':(" + t + ")" : "click" === t && (t = "contextmenu", delete r.right) : r.middle && (s ? t = "(" + t + ")==='click'?'mouseup':(" + t + ")" : "click" === t && (t = "mouseup")), r.capture && (delete r.capture, t = It("!", t, s)), r.once && (delete r.once, t = It("~", t, s)), r.passive && (delete r.passive, t = It("&", t, s)), r.native ? (delete r.native, c = e.nativeEvents || (e.nativeEvents = {})) : c = e.events || (e.events = {});
+		.right ? s ? t = "(" + t + ")==='click'?'contextmenu':(" + t + ")" : "click" === t && (t = "contextmenu", delete r.right) : r.middle && (s ? t = "(" + t + ")==='click'?'mouseup':(" + t + ")" : "click" === t && (t = "mouseup")), r.capture && (delete r.capture, t = Dt("!", t, s)), r.once && (delete r.once, t = Dt("~", t, s)), r.passive && (delete r.passive, t = Dt("&", t, s)), r.native ? (delete r.native, c = e.nativeEvents || (e.nativeEvents = {})) : c = e.events || (e.events = {});
 		var d = Mt(
 		{
 			value: n.trim(),
@@ -2576,18 +2610,18 @@
 		Array.isArray(l) ? a ? l.unshift(d) : l.push(d) : c[t] = l ? a ? [d, l] : [l, d] : d, e.plain = !1
 	}
 
-	function Dt(e, t, n)
+	function It(e, t, n)
 	{
-		var r = Nt(e, ":" + t) || Nt(e, "v-bind:" + t);
+		var r = Lt(e, ":" + t) || Lt(e, "v-bind:" + t);
 		if(null != r) return Ct(r);
 		if(!1 !== n)
 		{
-			var a = Nt(e, t);
+			var a = Lt(e, t);
 			if(null != a) return JSON.stringify(a)
 		}
 	}
 
-	function Nt(e, t, n)
+	function Lt(e, t, n)
 	{
 		var r;
 		if(null != (r = e.attrsMap[t]))
@@ -2599,7 +2633,7 @@
 				} return n && delete e.attrsMap[t], r
 	}
 
-	function Lt(e, t)
+	function Nt(e, t)
 	{
 		for(var n, r = e.attrsList, a = 0, i = r.length; a < i; a++)
 			if(n = r[a], t.test(n.name)) return r.splice(a, 1), n
@@ -2618,7 +2652,7 @@
 			i = "$$v",
 			o = i;
 		r.trim && (o = "(typeof $$v === 'string'? $$v.trim(): $$v)"), a && (o = "_n(" + o + ")");
-		var s = Ft(t, o);
+		var s = zt(t, o);
 		e.model = {
 			value: "(" + t + ")",
 			expression: JSON.stringify(t),
@@ -2626,36 +2660,36 @@
 		}
 	}
 
-	function Ft(e, t)
+	function zt(e, t)
 	{
 		var n = function(e)
 		{
-			if(e = e.trim(), Ra = e.length, 0 > e.indexOf("[") || e.lastIndexOf("]") < Ra - 1) return -1 < (za = e.lastIndexOf(".")) ?
+			if(e = e.trim(), Ra = e.length, 0 > e.indexOf("[") || e.lastIndexOf("]") < Ra - 1) return -1 < (Ua = e.lastIndexOf(".")) ?
 			{
-				exp: e.slice(0, za),
-				key: '"' + e.slice(za + 1) + '"'
+				exp: e.slice(0, Ua),
+				key: '"' + e.slice(Ua + 1) + '"'
 			} :
 			{
 				exp: e,
 				key: null
 			};
-			for(Fa = e, za = Ha = Ga = 0; !zt();) Ht(Ua = Ut()) ? Bt(Ua) : 91 === Ua && Gt(Ua);
+			for(za = e, Ua = Ha = Va = 0; !Ut();) Ht(Fa = Ft()) ? Bt(Fa) : 91 === Fa && Vt(Fa);
 			return {
 				exp: e.slice(0, Ha),
-				key: e.slice(Ha + 1, Ga)
+				key: e.slice(Ha + 1, Va)
 			}
 		}(e);
 		return null === n.key ? e + "=" + t : "$set(" + n.exp + ", " + n.key + ", " + t + ")"
 	}
 
-	function Ut()
+	function Ft()
 	{
-		return Fa.charCodeAt(++za)
+		return za.charCodeAt(++Ua)
 	}
 
-	function zt()
+	function Ut()
 	{
-		return za >= Ra
+		return Ua >= Ra
 	}
 
 	function Ht(e)
@@ -2663,24 +2697,24 @@
 		return 34 === e || 39 === e
 	}
 
-	function Gt(e)
+	function Vt(e)
 	{
 		var t = 1;
-		for(Ha = za; !zt();)
-			if(Ht(e = Ut())) Bt(e);
+		for(Ha = Ua; !Ut();)
+			if(Ht(e = Ft())) Bt(e);
 			else if(91 === e && t++, 93 === e && t--, 0 == t)
 		{
-			Ga = za;
+			Va = Ua;
 			break
 		}
 	}
 
 	function Bt(e)
 	{
-		for(var t = e; !zt() && (e = Ut()) !== t;);
+		for(var t = e; !Ut() && (e = Ft()) !== t;);
 	}
 
-	function Vt(e, t, n)
+	function Gt(e, t, n)
 	{
 		var r = Ba;
 		return function a()
@@ -2694,7 +2728,7 @@
 	{
 		if(gi)
 		{
-			var a = $a,
+			var a = ja,
 				i = t;
 			t = i._wrapper = function(e)
 			{
@@ -2727,11 +2761,11 @@
 				{
 					if(r(e[vi]))
 					{
-						var t = Ir ? "change" : "input";
+						var t = Dr ? "change" : "input";
 						e[t] = [].concat(e[vi], e[t] || []), delete e[vi]
 					}
 					r(e[mi]) && (e.change = [].concat(e[mi], e.change || []), delete e[mi])
-				}(a), ee(a, i, Wt, Kt, Vt, t.context), Ba = void 0
+				}(a), ee(a, i, Wt, Kt, Gt, t.context), Ba = void 0
 		}
 	}
 
@@ -2761,9 +2795,9 @@
 				}
 				else if("innerHTML" === a && oi(o.tagName) && n(o.innerHTML))
 				{
-					(Va = Va || document.createElement("div"))
+					(Ga = Ga || document.createElement("div"))
 					.innerHTML = "<svg>" + i + "</svg>";
-					for(var l = Va.firstChild; o.firstChild;) o.removeChild(o.firstChild);
+					for(var l = Ga.firstChild; o.firstChild;) o.removeChild(o.firstChild);
 					for(; l.firstChild;) o.appendChild(l.firstChild)
 				}
 				else if(i !== s[a]) try
@@ -2809,7 +2843,7 @@
 
 	function Zt(e)
 	{
-		return Array.isArray(e) ? x(e) : "string" == typeof e ? xi(e) : e
+		return Array.isArray(e) ? b(e) : "string" == typeof e ? bi(e) : e
 	}
 
 	function Qt(e, t)
@@ -2879,17 +2913,17 @@
 			if("object" == typeof e)
 			{
 				var t = {};
-				return !1 !== e.css && g(t, Si(e.name || "v")), g(t, e), t
+				return !1 !== e.css && g(t, Oi(e.name || "v")), g(t, e), t
 			}
-			return "string" == typeof e ? Si(e) : void 0
+			return "string" == typeof e ? Oi(e) : void 0
 		}
 	}
 
 	function rn(e)
 	{
-		ji((function()
+		Ai((function()
 		{
-			ji(e)
+			Ai(e)
 		}))
 	}
 
@@ -2911,7 +2945,7 @@
 			i = r.timeout,
 			o = r.propCount;
 		if(!a) return n();
-		var s = a === Ti ? Ai : Ii,
+		var s = a === Si ? Ti : Di,
 			c = 0,
 			d = function()
 			{
@@ -2935,19 +2969,19 @@
 			i = (r[Ei + "Duration"] || "")
 			.split(", "),
 			o = dn(a, i),
-			s = (r[Oi + "Delay"] || "")
+			s = (r[$i + "Delay"] || "")
 			.split(", "),
-			c = (r[Oi + "Duration"] || "")
+			c = (r[$i + "Duration"] || "")
 			.split(", "),
 			d = dn(s, c),
 			l = 0,
 			u = 0;
-		return t === Ti ? 0 < o && (n = Ti, l = o, u = i.length) : t === $i ? 0 < d && (n = $i, l = d, u = c.length) : u = (n = 0 < (l = sr(o, d)) ? o > d ? Ti : $i : null) ? n === Ti ? i.length : c.length : 0,
+		return t === Si ? 0 < o && (n = Si, l = o, u = i.length) : t === ji ? 0 < d && (n = ji, l = d, u = c.length) : u = (n = 0 < (l = sr(o, d)) ? o > d ? Si : ji : null) ? n === Si ? i.length : c.length : 0,
 		{
 			type: n,
 			timeout: l,
 			propCount: u,
-			hasTransform: n === Ti && Di.test(r[Ei + "Property"])
+			hasTransform: n === Si && Ii.test(r[Ei + "Property"])
 		}
 	}
 
@@ -2973,33 +3007,33 @@
 		var i = nn(e.data.transition);
 		if(!n(i) && !r(a._enterCb) && 1 === a.nodeType)
 		{
-			for(var s = i.css, c = i.type, d = i.enterClass, l = i.enterToClass, p = i.enterActiveClass, f = i.appearClass, h = i.appearToClass, v = i.appearActiveClass, m = i.beforeEnter, g = i.enter, x = i.afterEnter, b = i.enterCancelled, y = i.beforeAppear, w = i.appear, k = i.afterAppear, C = i.appearCancelled, S = i.duration, P = wa, T = wa.$vnode; T && T.parent;) P = T.context, T = T.parent;
-			var $ = !P._isMounted || !e.isRootInsert;
-			if(!$ || w || "" === w)
+			for(var s = i.css, c = i.type, d = i.enterClass, l = i.enterToClass, p = i.enterActiveClass, f = i.appearClass, h = i.appearToClass, v = i.appearActiveClass, m = i.beforeEnter, g = i.enter, b = i.afterEnter, x = i.enterCancelled, y = i.beforeAppear, w = i.appear, _ = i.afterAppear, C = i.appearCancelled, O = i.duration, P = wa, S = wa.$vnode; S && S.parent;) P = S.context, S = S.parent;
+			var j = !P._isMounted || !e.isRootInsert;
+			if(!j || w || "" === w)
 			{
-				var E = $ && f ? f : d,
-					A = $ && v ? v : p,
-					O = $ && h ? h : l,
-					I = $ && y || m,
-					j = $ && "function" == typeof w ? w : g,
-					D = $ && k || x,
-					N = $ && C || b,
-					L = u(o(S) ? S.enter : S),
-					M = !1 !== s && !jr,
-					R = hn(j),
-					F = a._enterCb = _((function()
+				var E = j && f ? f : d,
+					T = j && v ? v : p,
+					$ = j && h ? h : l,
+					D = j && y || m,
+					A = j && "function" == typeof w ? w : g,
+					I = j && _ || b,
+					L = j && C || x,
+					N = u(o(O) ? O.enter : O),
+					M = !1 !== s && !Ar,
+					R = hn(A),
+					z = a._enterCb = k((function()
 					{
-						M && (on(a, O), on(a, A)), F.cancelled ? (M && on(a, E), N && N(a)) : D && D(a), a._enterCb = null
+						M && (on(a, $), on(a, T)), z.cancelled ? (M && on(a, E), L && L(a)) : I && I(a), a._enterCb = null
 					}));
 				e.data.show || te(e, "insert", (function()
 				{
 					var t = a.parentNode,
 						n = t && t._pending && t._pending[e.key];
-					n && n.tag === e.tag && n.elm._leaveCb && n.elm._leaveCb(), j && j(a, F)
-				})), I && I(a), M && (an(a, E), an(a, A), rn((function()
+					n && n.tag === e.tag && n.elm._leaveCb && n.elm._leaveCb(), A && A(a, z)
+				})), D && D(a), M && (an(a, E), an(a, T), rn((function()
 				{
-					on(a, E), F.cancelled || (an(a, O), !R && (fn(L) ? setTimeout(F, L) : sn(a, c, F)))
-				}))), e.data.show && (t && t(), j && j(a, F)), M || R || F()
+					on(a, E), z.cancelled || (an(a, $), !R && (fn(N) ? setTimeout(z, N) : sn(a, c, z)))
+				}))), e.data.show && (t && t(), A && A(a, z)), M || R || z()
 			}
 		}
 	}
@@ -3010,7 +3044,7 @@
 		{
 			C.cancelled || (!e.data.show && i.parentNode && ((i.parentNode._pending || (i.parentNode._pending = {}))[e.key] = e), h && h(i), y && (an(i, l), an(i, f), rn((function()
 			{
-				on(i, l), C.cancelled || (an(i, p), !w && (fn(k) ? setTimeout(C, k) : sn(i, d, C)))
+				on(i, l), C.cancelled || (an(i, p), !w && (fn(_) ? setTimeout(C, _) : sn(i, d, C)))
 			}))), v && v(i, C), !y && !w && C())
 		}
 		var i = e.elm;
@@ -3028,16 +3062,16 @@
 				v = s.leave,
 				m = s.afterLeave,
 				g = s.leaveCancelled,
-				x = s.delayLeave,
-				b = s.duration,
-				y = !1 !== c && !jr,
+				b = s.delayLeave,
+				x = s.duration,
+				y = !1 !== c && !Ar,
 				w = hn(v),
-				k = u(o(b) ? b.leave : b),
-				C = i._leaveCb = _((function()
+				_ = u(o(x) ? x.leave : x),
+				C = i._leaveCb = k((function()
 				{
 					i.parentNode && i.parentNode._pending && (i.parentNode._pending[e.key] = null), y && (on(i, p), on(i, f)), C.cancelled ? (y && on(i, l), g && g(i)) : (t(), m && m(i)), i._leaveCb = null
 				}));
-			x ? x(a) : a()
+			b ? b(a) : a()
 		}
 	}
 
@@ -3060,7 +3094,7 @@
 
 	function mn(e, t, n)
 	{
-		gn(e, t), (Ir || Dr) && setTimeout((function()
+		gn(e, t), (Dr || Ir) && setTimeout((function()
 		{
 			gn(e, t)
 		}), 0)
@@ -3073,13 +3107,13 @@
 		if(!r || Array.isArray(n))
 		{
 			for(var a, i, o = 0, s = e.options.length; o < s; o++)
-				if(i = e.options[o], r) a = -1 < w(n, bn(i)), i.selected !== a && (i.selected = a);
-				else if(y(bn(i), n)) return void(e.selectedIndex !== o && (e.selectedIndex = o));
+				if(i = e.options[o], r) a = -1 < w(n, xn(i)), i.selected !== a && (i.selected = a);
+				else if(y(xn(i), n)) return void(e.selectedIndex !== o && (e.selectedIndex = o));
 			r || (e.selectedIndex = -1)
 		}
 	}
 
-	function xn(e, t)
+	function bn(e, t)
 	{
 		return t.every((function(t)
 		{
@@ -3087,7 +3121,7 @@
 		}))
 	}
 
-	function bn(e)
+	function xn(e)
 	{
 		return "_value" in e ? e._value : e.value
 	}
@@ -3099,18 +3133,18 @@
 
 	function wn(e)
 	{
-		e.target.composing && (e.target.composing = !1, _n(e.target, "input"))
+		e.target.composing && (e.target.composing = !1, kn(e.target, "input"))
 	}
 
-	function _n(e, t)
+	function kn(e, t)
 	{
 		var n = document.createEvent("HTMLEvents");
 		n.initEvent(t, !0, !0), e.dispatchEvent(n)
 	}
 
-	function kn(e)
+	function _n(e)
 	{
-		return !e.componentInstance || e.data && e.data.transition ? e : kn(e.componentInstance._vnode)
+		return !e.componentInstance || e.data && e.data.transition ? e : _n(e.componentInstance._vnode)
 	}
 
 	function Cn(e)
@@ -3119,7 +3153,7 @@
 		return t && t.Ctor.options.abstract ? Cn(Re(t.children)) : e
 	}
 
-	function Sn(e)
+	function On(e)
 	{
 		var t = {},
 			n = e.$options;
@@ -3137,12 +3171,12 @@
 		})
 	}
 
-	function Tn(e)
+	function Sn(e)
 	{
 		e.elm._moveCb && e.elm._moveCb(), e.elm._enterCb && e.elm._enterCb()
 	}
 
-	function $n(e)
+	function jn(e)
 	{
 		e.data.newPos = e.elm.getBoundingClientRect()
 	}
@@ -3161,16 +3195,16 @@
 		}
 	}
 
-	function An(e, t)
+	function Tn(e, t)
 	{
-		var n = t ? yo : bo;
+		var n = t ? yo : xo;
 		return e.replace(n, (function(e)
 		{
-			return xo[e]
+			return bo[e]
 		}))
 	}
 
-	function On(e, t, n)
+	function $n(e, t, n)
 	{
 		return {
 			type: 1,
@@ -3184,11 +3218,11 @@
 		}
 	}
 
-	function In(e, t)
+	function Dn(e, t)
 	{
 		function n(e)
 		{
-			if(r(e), l || e.processed || (e = jn(e, t)), s.length || e === i || i.if && (e.elseif || e.else) && Nn(i,
+			if(r(e), l || e.processed || (e = An(e, t)), s.length || e === i || i.if && (e.elseif || e.else) && Ln(i,
 			{
 				exp: e.elseif,
 				block: e
@@ -3203,7 +3237,7 @@
 							e.pop()
 						}
 					}(t.children);
-					n && n.if && Nn(n,
+					n && n.if && Ln(n,
 					{
 						exp: e.elseif,
 						block: e
@@ -3230,12 +3264,12 @@
 				for(var t;
 					(t = e.children[e.children.length - 1]) && 3 === t.type && " " === t.text;) e.children.pop()
 		}
-		Hi = t.warn || Pt, Ki = t.isPreTag || br, qi = t.mustUseProp || br, Yi = t.getTagNamespace || br;
-		var a = t.isReservedTag || br;
+		Hi = t.warn || Pt, Ki = t.isPreTag || xr, qi = t.mustUseProp || xr, Yi = t.getTagNamespace || xr;
+		var a = t.isReservedTag || xr;
 		(function(e)
 		{
 			return !!e.component || !a(e.tag)
-		}), Bi = Tt(t.modules, "transformNode"), Vi = Tt(t.modules, "preTransformNode"), Wi = Tt(t.modules, "postTransformNode"), Gi = t.delimiters;
+		}), Bi = St(t.modules, "transformNode"), Gi = St(t.modules, "preTransformNode"), Wi = St(t.modules, "postTransformNode"), Vi = t.delimiters;
 		var i, o, s = [],
 			c = !1 !== t.preserveWhitespace,
 			d = t.whitespace,
@@ -3275,7 +3309,7 @@
 						m = "a" === n && "href" === h[1] ? t.shouldDecodeNewlinesForHref : t.shouldDecodeNewlines;
 					p[f] = {
 						name: h[1],
-						value: An(v, m)
+						value: Tn(v, m)
 					}
 				}
 				a || (c.push(
@@ -3301,7 +3335,7 @@
 				}
 				else "br" === i ? t.start && t.start(e, [], !0, n, r) : "p" === i && (t.start && t.start(e, [], !1, n, r), t.end && t.end(e, n, r))
 			}
-			for(var o, s, c = [], d = t.expectHTML, l = t.isUnaryTag || br, u = t.canBeLeftOpenTag || br, p = 0; e;)
+			for(var o, s, c = [], d = t.expectHTML, l = t.isUnaryTag || xr, u = t.canBeLeftOpenTag || xr, p = 0; e;)
 			{
 				if(o = e, s && mo(s))
 				{
@@ -3311,7 +3345,7 @@
 						m = e.replace(v, (function(e, n, r)
 						{
 							return f = r.length, mo(h) || "noscript" === h || (n = n.replace(/<!\--([\s\S]*?)-->/g, "$1")
-								.replace(/<!\[CDATA\[([\s\S]*?)]]>/g, "$1")), _o(h, n) && (n = n.slice(1)), t.chars && t.chars(n), ""
+								.replace(/<!\[CDATA\[([\s\S]*?)]]>/g, "$1")), ko(h, n) && (n = n.slice(1)), t.chars && t.chars(n), ""
 						}));
 					p += e.length - m.length, e = m, i(h, p - f, p)
 				}
@@ -3322,19 +3356,19 @@
 					{
 						if(ho.test(e))
 						{
-							var x = e.indexOf("--\x3e");
-							if(0 <= x)
+							var b = e.indexOf("--\x3e");
+							if(0 <= b)
 							{
-								t.shouldKeepComment && t.comment(e.substring(4, x), p, p + x + 3), n(x + 3);
+								t.shouldKeepComment && t.comment(e.substring(4, b), p, p + b + 3), n(b + 3);
 								continue
 							}
 						}
 						if(vo.test(e))
 						{
-							var b = e.indexOf("]>");
-							if(0 <= b)
+							var x = e.indexOf("]>");
+							if(0 <= x)
 							{
-								n(b + 2);
+								n(x + 2);
 								continue
 							}
 						}
@@ -3347,23 +3381,23 @@
 						var w = e.match(po);
 						if(w)
 						{
-							var _ = p;
-							n(w[0].length), i(w[1], _, p);
+							var k = p;
+							n(w[0].length), i(w[1], k, p);
 							continue
 						}
-						var k = r();
-						if(k)
+						var _ = r();
+						if(_)
 						{
-							a(k), _o(k.tagName, e) && n(1);
+							a(_), ko(_.tagName, e) && n(1);
 							continue
 						}
 					}
 					var C = void 0,
-						S = void 0,
+						O = void 0,
 						P = void 0;
 					if(0 <= g)
 					{
-						for(S = e.slice(g); !(po.test(S) || lo.test(S) || ho.test(S) || vo.test(S) || (P = S.indexOf("<", 1), 0 > P));) g += P, S = e.slice(g);
+						for(O = e.slice(g); !(po.test(O) || lo.test(O) || ho.test(O) || vo.test(O) || (P = O.indexOf("<", 1), 0 > P));) g += P, O = e.slice(g);
 						C = e.substring(0, g)
 					}
 					0 > g && (C = e), C && n(C.length), t.chars && C && t.chars(C, p - C.length, p)
@@ -3388,21 +3422,21 @@
 			start: function(e, r, a)
 			{
 				var c = o && o.ns || Yi(e);
-				Ir && "svg" === c && (r = function(e)
+				Dr && "svg" === c && (r = function(e)
 				{
 					for(var t, n = [], r = 0; r < e.length; r++) t = e[r], Mo.test(t.name) || (t.name = t.name.replace(Ro, ""), n.push(t));
 					return n
 				}(r));
-				var d = On(e, r, o);
+				var d = $n(e, r, o);
 				c && (d.ns = c),
 					function(e)
 					{
 						return "style" === e.tag || "script" === e.tag && (!e.attrsMap.type || "text/javascript" === e.attrsMap.type)
 					}(d) && !Hr() && (d.forbidden = !0);
-				for(var p = 0; p < Vi.length; p++) d = Vi[p](d, t) || d;
+				for(var p = 0; p < Gi.length; p++) d = Gi[p](d, t) || d;
 				l || (function(e)
 				{
-					null != Nt(e, "v-pre") && (e.pre = !0)
+					null != Lt(e, "v-pre") && (e.pre = !0)
 				}(d), d.pre && (l = !0)), Ki(d.tag) && (u = !0), l ? function(e)
 				{
 					var t = e.attrsList,
@@ -3413,23 +3447,23 @@
 							value: JSON.stringify(t[a].value)
 						}, null != t[a].start && (r[a].start = t[a].start, r[a].end = t[a].end);
 					else e.pre || (e.plain = !0)
-				}(d) : !d.processed && (Dn(d), function(e)
+				}(d) : !d.processed && (In(d), function(e)
 				{
-					var t = Nt(e, "v-if");
-					if(t) e.if = t, Nn(e,
+					var t = Lt(e, "v-if");
+					if(t) e.if = t, Ln(e,
 					{
 						exp: t,
 						block: e
 					});
 					else
 					{
-						null != Nt(e, "v-else") && (e.else = !0);
-						var n = Nt(e, "v-else-if");
+						null != Lt(e, "v-else") && (e.else = !0);
+						var n = Lt(e, "v-else-if");
 						n && (e.elseif = n)
 					}
 				}(d), function(e)
 				{
-					null != Nt(e, "v-once") && (e.once = !0)
+					null != Lt(e, "v-once") && (e.once = !0)
 				}(d)), i || (i = d), a ? n(d) : (o = d, s.push(d))
 			},
 			end: function()
@@ -3439,13 +3473,13 @@
 			},
 			chars: function(e)
 			{
-				if(o && (!Ir || "textarea" !== o.tag || o.attrsMap.placeholder !== e))
+				if(o && (!Dr || "textarea" !== o.tag || o.attrsMap.placeholder !== e))
 				{
 					var t, n, r = o.children;
 					if(e = u || e.trim() ? function(e)
 					{
 						return "script" === e.tag || "style" === e.tag
-					}(o) ? e : No(e) : r.length ? d ? "condense" === d && jo.test(e) ? "" : " " : c ? " " : "" : "") u || "condense" !== d || (e = e.replace(Do, " ")), !l && " " !== e && (t = function(e, t)
+					}(o) ? e : Lo(e) : r.length ? d ? "condense" === d && Ao.test(e) ? "" : " " : c ? " " : "" : "") u || "condense" !== d || (e = e.replace(Io, " ")), !l && " " !== e && (t = function(e, t)
 					{
 						var n = t ? to(t) : Qi;
 						if(n.test(e))
@@ -3465,7 +3499,7 @@
 								tokens: s
 							}
 						}
-					}(e, Gi)) ? n = {
+					}(e, Vi)) ? n = {
 						type: 2,
 						expression: t.expression,
 						tokens: t.tokens,
@@ -3488,16 +3522,16 @@
 		}), i
 	}
 
-	function jn(e, t)
+	function An(e, t)
 	{
 		(function(e)
 		{
-			var t = Dt(e, "key");
+			var t = It(e, "key");
 			t && (e.key = t)
 		})(e), e.plain = !e.key && !e.scopedSlots && !e.attrsList.length,
 			function(e)
 			{
-				var t = Dt(e, "ref");
+				var t = It(e, "ref");
 				t && (e.ref = t, e.refInFor = function(e)
 				{
 					for(var t = e; t;)
@@ -3511,47 +3545,47 @@
 			function(e)
 			{
 				var t;
-				"template" === e.tag ? (t = Nt(e, "scope"), e.slotScope = t || Nt(e, "slot-scope")) : (t = Nt(e, "slot-scope")) && (e.slotScope = t);
-				var n = Dt(e, "slot");
+				"template" === e.tag ? (t = Lt(e, "scope"), e.slotScope = t || Lt(e, "slot-scope")) : (t = Lt(e, "slot-scope")) && (e.slotScope = t);
+				var n = It(e, "slot");
 				if(n && (e.slotTarget = '""' === n ? '"default"' : n, e.slotTargetDynamic = !(!e.attrsMap[":slot"] && !e.attrsMap["v-bind:slot"]), "template" !== e.tag && !e.slotScope && Et(e, "slot", n, function(e, t)
 				{
 					return e.rawAttrsMap[":" + t] || e.rawAttrsMap["v-bind:" + t] || e.rawAttrsMap[t]
 				}(e, "slot"))), "template" === e.tag)
 				{
-					var r = Lt(e, Io);
+					var r = Nt(e, Do);
 					if(r)
 					{
-						var a = Ln(r),
+						var a = Nn(r),
 							i = a.name,
 							o = a.dynamic;
-						e.slotTarget = i, e.slotTargetDynamic = o, e.slotScope = r.value || Lo
+						e.slotTarget = i, e.slotTargetDynamic = o, e.slotScope = r.value || No
 					}
 				}
 				else
 				{
-					var s = Lt(e, Io);
+					var s = Nt(e, Do);
 					if(s)
 					{
 						var c = e.scopedSlots || (e.scopedSlots = {}),
-							d = Ln(s),
+							d = Nn(s),
 							l = d.name,
 							u = d.dynamic,
-							p = c[l] = On("template", [], e);
+							p = c[l] = $n("template", [], e);
 						p.slotTarget = l, p.slotTargetDynamic = u, p.children = e.children.filter((function(e)
 						{
 							if(!e.slotScope) return e.parent = p, !0
-						})), p.slotScope = s.value || Lo, e.children = [], e.plain = !1
+						})), p.slotScope = s.value || No, e.children = [], e.plain = !1
 					}
 				}
 			}(e),
 			function(e)
 			{
-				"slot" === e.tag && (e.slotName = Dt(e, "name"))
+				"slot" === e.tag && (e.slotName = It(e, "name"))
 			}(e),
 			function(e)
 			{
 				var t;
-				(t = Dt(e, "is")) && (e.component = t), null != Nt(e, "inline-template") && (e.inlineTemplate = !0)
+				(t = It(e, "is")) && (e.component = t), null != Lt(e, "inline-template") && (e.inlineTemplate = !0)
 			}(e);
 		for(var n = 0; n < Bi.length; n++) e = Bi[n](e, t) || e;
 		return function(e)
@@ -3559,34 +3593,34 @@
 			var t, n, r, a, i, o, s, c, d = e.attrsList;
 			for(t = 0, n = d.length; t < n; t++)
 				if(r = a = d[t].name, i = d[t].value, Co.test(r))
-					if(e.hasBindings = !0, (o = Mn(r.replace(Co, ""))) && (r = r.replace(Oo, "")), Ao.test(r)) r = r.replace(Ao, ""), i = Ct(i), (c = $o.test(r)) && (r = r.slice(1, -1)), o && (o.prop && !c && "innerHtml" === (r = hr(r)) && (r = "innerHTML"), o.camel && !c && (r = hr(r)), o.sync && (s = Ft(i, "$event"), c ? jt(e, '"update:"+(' + r + ")", s, null, !1, 0, d[t], !0) : (jt(e, "update:" + hr(r), s, null, !1, 0, d[t]), gr(r) !== hr(r) && jt(e, "update:" + gr(r), s, null, !1, 0, d[t])))), o && o.prop || !e.component && qi(e.tag, e.attrsMap.type, r) ? $t(e, r, i, d[t], c) : Et(e, r, i, d[t], c);
-					else if(ko.test(r)) r = r.replace(ko, ""), (c = $o.test(r)) && (r = r.slice(1, -1)), jt(e, r, i, o, !1, 0, d[t], c);
+					if(e.hasBindings = !0, (o = Mn(r.replace(Co, ""))) && (r = r.replace($o, "")), To.test(r)) r = r.replace(To, ""), i = Ct(i), (c = jo.test(r)) && (r = r.slice(1, -1)), o && (o.prop && !c && "innerHtml" === (r = hr(r)) && (r = "innerHTML"), o.camel && !c && (r = hr(r)), o.sync && (s = zt(i, "$event"), c ? At(e, '"update:"+(' + r + ")", s, null, !1, 0, d[t], !0) : (At(e, "update:" + hr(r), s, null, !1, 0, d[t]), gr(r) !== hr(r) && At(e, "update:" + gr(r), s, null, !1, 0, d[t])))), o && o.prop || !e.component && qi(e.tag, e.attrsMap.type, r) ? jt(e, r, i, d[t], c) : Et(e, r, i, d[t], c);
+					else if(_o.test(r)) r = r.replace(_o, ""), (c = jo.test(r)) && (r = r.slice(1, -1)), At(e, r, i, o, !1, 0, d[t], c);
 			else
 			{
 				var l = (r = r.replace(Co, ""))
 					.match(Eo),
 					u = l && l[1];
-				c = !1, u && (r = r.slice(0, -(u.length + 1)), $o.test(u) && (u = u.slice(1, -1), c = !0)), Ot(e, r, a, i, u, c, o, d[t])
+				c = !1, u && (r = r.slice(0, -(u.length + 1)), jo.test(u) && (u = u.slice(1, -1), c = !0)), $t(e, r, a, i, u, c, o, d[t])
 			}
-			else Et(e, r, JSON.stringify(i), d[t]), !e.component && "muted" === r && qi(e.tag, e.attrsMap.type, r) && $t(e, r, "true", d[t])
+			else Et(e, r, JSON.stringify(i), d[t]), !e.component && "muted" === r && qi(e.tag, e.attrsMap.type, r) && jt(e, r, "true", d[t])
 		}(e), e
 	}
 
-	function Dn(e)
+	function In(e)
 	{
 		var t;
-		if(t = Nt(e, "v-for"))
+		if(t = Lt(e, "v-for"))
 		{
 			var n = function(e)
 			{
-				var t = e.match(So);
+				var t = e.match(Oo);
 				if(t)
 				{
 					var n = {
 							for: t[2].trim()
 						},
 						r = t[1].trim()
-						.replace(To, ""),
+						.replace(So, ""),
 						a = r.match(Po);
 					return a ? (n.alias = r.replace(Po, "")
 						.trim(), n.iterator1 = a[1].trim(), a[2] && (n.iterator2 = a[2].trim())) : n.alias = r, n
@@ -3596,15 +3630,15 @@
 		}
 	}
 
-	function Nn(e, t)
+	function Ln(e, t)
 	{
 		e.ifConditions || (e.ifConditions = []), e.ifConditions.push(t)
 	}
 
-	function Ln(e)
+	function Nn(e)
 	{
-		var t = e.name.replace(Io, "");
-		return t || "#" !== e.name[0] && (t = "default"), $o.test(t) ?
+		var t = e.name.replace(Do, "");
+		return t || "#" !== e.name[0] && (t = "default"), jo.test(t) ?
 		{
 			name: t.slice(1, -1),
 			dynamic: !0
@@ -3617,7 +3651,7 @@
 
 	function Mn(e)
 	{
-		var t = e.match(Oo);
+		var t = e.match($o);
 		if(t)
 		{
 			var n = {};
@@ -3634,14 +3668,14 @@
 		return t
 	}
 
-	function Fn(e)
+	function zn(e)
 	{
-		return On(e.tag, e.attrsList.slice(), e.parent)
+		return $n(e.tag, e.attrsList.slice(), e.parent)
 	}
 
-	function Un(e, t)
+	function Fn(e, t)
 	{
-		e && (Xi = zo(t.staticKeys || ""), Ji = t.isReservedTag || br, function e(t)
+		e && (Xi = Uo(t.staticKeys || ""), Ji = t.isReservedTag || xr, function e(t)
 		{
 			if(t.static = function(e)
 			{
@@ -3676,7 +3710,7 @@
 		}(e, !1))
 	}
 
-	function zn(e, t)
+	function Un(e, t)
 	{
 		var n = t ? "nativeOn:" : "on:",
 			r = "",
@@ -3699,13 +3733,13 @@
 			.join(",") + "]";
 		var t = Bo.test(e.value),
 			n = Ho.test(e.value),
-			r = Bo.test(e.value.replace(Go, ""));
+			r = Bo.test(e.value.replace(Vo, ""));
 		if(!e.modifiers) return t || n ? e.value : "function($event){" + (r ? "return " + e.value : e.value) + "}";
 		var a = "",
 			i = "",
 			o = [];
 		for(var s in e.modifiers)
-			if(qo[s]) i += qo[s], Vo[s] && o.push(s);
+			if(qo[s]) i += qo[s], Go[s] && o.push(s);
 			else if("exact" == s)
 		{
 			var c = e.modifiers;
@@ -3722,16 +3756,16 @@
 		else o.push(s);
 		return o.length && (a += function(e)
 		{
-			return "if(!$event.type.indexOf('key')&&" + e.map(Gn)
+			return "if(!$event.type.indexOf('key')&&" + e.map(Vn)
 				.join("&&") + ")return null;"
 		}(o)), i && (a += i), "function($event){" + a + (t ? "return " + e.value + "($event)" : n ? "return (" + e.value + ")($event)" : r ? "return " + e.value : e.value) + "}"
 	}
 
-	function Gn(e)
+	function Vn(e)
 	{
 		var t = parseInt(e, 10);
 		if(t) return "$event.keyCode!==" + t;
-		var n = Vo[e],
+		var n = Go[e],
 			r = Wo[e];
 		return "_k($event.keyCode," + JSON.stringify(e) + "," + JSON.stringify(n) + ",$event.key," + JSON.stringify(r) + ")"
 	}
@@ -3740,12 +3774,12 @@
 	{
 		var n = new Xo(t);
 		return {
-			render: "with(this){return " + (e ? Vn(e, n) : '_c("div")') + "}",
+			render: "with(this){return " + (e ? Gn(e, n) : '_c("div")') + "}",
 			staticRenderFns: n.staticRenderFns
 		}
 	}
 
-	function Vn(e, t)
+	function Gn(e, t)
 	{
 		if(e.parent && (e.pre = e.pre || e.parent.pre), e.staticRoot && !e.staticProcessed) return Wn(e, t);
 		if(e.once && !e.onceProcessed) return Kn(e, t);
@@ -3791,7 +3825,7 @@
 	{
 		e.staticProcessed = !0;
 		var n = t.pre;
-		return e.pre && (t.pre = e.pre), t.staticRenderFns.push("with(this){return " + Vn(e, t) + "}"), t.pre = n, "_m(" + (t.staticRenderFns.length - 1) + (e.staticInFor ? ",true" : "") + ")"
+		return e.pre && (t.pre = e.pre), t.staticRenderFns.push("with(this){return " + Gn(e, t) + "}"), t.pre = n, "_m(" + (t.staticRenderFns.length - 1) + (e.staticInFor ? ",true" : "") + ")"
 	}
 
 	function Kn(e, t)
@@ -3808,7 +3842,7 @@
 				}
 				r = r.parent
 			}
-			return n ? "_o(" + Vn(e, t) + "," + t.onceId++ + "," + n + ")" : Vn(e, t)
+			return n ? "_o(" + Gn(e, t) + "," + t.onceId++ + "," + n + ")" : Gn(e, t)
 		}
 		return Wn(e, t)
 	}
@@ -3820,7 +3854,7 @@
 			{
 				function i(e)
 				{
-					return r ? r(e, n) : e.once ? Kn(e, n) : Vn(e, n)
+					return r ? r(e, n) : e.once ? Kn(e, n) : Gn(e, n)
 				}
 				if(!t.length) return a || "_e()";
 				var o = t.shift();
@@ -3834,7 +3868,7 @@
 			i = e.alias,
 			o = e.iterator1 ? "," + e.iterator1 : "",
 			s = e.iterator2 ? "," + e.iterator2 : "";
-		return e.forProcessed = !0, (r || "_l") + "((" + a + "),function(" + i + o + s + "){return " + (n || Vn)(e, t) + "})"
+		return e.forProcessed = !0, (r || "_l") + "((" + a + "),function(" + i + o + s + "){return " + (n || Gn)(e, t) + "})"
 	}
 
 	function Xn(e, t)
@@ -3858,7 +3892,7 @@
 			}(e, t);
 		r && (n += r + ","), e.key && (n += "key:" + e.key + ","), e.ref && (n += "ref:" + e.ref + ","), e.refInFor && (n += "refInFor:true,"), e.pre && (n += "pre:true,"), e.component && (n += 'tag:"' + e.tag + '",');
 		for(var a = 0; a < t.dataGenFns.length; a++) n += t.dataGenFns[a](e);
-		if(e.attrs && (n += "attrs:" + nr(e.attrs) + ","), e.props && (n += "domProps:" + nr(e.props) + ","), e.events && (n += zn(e.events, !1) + ","), e.nativeEvents && (n += zn(e.nativeEvents, !0) + ","), e.slotTarget && !e.slotScope && (n += "slot:" + e.slotTarget + ","), e.scopedSlots && (n += function(e, t, n)
+		if(e.attrs && (n += "attrs:" + nr(e.attrs) + ","), e.props && (n += "domProps:" + nr(e.props) + ","), e.events && (n += Un(e.events, !1) + ","), e.nativeEvents && (n += Un(e.nativeEvents, !0) + ","), e.slotTarget && !e.slotScope && (n += "slot:" + e.slotTarget + ","), e.scopedSlots && (n += function(e, t, n)
 		{
 			var r = e.for || Object.keys(t)
 				.some((function(e)
@@ -3870,7 +3904,7 @@
 			if(!r)
 				for(var i = e.parent; i;)
 				{
-					if(i.slotScope && i.slotScope !== Lo || i.for)
+					if(i.slotScope && i.slotScope !== No || i.for)
 					{
 						r = !0;
 						break
@@ -3918,8 +3952,8 @@
 		var n = e.attrsMap["slot-scope"];
 		if(e.if && !e.ifProcessed && !n) return qn(e, t, Zn, "null");
 		if(e.for && !e.forProcessed) return Yn(e, t, Zn);
-		var r = e.slotScope === Lo ? "" : e.slotScope + "",
-			a = "function(" + r + "){return " + ("template" === e.tag ? e.if && n ? "(" + e.if+")?" + (Qn(e, t) || "undefined") + ":undefined" : Qn(e, t) || "undefined" : Vn(e, t)) + "}",
+		var r = e.slotScope === No ? "" : e.slotScope + "",
+			a = "function(" + r + "){return " + ("template" === e.tag ? e.if && n ? "(" + e.if+")?" + (Qn(e, t) || "undefined") + ":undefined" : Qn(e, t) || "undefined" : Gn(e, t)) + "}",
 			i = r ? "" : ",proxy:true";
 		return "{key:" + (e.slotTarget || '"default"') + ",fn:" + a + i + "}"
 	}
@@ -3933,7 +3967,7 @@
 			if(1 === i.length && o.for && "template" !== o.tag && "slot" !== o.tag)
 			{
 				var s = n ? t.maybeComponent(o) ? ",1" : ",0" : "";
-				return "" + (r || Vn)(o, t) + s
+				return "" + (r || Gn)(o, t) + s
 			}
 			var c = n ? function(e, t)
 			{
@@ -3969,7 +4003,7 @@
 
 	function tr(e, t)
 	{
-		return 1 === e.type ? Vn(e, t) : 3 === e.type && e.isComment ? function(e)
+		return 1 === e.type ? Gn(e, t) : 3 === e.type && e.isComment ? function(e)
 		{
 			return "_e(" + JSON.stringify(e.text) + ")"
 		}(e) : function(e)
@@ -4007,7 +4041,7 @@
 			{
 				err: n,
 				code: e
-			}), b
+			}), x
 		}
 	}
 
@@ -4062,7 +4096,7 @@
 			return e.replace(mr, "-$1")
 				.toLowerCase()
 		})),
-		xr = Function.prototype.bind ? function(e, t)
+		br = Function.prototype.bind ? function(e, t)
 		{
 			return e.bind(t)
 		} : function(e, t)
@@ -4074,7 +4108,7 @@
 			}
 			return n._length = e.length, n
 		},
-		br = function()
+		xr = function()
 		{
 			return !1
 		},
@@ -4083,8 +4117,8 @@
 			return e
 		},
 		wr = "data-server-rendered",
-		_r = ["component", "directive", "filter"],
-		kr = ["beforeCreate", "created", "beforeMount", "mounted", "beforeUpdate", "updated", "beforeDestroy", "destroyed", "activated", "deactivated", "errorCaptured", "serverPrefetch"],
+		kr = ["component", "directive", "filter"],
+		_r = ["beforeCreate", "created", "beforeMount", "mounted", "beforeUpdate", "updated", "beforeDestroy", "destroyed", "activated", "deactivated", "errorCaptured", "serverPrefetch"],
 		Cr = {
 			optionMergeStrategies: Object.create(null),
 			silent: !1,
@@ -4095,50 +4129,50 @@
 			warnHandler: null,
 			ignoredElements: [],
 			keyCodes: Object.create(null),
-			isReservedTag: br,
-			isReservedAttr: br,
-			isUnknownElement: br,
-			getTagNamespace: b,
+			isReservedTag: xr,
+			isReservedAttr: xr,
+			isUnknownElement: xr,
+			getTagNamespace: x,
 			parsePlatformTagName: yr,
-			mustUseProp: br,
+			mustUseProp: xr,
 			async: !0,
-			_lifecycleHooks: kr
+			_lifecycleHooks: _r
 		},
-		Sr = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/,
-		Pr = new RegExp("[^" + Sr.source + ".$_\\d]"),
-		Tr = "__proto__" in
+		Or = /a-zA-Z\u00B7\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u037D\u037F-\u1FFF\u200C-\u200D\u203F-\u2040\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD/,
+		Pr = new RegExp("[^" + Or.source + ".$_\\d]"),
+		Sr = "__proto__" in
 		{},
-		$r = "undefined" != typeof window,
+		jr = "undefined" != typeof window,
 		Er = "undefined" != typeof WXEnvironment && !!WXEnvironment.platform,
-		Ar = Er && WXEnvironment.platform.toLowerCase(),
-		Or = $r && window.navigator.userAgent.toLowerCase(),
-		Ir = Or && /msie|trident/.test(Or),
-		jr = Or && 0 < Or.indexOf("msie 9.0"),
-		Dr = Or && 0 < Or.indexOf("edge/"),
-		Nr = (Or && Or.indexOf("android"), Or && /iphone|ipad|ipod|ios/.test(Or) || "ios" === Ar),
-		Lr = (Or && /chrome\/\d+/.test(Or), Or && /phantomjs/.test(Or), Or && Or.match(/firefox\/(\d+)/)),
+		Tr = Er && WXEnvironment.platform.toLowerCase(),
+		$r = jr && window.navigator.userAgent.toLowerCase(),
+		Dr = $r && /msie|trident/.test($r),
+		Ar = $r && 0 < $r.indexOf("msie 9.0"),
+		Ir = $r && 0 < $r.indexOf("edge/"),
+		Lr = ($r && $r.indexOf("android"), $r && /iphone|ipad|ipod|ios/.test($r) || "ios" === Tr),
+		Nr = ($r && /chrome\/\d+/.test($r), $r && /phantomjs/.test($r), $r && $r.match(/firefox\/(\d+)/)),
 		Mr = {}.watch,
 		Rr = !1;
-	if($r) try
+	if(jr) try
 	{
-		var Fr = {};
-		Object.defineProperty(Fr, "passive",
+		var zr = {};
+		Object.defineProperty(zr, "passive",
 		{
 			get: function()
 			{
 				Rr = !0
 			}
-		}), window.addEventListener("test-passive", null, Fr)
+		}), window.addEventListener("test-passive", null, zr)
 	}
 	catch (t)
 	{}
-	var Ur, zr, Hr = function()
+	var Fr, Ur, Hr = function()
 		{
-			return null == Ur && (Ur = !$r && !Er && "undefined" != typeof global && (global.process && "server" === global.process.env.VUE_ENV)), Ur
+			return null == Fr && (Fr = !jr && !Er && "undefined" != typeof global && (global.process && "server" === global.process.env.VUE_ENV)), Fr
 		},
-		Gr = $r && window.__VUE_DEVTOOLS_GLOBAL_HOOK__,
-		Br = "undefined" != typeof Symbol && S(Symbol) && "undefined" != typeof Reflect && S(Reflect.ownKeys);
-	zr = "undefined" != typeof Set && S(Set) ? Set : function()
+		Vr = jr && window.__VUE_DEVTOOLS_GLOBAL_HOOK__,
+		Br = "undefined" != typeof Symbol && O(Symbol) && "undefined" != typeof Reflect && O(Reflect.ownKeys);
+	Ur = "undefined" != typeof Set && O(Set) ? Set : function()
 	{
 		function e()
 		{
@@ -4155,7 +4189,7 @@
 			this.set = Object.create(null)
 		}, e
 	}();
-	var Vr = b,
+	var Gr = x,
 		Wr = 0,
 		Kr = function()
 		{
@@ -4212,7 +4246,7 @@
 		ta = !0,
 		na = function(e)
 		{
-			this.value = e, this.dep = new Kr, this.vmCount = 0, C(e, "__ob__", this), Array.isArray(e) ? (Tr ? function(e, t)
+			this.value = e, this.dep = new Kr, this.vmCount = 0, C(e, "__ob__", this), Array.isArray(e) ? (Sr ? function(e, t)
 			{
 				e.__proto__ = t
 			}(e, Qr) : function(e, t, n)
@@ -4222,21 +4256,21 @@
 		};
 	na.prototype.walk = function(e)
 	{
-		for(var t = Object.keys(e), n = 0; n < t.length; n++) I(e, t[n])
+		for(var t = Object.keys(e), n = 0; n < t.length; n++) D(e, t[n])
 	}, na.prototype.observeArray = function(e)
 	{
-		for(var t = 0, n = e.length; t < n; t++) O(e[t])
+		for(var t = 0, n = e.length; t < n; t++) $(e[t])
 	};
 	var ra = Cr.optionMergeStrategies;
 	ra.data = function(e, t, n)
 	{
 		return n ? M(e, t, n) : t && "function" != typeof t ? e : M(e, t)
-	}, kr.forEach((function(e)
+	}, _r.forEach((function(e)
 	{
 		ra[e] = R
-	})), _r.forEach((function(e)
+	})), kr.forEach((function(e)
 	{
-		ra[e + "s"] = F
+		ra[e + "s"] = z
 	})), ra.watch = function(e, t)
 	{
 		if(e === Mr && (e = void 0), t === Mr && (t = void 0), !t) return Object.create(e || null);
@@ -4262,15 +4296,15 @@
 		oa = !1,
 		sa = [],
 		ca = !1;
-	if("undefined" != typeof Promise && S(Promise))
+	if("undefined" != typeof Promise && O(Promise))
 	{
 		var da = Promise.resolve();
 		aa = function()
 		{
-			da.then(X), Nr && setTimeout(b)
+			da.then(X), Lr && setTimeout(x)
 		}, oa = !0
 	}
-	else if(Ir || "undefined" == typeof MutationObserver || !S(MutationObserver) && "[object MutationObserverConstructor]" !== MutationObserver.toString()) aa = "undefined" != typeof setImmediate && S(setImmediate) ? function()
+	else if(Dr || "undefined" == typeof MutationObserver || !O(MutationObserver) && "[object MutationObserverConstructor]" !== MutationObserver.toString()) aa = "undefined" != typeof setImmediate && O(setImmediate) ? function()
 	{
 		setImmediate(X)
 	} : function()
@@ -4290,7 +4324,7 @@
 			la = (la + 1) % 2, pa.data = la + ""
 		}, oa = !0
 	}
-	var fa = new zr,
+	var fa = new Ur,
 		ha = v((function(e)
 		{
 			var t = "&" === e.charAt(0),
@@ -4305,7 +4339,7 @@
 				passive: t
 			}
 		}));
-	Se(Pe.prototype);
+	Oe(Pe.prototype);
 	var va, ma = {
 			init: function(e, t)
 			{
@@ -4340,14 +4374,14 @@
 						c = !!(a || e.$options._renderChildren || s);
 					if(e.$options._parentVnode = r, e.$vnode = r, e._vnode && (e._vnode.parent = r), e.$options._renderChildren = a, e.$attrs = r.data.attrs || cr, e.$listeners = n || cr, t && e.$options.props)
 					{
-						A(!1);
+						T(!1);
 						for(var d = e._props, l = e.$options._propKeys || [], u = 0; u < l.length; u++)
 						{
 							var p = l[u],
 								f = e.$options.props;
 							d[p] = H(p, f, t, e)
 						}
-						A(!0), e.$options.propsData = t
+						T(!0), e.$options.propsData = t
 					}
 					n = n || cr;
 					var h = e.$options._parentListeners;
@@ -4360,8 +4394,8 @@
 					n = e.componentInstance;
 				n._isMounted || (n._isMounted = !0, We(n, "mounted")), e.data.keepAlive && (t._isMounted ? function(e)
 				{
-					e._inactive = !1, ka.push(e)
-				}(n) : Ve(n, !0))
+					e._inactive = !1, _a.push(e)
+				}(n) : Ge(n, !0))
 			},
 			destroy: function(e)
 			{
@@ -4378,31 +4412,31 @@
 			}
 		},
 		ga = Object.keys(ma),
-		xa = 1,
-		ba = 2,
+		ba = 1,
+		xa = 2,
 		ya = null,
 		wa = null,
-		_a = [],
 		ka = [],
+		_a = [],
 		Ca = {},
-		Sa = !1,
+		Oa = !1,
 		Pa = !1,
-		Ta = 0,
-		$a = 0,
+		Sa = 0,
+		ja = 0,
 		Ea = Date.now;
-	if($r && !Ir)
+	if(jr && !Dr)
 	{
-		var Aa = window.performance;
-		Aa && "function" == typeof Aa.now && Ea() > document.createEvent("Event")
+		var Ta = window.performance;
+		Ta && "function" == typeof Ta.now && Ea() > document.createEvent("Event")
 			.timeStamp && (Ea = function()
 			{
-				return Aa.now()
+				return Ta.now()
 			})
 	}
-	var Oa = 0,
-		Ia = function(e, t, n, r, a)
+	var $a = 0,
+		Da = function(e, t, n, r, a)
 		{
-			this.vm = e, a && (e._watcher = this), e._watchers.push(this), r ? (this.deep = !!r.deep, this.user = !!r.user, this.lazy = !!r.lazy, this.sync = !!r.sync, this.before = r.before) : this.deep = this.user = this.lazy = this.sync = !1, this.cb = n, this.id = ++Oa, this.active = !0, this.dirty = this.lazy, this.deps = [], this.newDeps = [], this.depIds = new zr, this.newDepIds = new zr, this.expression = "", "function" == typeof t ? this.getter = t : (this.getter = function(e)
+			this.vm = e, a && (e._watcher = this), e._watchers.push(this), r ? (this.deep = !!r.deep, this.user = !!r.user, this.lazy = !!r.lazy, this.sync = !!r.sync, this.before = r.before) : this.deep = this.user = this.lazy = this.sync = !1, this.cb = n, this.id = ++$a, this.active = !0, this.dirty = this.lazy, this.deps = [], this.newDeps = [], this.depIds = new Ur, this.newDepIds = new Ur, this.expression = "", "function" == typeof t ? this.getter = t : (this.getter = function(e)
 			{
 				if(!Pr.test(e))
 				{
@@ -4417,9 +4451,9 @@
 						return e
 					}
 				}
-			}(t), !this.getter && (this.getter = b)), this.value = this.lazy ? void 0 : this.get()
+			}(t), !this.getter && (this.getter = x)), this.value = this.lazy ? void 0 : this.get()
 		};
-	Ia.prototype.get = function()
+	Da.prototype.get = function()
 	{
 		P(this);
 		var e, t = this.vm;
@@ -4434,14 +4468,14 @@
 		}
 		finally
 		{
-			this.deep && Z(e), T(), this.cleanupDeps()
+			this.deep && Z(e), S(), this.cleanupDeps()
 		}
 		return e
-	}, Ia.prototype.addDep = function(e)
+	}, Da.prototype.addDep = function(e)
 	{
 		var t = e.id;
 		this.newDepIds.has(t) || (this.newDepIds.add(t), this.newDeps.push(e), !this.depIds.has(t) && e.addSub(this))
-	}, Ia.prototype.cleanupDeps = function()
+	}, Da.prototype.cleanupDeps = function()
 	{
 		for(var e = this.deps.length; e--;)
 		{
@@ -4450,7 +4484,7 @@
 		}
 		var n = this.depIds;
 		this.depIds = this.newDepIds, this.newDepIds = n, this.newDepIds.clear(), n = this.deps, this.deps = this.newDeps, this.newDeps = n, this.newDeps.length = 0
-	}, Ia.prototype.update = function()
+	}, Da.prototype.update = function()
 	{
 		this.lazy ? this.dirty = !0 : this.sync ? this.run() : function(e)
 		{
@@ -4459,14 +4493,14 @@
 			{
 				if(Ca[t] = !0, Pa)
 				{
-					for(var n = _a.length - 1; n > Ta && _a[n].id > e.id;) n--;
-					_a.splice(n + 1, 0, e)
+					for(var n = ka.length - 1; n > Sa && ka[n].id > e.id;) n--;
+					ka.splice(n + 1, 0, e)
 				}
-				else _a.push(e);
-				Sa || (Sa = !0, J(Ke))
+				else ka.push(e);
+				Oa || (Oa = !0, J(Ke))
 			}
 		}(this)
-	}, Ia.prototype.run = function()
+	}, Da.prototype.run = function()
 	{
 		if(this.active)
 		{
@@ -4485,13 +4519,13 @@
 				else this.cb.call(this.vm, e, t)
 			}
 		}
-	}, Ia.prototype.evaluate = function()
+	}, Da.prototype.evaluate = function()
 	{
 		this.value = this.get(), this.dirty = !1
-	}, Ia.prototype.depend = function()
+	}, Da.prototype.depend = function()
 	{
 		for(var e = this.deps.length; e--;) this.deps[e].depend()
-	}, Ia.prototype.teardown = function()
+	}, Da.prototype.teardown = function()
 	{
 		if(this.active)
 		{
@@ -4500,29 +4534,29 @@
 			this.active = !1
 		}
 	};
-	var ja = {
+	var Aa = {
 			enumerable: !0,
 			configurable: !0,
-			get: b,
-			set: b
+			get: x,
+			set: x
 		},
-		Da = {
+		Ia = {
 			lazy: !0
 		},
-		Na = 0;
+		La = 0;
 	(function(e)
 	{
 		e.prototype._init = function(e)
 		{
 			var t = this;
-			t._uid = Na++, t._isVue = !0, e && e._isComponent ? function(e, t)
+			t._uid = La++, t._isVue = !0, e && e._isComponent ? function(e, t)
 				{
 					var n = e.$options = Object.create(e.constructor.options),
 						r = t._parentVnode;
 					n.parent = t.parent, n._parentVnode = r;
 					var a = r.componentOptions;
 					n.propsData = a.propsData, n._parentListeners = a.listeners, n._renderChildren = a.children, n._componentTag = a.tag, t.render && (n.render = t.render, n.staticRenderFns = t.staticRenderFns)
-				}(t, e) : t.$options = U(et(t.constructor), e ||
+				}(t, e) : t.$options = F(et(t.constructor), e ||
 				{}, t), t._renderProxy = t, t._self = t,
 				function(e)
 				{
@@ -4549,22 +4583,22 @@
 						r = n && n.context;
 					e.$slots = oe(t._renderChildren, r), e.$scopedSlots = cr, e._c = function(t, n, r, a)
 					{
-						return Oe(e, t, n, r, a, !1)
+						return $e(e, t, n, r, a, !1)
 					}, e.$createElement = function(t, n, r, a)
 					{
-						return Oe(e, t, n, r, a, !0)
+						return $e(e, t, n, r, a, !0)
 					};
 					var a = n && n.data;
-					I(e, "$attrs", a && a.attrs || cr, null, !0), I(e, "$listeners", t._parentListeners || cr, null, !0)
+					D(e, "$attrs", a && a.attrs || cr, null, !0), D(e, "$listeners", t._parentListeners || cr, null, !0)
 				}(t), We(t, "beforeCreate"),
 				function(e)
 				{
 					var t = ie(e.$options.inject, e);
-					t && (A(!1), Object.keys(t)
+					t && (T(!1), Object.keys(t)
 						.forEach((function(n)
 						{
-							I(e, n, t[n])
-						})), A(!0))
+							D(e, n, t[n])
+						})), T(!0))
 				}(t), Ye(t),
 				function(e)
 				{
@@ -4587,14 +4621,14 @@
 			{
 				return this._data
 			}
-		}), Object.defineProperty(e.prototype, "$props", t), e.prototype.$set = j, e.prototype.$delete = D, e.prototype.$watch = function(e, t, n)
+		}), Object.defineProperty(e.prototype, "$props", t), e.prototype.$set = A, e.prototype.$delete = I, e.prototype.$watch = function(e, t, n)
 		{
 			var r = this;
 			if(s(t)) return Qe(r, e, t, n);
 			(n = n ||
 			{})
 			.user = !0;
-			var a = new Ia(r, e, t, n);
+			var a = new Da(r, e, t, n);
 			if(n.immediate) try
 			{
 				t.call(r, a.value)
@@ -4665,7 +4699,7 @@
 			var n = this,
 				r = n.$el,
 				a = n._vnode,
-				i = Ge(n);
+				i = Ve(n);
 			n._vnode = e, n.$el = a ? n.__patch__(a, e) : n.__patch__(n.$el, e, t, !1), i(), r && (r.__vue__ = null), n.$el && (n.$el.__vue__ = n), n.$vnode && n.$parent && n.$vnode === n.$parent._vnode && (n.$parent.$el = n.$el)
 		}, e.prototype.$forceUpdate = function()
 		{
@@ -4685,7 +4719,7 @@
 	}(tt),
 	function(e)
 	{
-		Se(e.prototype), e.prototype.$nextTick = function(e)
+		Oe(e.prototype), e.prototype.$nextTick = function(e)
 		{
 			return J(e, this)
 		}, e.prototype._render = function()
@@ -4710,7 +4744,7 @@
 			return Array.isArray(e) && 1 === e.length && (e = e[0]), e instanceof Yr || (e = Jr()), e.parent = a, e
 		}
 	}(tt);
-	var La = [String, RegExp, Array],
+	var Na = [String, RegExp, Array],
 		Ma = {
 			KeepAlive:
 			{
@@ -4718,8 +4752,8 @@
 				abstract: !0,
 				props:
 				{
-					include: La,
-					exclude: La,
+					include: Na,
+					exclude: Na,
 					max: [String, Number]
 				},
 				created: function()
@@ -4776,14 +4810,14 @@
 			}
 		};
 		Object.defineProperty(e, "config", t), e.util = {
-				warn: Vr,
+				warn: Gr,
 				extend: g,
-				mergeOptions: U,
-				defineReactive: I
-			}, e.set = j, e.delete = D, e.nextTick = J, e.observable = function(e)
+				mergeOptions: F,
+				defineReactive: D
+			}, e.set = A, e.delete = I, e.nextTick = J, e.observable = function(e)
 			{
-				return O(e), e
-			}, e.options = Object.create(null), _r.forEach((function(t)
+				return $(e), e
+			}, e.options = Object.create(null), kr.forEach((function(t)
 			{
 				e.options[t + "s"] = Object.create(null)
 			})), e.options._base = e, g(e.options.components, Ma),
@@ -4801,12 +4835,12 @@
 			{
 				e.mixin = function(e)
 				{
-					return this.options = U(this.options, e), this
+					return this.options = F(this.options, e), this
 				}
 			}(e), nt(e),
 			function(e)
 			{
-				_r.forEach((function(t)
+				kr.forEach((function(t)
 				{
 					e[t] = function(e, n)
 					{
@@ -4830,7 +4864,7 @@
 	{
 		value: Pe
 	}), tt.version = "2.6.10";
-	var Ra, Fa, Ua, za, Ha, Ga, Ba, Va, Wa, Ka = p("style,class"),
+	var Ra, za, Fa, Ua, Ha, Va, Ba, Ga, Wa, Ka = p("style,class"),
 		qa = p("input,textarea,option,select,progress"),
 		Ya = function(e, t, n)
 		{
@@ -4927,8 +4961,8 @@
 		hi = /[\w).+\-_$\]]/,
 		vi = "__r",
 		mi = "__c",
-		gi = oa && !(Lr && 53 >= +Lr[1]),
-		xi = v((function(e)
+		gi = oa && !(Nr && 53 >= +Nr[1]),
+		bi = v((function(e)
 		{
 			var t = {},
 				n = /:(.+)/;
@@ -4942,31 +4976,31 @@
 					}
 				})), t
 		})),
-		bi = /^--/,
+		xi = /^--/,
 		yi = /\s*!important$/,
 		wi = function(e, t, n)
 		{
-			if(bi.test(t)) e.style.setProperty(t, n);
+			if(xi.test(t)) e.style.setProperty(t, n);
 			else if(yi.test(n)) e.style.setProperty(gr(t), n.replace(yi, ""), "important");
 			else
 			{
-				var r = ki(t);
+				var r = _i(t);
 				if(Array.isArray(n))
 					for(var a = 0, i = n.length; a < i; a++) e.style[r] = n[a];
 				else e.style[r] = n
 			}
 		},
-		_i = ["Webkit", "Moz", "ms"],
-		ki = v((function(e)
+		ki = ["Webkit", "Moz", "ms"],
+		_i = v((function(e)
 		{
 			if(Wa = Wa || document.createElement("div")
 				.style, "filter" !== (e = hr(e)) && e in Wa) return e;
 			for(var t, n = e.charAt(0)
-				.toUpperCase() + e.slice(1), r = 0; r < _i.length; r++)
-				if((t = _i[r] + n) in Wa) return t
+				.toUpperCase() + e.slice(1), r = 0; r < ki.length; r++)
+				if((t = ki[r] + n) in Wa) return t
 		})),
 		Ci = /\s+/,
-		Si = v((function(e)
+		Oi = v((function(e)
 		{
 			return {
 				enterClass: e + "-enter",
@@ -4977,25 +5011,25 @@
 				leaveActiveClass: e + "-leave-active"
 			}
 		})),
-		Pi = $r && !jr,
-		Ti = "transition",
-		$i = "animation",
+		Pi = jr && !Ar,
+		Si = "transition",
+		ji = "animation",
 		Ei = "transition",
-		Ai = "transitionend",
-		Oi = "animation",
-		Ii = "animationend";
-	Pi && (void 0 === window.ontransitionend && void 0 !== window.onwebkittransitionend && (Ei = "WebkitTransition", Ai = "webkitTransitionEnd"), void 0 === window.onanimationend && void 0 !== window.onwebkitanimationend && (Oi = "WebkitAnimation", Ii = "webkitAnimationEnd"));
-	var ji = $r ? window.requestAnimationFrame ? window.requestAnimationFrame.bind(window) : setTimeout : function(e)
+		Ti = "transitionend",
+		$i = "animation",
+		Di = "animationend";
+	Pi && (void 0 === window.ontransitionend && void 0 !== window.onwebkittransitionend && (Ei = "WebkitTransition", Ti = "webkitTransitionEnd"), void 0 === window.onanimationend && void 0 !== window.onwebkitanimationend && ($i = "WebkitAnimation", Di = "webkitAnimationEnd"));
+	var Ai = jr ? window.requestAnimationFrame ? window.requestAnimationFrame.bind(window) : setTimeout : function(e)
 		{
 			return e()
 		},
-		Di = /\b(transform|all)(,|$)/,
-		Ni = function(e)
+		Ii = /\b(transform|all)(,|$)/,
+		Li = function(e)
 		{
 			function t(e)
 			{
-				var t = $.parentNode(e);
-				r(t) && $.removeChild(t, e)
+				var t = j.parentNode(e);
+				r(t) && j.removeChild(t, e)
 			}
 
 			function o(e, t, n, i, o, c, u)
@@ -5005,7 +5039,7 @@
 					var p = e.data,
 						v = e.children,
 						m = e.tag;
-					r(m) ? (e.elm = e.ns ? $.createElementNS(e.ns, m) : $.createElement(m, e), h(e), l(e, v, t), r(p) && f(e, t), d(n, e.elm, i)) : a(e.isComment) ? (e.elm = $.createComment(e.text), d(n, e.elm, i)) : (e.elm = $.createTextNode(e.text), d(n, e.elm, i))
+					r(m) ? (e.elm = e.ns ? j.createElementNS(e.ns, m) : j.createElement(m, e), h(e), l(e, v, t), r(p) && f(e, t), d(n, e.elm, i)) : a(e.isComment) ? (e.elm = j.createComment(e.text), d(n, e.elm, i)) : (e.elm = j.createTextNode(e.text), d(n, e.elm, i))
 				}
 			}
 
@@ -5035,14 +5069,14 @@
 
 			function d(e, t, n)
 			{
-				r(e) && (r(n) ? $.parentNode(n) === e && $.insertBefore(e, t, n) : $.appendChild(e, t))
+				r(e) && (r(n) ? j.parentNode(n) === e && j.insertBefore(e, t, n) : j.appendChild(e, t))
 			}
 
 			function l(e, t, n)
 			{
 				if(Array.isArray(t))
 					for(var r = 0; r < t.length; ++r) o(t[r], n, e.elm, null, !0, t, r);
-				else i(e.text) && $.appendChild(e.elm, $.createTextNode(e.text + ""))
+				else i(e.text) && j.appendChild(e.elm, j.createTextNode(e.text + ""))
 			}
 
 			function u(e)
@@ -5060,10 +5094,10 @@
 			function h(e)
 			{
 				var t;
-				if(r(t = e.fnScopeId)) $.setStyleScope(e.elm, t);
+				if(r(t = e.fnScopeId)) j.setStyleScope(e.elm, t);
 				else
-					for(var n = e; n;) r(t = n.context) && r(t = t.$options._scopeId) && $.setStyleScope(e.elm, t), n = n.parent;
-				r(t = wa) && t !== e.context && t !== e.fnContext && r(t = t.$options._scopeId) && $.setStyleScope(e.elm, t)
+					for(var n = e; n;) r(t = n.context) && r(t = t.$options._scopeId) && j.setStyleScope(e.elm, t), n = n.parent;
+				r(t = wa) && t !== e.context && t !== e.fnContext && r(t = t.$options._scopeId) && j.setStyleScope(e.elm, t)
 			}
 
 			function v(e, t, n, r, a, i)
@@ -5085,11 +5119,11 @@
 				for(; a <= i; ++a)
 				{
 					var o = n[a];
-					r(o) && (r(o.tag) ? (x(o), m(o)) : t(o.elm))
+					r(o) && (r(o.tag) ? (b(o), m(o)) : t(o.elm))
 				}
 			}
 
-			function x(e, n)
+			function b(e, n)
 			{
 				if(r(n) || r(e.data))
 				{
@@ -5101,16 +5135,16 @@
 							0 == --r.listeners && t(e)
 						}
 						return r.listeners = n, r
-					}(e.elm, i), r(a = e.componentInstance) && r(a = a._vnode) && r(a.data) && x(a, n), a = 0; a < P.remove.length; ++a) P.remove[a](e, n);
+					}(e.elm, i), r(a = e.componentInstance) && r(a = a._vnode) && r(a.data) && b(a, n), a = 0; a < P.remove.length; ++a) P.remove[a](e, n);
 					r(a = e.data.hook) && r(a = a.remove) ? a(e, n) : n()
 				}
 				else t(e.elm)
 			}
 
-			function b(e, t, a, i, s)
+			function x(e, t, a, i, s)
 			{
-				for(var c, d, l, u = 0, p = 0, f = t.length - 1, h = t[0], m = t[f], x = a.length - 1, b = a[0], _ = a[x], k = !s; u <= f && p <= x;) n(h) ? h = t[++u] : n(m) ? m = t[--f] : ht(h, b) ? (w(h, b, i, a, p), h = t[++u], b = a[++p]) : ht(m, _) ? (w(m, _, i, a, x), m = t[--f], _ = a[--x]) : ht(h, _) ? (w(h, _, i, a, x), k && $.insertBefore(e, h.elm, $.nextSibling(m.elm)), h = t[++u], _ = a[--x]) : ht(m, b) ? (w(m, b, i, a, p), k && $.insertBefore(e, m.elm, h.elm), m = t[--f], b = a[++p]) : (n(c) && (c = vt(t, u, f)), n(d = r(b.key) ? c[b.key] : y(b, t, u, f)) ? o(b, i, e, h.elm, !1, a, p) : ht(l = t[d], b) ? (w(l, b, i, a, p), t[d] = void 0, k && $.insertBefore(e, l.elm, h.elm)) : o(b, i, e, h.elm, !1, a, p), b = a[++p]);
-				u > f ? v(e, n(a[x + 1]) ? null : a[x + 1].elm, a, p, x, i) : p > x && g(0, t, u, f)
+				for(var c, d, l, u = 0, p = 0, f = t.length - 1, h = t[0], m = t[f], b = a.length - 1, x = a[0], k = a[b], _ = !s; u <= f && p <= b;) n(h) ? h = t[++u] : n(m) ? m = t[--f] : ht(h, x) ? (w(h, x, i, a, p), h = t[++u], x = a[++p]) : ht(m, k) ? (w(m, k, i, a, b), m = t[--f], k = a[--b]) : ht(h, k) ? (w(h, k, i, a, b), _ && j.insertBefore(e, h.elm, j.nextSibling(m.elm)), h = t[++u], k = a[--b]) : ht(m, x) ? (w(m, x, i, a, p), _ && j.insertBefore(e, m.elm, h.elm), m = t[--f], x = a[++p]) : (n(c) && (c = vt(t, u, f)), n(d = r(x.key) ? c[x.key] : y(x, t, u, f)) ? o(x, i, e, h.elm, !1, a, p) : ht(l = t[d], x) ? (w(l, x, i, a, p), t[d] = void 0, _ && j.insertBefore(e, l.elm, h.elm)) : o(x, i, e, h.elm, !1, a, p), x = a[++p]);
+				u > f ? v(e, n(a[b + 1]) ? null : a[b + 1].elm, a, p, b, i) : p > b && g(0, t, u, f)
 			}
 
 			function y(e, t, n, a)
@@ -5125,7 +5159,7 @@
 				{
 					r(t.elm) && r(o) && (t = o[s] = E(t));
 					var d = t.elm = e.elm;
-					if(a(e.isAsyncPlaceholder)) return void(r(t.asyncFactory.resolved) ? k(e.elm, t, i) : t.isAsyncPlaceholder = !0);
+					if(a(e.isAsyncPlaceholder)) return void(r(t.asyncFactory.resolved) ? _(e.elm, t, i) : t.isAsyncPlaceholder = !0);
 					if(a(t.isStatic) && a(e.isStatic) && t.key === e.key && (a(t.isCloned) || a(t.isOnce))) return void(t.componentInstance = e.componentInstance);
 					var l, p = t.data;
 					r(p) && r(l = p.hook) && r(l = l.prepatch) && l(e, t);
@@ -5136,18 +5170,18 @@
 						for(l = 0; l < P.update.length; ++l) P.update[l](e, t);
 						r(l = p.hook) && r(l = l.update) && l(e, t)
 					}
-					n(t.text) ? r(f) && r(h) ? f !== h && b(d, f, h, i, c) : r(h) ? (r(e.text) && $.setTextContent(d, ""), v(d, null, h, 0, h.length - 1, i)) : r(f) ? g(0, f, 0, f.length - 1) : r(e.text) && $.setTextContent(d, "") : e.text !== t.text && $.setTextContent(d, t.text), r(p) && r(l = p.hook) && r(l = l.postpatch) && l(e, t)
+					n(t.text) ? r(f) && r(h) ? f !== h && x(d, f, h, i, c) : r(h) ? (r(e.text) && j.setTextContent(d, ""), v(d, null, h, 0, h.length - 1, i)) : r(f) ? g(0, f, 0, f.length - 1) : r(e.text) && j.setTextContent(d, "") : e.text !== t.text && j.setTextContent(d, t.text), r(p) && r(l = p.hook) && r(l = l.postpatch) && l(e, t)
 				}
 			}
 
-			function _(e, t, n)
+			function k(e, t, n)
 			{
 				if(a(n) && r(e.parent)) e.parent.data.pendingInsert = t;
 				else
 					for(var i = 0; i < t.length; ++i) t[i].data.hook.insert(t[i])
 			}
 
-			function k(e, t, n, i)
+			function _(e, t, n, i)
 			{
 				var o, s = t.tag,
 					d = t.data,
@@ -5166,7 +5200,7 @@
 					{
 						for(var p = !0, h = e.firstChild, v = 0; v < u.length; v++)
 						{
-							if(!h || !k(h, u[v], n, i))
+							if(!h || !_(h, u[v], n, i))
 							{
 								p = !1;
 								break
@@ -5180,7 +5214,7 @@
 					{
 						var m = !1;
 						for(var g in d)
-							if(!A(g))
+							if(!T(g))
 							{
 								m = !0, f(t, n);
 								break
@@ -5190,12 +5224,12 @@
 				else e.data !== t.text && (e.data = t.text);
 				return !0
 			}
-			var C, S, P = {},
-				T = e.modules,
-				$ = e.nodeOps;
+			var C, O, P = {},
+				S = e.modules,
+				j = e.nodeOps;
 			for(C = 0; C < pi.length; ++C)
-				for(P[pi[C]] = [], S = 0; S < T.length; ++S) r(T[S][pi[C]]) && P[pi[C]].push(T[S][pi[C]]);
-			var A = p("attrs,class,staticClass,staticStyle,key");
+				for(P[pi[C]] = [], O = 0; O < S.length; ++O) r(S[O][pi[C]]) && P[pi[C]].push(S[O][pi[C]]);
+			var T = p("attrs,class,staticClass,staticStyle,key");
 			return function(e, t, i, s)
 			{
 				if(!n(t))
@@ -5211,23 +5245,23 @@
 						{
 							if(l)
 							{
-								if(1 === e.nodeType && e.hasAttribute(wr) && (e.removeAttribute(wr), i = !0), a(i) && k(e, t, d)) return _(t, d, !0), e;
+								if(1 === e.nodeType && e.hasAttribute(wr) && (e.removeAttribute(wr), i = !0), a(i) && _(e, t, d)) return k(t, d, !0), e;
 								e = function(e)
 								{
-									return new Yr($.tagName(e)
+									return new Yr(j.tagName(e)
 										.toLowerCase(),
 										{}, [], void 0, e)
 								}(e)
 							}
 							var p = e.elm,
-								f = $.parentNode(p);
-							if(o(t, d, p._leaveCb ? null : f, $.nextSibling(p)), r(t.parent))
+								f = j.parentNode(p);
+							if(o(t, d, p._leaveCb ? null : f, j.nextSibling(p)), r(t.parent))
 								for(var h = t.parent, v = u(t); h;)
 								{
-									for(var x = 0; x < P.destroy.length; ++x) P.destroy[x](h);
+									for(var b = 0; b < P.destroy.length; ++b) P.destroy[b](h);
 									if(h.elm = t.elm, v)
 									{
-										for(var b = 0; b < P.create.length; ++b) P.create[b](ui, h);
+										for(var x = 0; x < P.create.length; ++x) P.create[x](ui, h);
 										var y = h.data.hook.insert;
 										if(y.merged)
 											for(var C = 1; C < y.fns.length; C++) y.fns[C]()
@@ -5238,7 +5272,7 @@
 							r(f) ? g(0, [e], 0, 0) : r(e.tag) && m(e)
 						}
 					}
-					return _(t, d, c), t.elm
+					return k(t, d, c), t.elm
 				}
 				r(e) && m(e)
 			}
@@ -5251,8 +5285,8 @@
 				update: yt
 			},
 			{
-				create: kt,
-				update: kt
+				create: _t,
+				update: _t
 			},
 			{
 				create: qt,
@@ -5265,7 +5299,7 @@
 			{
 				create: Qt,
 				update: Qt
-			}, $r ?
+			}, jr ?
 			{
 				create: vn,
 				activate: vn,
@@ -5298,18 +5332,18 @@
 				}
 			}])
 		});
-	jr && document.addEventListener("selectionchange", (function()
+	Ar && document.addEventListener("selectionchange", (function()
 	{
 		var e = document.activeElement;
-		e && e.vmodel && _n(e, "input")
+		e && e.vmodel && kn(e, "input")
 	}));
-	var Li = {
+	var Ni = {
 			inserted: function(e, t, n, r)
 			{
 				"select" === n.tag ? (r.elm && !r.elm._vOptions ? te(n, "postpatch", (function()
 				{
-					Li.componentUpdated(e, t, n)
-				})) : mn(e, t, n.context), e._vOptions = [].map.call(e.options, bn)) : ("textarea" === n.tag || di(e.type)) && (e._vModifiers = t.modifiers, !t.modifiers.lazy && (e.addEventListener("compositionstart", yn), e.addEventListener("compositionend", wn), e.addEventListener("change", wn), jr && (e.vmodel = !0)))
+					Ni.componentUpdated(e, t, n)
+				})) : mn(e, t, n.context), e._vOptions = [].map.call(e.options, xn)) : ("textarea" === n.tag || di(e.type)) && (e._vModifiers = t.modifiers, !t.modifiers.lazy && (e.addEventListener("compositionstart", yn), e.addEventListener("compositionend", wn), e.addEventListener("change", wn), Ar && (e.vmodel = !0)))
 			},
 			componentUpdated: function(e, t, n)
 			{
@@ -5317,14 +5351,14 @@
 				{
 					mn(e, t, n.context);
 					var r = e._vOptions,
-						a = e._vOptions = [].map.call(e.options, bn);
+						a = e._vOptions = [].map.call(e.options, xn);
 					if(a.some((function(e, t)
 					{
 						return !y(e, r[t])
 					})))(e.multiple ? t.value.some((function(e)
 					{
-						return xn(e, a)
-					})) : t.value !== t.oldValue && xn(t.value, a)) && _n(e, "change")
+						return bn(e, a)
+					})) : t.value !== t.oldValue && bn(t.value, a)) && kn(e, "change")
 				}
 			}
 		},
@@ -5349,31 +5383,31 @@
 		{
 			return e.tag || Me(e)
 		},
-		Fi = function(e)
+		zi = function(e)
 		{
 			return "show" === e.name
 		},
-		Ui = g(
+		Fi = g(
 		{
 			tag: String,
 			moveClass: String
 		}, Mi);
-	delete Ui.mode, tt.config.mustUseProp = Ya, tt.config.isReservedTag = si, tt.config.isReservedAttr = Ka, tt.config.getTagNamespace = ut, tt.config.isUnknownElement = function(e)
+	delete Fi.mode, tt.config.mustUseProp = Ya, tt.config.isReservedTag = si, tt.config.isReservedAttr = Ka, tt.config.getTagNamespace = ut, tt.config.isUnknownElement = function(e)
 	{
-		if(!$r) return !0;
+		if(!jr) return !0;
 		if(si(e)) return !1;
 		if(e = e.toLowerCase(), null != ci[e]) return ci[e];
 		var t = document.createElement(e);
 		return -1 < e.indexOf("-") ? ci[e] = t.constructor === window.HTMLUnknownElement || t.constructor === window.HTMLElement : ci[e] = /HTMLUnknownElement/.test(t.toString())
 	}, g(tt.options.directives,
 	{
-		model: Li,
+		model: Ni,
 		show:
 		{
 			bind: function(e, t, n)
 			{
 				var r = t.value,
-					a = (n = kn(n))
+					a = (n = _n(n))
 					.data && n.data.transition,
 					i = e.__vOriginalDisplay = "none" === e.style.display ? "" : e.style.display;
 				r && a ? (n.data.show = !0, un(n, (function()
@@ -5384,7 +5418,7 @@
 			update: function(e, t, n)
 			{
 				var r = t.value;
-				!r != !t.oldValue && ((n = kn(n))
+				!r != !t.oldValue && ((n = _n(n))
 					.data && n.data.transition ? (n.data.show = !0, r ? un(n, (function()
 					{
 						e.style.display = e.__vOriginalDisplay
@@ -5426,10 +5460,10 @@
 					o.key = null == o.key ? o.isComment ? s + "comment" : s + o.tag : i(o.key) ? 0 === (o.key + "")
 						.indexOf(s) ? o.key : s + o.key : o.key;
 					var c = (o.data || (o.data = {}))
-						.transition = Sn(this),
+						.transition = On(this),
 						d = this._vnode,
 						l = Cn(d);
-					if(o.data.directives && o.data.directives.some(Fi) && (o.data.show = !0), l && l.data && ! function(e, t)
+					if(o.data.directives && o.data.directives.some(zi) && (o.data.show = !0), l && l.data && ! function(e, t)
 					{
 						return t.key === e.key && t.tag === e.tag
 					}(o, l) && !Me(l) && (!l.componentInstance || !l.componentInstance._vnode.isComment))
@@ -5459,20 +5493,20 @@
 		},
 		TransitionGroup:
 		{
-			props: Ui,
+			props: Fi,
 			beforeMount: function()
 			{
 				var e = this,
 					t = this._update;
 				this._update = function(n, r)
 				{
-					var a = Ge(e);
+					var a = Ve(e);
 					e.__patch__(e._vnode, e.kept, !1, !0), e._vnode = e.kept, a(), t.call(e, n, r)
 				}
 			},
 			render: function(e)
 			{
-				for(var t, n = this.tag || this.$vnode.data.tag || "span", r = Object.create(null), a = this.prevChildren = this.children, i = this.$slots.default || [], o = this.children = [], s = Sn(this), c = 0; c < i.length; c++)(t = i[c])
+				for(var t, n = this.tag || this.$vnode.data.tag || "span", r = Object.create(null), a = this.prevChildren = this.children, i = this.$slots.default || [], o = this.children = [], s = On(this), c = 0; c < i.length; c++)(t = i[c])
 					.tag && null != t.key && 0 !== (t.key + "")
 					.indexOf("__vlist") && (o.push(t), r[t.key] = t, (t.data || (t.data = {}))
 						.transition = s);
@@ -5488,15 +5522,15 @@
 			{
 				var e = this.prevChildren,
 					t = this.moveClass || (this.name || "v") + "-move";
-				e.length && this.hasMove(e[0].elm, t) && (e.forEach(Tn), e.forEach($n), e.forEach(En), this._reflow = document.body.offsetHeight, e.forEach((function(e)
+				e.length && this.hasMove(e[0].elm, t) && (e.forEach(Sn), e.forEach(jn), e.forEach(En), this._reflow = document.body.offsetHeight, e.forEach((function(e)
 				{
 					if(e.data.moved)
 					{
 						var n = e.elm,
 							r = n.style;
-						an(n, t), r.transform = r.WebkitTransform = r.transitionDuration = "", n.addEventListener(Ai, n._moveCb = function e(r)
+						an(n, t), r.transform = r.WebkitTransform = r.transitionDuration = "", n.addEventListener(Ti, n._moveCb = function e(r)
 						{
-							r && r.target !== n || (!r || /transform$/.test(r.propertyName)) && (n.removeEventListener(Ai, e), n._moveCb = null, on(n, t))
+							r && r.target !== n || (!r || /transform$/.test(r.propertyName)) && (n.removeEventListener(Ti, e), n._moveCb = null, on(n, t))
 						})
 					}
 				})))
@@ -5517,7 +5551,7 @@
 				}
 			}
 		}
-	}), tt.prototype.__patch__ = $r ? Ni : b, tt.prototype.$mount = function(e, t)
+	}), tt.prototype.__patch__ = jr ? Li : x, tt.prototype.$mount = function(e, t)
 	{
 		return function(e, t, n)
 		{
@@ -5525,19 +5559,19 @@
 			return e.$el = t, e.$options.render || (e.$options.render = Jr), We(e, "beforeMount"), r = function()
 			{
 				e._update(e._render(), n)
-			}, new Ia(e, r, b,
+			}, new Da(e, r, x,
 			{
 				before: function()
 				{
 					e._isMounted && !e._isDestroyed && We(e, "beforeUpdate")
 				}
 			}, !0), n = !1, null == e.$vnode && (e._isMounted = !0, We(e, "mounted")), e
-		}(this, e = e && $r ? pt(e) : void 0, t)
-	}, $r && setTimeout((function()
+		}(this, e = e && jr ? pt(e) : void 0, t)
+	}, jr && setTimeout((function()
 	{
-		Cr.devtools && !!Gr && Gr.emit("init", tt)
+		Cr.devtools && !!Vr && Vr.emit("init", tt)
 	}), 0);
-	var zi, Hi, Gi, Bi, Vi, Wi, Ki, qi, Yi, Xi, Ji, Zi, Qi = /\{\{((?:.|\r?\n)+?)\}\}/g,
+	var Ui, Hi, Vi, Bi, Gi, Wi, Ki, qi, Yi, Xi, Ji, Zi, Qi = /\{\{((?:.|\r?\n)+?)\}\}/g,
 		eo = /[-.*+?^${}()|[\]\/\\]/g,
 		to = v((function(e)
 		{
@@ -5550,7 +5584,7 @@
 		ao = p("address,article,aside,base,blockquote,body,caption,col,colgroup,dd,details,dialog,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,head,header,hgroup,hr,html,legend,li,menuitem,meta,optgroup,option,param,rp,rt,source,style,summary,tbody,td,tfoot,th,thead,title,tr,track"),
 		io = /^\s*([^\s"'<>\/=]+)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/,
 		oo = /^\s*((?:v-[\w-]+:|@|:|#)\[[^=]+\][^\s"'<>\/=]*)(?:\s*(=)\s*(?:"([^"]*)"+|'([^']*)'+|([^\s"'=<>`]+)))?/,
-		so = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + Sr.source + "]*",
+		so = "[a-zA-Z_][\\-\\.0-9_a-zA-Z" + Or.source + "]*",
 		co = "((?:" + so + "\\:)?" + so + ")",
 		lo = new RegExp("^<" + co),
 		uo = /^\s*(\/?)>/,
@@ -5560,7 +5594,7 @@
 		vo = /^<!\[/,
 		mo = p("script,style,textarea", !0),
 		go = {},
-		xo = {
+		bo = {
 			"&lt;": "<",
 			"&gt;": ">",
 			"&quot;": '"',
@@ -5569,42 +5603,42 @@
 			"&#9;": "\t",
 			"&#39;": "'"
 		},
-		bo = /&(?:lt|gt|quot|amp|#39);/g,
+		xo = /&(?:lt|gt|quot|amp|#39);/g,
 		yo = /&(?:lt|gt|quot|amp|#39|#10|#9);/g,
 		wo = p("pre,textarea", !0),
-		_o = function(e, t)
+		ko = function(e, t)
 		{
 			return e && wo(e) && "\n" === t[0]
 		},
-		ko = /^@|^v-on:/,
+		_o = /^@|^v-on:/,
 		Co = /^v-|^@|^:/,
-		So = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/,
+		Oo = /([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/,
 		Po = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/,
-		To = /^\(|\)$/g,
-		$o = /^\[.*\]$/,
+		So = /^\(|\)$/g,
+		jo = /^\[.*\]$/,
 		Eo = /:(.*)$/,
-		Ao = /^:|^\.|^v-bind:/,
-		Oo = /\.[^.\]]+(?=[^\]]*$)/g,
-		Io = /^v-slot(:|$)|^#/,
-		jo = /[\r\n]/,
-		Do = /\s+/g,
-		No = v((function(e)
+		To = /^:|^\.|^v-bind:/,
+		$o = /\.[^.\]]+(?=[^\]]*$)/g,
+		Do = /^v-slot(:|$)|^#/,
+		Ao = /[\r\n]/,
+		Io = /\s+/g,
+		Lo = v((function(e)
 		{
-			return (zi = zi || document.createElement("div"))
-				.innerHTML = e, zi.textContent
+			return (Ui = Ui || document.createElement("div"))
+				.innerHTML = e, Ui.textContent
 		})),
-		Lo = "_empty_",
+		No = "_empty_",
 		Mo = /^xmlns:NS\d+/,
 		Ro = /^NS\d+:/,
-		Fo = [
+		zo = [
 		{
 			staticKeys: ["staticClass"],
 			transformNode: function(e, t)
 			{
 				t.warn;
-				var n = Nt(e, "class");
+				var n = Lt(e, "class");
 				n && (e.staticClass = JSON.stringify(n));
-				var r = Dt(e, "class", !1);
+				var r = It(e, "class", !1);
 				r && (e.classBinding = r)
 			},
 			genData: function(e)
@@ -5618,9 +5652,9 @@
 			transformNode: function(e, t)
 			{
 				t.warn;
-				var n = Nt(e, "style");
-				n && (e.staticStyle = JSON.stringify(xi(n)));
-				var r = Dt(e, "style", !1);
+				var n = Lt(e, "style");
+				n && (e.staticStyle = JSON.stringify(bi(n)));
+				var r = It(e, "style", !1);
 				r && (e.styleBinding = r)
 			},
 			genData: function(e)
@@ -5636,26 +5670,26 @@
 				{
 					var n, r = e.attrsMap;
 					if(!r["v-model"]) return;
-					if((r[":type"] || r["v-bind:type"]) && (n = Dt(e, "type")), r.type || n || !r["v-bind"] || (n = "(" + r["v-bind"] + ").type"), n)
+					if((r[":type"] || r["v-bind:type"]) && (n = It(e, "type")), r.type || n || !r["v-bind"] || (n = "(" + r["v-bind"] + ").type"), n)
 					{
-						var a = Nt(e, "v-if", !0),
+						var a = Lt(e, "v-if", !0),
 							i = a ? "&&(" + a + ")" : "",
-							o = null != Nt(e, "v-else", !0),
-							s = Nt(e, "v-else-if", !0),
-							c = Fn(e);
-						Dn(c), At(c, "type", "checkbox"), jn(c, t), c.processed = !0, c.if = "(" + n + ")==='checkbox'" + i, Nn(c,
+							o = null != Lt(e, "v-else", !0),
+							s = Lt(e, "v-else-if", !0),
+							c = zn(e);
+						In(c), Tt(c, "type", "checkbox"), An(c, t), c.processed = !0, c.if = "(" + n + ")==='checkbox'" + i, Ln(c,
 						{
 							exp: c.if,
 							block: c
 						});
-						var d = Fn(e);
-						Nt(d, "v-for", !0), At(d, "type", "radio"), jn(d, t), Nn(c,
+						var d = zn(e);
+						Lt(d, "v-for", !0), Tt(d, "type", "radio"), An(d, t), Ln(c,
 						{
 							exp: "(" + n + ")==='radio'" + i,
 							block: d
 						});
-						var l = Fn(e);
-						return Nt(l, "v-for", !0), At(l, ":type", n), jn(l, t), Nn(c,
+						var l = zn(e);
+						return Lt(l, "v-for", !0), Tt(l, ":type", n), An(l, t), Ln(c,
 						{
 							exp: a,
 							block: l
@@ -5664,9 +5698,9 @@
 				}
 			}
 		}],
-		Uo = {
+		Fo = {
 			expectHTML: !0,
-			modules: Fo,
+			modules: zo,
 			directives:
 			{
 				model: function(e, t, n)
@@ -5679,21 +5713,21 @@
 					if("select" === i) ! function(e, t, n)
 					{
 						var r = "var $$selectedVal = " + ('Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return ' + (n && n.number ? "_n(val)" : "val") + "})") + ";";
-						jt(e, "change", r = r + " " + Ft(t, "$event.target.multiple ? $$selectedVal : $$selectedVal[0]"), null, !0)
+						At(e, "change", r = r + " " + zt(t, "$event.target.multiple ? $$selectedVal : $$selectedVal[0]"), null, !0)
 					}(e, r, a);
 					else if("input" === i && "checkbox" === o) ! function(e, t, n)
 					{
 						var r = n && n.number,
-							a = Dt(e, "value") || "null",
-							i = Dt(e, "true-value") || "true",
-							o = Dt(e, "false-value") || "false";
-						$t(e, "checked", "Array.isArray(" + t + ")?_i(" + t + "," + a + ")>-1" + ("true" === i ? ":(" + t + ")" : ":_q(" + t + "," + i + ")")), jt(e, "change", "var $$a=" + t + ",$$el=$event.target,$$c=$$el.checked?(" + i + "):(" + o + ");if(Array.isArray($$a)){var $$v=" + (r ? "_n(" + a + ")" : a) + ",$$i=_i($$a,$$v);if($$el.checked){$$i<0&&(" + Ft(t, "$$a.concat([$$v])") + ")}else{$$i>-1&&(" + Ft(t, "$$a.slice(0,$$i).concat($$a.slice($$i+1))") + ")}}else{" + Ft(t, "$$c") + "}", null, !0)
+							a = It(e, "value") || "null",
+							i = It(e, "true-value") || "true",
+							o = It(e, "false-value") || "false";
+						jt(e, "checked", "Array.isArray(" + t + ")?_i(" + t + "," + a + ")>-1" + ("true" === i ? ":(" + t + ")" : ":_q(" + t + "," + i + ")")), At(e, "change", "var $$a=" + t + ",$$el=$event.target,$$c=$$el.checked?(" + i + "):(" + o + ");if(Array.isArray($$a)){var $$v=" + (r ? "_n(" + a + ")" : a) + ",$$i=_i($$a,$$v);if($$el.checked){$$i<0&&(" + zt(t, "$$a.concat([$$v])") + ")}else{$$i>-1&&(" + zt(t, "$$a.slice(0,$$i).concat($$a.slice($$i+1))") + ")}}else{" + zt(t, "$$c") + "}", null, !0)
 					}(e, r, a);
 					else if("input" === i && "radio" === o) ! function(e, t, n)
 					{
 						var r = n && n.number,
-							a = Dt(e, "value") || "null";
-						$t(e, "checked", "_q(" + t + "," + (a = r ? "_n(" + a + ")" : a) + ")"), jt(e, "change", Ft(t, a), null, !0)
+							a = It(e, "value") || "null";
+						jt(e, "checked", "_q(" + t + "," + (a = r ? "_n(" + a + ")" : a) + ")"), At(e, "change", zt(t, a), null, !0)
 					}(e, r, a);
 					else if("input" === i || "textarea" === i) ! function(e, t, n)
 					{
@@ -5706,19 +5740,19 @@
 							c = i ? "change" : "range" === r ? vi : "input",
 							d = "$event.target.value";
 						s && (d = "$event.target.value.trim()"), o && (d = "_n(" + d + ")");
-						var l = Ft(t, d);
-						!i && "range" !== r && (l = "if($event.target.composing)return;" + l), $t(e, "value", "(" + t + ")"), jt(e, c, l, null, !0), (s || o) && jt(e, "blur", "$forceUpdate()")
+						var l = zt(t, d);
+						!i && "range" !== r && (l = "if($event.target.composing)return;" + l), jt(e, "value", "(" + t + ")"), At(e, c, l, null, !0), (s || o) && At(e, "blur", "$forceUpdate()")
 					}(e, r, a);
 					else if(!Cr.isReservedTag(i)) return Rt(e, r, a), !1;
 					return !0
 				},
 				text: function(e, t)
 				{
-					t.value && $t(e, "textContent", "_s(" + t.value + ")", t)
+					t.value && jt(e, "textContent", "_s(" + t.value + ")", t)
 				},
 				html: function(e, t)
 				{
-					t.value && $t(e, "innerHTML", "_s(" + t.value + ")", t)
+					t.value && jt(e, "innerHTML", "_s(" + t.value + ")", t)
 				}
 			},
 			isPreTag: function(e)
@@ -5737,16 +5771,16 @@
 						return e.concat(t.staticKeys || [])
 					}), [])
 					.join(",")
-			}(Fo)
+			}(zo)
 		},
-		zo = v((function(e)
+		Uo = v((function(e)
 		{
 			return p("type,tag,attrsList,attrsMap,plain,parent,children,attrs,start,end,rawAttrsMap" + (e ? "," + e : ""))
 		})),
 		Ho = /^([\w$_]+|\([^)]*?\))\s*=>|^function\s*(?:[\w$]+)?\s*\(/,
-		Go = /\([^)]*?\);*$/,
+		Vo = /\([^)]*?\);*$/,
 		Bo = /^[A-Za-z_$][\w$]*(?:\.[A-Za-z_$][\w$]*|\['[^']*?']|\["[^"]*?"]|\[\d+]|\[[A-Za-z_$][\w$]*])*$/,
-		Vo = {
+		Go = {
 			esc: 27,
 			tab: 9,
 			enter: 13,
@@ -5799,13 +5833,13 @@
 					return "_b(" + n + ",'" + e.tag + "'," + t.value + "," + (t.modifiers && t.modifiers.prop ? "true" : "false") + (t.modifiers && t.modifiers.sync ? ",true" : "") + ")"
 				}
 			},
-			cloak: b
+			cloak: x
 		},
 		Xo = function(e)
 		{
-			this.options = e, this.warn = e.warn || Pt, this.transforms = Tt(e.modules, "transformCode"), this.dataGenFns = Tt(e.modules, "genData"), this.directives = g(g(
+			this.options = e, this.warn = e.warn || Pt, this.transforms = St(e.modules, "transformCode"), this.dataGenFns = St(e.modules, "genData"), this.directives = g(g(
 			{}, Yo), e.directives);
-			var t = e.isReservedTag || br;
+			var t = e.isReservedTag || xr;
 			this.maybeComponent = function(e)
 			{
 				return !!e.component || !t(e.tag)
@@ -5829,8 +5863,8 @@
 				};
 				var s = function(e, t)
 				{
-					var n = In(e.trim(), t);
-					!1 !== t.optimize && Un(n, t);
+					var n = Dn(e.trim(), t);
+					!1 !== t.optimize && Fn(n, t);
 					var r = Bn(n, t);
 					return {
 						ast: n,
@@ -5844,10 +5878,10 @@
 				compile: t,
 				compileToFunctions: ir(t)
 			}
-		}(Uo)),
+		}(Fo)),
 		Zo = (Jo.compile, Jo.compileToFunctions),
-		Qo = !!$r && or(!1),
-		es = !!$r && or(!0),
+		Qo = !!jr && or(!1),
+		es = !!jr && or(!0),
 		ts = v((function(e)
 		{
 			var t = pt(e);
@@ -5893,175 +5927,30 @@
 	}, tt.compile = Zo, t.a = tt
 }, function(e)
 {
-	var t = e.exports = {
-		version: "2.5.7"
-	};
-	"number" == typeof __e && (__e = t)
-}, function(e)
-{
-	e.exports = require("axios")
-}, function(e)
-{
 	e.exports = require("child_process")
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(166),
-		__esModule: !0
-	}
 }, function(e)
 {
 	e.exports = require("lodash")
 }, function(e)
 {
-	var t = e.exports = "undefined" != typeof window && window.Math == Math ? window : "undefined" != typeof self && self.Math == Math ? self : Function("return this")();
-	"number" == typeof __g && (__g = t)
+	e.exports = require("axios")
 }, function(e, t, n)
 {
-	var r = n(120)("wks"),
-		a = n(53),
-		i = n(22)
-		.Symbol,
-		o = "function" == typeof i;
-	(e.exports = function(e)
+	var r = n(102),
+		a = n(103),
+		i = n(92),
+		o = n(104);
+	e.exports = function(e, t)
 	{
-		return r[e] || (r[e] = o && i[e] || (o ? i : a)("Symbol." + e))
-	})
-	.store = r
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(216),
-		__esModule: !0
-	}
-}, function(e, t, n)
-{
-	var r = n(22),
-		a = n(17),
-		i = n(45),
-		o = n(33),
-		s = n(35),
-		c = "prototype",
-		d = function(e, t, n)
-		{
-			var l, u, p, f = e & d.F,
-				h = e & d.G,
-				v = e & d.S,
-				m = e & d.P,
-				g = e & d.B,
-				x = e & d.W,
-				b = h ? a : a[t] || (a[t] = {}),
-				y = b[c],
-				w = h ? r : v ? r[t] : (r[t] ||
-				{})[c];
-			for(l in h && (n = t), n)(u = !f && w && void 0 !== w[l]) && s(b, l) || (p = u ? w[l] : n[l], b[l] = h && "function" != typeof w[l] ? n[l] : g && u ? i(p, r) : x && w[l] == p ? function(e)
-			{
-				var t = function(t, n, r)
-				{
-					if(this instanceof e)
-					{
-						switch (arguments.length)
-						{
-							case 0:
-								return new e;
-							case 1:
-								return new e(t);
-							case 2:
-								return new e(t, n)
-						}
-						return new e(t, n, r)
-					}
-					return e.apply(this, arguments)
-				};
-				return t[c] = e[c], t
-			}(p) : m && "function" == typeof p ? i(Function.call, p) : p, m && ((b.virtual || (b.virtual = {}))[l] = p, e & d.R && y && !y[l] && o(y, l, p)))
-		};
-	d.F = 1, d.G = 2, d.S = 4, d.P = 8, d.B = 16, d.W = 32, d.U = 64, d.R = 128, e.exports = d
-}, function(e, t, n)
-{
-	"use strict";
-
-	function r(e)
-	{
-		return e && e.__esModule ? e :
-		{
-			default: e
-		}
-	}
-	t.__esModule = !0;
-	var a = r(n(175)),
-		i = r(n(20));
-	t.default = function(e, t)
-	{
-		if(Array.isArray(e)) return e;
-		if((0, a.default)(Object(e))) return function(e, t)
-		{
-			var n = [],
-				r = !0,
-				a = !1,
-				o = void 0;
-			try
-			{
-				for(var s, c = (0, i.default)(e); !(r = (s = c.next())
-					.done) && (n.push(s.value), !t || n.length !== t); r = !0);
-			}
-			catch (e)
-			{
-				a = !0, o = e
-			}
-			finally
-			{
-				try
-				{
-					!r && c.return && c.return()
-				}
-				finally
-				{
-					if(a) throw o
-				}
-			}
-			return n
-		}(e, t);
-		throw new TypeError("Invalid attempt to destructure non-iterable instance")
-	}
-}, function(e, t, n)
-{
-	var r = n(28),
-		a = n(135),
-		i = n(115),
-		o = Object.defineProperty;
-	t.f = n(31) ? Object.defineProperty : function(e, t, n)
-	{
-		if(r(e), t = i(t, !0), r(n), a) try
-		{
-			return o(e, t, n)
-		}
-		catch (t)
-		{}
-		if("get" in n || "set" in n) throw TypeError("Accessors not supported!");
-		return "value" in n && (e[t] = n.value), e
-	}
-}, function(e, t, n)
-{
-	var r = n(34);
-	e.exports = function(e)
-	{
-		if(!r(e)) throw TypeError(e + " is not an object!");
-		return e
-	}
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(191),
-		__esModule: !0
+		return r(e) || a(e, t) || i(e, t) || o()
 	}
 }, function(e, t, n)
 {
 	"use strict";
 	var r = n(16),
-		a = n(4),
+		a = n(5),
 		i = n.n(a),
-		o = n(129);
+		o = n(86);
 	r.a.use(i.a), t.a = new i.a.Store(
 	{
 		modules: o.default,
@@ -6076,103 +5965,17 @@
 	})
 }, function(e, t, n)
 {
-	e.exports = !n(37)((function()
-	{
-		return 7 != Object.defineProperty(
-			{}, "a",
-			{
-				get: function()
-				{
-					return 7
-				}
-			})
-			.a
-	}))
-}, function(e, t, n)
-{
-	"use strict";
-	t.__esModule = !0;
-	var r = function(e)
-	{
-		return e && e.__esModule ? e :
-		{
-			default: e
-		}
-	}(n(221));
-	t.default = function(e)
-	{
-		if(Array.isArray(e))
-		{
-			for(var t = 0, n = Array(e.length); t < e.length; t++) n[t] = e[t];
-			return n
-		}
-		return (0, r.default)(e)
-	}
-}, function(e, t, n)
-{
-	var r = n(27),
-		a = n(46);
-	e.exports = n(31) ? function(e, t, n)
-	{
-		return r.f(e, t, a(1, n))
-	} : function(e, t, n)
-	{
-		return e[t] = n, e
-	}
-}, function(e)
-{
+	var r = n(121),
+		a = n(122),
+		i = n(92),
+		o = n(123);
 	e.exports = function(e)
 	{
-		return "object" == typeof e ? null !== e : "function" == typeof e
+		return r(e) || a(e) || i(e) || o()
 	}
-}, function(e)
-{
-	var t = {}.hasOwnProperty;
-	e.exports = function(e, n)
-	{
-		return t.call(e, n)
-	}
-}, function(e, t, n)
-{
-	var r = n(137),
-		a = n(116);
-	e.exports = function(e)
-	{
-		return r(a(e))
-	}
-}, function(e)
-{
-	e.exports = function(e)
-	{
-		try
-		{
-			return !!e()
-		}
-		catch (e)
-		{
-			return !0
-		}
-	}
-}, function(e, t, n)
-{
-	var r = n(136),
-		a = n(121);
-	e.exports = Object.keys || function(e)
-	{
-		return r(e, a)
-	}
-}, function(e)
-{
-	e.exports = {}
 }, function(e)
 {
 	e.exports = require("got")
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(210),
-		__esModule: !0
-	}
 }, function(e)
 {
 	e.exports = require("os")
@@ -6187,24 +5990,101 @@
 }, function(e, t, n)
 {
 	"use strict";
+
+	function r(e, t)
+	{
+		var n;
+		if("undefined" == typeof Symbol || null == e[Symbol.iterator])
+		{
+			if(Array.isArray(e) || (n = a(e)) || t && e && "number" == typeof e.length)
+			{
+				n && (e = n);
+				var r = 0,
+					i = function() {};
+				return {
+					s: i,
+					n: function()
+					{
+						return r >= e.length ?
+						{
+							done: !0
+						} :
+						{
+							done: !1,
+							value: e[r++]
+						}
+					},
+					e: function(e)
+					{
+						throw e
+					},
+					f: i
+				}
+			}
+			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+		}
+		var o, s = !0,
+			c = !1;
+		return {
+			s: function()
+			{
+				n = e[Symbol.iterator]()
+			},
+			n: function()
+			{
+				var e = n.next();
+				return s = e.done, e
+			},
+			e: function(e)
+			{
+				c = !0, o = e
+			},
+			f: function()
+			{
+				try
+				{
+					s || null == n.return || n.return()
+				}
+				finally
+				{
+					if(c) throw o
+				}
+			}
+		}
+	}
+
+	function a(e, t)
+	{
+		if(e)
+		{
+			if("string" == typeof e) return i(e, t);
+			var n = Object.prototype.toString.call(e)
+				.slice(8, -1);
+			return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? i(e, t) : void 0
+		}
+	}
+
+	function i(e, t)
+	{
+		(null == t || t > e.length) && (t = e.length);
+		for(var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
+		return r
+	}
 	n.d(t, "b", (function()
 	{
 		return p
 	}));
-	var r = n(153),
-		a = n.n(r),
-		i = n(24),
-		o = n.n(i),
-		s = n(20),
-		c = n.n(s),
-		d = n(19),
-		l = (n.n(d), n(42)),
-		u = (n.n(l), n(133)),
-		p = (n.n(u), function()
+	var o = n(96),
+		s = n.n(o),
+		c = n(17),
+		d = (n.n(c), n(24)),
+		l = (n.n(d), n(90)),
+		u = (n.n(l), n(9)),
+		p = function()
 		{
 			var e = [],
-				t = Object(l.networkInterfaces)();
-			return o()(t)
+				t = Object(d.networkInterfaces)();
+			return Object.keys(t)
 				.forEach((function(n)
 				{
 					t[n].forEach((function(t)
@@ -6216,12 +6096,12 @@
 						})
 					}))
 				})), e
-		});
+		};
 	t.a = function()
 	{
-		if("darwin" === process.platform)
+		if(Object(u.e)())
 		{
-			var e, t = Object(d.execSync)("netstat -nr | grep default ")
+			var e, t = Object(c.execSync)("netstat -nr | grep default ")
 				.toString()
 				.split("\n")
 				.map((function(e)
@@ -6234,46 +6114,37 @@
 				}))
 				.filter((function(e)
 				{
-					return 4 === e.length && Object(u.isIPv4)(e[1])
+					return 4 === e.length && Object(l.isIPv4)(e[1])
 				})),
-				n = Object(l.networkInterfaces)();
+				n = Object(d.networkInterfaces)();
 			if(0 < t.length)
 			{
-				var r = !0,
-					i = !1,
-					s = void 0;
+				var a, i = r(t);
 				try
 				{
-					for(var p, f = c()(t); !(r = (p = f.next())
-						.done); r = !0)
+					for(i.s(); !(a = i.n())
+						.done;)
 					{
-						var h = p.value[3];
-						if(o()(n)
-							.includes(h)) return h
+						var o = a.value[3];
+						if(Object.keys(n)
+							.includes(o)) return o
 					}
 				}
 				catch (e)
 				{
-					i = !0, s = e
+					i.e(e)
 				}
 				finally
 				{
-					try
-					{
-						!r && f.return && f.return()
-					}
-					finally
-					{
-						if(i) throw s
-					}
+					i.f()
 				}
 			}
-			if(o()(n)
+			if(Object.keys(n)
 				.includes("en0")) return "en0"
 		}
-		else
+		else if(Object(u.f)())
 		{
-			var v = Object(d.execSync)("route print 0.0.0.0 mask 0.0.0.0")
+			var p = Object(c.execSync)("route print 0.0.0.0 mask 0.0.0.0")
 				.toString()
 				.split("\n")
 				.map((function(e)
@@ -6289,223 +6160,57 @@
 					return 5 === e.length && e.slice(0, 4)
 						.every((function(e)
 						{
-							return Object(u.isIP)(e)
+							return Object(l.isIP)(e)
 						})) && NaN !== parseInt(e[4])
 				})),
-				m = Object(l.networkInterfaces)();
-			if(delete m["cfw-tap"], 0 < v.length)
+				f = Object(d.networkInterfaces)();
+			if(delete f["cfw-tap"], 0 < p.length)
 			{
-				var g = v.sort((function(e, t)
-					{
-						return parseInt(e[4]) - parseInt(t[4])
-					})),
-					x = function(e)
-					{
-						var t = e[3],
-							n = !0,
-							r = !1,
-							a = void 0;
-						try
-						{
-							for(var i, s = c()(o()(m)); !(n = (i = s.next())
-								.done); n = !0)
-							{
-								var d = i.value;
-								if(m[d].find((function(e)
-								{
-									return e.address === t
-								}))) return {
-									v: d
-								}
-							}
-						}
-						catch (e)
-						{
-							r = !0, a = e
-						}
-						finally
-						{
-							try
-							{
-								!n && s.return && s.return()
-							}
-							finally
-							{
-								if(r) throw a
-							}
-						}
-					},
-					b = !0,
-					y = !1,
-					w = void 0;
+				var h, v = r(p.sort((function(e, t)
+				{
+					return parseInt(e[4]) - parseInt(t[4])
+				})));
 				try
 				{
-					for(var _, k = c()(g); !(b = (_ = k.next())
-						.done); b = !0)
+					var m = function()
 					{
-						var C = x(_.value);
-						if("object" === (void 0 === C ? "undefined" : a()(C))) return C.v
+						for(var e = h.value[3], t = 0, n = Object.keys(f); t < n.length; t++)
+						{
+							var r = n[t];
+							if(f[r].find((function(t)
+							{
+								return t.address === e
+							}))) return {
+								v: r
+							}
+						}
+					};
+					for(v.s(); !(h = v.n())
+						.done;)
+					{
+						var g = m();
+						if("object" === s()(g)) return g.v
 					}
 				}
 				catch (e)
 				{
-					y = !0, w = e
+					v.e(e)
 				}
 				finally
 				{
-					try
-					{
-						!b && k.return && k.return()
-					}
-					finally
-					{
-						if(y) throw w
-					}
+					v.f()
 				}
 			}
-			if(o()(m)
+			if(Object.keys(f)
 				.includes("以太网")) return "以太网";
-			if(o()(m)
+			if(Object.keys(f)
 				.includes("WLAN")) return "WLAN"
 		}
 		return null
 	}
 }, function(e, t, n)
 {
-	var r = n(52);
-	e.exports = function(e, t, n)
-	{
-		return r(e), void 0 === t ? e : 1 === n ? function(n)
-		{
-			return e.call(t, n)
-		} : 2 === n ? function(n, r)
-		{
-			return e.call(t, n, r)
-		} : 3 === n ? function(n, r, a)
-		{
-			return e.call(t, n, r, a)
-		} : function()
-		{
-			return e.apply(t, arguments)
-		}
-	}
-}, function(e)
-{
-	e.exports = function(e, t)
-	{
-		return {
-			enumerable: !(1 & e),
-			configurable: !(2 & e),
-			writable: !(4 & e),
-			value: t
-		}
-	}
-}, function(e)
-{
-	var t = {}.toString;
-	e.exports = function(e)
-	{
-		return t.call(e)
-			.slice(8, -1)
-	}
-}, function(e)
-{
-	e.exports = !0
-}, function(e, t)
-{
-	t.f = {}.propertyIsEnumerable
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(173)(!0);
-	n(138)(String, "String", (function(e)
-	{
-		this._t = e + "", this._i = 0
-	}), (function()
-	{
-		var e, t = this._t,
-			n = this._i;
-		return n >= t.length ?
-		{
-			value: void 0,
-			done: !0
-		} : (e = r(t, n), this._i += e.length,
-		{
-			value: e,
-			done: !1
-		})
-	}))
-}, function(e, t, n)
-{
-	"use strict";
-	t.__esModule = !0;
-	var r = function(e)
-	{
-		return e && e.__esModule ? e :
-		{
-			default: e
-		}
-	}(n(270));
-	t.default = function(e, t, n)
-	{
-		return t in e ? (0, r.default)(e, t,
-		{
-			value: n,
-			enumerable: !0,
-			configurable: !0,
-			writable: !0
-		}) : e[t] = n, e
-	}
-}, function(e)
-{
-	e.exports = function(e)
-	{
-		if("function" != typeof e) throw TypeError(e + " is not a function!");
-		return e
-	}
-}, function(e)
-{
-	var t = 0,
-		n = Math.random();
-	e.exports = function(e)
-	{
-		return "Symbol(".concat(void 0 === e ? "" : e, ")_", (++t + n)
-			.toString(36))
-	}
-}, function(e, t, n)
-{
-	var r = n(116);
-	e.exports = function(e)
-	{
-		return Object(r(e))
-	}
-}, function(e, t, n)
-{
-	n(167);
-	for(var r = n(22), a = n(33), i = n(39), o = n(23)("toStringTag"), s = "CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,MediaList,MimeTypeArray,NamedNodeMap,NodeList,PaintRequestList,Plugin,PluginArray,SVGLengthList,SVGNumberList,SVGPathSegList,SVGPointList,SVGStringList,SVGTransformList,SourceBufferList,StyleSheetList,TextTrackCueList,TextTrackList,TouchList".split(","), c = 0; c < s.length; c++)
-	{
-		var d = s[c],
-			l = r[d],
-			u = l && l.prototype;
-		u && !u[o] && a(u, o, d), i[d] = i.Array
-	}
-}, function(e, t, n)
-{
-	var r = n(27)
-		.f,
-		a = n(35),
-		i = n(23)("toStringTag");
-	e.exports = function(e, t, n)
-	{
-		e && !a(e = n ? e : e.prototype, i) && r(e, i,
-		{
-			configurable: !0,
-			value: t
-		})
-	}
-}, function(e, t, n)
-{
-	var r = n(165);
+	var r = n(101);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6514,25 +6219,25 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(201);
+	var r = n(107);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("95710548", r, !0,
+		.default)("bc980576", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(203);
+	var r = n(109);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("20e763f8", r, !0,
+		.default)("730bacfb", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(205);
+	var r = n(111);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6541,46 +6246,46 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(207);
+	var r = n(113);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("694dbc39", r, !0,
+		.default)("14c27c76", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(209);
+	var r = n(115);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("19c8ccec", r, !0,
+		.default)("688a3440", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(212);
+	var r = n(117);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("1003f77c", r, !0,
+		.default)("2f222c2f", r, !0,
 	{})
 }, function(e)
 {
 	e.exports = require("sudo-prompt")
 }, function(e, t, n)
 {
-	var r = n(228);
+	var r = n(127);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("d2ef6b06", r, !0,
+		.default)("83c2aa6a", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(230);
+	var r = n(129);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6589,16 +6294,16 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(232);
+	var r = n(131);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("c6bf32fc", r, !0,
+		.default)("50947718", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(234);
+	var r = n(133);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6607,7 +6312,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(236);
+	var r = n(135);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6616,7 +6321,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(238);
+	var r = n(137);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6625,16 +6330,16 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(240);
+	var r = n(139);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("07836990", r, !0,
+		.default)("ddeb08e8", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(242);
+	var r = n(141);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6643,34 +6348,34 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(244);
+	var r = n(143);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("24972236", r, !0,
+		.default)("1a4fa1d0", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(246);
+	var r = n(145);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("02055f98", r, !0,
+		.default)("65729d64", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(248);
+	var r = n(147);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("42682bfa", r, !0,
+		.default)("a8b604ae", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(252);
+	var r = n(149);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6679,7 +6384,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(254);
+	var r = n(151);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6688,7 +6393,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(259);
+	var r = n(153);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6697,52 +6402,52 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(261);
+	var r = n(155);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("0b156550", r, !0,
+		.default)("94b71d06", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(263);
+	var r = n(157);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("17f6fef3", r, !0,
+		.default)("567f014f", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(265);
+	var r = n(159);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("171d8e52", r, !0,
+		.default)("55a590ae", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(267);
+	var r = n(161);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("eb438d06", r, !0,
+		.default)("66ae2dc4", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(269);
+	var r = n(163);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("712b1ed2", r, !0,
+		.default)("3e7805ab", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(274);
+	var r = n(165);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6751,7 +6456,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(276);
+	var r = n(167);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6760,25 +6465,25 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(278);
+	var r = n(169);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("a4a7c852", r, !0,
+		.default)("36889e95", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(280);
+	var r = n(171);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("339cf5a6", r, !0,
+		.default)("667ab2af", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(282);
+	var r = n(173);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6787,7 +6492,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(284);
+	var r = n(175);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6796,52 +6501,52 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(286);
+	var r = n(177);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("83dfadca", r, !0,
+		.default)("854c5086", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(288);
+	var r = n(179);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("cc83a6c6", r, !0,
+		.default)("051321bb", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(290);
+	var r = n(181);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("48544902", r, !0,
+		.default)("71691021", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(292);
+	var r = n(183);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("6ec31b06", r, !0,
+		.default)("3185ca24", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(294);
+	var r = n(185);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("de440c62", r, !0,
+		.default)("decc842c", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(296);
+	var r = n(187);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6850,7 +6555,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(298);
+	var r = n(189);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6859,7 +6564,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(300);
+	var r = n(191);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6868,7 +6573,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(302);
+	var r = n(193);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6877,7 +6582,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(304);
+	var r = n(195);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6886,16 +6591,16 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(306);
+	var r = n(197);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("67392462", r, !0,
+		.default)("365b3440", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(308);
+	var r = n(199);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6904,7 +6609,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(310);
+	var r = n(201);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6913,7 +6618,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(312);
+	var r = n(203);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6922,7 +6627,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(314);
+	var r = n(205);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6931,7 +6636,7 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(316);
+	var r = n(207);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6940,16 +6645,16 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(318);
+	var r = n(209);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("6cfd9900", r, !0,
+		.default)("902103b0", r, !0,
 	{})
 }, function(e, t, n)
 {
-	var r = n(320);
+	var r = n(211);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -6958,28 +6663,48 @@
 	{})
 }, function(e, t, n)
 {
-	var r = n(327);
+	var r = n(218);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
 	(0, n(8)
-		.default)("3377203e", r, !0,
+		.default)("0704d5be", r, !0,
 	{})
-}, function(e)
-{
-	e.exports = require("vuedraggable")
 }, function(e, t)
 {
 	"use strict";
-	var n = "darwin" === process.platform ? ["127.0.0.1", "192.168.0.0/16", "10.0.0.0/8", "172.16.0.0/12", "100.64.0.0/10", "17.0.0.0/8", "localhost", "*.local", "169.254.0.0/16", "224.0.0.0/4", "240.0.0.0/4"] : ["localhost", "127.*", "10.*", "172.16.*", "172.17.*", "172.18.*", "172.19.*", "172.20.*", "172.21.*", "172.22.*", "172.23.*", "172.24.*", "172.25.*", "172.26.*", "172.27.*", "172.28.*", "172.29.*", "172.30.*", "172.31.*", "192.168.*", "<local>"];
-	t.a = n
+	t.a = 'function FindProxyForURL(url, host) {\n  return "SOCKS5 127.0.0.1:%mixed-port%; DIRECT;"\n}'
+}, function(e)
+{
+	e.exports = require("vuedraggable")
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(2),
-		a = n.n(r),
-		i = n(4),
-		o = {
+	var r = n(9),
+		a = Object(r.e)() ? ["127.0.0.1", "192.168.0.0/16", "10.0.0.0/8", "172.16.0.0/12", "100.64.0.0/10", "17.0.0.0/8", "localhost", "*.local", "169.254.0.0/16", "224.0.0.0/4", "240.0.0.0/4"] : ["localhost", "127.*", "10.*", "172.16.*", "172.17.*", "172.18.*", "172.19.*", "172.20.*", "172.21.*", "172.22.*", "172.23.*", "172.24.*", "172.25.*", "172.26.*", "172.27.*", "172.28.*", "172.29.*", "172.30.*", "172.31.*", "192.168.*", "<local>"];
+	t.a = a
+}, function(e, t, n)
+{
+	"use strict";
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+	var a = n(2),
+		i = n.n(a),
+		o = n(5),
+		s = {
 			props: ["on"],
 			model:
 			{
@@ -6992,8 +6717,21 @@
 			},
 			watch:
 			{},
-			computed: a()(
-			{}, Object(i.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? r(Object(t), !0)
+					.forEach((function(n)
+					{
+						i()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(o.mapState)(
 			{})),
 			methods:
 			{
@@ -7004,8 +6742,8 @@
 			},
 			mounted: function() {}
 		},
-		s = (n(237), n(3)),
-		c = Object(s.a)(o, (function()
+		c = (n(136), n(4)),
+		d = Object(c.a)(s, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -7049,14 +6787,29 @@
 				staticClass: "base tint-left"
 			})]) : e._e()])], 1)
 		}), [], !1, null, "e6ab4ba2", null);
-	c.options.__file = "SwitchView.vue", t.a = c.exports
+	d.options.__file = "SwitchView.vue", t.a = d.exports
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(2),
-		a = n.n(r),
-		i = n(4),
-		o = {
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+	var a = n(2),
+		i = n.n(a),
+		o = n(5),
+		s = {
 			name: "SelectView",
 			props:
 			{
@@ -7079,8 +6832,21 @@
 			{
 				return {}
 			},
-			computed: a()(
-			{}, Object(i.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? r(Object(t), !0)
+					.forEach((function(n)
+					{
+						i()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(o.mapState)(
 			{})),
 			methods:
 			{
@@ -7090,13 +6856,15 @@
 				},
 				itemClass: function(e)
 				{
-					var t = ["item-" + this.theme];
-					return e === this.index && t.push("item-selected-" + this.theme), 0 === e ? t.push("item-first") : e === this.items.length - 1 && t.push("item-last"), t
+					var t = ["item-".concat(this.theme), "item-".concat(0 == e % 2 ? "double" : "single", "-")
+						.concat(this.theme)
+					];
+					return e === this.index && t.push("item-selected-".concat(this.theme)), 0 === e ? t.push("item-first") : e === this.items.length - 1 && t.push("item-last"), t
 				}
 			}
 		},
-		s = (n(239), n(3)),
-		c = Object(s.a)(o, (function()
+		c = (n(138), n(4)),
+		d = Object(c.a)(s, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -7123,158 +6891,11 @@
 					}
 				})
 			})), 0)
-		}), [], !1, null, "20b1bdec", null);
-	c.options.__file = "SelectView.vue", t.a = c.exports
+		}), [], !1, null, "38b9c85e", null);
+	d.options.__file = "SelectView.vue", t.a = d.exports
 }, function(e)
 {
 	e.exports = require("prismjs")
-}, function(e, t, n)
-{
-	var r = n(34),
-		a = n(22)
-		.document,
-		i = r(a) && r(a.createElement);
-	e.exports = function(e)
-	{
-		return i ? a.createElement(e) :
-		{}
-	}
-}, function(e, t, n)
-{
-	var r = n(34);
-	e.exports = function(e, t)
-	{
-		if(!r(e)) return e;
-		var n, a;
-		if(t && "function" == typeof(n = e.toString) && !r(a = n.call(e))) return a;
-		if("function" == typeof(n = e.valueOf) && !r(a = n.call(e))) return a;
-		if(!t && "function" == typeof(n = e.toString) && !r(a = n.call(e))) return a;
-		throw TypeError("Can't convert object to primitive value")
-	}
-}, function(e)
-{
-	e.exports = function(e)
-	{
-		if(null == e) throw TypeError("Can't call method on  " + e);
-		return e
-	}
-}, function(e, t, n)
-{
-	var r = n(118),
-		a = Math.min;
-	e.exports = function(e)
-	{
-		return 0 < e ? a(r(e), 9007199254740991) : 0
-	}
-}, function(e)
-{
-	var t = Math.ceil,
-		n = Math.floor;
-	e.exports = function(e)
-	{
-		return isNaN(e = +e) ? 0 : (0 < e ? n : t)(e)
-	}
-}, function(e, t, n)
-{
-	var r = n(120)("keys"),
-		a = n(53);
-	e.exports = function(e)
-	{
-		return r[e] || (r[e] = a(e))
-	}
-}, function(e, t, n)
-{
-	var r = n(17),
-		a = n(22),
-		i = "__core-js_shared__",
-		o = a[i] || (a[i] = {});
-	(e.exports = function(e, t)
-	{
-		return o[e] || (o[e] = void 0 === t ?
-		{} : t)
-	})("versions", [])
-	.push(
-	{
-		version: r.version,
-		mode: n(48) ? "pure" : "global",
-		copyright: "© 2018 Denis Pushkarev (zloirock.ru)"
-	})
-}, function(e)
-{
-	e.exports = ["constructor", "hasOwnProperty", "isPrototypeOf", "propertyIsEnumerable", "toLocaleString", "toString", "valueOf"]
-}, function(e, t)
-{
-	t.f = Object.getOwnPropertySymbols
-}, function(e, t, n)
-{
-	var r = n(124),
-		a = n(23)("iterator"),
-		i = n(39);
-	e.exports = n(17)
-		.getIteratorMethod = function(e)
-		{
-			if(null != e) return e[a] || e["@@iterator"] || i[r(e)]
-		}
-}, function(e, t, n)
-{
-	var r = n(47),
-		a = n(23)("toStringTag"),
-		i = "Arguments" == r(function()
-		{
-			return arguments
-		}());
-	e.exports = function(e)
-	{
-		var t, n, o;
-		return void 0 === e ? "Undefined" : null === e ? "Null" : "string" == typeof(n = function(e, t)
-		{
-			try
-			{
-				return e[t]
-			}
-			catch (t)
-			{}
-		}(t = Object(e), a)) ? n : i ? r(t) : "Object" == (o = r(t)) && "function" == typeof t.callee ? "Arguments" : o
-	}
-}, function(e, t, n)
-{
-	"use strict";
-
-	function r(e)
-	{
-		var t, n;
-		this.promise = new e((function(e, r)
-		{
-			if(null != t || null != n) throw TypeError("Bad Promise constructor");
-			t = e, n = r
-		})), this.resolve = a(t), this.reject = a(n)
-	}
-	var a = n(52);
-	e.exports.f = function(e)
-	{
-		return new r(e)
-	}
-}, function(e, t, n)
-{
-	t.f = n(23)
-}, function(e, t, n)
-{
-	var r = n(22),
-		a = n(17),
-		i = n(48),
-		o = n(126),
-		s = n(27)
-		.f;
-	e.exports = function(e)
-	{
-		var t = a.Symbol || (a.Symbol = i ?
-		{} : r.Symbol ||
-		{});
-		"_" == e.charAt(0) || e in t || s(t, e,
-		{
-			value: o.f(e)
-		})
-	}
 }, function(e)
 {
 	e.exports = require("crypto")
@@ -7282,7 +6903,7 @@
 {
 	"use strict";
 	n.r(t);
-	var r = n(219),
+	var r = n(119),
 		a = {};
 	r.keys()
 		.forEach((function(e)
@@ -7307,293 +6928,24 @@
 	e.exports = require("velocity-animate")
 }, function(e, t, n)
 {
-	e.exports = !n(31) && !n(37)((function()
-	{
-		return 7 != Object.defineProperty(n(114)("div"), "a",
-			{
-				get: function()
-				{
-					return 7
-				}
-			})
-			.a
-	}))
-}, function(e, t, n)
-{
-	var r = n(35),
-		a = n(36),
-		i = n(162)(!1),
-		o = n(119)("IE_PROTO");
+	var r = n(93);
 	e.exports = function(e, t)
 	{
-		var n, s = a(e),
-			c = 0,
-			d = [];
-		for(n in s) n != o && r(s, n) && d.push(n);
-		for(; t.length > c;) r(s, n = t[c++]) && (~i(d, n) || d.push(n));
-		return d
-	}
-}, function(e, t, n)
-{
-	var r = n(47);
-	e.exports = Object("z")
-		.propertyIsEnumerable(0) ? Object : function(e)
+		if(e)
 		{
-			return "String" == r(e) ? e.split("") : Object(e)
+			if("string" == typeof e) return r(e, t);
+			var n = Object.prototype.toString.call(e)
+				.slice(8, -1);
+			return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? r(e, t) : void 0
 		}
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(48),
-		a = n(25),
-		i = n(139),
-		o = n(33),
-		s = n(39),
-		c = n(170),
-		d = n(56),
-		l = n(172),
-		u = n(23)("iterator"),
-		p = !([].keys && "next" in [].keys()),
-		f = "keys",
-		h = "values",
-		v = function()
-		{
-			return this
-		};
-	e.exports = function(e, t, n, m, g, x, b)
-	{
-		c(n, t, m);
-		var y, w, _, k = function(e)
-			{
-				return !p && e in T ? T[e] : function()
-				{
-					return new n(this, e)
-				}
-			},
-			C = t + " Iterator",
-			S = g == h,
-			P = !1,
-			T = e.prototype,
-			$ = T[u] || T["@@iterator"] || g && T[g],
-			E = $ || k(g),
-			A = g ? S ? k("entries") : E : void 0,
-			O = "Array" == t && T.entries || $;
-		if(O && ((_ = l(O.call(new e))) !== Object.prototype && _.next && (d(_, C, !0), !r && "function" != typeof _[u] && o(_, u, v))), S && $ && $.name !== h && (P = !0, E = function()
-		{
-			return $.call(this)
-		}), (!r || b) && (p || P || !T[u]) && o(T, u, E), s[t] = E, s[C] = v, g)
-			if(y = {
-				values: S ? E : k(h),
-				keys: x ? E : k(f),
-				entries: A
-			}, b)
-				for(w in y) w in T || i(T, w, y[w]);
-			else a(a.P + a.F * (p || P), t, y);
-		return y
-	}
-}, function(e, t, n)
-{
-	e.exports = n(33)
-}, function(e, t, n)
-{
-	var r = n(28),
-		a = n(171),
-		i = n(121),
-		o = n(119)("IE_PROTO"),
-		s = function() {},
-		c = "prototype",
-		d = function()
-		{
-			var e, t = n(114)("iframe"),
-				r = i.length;
-			for(t.style.display = "none", n(141)
-				.appendChild(t), t.src = "javascript:", (e = t.contentWindow.document)
-				.open(), e.write("<script>document.F=Object<\/script>"), e.close(), d = e.F; r--;) delete d[c][i[r]];
-			return d()
-		};
-	e.exports = Object.create || function(e, t)
-	{
-		var n;
-		return null === e ? n = d() : (s[c] = r(e), n = new s, s[c] = null, n[o] = e), void 0 === t ? n : a(n, t)
-	}
-}, function(e, t, n)
-{
-	var r = n(22)
-		.document;
-	e.exports = r && r.documentElement
-}, function() {}, function(e, t, n)
-{
-	var r = n(28);
-	e.exports = function(e, t, n, a)
-	{
-		try
-		{
-			return a ? t(r(n)[0], n[1]) : t(n)
-		}
-		catch (n)
-		{
-			var i = e.return;
-			throw void 0 !== i && r(i.call(e)), n
-		}
-	}
-}, function(e, t, n)
-{
-	var r = n(39),
-		a = n(23)("iterator"),
-		i = Array.prototype;
-	e.exports = function(e)
-	{
-		return void 0 !== e && (r.Array === e || i[a] === e)
-	}
-}, function(e, t, n)
-{
-	var r = n(28),
-		a = n(52),
-		i = n(23)("species");
-	e.exports = function(e, t)
-	{
-		var n, o = r(e)
-			.constructor;
-		return void 0 === o || null == (n = r(o)[i]) ? t : a(n)
-	}
-}, function(e, t, n)
-{
-	var r, a, i, o = n(45),
-		s = n(182),
-		c = n(141),
-		d = n(114),
-		l = n(22),
-		u = l.process,
-		p = l.setImmediate,
-		f = l.clearImmediate,
-		h = l.MessageChannel,
-		v = l.Dispatch,
-		m = 0,
-		g = {},
-		x = "onreadystatechange",
-		b = function()
-		{
-			var e = +this;
-			if(g.hasOwnProperty(e))
-			{
-				var t = g[e];
-				delete g[e], t()
-			}
-		},
-		y = function(e)
-		{
-			b.call(e.data)
-		};
-	p && f || (p = function(e)
-	{
-		for(var t = [], n = 1; arguments.length > n;) t.push(arguments[n++]);
-		return g[++m] = function()
-		{
-			s("function" == typeof e ? e : Function(e), t)
-		}, r(m), m
-	}, f = function(e)
-	{
-		delete g[e]
-	}, "process" == n(47)(u) ? r = function(e)
-	{
-		u.nextTick(o(b, e, 1))
-	} : v && v.now ? r = function(e)
-	{
-		v.now(o(b, e, 1))
-	} : h ? (i = (a = new h)
-		.port2, a.port1.onmessage = y, r = o(i.postMessage, i, 1)) : l.addEventListener && "function" == typeof postMessage && !l.importScripts ? (r = function(e)
-	{
-		l.postMessage(e + "", "*")
-	}, l.addEventListener("message", y, !1)) : r = x in d("script") ? function(e)
-	{
-		c.appendChild(d("script"))[x] = function()
-		{
-			c.removeChild(this), b.call(e)
-		}
-	} : function(e)
-	{
-		setTimeout(o(b, e, 1), 0)
-	}), e.exports = {
-		set: p,
-		clear: f
 	}
 }, function(e)
 {
-	e.exports = function(e)
-	{
-		try
-		{
-			return {
-				e: !1,
-				v: e()
-			}
-		}
-		catch (e)
-		{
-			return {
-				e: !0,
-				v: e
-			}
-		}
-	}
-}, function(e, t, n)
-{
-	var r = n(28),
-		a = n(34),
-		i = n(125);
 	e.exports = function(e, t)
 	{
-		if(r(e), a(t) && t.constructor === e) return t;
-		var n = i.f(e);
-		return (0, n.resolve)(t), n.promise
-	}
-}, function(e, t, n)
-{
-	var r = n(23)("iterator"),
-		a = !1;
-	try
-	{
-		var i = [7][r]();
-		i.return = function()
-		{
-			a = !0
-		}, Array.from(i, (function()
-		{
-			throw 2
-		}))
-	}
-	catch (t)
-	{}
-	e.exports = function(e, t)
-	{
-		if(!t && !a) return !1;
-		var n = !1;
-		try
-		{
-			var i = [7],
-				o = i[r]();
-			o.next = function()
-			{
-				return {
-					done: n = !0
-				}
-			}, i[r] = function()
-			{
-				return o
-			}, e(i)
-		}
-		catch (t)
-		{}
-		return n
-	}
-}, function(e, t, n)
-{
-	var r = n(136),
-		a = n(121)
-		.concat("length", "prototype");
-	t.f = Object.getOwnPropertyNames || function(e)
-	{
-		return r(e, a)
+		(null == t || t > e.length) && (t = e.length);
+		for(var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
+		return r
 	}
 }, function(e)
 {
@@ -7601,730 +6953,99 @@
 }, function(e)
 {
 	e.exports = require("mousetrap")
-}, function(e, t, n)
+}, function(e)
 {
-	"use strict";
-
-	function r(e)
+	function t(n)
 	{
-		return e && e.__esModule ? e :
-		{
-			default: e
-		}
-	}
-	t.__esModule = !0;
-	var a = r(n(214)),
-		i = r(n(29)),
-		o = "function" == typeof i.default && "symbol" == typeof a.default ? function(e)
+		return e.exports = t = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(e)
 		{
 			return typeof e
 		} : function(e)
 		{
-			return e && "function" == typeof i.default && e.constructor === i.default && e !== i.default.prototype ? "symbol" : typeof e
-		};
-	t.default = "function" == typeof i.default && "symbol" === o(a.default) ? function(e)
-	{
-		return void 0 === e ? "undefined" : o(e)
-	} : function(e)
-	{
-		return e && "function" == typeof i.default && e.constructor === i.default && e !== i.default.prototype ? "symbol" : void 0 === e ? "undefined" : o(e)
+			return e && "function" == typeof Symbol && e.constructor === Symbol && e !== Symbol.prototype ? "symbol" : typeof e
+		}, t(n)
 	}
+	e.exports = t
 }, function(e)
 {
 	e.exports = require("zlib")
 }, function(e)
 {
 	e.exports = require("tar-stream")
-}, function(e, t, n)
+}, function(e)
 {
-	e.exports = {
-		default: n(249),
-		__esModule: !0
-	}
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(255),
-		__esModule: !0
-	}
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(159),
-		__esModule: !0
-	}
-}, function(e, t, n)
-{
-	n(160), e.exports = n(17)
-		.Object.assign
-}, function(e, t, n)
-{
-	var r = n(25);
-	r(r.S + r.F, "Object",
-	{
-		assign: n(161)
-	})
+	e.exports = require("electron")
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(38),
-		a = n(122),
-		i = n(49),
-		o = n(54),
-		s = n(137),
-		c = Object.assign;
-	e.exports = !c || n(37)((function()
-	{
-		var e = {},
-			t = {},
-			n = Symbol(),
-			r = "abcdefghijklmnopqrst";
-		return e[n] = 7, r.split("")
-			.forEach((function(e)
-			{
-				t[e] = e
-			})), 7 != c(
-			{}, e)[n] || Object.keys(c(
-			{}, t))
-			.join("") != r
-	})) ? function(e)
-	{
-		for(var t = o(e), n = arguments.length, c = 1, d = a.f, l = i.f; n > c;)
-			for(var u, p = s(arguments[c++]), f = d ? r(p)
-				.concat(d(p)) : r(p), h = f.length, v = 0; h > v;) l.call(p, u = f[v++]) && (t[u] = p[u]);
-		return t
-	} : c
-}, function(e, t, n)
-{
-	var r = n(36),
-		a = n(117),
-		i = n(163);
-	e.exports = function(e)
-	{
-		return function(t, n, o)
-		{
-			var s, c = r(t),
-				d = a(c.length),
-				l = i(o, d);
-			if(e && n != n)
-			{
-				for(; d > l;)
-					if((s = c[l++]) != s) return !0
-			}
-			else
-				for(; d > l; l++)
-					if((e || l in c) && c[l] === n) return e || l || 0;
-			return !e && -1
-		}
-	}
-}, function(e, t, n)
-{
-	var r = n(118),
-		a = Math.max,
-		i = Math.min;
-	e.exports = function(e, t)
-	{
-		return 0 > (e = r(e)) ? a(e + t, 0) : i(e, t)
-	}
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(57);
+	var r = n(27);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
 	.push([e.i, "", ""])
-}, function(e, t, n)
-{
-	n(55), n(50), e.exports = n(174)
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(168),
-		a = n(169),
-		i = n(39),
-		o = n(36);
-	e.exports = n(138)(Array, "Array", (function(e, t)
-	{
-		this._t = o(e), this._i = 0, this._k = t
-	}), (function()
-	{
-		var e = this._t,
-			t = this._k,
-			n = this._i++;
-		return !e || n >= e.length ? (this._t = void 0, a(1)) : a(0, "keys" == t ? n : "values" == t ? e[n] : [n, e[n]])
-	}), "values"), i.Arguments = i.Array, r("keys"), r("values"), r("entries")
 }, function(e)
 {
-	e.exports = function() {}
+	e.exports = function(e)
+	{
+		if(Array.isArray(e)) return e
+	}
 }, function(e)
 {
 	e.exports = function(e, t)
 	{
-		return {
-			value: t,
-			done: !!e
-		}
-	}
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(140),
-		a = n(46),
-		i = n(56),
-		o = {};
-	n(33)(o, n(23)("iterator"), (function()
-	{
-		return this
-	})), e.exports = function(e, t, n)
-	{
-		e.prototype = r(o,
+		if("undefined" != typeof Symbol && Symbol.iterator in Object(e))
 		{
-			next: a(1, n)
-		}), i(e, t + " Iterator")
-	}
-}, function(e, t, n)
-{
-	var r = n(27),
-		a = n(28),
-		i = n(38);
-	e.exports = n(31) ? Object.defineProperties : function(e, t)
-	{
-		a(e);
-		for(var n, o = i(t), s = o.length, c = 0; s > c;) r.f(e, n = o[c++], t[n]);
-		return e
-	}
-}, function(e, t, n)
-{
-	var r = n(35),
-		a = n(54),
-		i = n(119)("IE_PROTO"),
-		o = Object.prototype;
-	e.exports = Object.getPrototypeOf || function(e)
-	{
-		return e = a(e), r(e, i) ? e[i] : "function" == typeof e.constructor && e instanceof e.constructor ? e.constructor.prototype : e instanceof Object ? o : null
-	}
-}, function(e, t, n)
-{
-	var r = n(118),
-		a = n(116);
-	e.exports = function(e)
-	{
-		return function(t, n)
-		{
-			var i, o, s = a(t) + "",
-				c = r(n),
-				d = s.length;
-			return 0 > c || c >= d ? e ? "" : void 0 : 55296 > (i = s.charCodeAt(c)) || 56319 < i || c + 1 === d || 56320 > (o = s.charCodeAt(c + 1)) || 57343 < o ? e ? s.charAt(c) : i : e ? s.slice(c, c + 2) : o - 56320 + (i - 55296 << 10) + 65536
-		}
-	}
-}, function(e, t, n)
-{
-	var r = n(28),
-		a = n(123);
-	e.exports = n(17)
-		.getIterator = function(e)
-		{
-			var t = a(e);
-			if("function" != typeof t) throw TypeError(e + " is not iterable!");
-			return r(t.call(e))
-		}
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(176),
-		__esModule: !0
-	}
-}, function(e, t, n)
-{
-	n(55), n(50), e.exports = n(177)
-}, function(e, t, n)
-{
-	var r = n(124),
-		a = n(23)("iterator"),
-		i = n(39);
-	e.exports = n(17)
-		.isIterable = function(e)
-		{
-			var t = Object(e);
-			return void 0 !== t[a] || "@@iterator" in t || i.hasOwnProperty(r(t))
-		}
-}, function(e, t, n)
-{
-	n(142), n(50), n(55), n(179), n(187), n(188), e.exports = n(17)
-		.Promise
-}, function(e, t, n)
-{
-	"use strict";
-	var r, a, i, o, s = n(48),
-		c = n(22),
-		d = n(45),
-		l = n(124),
-		u = n(25),
-		p = n(34),
-		f = n(52),
-		h = n(180),
-		v = n(181),
-		m = n(145),
-		g = n(146)
-		.set,
-		x = n(183)(),
-		b = n(125),
-		y = n(147),
-		w = n(184),
-		_ = n(148),
-		k = "Promise",
-		C = c.TypeError,
-		S = c.process,
-		P = S && S.versions,
-		T = P && P.v8 || "",
-		$ = c[k],
-		E = "process" == l(S),
-		A = function() {},
-		O = a = b.f,
-		I = !! function()
-		{
+			var n = [],
+				r = !0,
+				a = !1,
+				i = void 0;
 			try
 			{
-				var e = $.resolve(1),
-					t = (e.constructor = {})[n(23)("species")] = function(e)
-					{
-						e(A, A)
-					};
-				return (E || "function" == typeof PromiseRejectionEvent) && e.then(A) instanceof t && 0 !== T.indexOf("6.6") && -1 === w.indexOf("Chrome/66")
-			}
-			catch (t)
-			{}
-		}(),
-		j = function(e)
-		{
-			var t;
-			return p(e) && "function" == typeof(t = e.then) && t
-		},
-		D = function(e, t)
-		{
-			if(!e._n)
-			{
-				e._n = !0;
-				var n = e._c;
-				x((function()
-				{
-					for(var r = e._v, a = 1 == e._s, i = 0, o = function(t)
-					{
-						var n, i, o, s = a ? t.ok : t.fail,
-							c = t.resolve,
-							d = t.reject,
-							l = t.domain;
-						try
-						{
-							s ? (!a && (2 == e._h && M(e), e._h = 1), !0 === s ? n = r : (l && l.enter(), n = s(r), l && (l.exit(), o = !0)), n === t.promise ? d(C("Promise-chain cycle")) : (i = j(n)) ? i.call(n, c, d) : c(n)) : d(r)
-						}
-						catch (t)
-						{
-							l && !o && l.exit(), d(t)
-						}
-					}; n.length > i;) o(n[i++]);
-					e._c = [], e._n = !1, t && !e._h && N(e)
-				}))
-			}
-		},
-		N = function(e)
-		{
-			g.call(c, (function()
-			{
-				var t, n, r, a = e._v,
-					i = L(e);
-				if(i && (t = y((function()
-				{
-					E ? S.emit("unhandledRejection", a, e) : (n = c.onunhandledrejection) ? n(
-					{
-						promise: e,
-						reason: a
-					}) : (r = c.console) && r.error && r.error("Unhandled promise rejection", a)
-				})), e._h = E || L(e) ? 2 : 1), e._a = void 0, i && t.e) throw t.v
-			}))
-		},
-		L = function(e)
-		{
-			return 1 !== e._h && 0 === (e._a || e._c)
-				.length
-		},
-		M = function(e)
-		{
-			g.call(c, (function()
-			{
-				var t;
-				E ? S.emit("rejectionHandled", e) : (t = c.onrejectionhandled) && t(
-				{
-					promise: e,
-					reason: e._v
-				})
-			}))
-		},
-		R = function(e)
-		{
-			var t = this;
-			t._d || (t._d = !0, (t = t._w || t)
-				._v = e, t._s = 2, !t._a && (t._a = t._c.slice()), D(t, !0))
-		},
-		F = function(e)
-		{
-			var t, n = this;
-			if(!n._d)
-			{
-				n._d = !0, n = n._w || n;
-				try
-				{
-					if(n === e) throw C("Promise can't be resolved itself");
-					(t = j(e)) ? x((function()
-					{
-						var r = {
-							_w: n,
-							_d: !1
-						};
-						try
-						{
-							t.call(e, d(F, r, 1), d(R, r, 1))
-						}
-						catch (e)
-						{
-							R.call(r, e)
-						}
-					})): (n._v = e, n._s = 1, D(n, !1))
-				}
-				catch (t)
-				{
-					R.call(
-					{
-						_w: n,
-						_d: !1
-					}, t)
-				}
-			}
-		};
-	I || ($ = function(e)
-		{
-			h(this, $, k, "_h"), f(e), r.call(this);
-			try
-			{
-				e(d(F, this, 1), d(R, this, 1))
+				for(var o, s = e[Symbol.iterator](); !(r = (o = s.next())
+					.done) && (n.push(o.value), !t || n.length !== t); r = !0);
 			}
 			catch (e)
 			{
-				R.call(this, e)
+				a = !0, i = e
 			}
-		}, (r = function()
-		{
-			this._c = [], this._a = void 0, this._s = 0, this._d = !1, this._v = void 0, this._h = 0, this._n = !1
-		})
-		.prototype = n(185)($.prototype,
-		{
-			then: function(e, t)
+			finally
 			{
-				var n = O(m(this, $));
-				return n.ok = "function" != typeof e || e, n.fail = "function" == typeof t && t, n.domain = E ? S.domain : void 0, this._c.push(n), this._a && this._a.push(n), this._s && D(this, !1), n.promise
-			},
-			catch: function(e)
-			{
-				return this.then(void 0, e)
-			}
-		}), i = function()
-		{
-			var e = new r;
-			this.promise = e, this.resolve = d(F, e, 1), this.reject = d(R, e, 1)
-		}, b.f = O = function(e)
-		{
-			return e === $ || e === o ? new i(e) : a(e)
-		}), u(u.G + u.W + u.F * !I,
-	{
-		Promise: $
-	}), n(56)($, k), n(186)(k), o = n(17)[k], u(u.S + u.F * !I, k,
-	{
-		reject: function(e)
-		{
-			var t = O(this);
-			return (0, t.reject)(e), t.promise
-		}
-	}), u(u.S + u.F * (s || !I), k,
-	{
-		resolve: function(e)
-		{
-			return _(s && this === o ? $ : this, e)
-		}
-	}), u(u.S + u.F * !(I && n(149)((function(e)
-	{
-		$.all(e)
-			.catch(A)
-	}))), k,
-	{
-		all: function(e)
-		{
-			var t = this,
-				n = O(t),
-				r = n.resolve,
-				a = n.reject,
-				i = y((function()
-				{
-					var n = [],
-						i = 0,
-						o = 1;
-					v(e, !1, (function(e)
-					{
-						var s = i++,
-							c = !1;
-						n.push(void 0), o++, t.resolve(e)
-							.then((function(e)
-							{
-								c || (c = !0, n[s] = e, --o || r(n))
-							}), a)
-					})), --o || r(n)
-				}));
-			return i.e && a(i.v), n.promise
-		},
-		race: function(e)
-		{
-			var t = this,
-				n = O(t),
-				r = n.reject,
-				a = y((function()
-				{
-					v(e, !1, (function(e)
-					{
-						t.resolve(e)
-							.then(n.resolve, r)
-					}))
-				}));
-			return a.e && r(a.v), n.promise
-		}
-	})
-}, function(e)
-{
-	e.exports = function(e, t, n, r)
-	{
-		if(!(e instanceof t) || void 0 !== r && r in e) throw TypeError(n + ": incorrect invocation!");
-		return e
-	}
-}, function(e, t, n)
-{
-	var r = n(45),
-		a = n(143),
-		i = n(144),
-		o = n(28),
-		s = n(117),
-		c = n(123),
-		d = {},
-		l = {};
-	(t = e.exports = function(e, t, n, u, p)
-	{
-		var f, h, v, m, g = p ? function()
-			{
-				return e
-			} : c(e),
-			x = r(n, u, t ? 2 : 1),
-			b = 0;
-		if("function" != typeof g) throw TypeError(e + " is not iterable!");
-		if(i(g))
-		{
-			for(f = s(e.length); f > b; b++)
-				if((m = t ? x(o(h = e[b])[0], h[1]) : x(e[b])) === d || m === l) return m
-		}
-		else
-			for(v = g.call(e); !(h = v.next())
-				.done;)
-				if((m = a(v, x, h.value, t)) === d || m === l) return m
-	})
-	.BREAK = d, t.RETURN = l
-}, function(e)
-{
-	e.exports = function(e, t, n)
-	{
-		var r = void 0 === n;
-		switch (t.length)
-		{
-			case 0:
-				return r ? e() : e.call(n);
-			case 1:
-				return r ? e(t[0]) : e.call(n, t[0]);
-			case 2:
-				return r ? e(t[0], t[1]) : e.call(n, t[0], t[1]);
-			case 3:
-				return r ? e(t[0], t[1], t[2]) : e.call(n, t[0], t[1], t[2]);
-			case 4:
-				return r ? e(t[0], t[1], t[2], t[3]) : e.call(n, t[0], t[1], t[2], t[3])
-		}
-		return e.apply(n, t)
-	}
-}, function(e, t, n)
-{
-	var r = n(22),
-		a = n(146)
-		.set,
-		i = r.MutationObserver || r.WebKitMutationObserver,
-		o = r.process,
-		s = r.Promise,
-		c = "process" == n(47)(o);
-	e.exports = function()
-	{
-		var e, t, n, d = function()
-		{
-			var r, a;
-			for(c && (r = o.domain) && r.exit(); e;)
-			{
-				a = e.fn, e = e.next;
 				try
 				{
-					a()
+					r || null == s.return || s.return()
 				}
-				catch (a)
+				finally
 				{
-					throw e ? n() : t = void 0, a
-				}
-			}
-			t = void 0, r && r.enter()
-		};
-		if(c) n = function()
-		{
-			o.nextTick(d)
-		};
-		else if(!i || r.navigator && r.navigator.standalone)
-			if(s && s.resolve)
-			{
-				var l = s.resolve(void 0);
-				n = function()
-				{
-					l.then(d)
+					if(a) throw i
 				}
 			}
-		else n = function()
-		{
-			a.call(r, d)
-		};
-		else
-		{
-			var u = !0,
-				p = document.createTextNode("");
-			new i(d)
-				.observe(p,
-				{
-					characterData: !0
-				}), n = function()
-				{
-					p.data = u = !u
-				}
+			return n
 		}
-		return function(r)
-		{
-			var a = {
-				fn: r,
-				next: void 0
-			};
-			t && (t.next = a), e || (e = a, n()), t = a
-		}
-	}
-}, function(e, t, n)
-{
-	var r = n(22)
-		.navigator;
-	e.exports = r && r.userAgent || ""
-}, function(e, t, n)
-{
-	var r = n(33);
-	e.exports = function(e, t, n)
-	{
-		for(var a in t) n && e[a] ? e[a] = t[a] : r(e, a, t[a]);
-		return e
-	}
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(22),
-		a = n(17),
-		i = n(27),
-		o = n(31),
-		s = n(23)("species");
-	e.exports = function(e)
-	{
-		var t = "function" == typeof a[e] ? a[e] : r[e];
-		o && t && !t[s] && i.f(t, s,
-		{
-			configurable: !0,
-			get: function()
-			{
-				return this
-			}
-		})
-	}
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(25),
-		a = n(17),
-		i = n(22),
-		o = n(145),
-		s = n(148);
-	r(r.P + r.R, "Promise",
-	{
-		finally: function(e)
-		{
-			var t = o(this, a.Promise || i.Promise),
-				n = "function" == typeof e;
-			return this.then(n ? function(n)
-			{
-				return s(t, e())
-					.then((function()
-					{
-						return n
-					}))
-			} : e, n ? function(n)
-			{
-				return s(t, e())
-					.then((function()
-					{
-						throw n
-					}))
-			} : e)
-		}
-	})
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(25),
-		a = n(125),
-		i = n(147);
-	r(r.S, "Promise",
-	{
-		try: function(e)
-		{
-			var t = a.f(this),
-				n = i(e);
-			return (n.e ? t.reject : t.resolve)(n.v), t.promise
-		}
-	})
-}, function(e, t, n)
-{
-	var r = function()
-		{
-			return this
-		}() || Function("return this")(),
-		a = r.regeneratorRuntime && 0 <= Object.getOwnPropertyNames(r)
-		.indexOf("regeneratorRuntime"),
-		i = a && r.regeneratorRuntime;
-	if(r.regeneratorRuntime = void 0, e.exports = n(190), a) r.regeneratorRuntime = i;
-	else try
-	{
-		delete r.regeneratorRuntime
-	}
-	catch (t)
-	{
-		r.regeneratorRuntime = void 0
 	}
 }, function(e)
 {
-	! function(t)
+	e.exports = function()
+	{
+		throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+	}
+}, function(e)
+{
+	var t = function(e)
 	{
 		"use strict";
+
+		function t(e, t, n)
+		{
+			return Object.defineProperty(e, t,
+			{
+				value: n,
+				enumerable: !0,
+				configurable: !0,
+				writable: !0
+			}), e[t]
+		}
 
 		function n(e, t, n, r)
 		{
@@ -8363,60 +7084,63 @@
 
 		function s(e)
 		{
-			["next", "throw", "return"].forEach((function(t)
+			["next", "throw", "return"].forEach((function(n)
 			{
-				e[t] = function(e)
+				t(e, n, (function(e)
 				{
-					return this._invoke(t, e)
-				}
+					return this._invoke(n, e)
+				}))
 			}))
 		}
 
-		function c(e)
+		function c(e, t)
 		{
-			function t(n, a, i, o)
+			function n(a, i, o, s)
 			{
-				var s = r(e[n], e, a);
-				if("throw" !== s.type)
+				var c = r(e[a], e, i);
+				if("throw" !== c.type)
 				{
-					var c = s.arg,
-						d = c.value;
-					return d && "object" == typeof d && g.call(d, "__await") ? Promise.resolve(d.__await)
+					var d = c.arg,
+						l = d.value;
+					return l && "object" == typeof l && g.call(l, "__await") ? t.resolve(l.__await)
 						.then((function(e)
 						{
-							t("next", e, i, o)
+							n("next", e, o, s)
 						}), (function(e)
 						{
-							t("throw", e, i, o)
-						})) : Promise.resolve(d)
+							n("throw", e, o, s)
+						})) : t.resolve(l)
 						.then((function(e)
 						{
-							c.value = e, i(c)
-						}), o)
+							d.value = e, o(d)
+						}), (function(e)
+						{
+							return n("throw", e, o, s)
+						}))
 				}
-				o(s.arg)
+				s(c.arg)
 			}
-			var n;
+			var a;
 			this._invoke = function(e, r)
 			{
-				function a()
+				function i()
 				{
-					return new Promise((function(n, a)
+					return new t((function(t, a)
 					{
-						t(e, r, n, a)
+						n(e, r, t, a)
 					}))
 				}
-				return n = n ? n.then(a, a) : a()
+				return a = a ? a.then(i, i) : i()
 			}
 		}
 
 		function d(e, t, n)
 		{
-			var a = C;
+			var a = k;
 			return function(i, o)
 			{
-				if(a == P) throw new Error("Generator is already running");
-				if(a == T)
+				if(a == C) throw new Error("Generator is already running");
+				if(a == O)
 				{
 					if("throw" === i) throw o;
 					return {
@@ -8432,28 +7156,28 @@
 						var c = l(s, n);
 						if(c)
 						{
-							if(c === $) continue;
+							if(c === P) continue;
 							return c
 						}
 					}
 					if("next" === n.method) n.sent = n._sent = n.arg;
 					else if("throw" === n.method)
 					{
-						if(a == C) throw a = T, n.arg;
+						if(a == k) throw a = O, n.arg;
 						n.dispatchException(n.arg)
 					}
 					else "return" === n.method && n.abrupt("return", n.arg);
-					a = P;
+					a = C;
 					var d = r(e, t, n);
 					if("normal" === d.type)
 					{
-						if(a = n.done ? T : S, d.arg === $) continue;
+						if(a = n.done ? O : _, d.arg === P) continue;
 						return {
 							value: d.arg,
 							done: n.done
 						}
 					}
-					"throw" === d.type && (a = T, n.method = "throw", n.arg = d.arg)
+					"throw" === d.type && (a = O, n.method = "throw", n.arg = d.arg)
 				}
 			}
 		}
@@ -8465,15 +7189,15 @@
 			{
 				if(t.delegate = null, "throw" === t.method)
 				{
-					if(e.iterator.return && (t.method = "return", t.arg = void 0, l(e, t), "throw" === t.method)) return $;
+					if(e.iterator.return && (t.method = "return", t.arg = void 0, l(e, t), "throw" === t.method)) return P;
 					t.method = "throw", t.arg = new TypeError("The iterator does not provide a 'throw' method")
 				}
-				return $
+				return P
 			}
 			var a = r(n, e.iterator, t.arg);
-			if("throw" === a.type) return t.method = "throw", t.arg = a.arg, t.delegate = null, $;
+			if("throw" === a.type) return t.method = "throw", t.arg = a.arg, t.delegate = null, P;
 			var i = a.arg;
-			return i ? i.done ? (t[e.resultName] = i.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, $) : i : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, $)
+			return i ? i.done ? (t[e.resultName] = i.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, P) : i : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, P)
 		}
 
 		function u(e)
@@ -8503,7 +7227,7 @@
 		{
 			if(e)
 			{
-				var t = e[b];
+				var t = e[x];
 				if(t) return t.call(e);
 				if("function" == typeof e.next) return e;
 				if(!isNaN(e.length))
@@ -8532,520 +7256,210 @@
 		}
 		var m = Object.prototype,
 			g = m.hasOwnProperty,
-			x = "function" == typeof Symbol ? Symbol :
+			b = "function" == typeof Symbol ? Symbol :
 			{},
-			b = x.iterator || "@@iterator",
-			y = x.asyncIterator || "@@asyncIterator",
-			w = x.toStringTag || "@@toStringTag",
-			_ = "object" == typeof e,
-			k = t.regeneratorRuntime;
-		if(k) _ && (e.exports = k);
-		else
+			x = b.iterator || "@@iterator",
+			y = b.asyncIterator || "@@asyncIterator",
+			w = b.toStringTag || "@@toStringTag";
+		try
 		{
-			(k = t.regeneratorRuntime = _ ? e.exports :
-			{})
-			.wrap = n;
-			var C = "suspendedStart",
-				S = "suspendedYield",
-				P = "executing",
-				T = "completed",
-				$ = {},
-				E = {};
-			E[b] = function()
+			t(
+			{}, "")
+		}
+		catch (e)
+		{
+			t = function(e, t, n)
 			{
-				return this
-			};
-			var A = Object.getPrototypeOf,
-				O = A && A(A(h([])));
-			O && O !== m && g.call(O, b) && (E = O);
-			var I = o.prototype = a.prototype = Object.create(E);
-			i.prototype = I.constructor = o, o.constructor = i, o[w] = i.displayName = "GeneratorFunction", k.isGeneratorFunction = function(e)
-			{
-				var t = "function" == typeof e && e.constructor;
-				return !!t && (t === i || "GeneratorFunction" === (t.displayName || t.name))
-			}, k.mark = function(e)
-			{
-				return Object.setPrototypeOf ? Object.setPrototypeOf(e, o) : (e.__proto__ = o, !(w in e) && (e[w] = "GeneratorFunction")), e.prototype = Object.create(I), e
-			}, k.awrap = function(e)
-			{
-				return {
-					__await: e
-				}
-			}, s(c.prototype), c.prototype[y] = function()
-			{
-				return this
-			}, k.AsyncIterator = c, k.async = function(e, t, r, a)
-			{
-				var i = new c(n(e, t, r, a));
-				return k.isGeneratorFunction(t) ? i : i.next()
-					.then((function(e)
-					{
-						return e.done ? e.value : i.next()
-					}))
-			}, s(I), I[w] = "Generator", I[b] = function()
-			{
-				return this
-			}, I.toString = function()
-			{
-				return "[object Generator]"
-			}, k.keys = function(e)
-			{
-				var t = [];
-				for(var n in e) t.push(n);
-				return t.reverse(),
-					function n()
-					{
-						for(; t.length;)
-						{
-							var r = t.pop();
-							if(r in e) return n.value = r, n.done = !1, n
-						}
-						return n.done = !0, n
-					}
-			}, k.values = h, f.prototype = {
-				constructor: f,
-				reset: function(e)
-				{
-					if(this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = !1, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(p), !e)
-						for(var t in this) "t" === t.charAt(0) && g.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0)
-				},
-				stop: function()
-				{
-					this.done = !0;
-					var e = this.tryEntries[0].completion;
-					if("throw" === e.type) throw e.arg;
-					return this.rval
-				},
-				dispatchException: function(e)
-				{
-					function t(t, r)
-					{
-						return i.type = "throw", i.arg = e, n.next = t, r && (n.method = "next", n.arg = void 0), !!r
-					}
-					if(this.done) throw e;
-					for(var n = this, r = this.tryEntries.length - 1; 0 <= r; --r)
-					{
-						var a = this.tryEntries[r],
-							i = a.completion;
-						if("root" === a.tryLoc) return t("end");
-						if(a.tryLoc <= this.prev)
-						{
-							var o = g.call(a, "catchLoc"),
-								s = g.call(a, "finallyLoc");
-							if(o && s)
-							{
-								if(this.prev < a.catchLoc) return t(a.catchLoc, !0);
-								if(this.prev < a.finallyLoc) return t(a.finallyLoc)
-							}
-							else if(o)
-							{
-								if(this.prev < a.catchLoc) return t(a.catchLoc, !0)
-							}
-							else
-							{
-								if(!s) throw new Error("try statement without catch or finally");
-								if(this.prev < a.finallyLoc) return t(a.finallyLoc)
-							}
-						}
-					}
-				},
-				abrupt: function(e, t)
-				{
-					for(var n, r = this.tryEntries.length - 1; 0 <= r; --r)
-						if((n = this.tryEntries[r])
-							.tryLoc <= this.prev && g.call(n, "finallyLoc") && this.prev < n.finallyLoc)
-						{
-							var a = n;
-							break
-						} a && ("break" === e || "continue" === e) && a.tryLoc <= t && t <= a.finallyLoc && (a = null);
-					var i = a ? a.completion :
-					{};
-					return i.type = e, i.arg = t, a ? (this.method = "next", this.next = a.finallyLoc, $) : this.complete(i)
-				},
-				complete: function(e, t)
-				{
-					if("throw" === e.type) throw e.arg;
-					return "break" === e.type || "continue" === e.type ? this.next = e.arg : "return" === e.type ? (this.rval = this.arg = e.arg, this.method = "return", this.next = "end") : "normal" === e.type && t && (this.next = t), $
-				},
-				finish: function(e)
-				{
-					for(var t, n = this.tryEntries.length - 1; 0 <= n; --n)
-						if((t = this.tryEntries[n])
-							.finallyLoc === e) return this.complete(t.completion, t.afterLoc), p(t), $
-				},
-				catch: function(e)
-				{
-					for(var t, n = this.tryEntries.length - 1; 0 <= n; --n)
-						if((t = this.tryEntries[n])
-							.tryLoc === e)
-						{
-							var r = t.completion;
-							if("throw" === r.type)
-							{
-								var a = r.arg;
-								p(t)
-							}
-							return a
-						} throw new Error("illegal catch attempt")
-				},
-				delegateYield: function(e, t, n)
-				{
-					return this.delegate = {
-						iterator: h(e),
-						resultName: t,
-						nextLoc: n
-					}, "next" === this.method && (this.arg = void 0), $
-				}
+				return e[t] = n
 			}
 		}
-	}(function()
-	{
-		return this
-	}() || Function("return this")())
-}, function(e, t, n)
-{
-	n(192), n(142), n(198), n(199), e.exports = n(17)
-		.Symbol
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(22),
-		a = n(35),
-		i = n(31),
-		o = n(25),
-		s = n(139),
-		c = n(193)
-		.KEY,
-		d = n(37),
-		l = n(120),
-		u = n(56),
-		p = n(53),
-		f = n(23),
-		h = n(126),
-		v = n(127),
-		m = n(194),
-		g = n(195),
-		x = n(28),
-		b = n(34),
-		y = n(36),
-		w = n(115),
-		_ = n(46),
-		k = n(140),
-		C = n(196),
-		S = n(197),
-		P = n(27),
-		T = n(38),
-		$ = S.f,
-		E = P.f,
-		A = C.f,
-		O = r.Symbol,
-		I = r.JSON,
-		j = I && I.stringify,
-		D = "prototype",
-		N = f("_hidden"),
-		L = f("toPrimitive"),
-		M = {}.propertyIsEnumerable,
-		R = l("symbol-registry"),
-		F = l("symbols"),
-		U = l("op-symbols"),
-		z = Object[D],
-		H = "function" == typeof O,
-		G = r.QObject,
-		B = !G || !G[D] || !G[D].findChild,
-		V = i && d((function()
+		e.wrap = n;
+		var k = "suspendedStart",
+			_ = "suspendedYield",
+			C = "executing",
+			O = "completed",
+			P = {},
+			S = {};
+		S[x] = function()
 		{
-			return 7 != k(E(
-				{}, "a",
-				{
-					get: function()
-					{
-						return E(this, "a",
-							{
-								value: 7
-							})
-							.a
-					}
-				}))
-				.a
-		})) ? function(e, t, n)
-		{
-			var r = $(z, t);
-			r && delete z[t], E(e, t, n), r && e !== z && E(z, t, r)
-		} : E,
-		W = function(e)
-		{
-			var t = F[e] = k(O[D]);
-			return t._k = e, t
-		},
-		K = H && "symbol" == typeof O.iterator ? function(e)
-		{
-			return "symbol" == typeof e
-		} : function(e)
-		{
-			return e instanceof O
-		},
-		q = function(e, t, n)
-		{
-			return e === z && q(U, t, n), x(e), t = w(t, !0), x(n), a(F, t) ? (n.enumerable ? (a(e, N) && e[N][t] && (e[N][t] = !1), n = k(n,
-			{
-				enumerable: _(0, !1)
-			})) : (!a(e, N) && E(e, N, _(1,
-			{})), e[N][t] = !0), V(e, t, n)) : E(e, t, n)
-		},
-		Y = function(e, t)
-		{
-			x(e);
-			for(var n, r = m(t = y(t)), a = 0, i = r.length; i > a;) q(e, n = r[a++], t[n]);
-			return e
-		},
-		X = function(e)
-		{
-			var t = M.call(this, e = w(e, !0));
-			return !(this === z && a(F, e) && !a(U, e)) && (!(t || !a(this, e) || !a(F, e) || a(this, N) && this[N][e]) || t)
-		},
-		J = function(e, t)
-		{
-			if(e = y(e), t = w(t, !0), e !== z || !a(F, t) || a(U, t))
-			{
-				var n = $(e, t);
-				return n && a(F, t) && !(a(e, N) && e[N][t]) && (n.enumerable = !0), n
-			}
-		},
-		Z = function(e)
-		{
-			for(var t, n = A(y(e)), r = [], i = 0; n.length > i;) a(F, t = n[i++]) || t == N || t == c || r.push(t);
-			return r
-		},
-		Q = function(e)
-		{
-			for(var t, n = e === z, r = A(n ? U : y(e)), i = [], o = 0; r.length > o;) a(F, t = r[o++]) && (!n || a(z, t)) && i.push(F[t]);
-			return i
+			return this
 		};
-	H || (s((O = function()
+		var j = Object.getPrototypeOf,
+			E = j && j(j(h([])));
+		E && E !== m && g.call(E, x) && (S = E);
+		var T = o.prototype = a.prototype = Object.create(S);
+		return i.prototype = T.constructor = o, o.constructor = i, i.displayName = t(o, w, "GeneratorFunction"), e.isGeneratorFunction = function(e)
 		{
-			if(this instanceof O) throw TypeError("Symbol is not a constructor!");
-			var e = p(0 < arguments.length ? arguments[0] : void 0),
-				t = function(n)
+			var t = "function" == typeof e && e.constructor;
+			return !!t && (t === i || "GeneratorFunction" === (t.displayName || t.name))
+		}, e.mark = function(e)
+		{
+			return Object.setPrototypeOf ? Object.setPrototypeOf(e, o) : (e.__proto__ = o, t(e, w, "GeneratorFunction")), e.prototype = Object.create(T), e
+		}, e.awrap = function(e)
+		{
+			return {
+				__await: e
+			}
+		}, s(c.prototype), c.prototype[y] = function()
+		{
+			return this
+		}, e.AsyncIterator = c, e.async = function(t, r, a, i, o)
+		{
+			void 0 === o && (o = Promise);
+			var s = new c(n(t, r, a, i), o);
+			return e.isGeneratorFunction(r) ? s : s.next()
+				.then((function(e)
 				{
-					this === z && t.call(U, n), a(this, N) && a(this[N], e) && (this[N][e] = !1), V(this, e, _(1, n))
-				};
-			return i && B && V(z, e,
-			{
-				configurable: !0,
-				set: t
-			}), W(e)
-		})[D], "toString", (function()
+					return e.done ? e.value : s.next()
+				}))
+		}, s(T), t(T, w, "Generator"), T[x] = function()
 		{
-			return this._k
-		})), S.f = J, P.f = q, n(150)
-		.f = C.f = Z, n(49)
-		.f = X, n(122)
-		.f = Q, i && !n(48) && s(z, "propertyIsEnumerable", X, !0), h.f = function(e)
+			return this
+		}, T.toString = function()
 		{
-			return W(f(e))
-		}), o(o.G + o.W + o.F * !H,
-	{
-		Symbol: O
-	});
-	for(var ee = ["hasInstance", "isConcatSpreadable", "iterator", "match", "replace", "search", "species", "split", "toPrimitive", "toStringTag", "unscopables"], te = 0; ee.length > te;) f(ee[te++]);
-	for(var ne = T(f.store), re = 0; ne.length > re;) v(ne[re++]);
-	o(o.S + o.F * !H, "Symbol",
-	{
-		for: function(e)
+			return "[object Generator]"
+		}, e.keys = function(e)
 		{
-			return a(R, e += "") ? R[e] : R[e] = O(e)
-		},
-		keyFor: function(e)
-		{
-			if(!K(e)) throw TypeError(e + " is not a symbol!");
-			for(var t in R)
-				if(R[t] === e) return t
-		},
-		useSetter: function()
-		{
-			B = !0
-		},
-		useSimple: function()
-		{
-			B = !1
-		}
-	}), o(o.S + o.F * !H, "Object",
-	{
-		create: function(e, t)
-		{
-			return void 0 === t ? k(e) : Y(k(e), t)
-		},
-		defineProperty: q,
-		defineProperties: Y,
-		getOwnPropertyDescriptor: J,
-		getOwnPropertyNames: Z,
-		getOwnPropertySymbols: Q
-	}), I && o(o.S + o.F * (!H || d((function()
-	{
-		var e = O();
-		return "[null]" != j([e]) || "{}" != j(
-		{
-			a: e
-		}) || "{}" != j(Object(e))
-	}))), "JSON",
-	{
-		stringify: function(e)
-		{
-			for(var t, n, r = [e], a = 1; arguments.length > a;) r.push(arguments[a++]);
-			if(n = t = r[1], (b(t) || void 0 !== e) && !K(e)) return g(t) || (t = function(e, t)
-			{
-				if("function" == typeof n && (t = n.call(this, e, t)), !K(t)) return t
-			}), r[1] = t, j.apply(I, r)
-		}
-	}), O[D][L] || n(33)(O[D], L, O[D].valueOf), u(O, "Symbol"), u(Math, "Math", !0), u(r.JSON, "JSON", !0)
-}, function(e, t, n)
-{
-	var r = n(53)("meta"),
-		a = n(34),
-		i = n(35),
-		o = n(27)
-		.f,
-		s = 0,
-		c = Object.isExtensible || function()
-		{
-			return !0
-		},
-		d = !n(37)((function()
-		{
-			return c(Object.preventExtensions(
-			{}))
-		})),
-		l = function(e)
-		{
-			o(e, r,
-			{
-				value:
+			var t = [];
+			for(var n in e) t.push(n);
+			return t.reverse(),
+				function n()
 				{
-					i: "O" + ++s,
-					w:
-					{}
+					for(; t.length;)
+					{
+						var r = t.pop();
+						if(r in e) return n.value = r, n.done = !1, n
+					}
+					return n.done = !0, n
 				}
-			})
-		},
-		u = e.exports = {
-			KEY: r,
-			NEED: !1,
-			fastKey: function(e, t)
+		}, e.values = h, f.prototype = {
+			constructor: f,
+			reset: function(e)
 			{
-				if(!a(e)) return "symbol" == typeof e ? e : ("string" == typeof e ? "S" : "P") + e;
-				if(!i(e, r))
-				{
-					if(!c(e)) return "F";
-					if(!t) return "E";
-					l(e)
-				}
-				return e[r].i
+				if(this.prev = 0, this.next = 0, this.sent = this._sent = void 0, this.done = !1, this.delegate = null, this.method = "next", this.arg = void 0, this.tryEntries.forEach(p), !e)
+					for(var t in this) "t" === t.charAt(0) && g.call(this, t) && !isNaN(+t.slice(1)) && (this[t] = void 0)
 			},
-			getWeak: function(e, t)
+			stop: function()
 			{
-				if(!i(e, r))
-				{
-					if(!c(e)) return !0;
-					if(!t) return !1;
-					l(e)
-				}
-				return e[r].w
+				this.done = !0;
+				var e = this.tryEntries[0].completion;
+				if("throw" === e.type) throw e.arg;
+				return this.rval
 			},
-			onFreeze: function(e)
+			dispatchException: function(e)
 			{
-				return d && u.NEED && c(e) && !i(e, r) && l(e), e
-			}
-		}
-}, function(e, t, n)
-{
-	var r = n(38),
-		a = n(122),
-		i = n(49);
-	e.exports = function(e)
-	{
-		var t = r(e),
-			n = a.f;
-		if(n)
-			for(var o, s = n(e), c = i.f, d = 0; s.length > d;) c.call(e, o = s[d++]) && t.push(o);
-		return t
-	}
-}, function(e, t, n)
-{
-	var r = n(47);
-	e.exports = Array.isArray || function(e)
-	{
-		return "Array" == r(e)
-	}
-}, function(e, t, n)
-{
-	var r = n(36),
-		a = n(150)
-		.f,
-		i = {}.toString,
-		o = "object" == typeof window && window && Object.getOwnPropertyNames ? Object.getOwnPropertyNames(window) : [];
-	e.exports.f = function(e)
-	{
-		return o && "[object Window]" == i.call(e) ? function(e)
-		{
-			try
+				function t(t, r)
+				{
+					return i.type = "throw", i.arg = e, n.next = t, r && (n.method = "next", n.arg = void 0), !!r
+				}
+				if(this.done) throw e;
+				for(var n = this, r = this.tryEntries.length - 1; 0 <= r; --r)
+				{
+					var a = this.tryEntries[r],
+						i = a.completion;
+					if("root" === a.tryLoc) return t("end");
+					if(a.tryLoc <= this.prev)
+					{
+						var o = g.call(a, "catchLoc"),
+							s = g.call(a, "finallyLoc");
+						if(o && s)
+						{
+							if(this.prev < a.catchLoc) return t(a.catchLoc, !0);
+							if(this.prev < a.finallyLoc) return t(a.finallyLoc)
+						}
+						else if(o)
+						{
+							if(this.prev < a.catchLoc) return t(a.catchLoc, !0)
+						}
+						else
+						{
+							if(!s) throw new Error("try statement without catch or finally");
+							if(this.prev < a.finallyLoc) return t(a.finallyLoc)
+						}
+					}
+				}
+			},
+			abrupt: function(e, t)
 			{
-				return a(e)
-			}
-			catch (e)
+				for(var n, r = this.tryEntries.length - 1; 0 <= r; --r)
+					if((n = this.tryEntries[r])
+						.tryLoc <= this.prev && g.call(n, "finallyLoc") && this.prev < n.finallyLoc)
+					{
+						var a = n;
+						break
+					} a && ("break" === e || "continue" === e) && a.tryLoc <= t && t <= a.finallyLoc && (a = null);
+				var i = a ? a.completion :
+				{};
+				return i.type = e, i.arg = t, a ? (this.method = "next", this.next = a.finallyLoc, P) : this.complete(i)
+			},
+			complete: function(e, t)
 			{
-				return o.slice()
+				if("throw" === e.type) throw e.arg;
+				return "break" === e.type || "continue" === e.type ? this.next = e.arg : "return" === e.type ? (this.rval = this.arg = e.arg, this.method = "return", this.next = "end") : "normal" === e.type && t && (this.next = t), P
+			},
+			finish: function(e)
+			{
+				for(var t, n = this.tryEntries.length - 1; 0 <= n; --n)
+					if((t = this.tryEntries[n])
+						.finallyLoc === e) return this.complete(t.completion, t.afterLoc), p(t), P
+			},
+			catch: function(e)
+			{
+				for(var t, n = this.tryEntries.length - 1; 0 <= n; --n)
+					if((t = this.tryEntries[n])
+						.tryLoc === e)
+					{
+						var r = t.completion;
+						if("throw" === r.type)
+						{
+							var a = r.arg;
+							p(t)
+						}
+						return a
+					} throw new Error("illegal catch attempt")
+			},
+			delegateYield: function(e, t, n)
+			{
+				return this.delegate = {
+					iterator: h(e),
+					resultName: t,
+					nextLoc: n
+				}, "next" === this.method && (this.arg = void 0), P
 			}
-		}(e) : a(r(e))
-	}
-}, function(e, t, n)
-{
-	var r = n(49),
-		a = n(46),
-		i = n(36),
-		o = n(115),
-		s = n(35),
-		c = n(135),
-		d = Object.getOwnPropertyDescriptor;
-	t.f = n(31) ? d : function(e, t)
+		}, e
+	}(e.exports);
+	try
 	{
-		if(e = i(e), t = o(t, !0), c) try
-		{
-			return d(e, t)
-		}
-		catch (t)
-		{}
-		return s(e, t) ? a(!r.f.call(e, t), e[t]) : void 0
+		regeneratorRuntime = t
 	}
-}, function(e, t, n)
-{
-	n(127)("asyncIterator")
-}, function(e, t, n)
-{
-	n(127)("observable")
+	catch (e)
+	{
+		Function("r", "regeneratorRuntime = r")(t)
+	}
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(58);
+	var r = n(28);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".grid-light[data-v-bff51890]{background-color:#f5f5f5}.grid-dark[data-v-bff51890],.grid-light[data-v-bff51890]{padding:10.5px 40px;text-align:center;flex:1;display:flex;align-items:baseline;justify-content:space-between;font-size:.8em;letter-spacing:.5px;height:40px}.grid-dark[data-v-bff51890]{background-color:#42424e}.grid-red[data-v-bff51890]{background-color:#ffc76d;padding:10.5px 40px;text-align:center;flex:1;display:flex;align-items:baseline;justify-content:space-between;font-size:.8em;letter-spacing:.5px;height:40px}.main-clash-traffic-view-light[data-v-bff51890]{height:80px;display:flex;flex-direction:column;border-bottom:1px solid #dcdcdc}.main-clash-traffic-view-dark[data-v-bff51890]{height:80px;display:flex;flex-direction:column;border-bottom:1px solid #554f4f}.main-clash-traffic-view-red[data-v-bff51890]{height:80px;display:flex;flex-direction:column;border-bottom:1px solid rgba(218,20,30,.247059)}", ""])
+	.push([e.i, ".grid-light[data-v-b09de488]{background-color:#f5f5f5}.grid-dark[data-v-b09de488],.grid-light[data-v-b09de488]{padding:10.5px 40px;text-align:center;flex:1;display:flex;align-items:baseline;justify-content:space-between;font-size:.8em;letter-spacing:.5px;height:40px}.grid-dark[data-v-b09de488]{background-color:#42424e}.grid-red[data-v-b09de488]{background-color:#ffc76d;padding:10.5px 40px;text-align:center;flex:1;display:flex;align-items:baseline;justify-content:space-between;font-size:.8em;letter-spacing:.5px;height:40px}.main-clash-traffic-view-light[data-v-b09de488]{height:80px;display:flex;flex-direction:column;border-bottom:1px solid #dcdcdc}.main-clash-traffic-view-dark[data-v-b09de488]{height:80px;display:flex;flex-direction:column;border-bottom:1px solid #554f4f}.main-clash-traffic-view-red[data-v-b09de488]{height:80px;display:flex;flex-direction:column;border-bottom:1px solid rgba(218,20,30,.247059)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(59);
+	var r = n(29);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".hint[data-v-bff51890]{font-size:.8em;color:#000;letter-spacing:1px;text-align:left}.bold-icon[data-v-bff51890]{font-size:.75em;letter-spacing:1px;padding:0 1px}", ""])
+	.push([e.i, ".hint[data-v-b09de488]{font-size:.8em;color:#000;letter-spacing:1px;text-align:left}.bold-icon[data-v-b09de488]{font-size:.75em;letter-spacing:1px;padding:0 1px}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(60);
+	var r = n(30);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9055,86 +7469,36 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(61);
+	var r = n(31);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".menu-light[data-v-b410ef4e]{background-color:#fff;color:#000;list-style-type:none;border-bottom:1px solid #dcdcdc}.menu-dark[data-v-b410ef4e]{background-color:#2c2a38;color:#fff;list-style-type:none;border-bottom:1px solid #554f4f}.menu-red[data-v-b410ef4e]{background-color:#f8b74f;color:#d33928;list-style-type:none;border-bottom:1px solid rgba(218,20,30,.247059)}.item-none-light[data-v-b410ef4e]{background-color:#f5f5f5;color:#747d88}.item-none-dark[data-v-b410ef4e]{background-color:#42424e;color:#d4d4d4}.item-none-red[data-v-b410ef4e]{background-color:#ffc76d;color:rgba(218,20,30,.796078)}.running-time-light[data-v-b410ef4e]{flex-grow:1;color:#000}.running-time-dark[data-v-b410ef4e]{flex-grow:1;color:#fff}.running-time-red[data-v-b410ef4e]{flex-grow:1;color:#d33928}.traffic-light[data-v-b410ef4e]{margin-top:0;color:#000}.traffic-dark[data-v-b410ef4e]{margin-top:0;color:#fff}.traffic-red[data-v-b410ef4e]{margin-top:0;color:#d33928}.main-main-menu[data-v-b410ef4e]{height:100%;display:flex;flex-direction:column}", ""])
+	.push([e.i, ".menu-light[data-v-55c73196]{background-color:#fff;color:#000;list-style-type:none;border-bottom:1px solid #dcdcdc}.menu-dark[data-v-55c73196]{background-color:#2c2a38;color:#fff;list-style-type:none;border-bottom:1px solid #554f4f}.menu-red[data-v-55c73196]{background-color:#f8b74f;color:#d33928;list-style-type:none;border-bottom:1px solid rgba(218,20,30,.247059)}.item-none-light[data-v-55c73196]{background-color:#f5f5f5;color:#747d88}.item-none-dark[data-v-55c73196]{background-color:#42424e;color:#d4d4d4}.item-none-red[data-v-55c73196]{background-color:#ffc76d;color:rgba(218,20,30,.796078)}.running-time-light[data-v-55c73196]{flex-grow:1;color:#000}.running-time-dark[data-v-55c73196]{flex-grow:1;color:#fff}.running-time-red[data-v-55c73196]{flex-grow:1;color:#d33928}.traffic-light[data-v-55c73196]{margin-top:0;color:#000}.traffic-dark[data-v-55c73196]{margin-top:0;color:#fff}.traffic-red[data-v-55c73196]{margin-top:0;color:#d33928}.main-main-menu[data-v-55c73196]{z-index:2;height:100%;display:flex;flex-direction:column}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(62);
+	var r = n(32);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".icon[data-v-b410ef4e]{width:25px;height:25px}.item[data-v-b410ef4e]{padding:18px 35px;font-size:1em;cursor:pointer;display:flex;align-items:center}.selected-top[data-v-b410ef4e]{border-bottom-right-radius:10px}.selected-bottom[data-v-b410ef4e]{border-top-right-radius:10px}.clickable[data-v-b410ef4e]{cursor:pointer;text-align:center;width:100%}", ""])
-}, function(e, t, n)
-{
-	var r = n(17),
-		a = r.JSON || (r.JSON = {
-			stringify: JSON.stringify
-		});
-	e.exports = function()
-	{
-		return a.stringify.apply(a, arguments)
-	}
+	.push([e.i, ".icon[data-v-55c73196]{width:25px;height:25px}.item[data-v-55c73196]{padding:18px 35px;font-size:1em;cursor:pointer;display:flex;align-items:center}.selected-top[data-v-55c73196]{border-bottom-right-radius:10px}.selected-bottom[data-v-55c73196]{border-top-right-radius:10px}.clickable[data-v-55c73196]{cursor:pointer;text-align:center;width:100%}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(63);
+	var r = n(33);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-light[data-v-182b9d04]{height:25px;width:100vw;background-color:#ebebeb;color:#000;display:flex;justify-content:space-between;align-items:center}.main-light .empty[data-v-182b9d04]{flex-grow:1;height:100%;display:flex;flex-direction:column}.main-light .empty .top[data-v-182b9d04]{height:5px}.main-light .empty .bottom[data-v-182b9d04]{flex-grow:1;-webkit-app-region:drag}.main-dark[data-v-182b9d04]{height:25px;width:100vw;background-color:#343442;color:#fff;display:flex;justify-content:space-between;align-items:center}.main-dark .empty[data-v-182b9d04]{flex-grow:1;height:100%;display:flex;flex-direction:column}.main-dark .empty .top[data-v-182b9d04]{height:5px}.main-dark .empty .bottom[data-v-182b9d04]{flex-grow:1;-webkit-app-region:drag}.main-red[data-v-182b9d04]{height:25px;width:100vw;background-color:#e8a84a;color:#d33928;display:flex;justify-content:space-between;align-items:center}.main-red .empty[data-v-182b9d04]{flex-grow:1;height:100%;display:flex;flex-direction:column}.main-red .empty .top[data-v-182b9d04]{height:5px}.main-red .empty .bottom[data-v-182b9d04]{flex-grow:1;-webkit-app-region:drag}.title[data-v-182b9d04]{font-size:.75em;font-weight:100;letter-spacing:1px}.close-light[data-v-182b9d04]{-webkit-app-region:no-drag;cursor:pointer;padding:0 7px;height:100%;display:flex;align-items:center}.close-light>img[data-v-182b9d04]{cursor:pointer;height:20px;width:20px}.close-light[data-v-182b9d04]:hover{background-color:rgba(50,50,50,.2)}.close-dark[data-v-182b9d04]{-webkit-app-region:no-drag;cursor:pointer;padding:0 7px;height:100%;display:flex;align-items:center}.close-dark>img[data-v-182b9d04]{cursor:pointer;height:20px;width:20px}.close-dark[data-v-182b9d04]:hover{background-color:hsla(0,0%,98%,.2)}.close-red[data-v-182b9d04]{-webkit-app-region:no-drag;cursor:pointer;padding:0 7px;height:100%;display:flex;align-items:center}.close-red>img[data-v-182b9d04]{cursor:pointer;height:20px;width:20px}.close-red[data-v-182b9d04]:hover{background-color:hsla(0,0%,98%,.2)}.icon[data-v-182b9d04]{padding:0;margin-left:10px;background-color:#f3f3f3;width:20px;height:20px;border-radius:1px}.icon>img[data-v-182b9d04]{width:20px;height:20px}", ""])
+	.push([e.i, ".main-light[data-v-1ce41e42]{height:25px;width:100vw;background-color:#ebebeb;color:#000;display:flex;justify-content:space-between;align-items:center}.main-light .empty[data-v-1ce41e42]{flex-grow:1;height:100%;display:flex;flex-direction:column}.main-light .empty .top[data-v-1ce41e42]{height:5px}.main-light .empty .bottom[data-v-1ce41e42]{flex-grow:1;-webkit-app-region:drag}.main-dark[data-v-1ce41e42]{height:25px;width:100vw;background-color:#343442;color:#fff;display:flex;justify-content:space-between;align-items:center}.main-dark .empty[data-v-1ce41e42]{flex-grow:1;height:100%;display:flex;flex-direction:column}.main-dark .empty .top[data-v-1ce41e42]{height:5px}.main-dark .empty .bottom[data-v-1ce41e42]{flex-grow:1;-webkit-app-region:drag}.main-red[data-v-1ce41e42]{height:25px;width:100vw;background-color:#e8a84a;color:#d33928;display:flex;justify-content:space-between;align-items:center}.main-red .empty[data-v-1ce41e42]{flex-grow:1;height:100%;display:flex;flex-direction:column}.main-red .empty .top[data-v-1ce41e42]{height:5px}.main-red .empty .bottom[data-v-1ce41e42]{flex-grow:1;-webkit-app-region:drag}.title[data-v-1ce41e42]{font-size:.75em;font-weight:100;letter-spacing:1px}.close-light[data-v-1ce41e42]{-webkit-app-region:no-drag;cursor:pointer;padding:0 7px;height:100%;display:flex;align-items:center}.close-light>img[data-v-1ce41e42]{cursor:pointer;height:20px;width:20px}.close-light[data-v-1ce41e42]:hover{background-color:rgba(50,50,50,.2)}.close-dark[data-v-1ce41e42]{-webkit-app-region:no-drag;cursor:pointer;padding:0 7px;height:100%;display:flex;align-items:center}.close-dark>img[data-v-1ce41e42]{cursor:pointer;height:20px;width:20px}.close-dark[data-v-1ce41e42]:hover{background-color:hsla(0,0%,98%,.2)}.close-red[data-v-1ce41e42]{-webkit-app-region:no-drag;cursor:pointer;padding:0 7px;height:100%;display:flex;align-items:center}.close-red>img[data-v-1ce41e42]{cursor:pointer;height:20px;width:20px}.close-red[data-v-1ce41e42]:hover{background-color:hsla(0,0%,98%,.2)}.icon[data-v-1ce41e42]{padding:0;margin-left:10px;background-color:#f3f3f3;width:20px;height:20px;border-radius:1px}.icon>img[data-v-1ce41e42]{width:20px;height:20px}", ""])
 }, function(e)
 {
 	e.exports = require("util")
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(215),
-		__esModule: !0
-	}
-}, function(e, t, n)
-{
-	n(50), n(55), e.exports = n(126)
-		.f("iterator")
-}, function(e, t, n)
-{
-	n(217), e.exports = n(17)
-		.Object.keys
-}, function(e, t, n)
-{
-	var r = n(54),
-		a = n(38);
-	n(218)("keys", (function()
-	{
-		return function(e)
-		{
-			return a(r(e))
-		}
-	}))
-}, function(e, t, n)
-{
-	var r = n(25),
-		a = n(17),
-		i = n(37);
-	e.exports = function(e, t)
-	{
-		var n = (a.Object ||
-			{})[e] || Object[e],
-			o = {};
-		o[e] = t(n), r(r.S + r.F * i((function()
-		{
-			n(1)
-		})), "Object", o)
-	}
 }, function(e, t, n)
 {
 	function r(e)
@@ -9153,33 +7517,64 @@
 		return i[e]
 	}
 	var i = {
-		"./app.js": 220,
-		"./index.js": 129
+		"./app.js": 120,
+		"./index.js": 86
 	};
 	r.keys = function()
 	{
 		return Object.keys(i)
-	}, r.resolve = a, e.exports = r, r.id = 219
+	}, r.resolve = a, e.exports = r, r.id = 119
 }, function(e, t, n)
 {
 	"use strict";
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? r(Object(t), !0)
+			.forEach((function(n)
+			{
+				c()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
 	n.r(t);
-	var r = n(32),
-		a = n.n(r),
-		i = n(2),
+	var i = n(22),
 		o = n.n(i),
-		s = n(6),
+		s = n(2),
 		c = n.n(s),
-		d = n(11),
+		d = n(6),
 		l = n.n(d),
-		u = n(5),
+		u = n(12),
 		p = n.n(u),
-		f = n(12),
-		h = n(130),
-		v = n.n(h),
-		m = n(9),
-		g = n(10),
-		x = {
+		f = n(3),
+		h = n.n(f),
+		v = n(13),
+		m = n(87),
+		g = n.n(m),
+		b = n(10),
+		x = n(11),
+		y = n(9),
+		w = {
 			clashPath: "",
 			profilesPath: "",
 			profiles:
@@ -9187,10 +7582,10 @@
 			confData:
 			{},
 			logFilePath: "",
-			isMixinEnable: m.a.get(g.a.IS_MIXIN) || !1,
+			isMixinEnable: b.a.get(x.a.IS_MIXIN) || !1,
 			exePath: "",
 			errors: [],
-			status: f.b.INIT,
+			status: v.b.INIT,
 			clashAxiosClient: null,
 			clashGotClient: null,
 			settings:
@@ -9199,7 +7594,7 @@
 			detectedInterfaceName: ""
 		};
 	t.default = {
-		state: x,
+		state: w,
 		getters:
 		{
 			mixedPort: function(e)
@@ -9215,11 +7610,11 @@
 			},
 			resourcesPath: function(e)
 			{
-				return v.a ? "" : "" === e.exePath ? "" : p.a.join(p.a.dirname(e.exePath), "darwin" === process.platform ? "../Resources" : "./resources")
+				return g.a ? "" : "" === e.exePath ? "" : h.a.join(h.a.dirname(e.exePath), Object(y.e)() ? "../Resources" : "./resources")
 			},
 			filesPath: function(e, t)
 			{
-				return "" === t.resourcesPath ? "static/files" : p.a.join(t.resourcesPath, "static/files")
+				return "" === t.resourcesPath ? "static/files" : h.a.join(t.resourcesPath, "static/files")
 			},
 			theme: function(e)
 			{
@@ -9239,7 +7634,7 @@
 			CHANGE_IS_MIXIN_ENABLE: function(e, t)
 			{
 				var n = t.isMixin;
-				e.isMixinEnable = n, m.a.put(g.a.IS_MIXIN, n)
+				e.isMixinEnable = n, b.a.put(x.a.IS_MIXIN, n)
 			},
 			SET_CLASH_PATH: function(e, t)
 			{
@@ -9258,8 +7653,8 @@
 			},
 			LOAD_PROFILES: function(e)
 			{
-				var t = c.a.readFileSync(p.a.join(e.profilesPath, "list.yml"), "utf8"),
-					n = l.a.parse(t,
+				var t = l.a.readFileSync(h.a.join(e.profilesPath, "list.yml"), "utf8"),
+					n = p.a.parse(t,
 					{
 						merge: !0,
 						schema: "yaml-1.1"
@@ -9273,13 +7668,14 @@
 			},
 			SAVE_PROFILES: function(e)
 			{
-				c.a.writeFileSync(p.a.join(e.profilesPath, "list.yml"), l.a.stringify(e.profiles))
+				l.a.writeFileSync(h.a.join(e.profilesPath, "list.yml"), p.a.stringify(e.profiles))
 			},
 			CHANGE_PROFILES: function(e, t)
 			{
 				var n = t.profiles;
-				e.profiles = o()(
-				{}, e.profiles,
+				e.profiles = a(a(
+				{}, e.profiles),
+				{},
 				{
 					files: n
 				})
@@ -9287,8 +7683,9 @@
 			CHANGE_PROFILES_INDEX: function(e, t)
 			{
 				var n = t.index;
-				e.profiles = o()(
-				{}, e.profiles,
+				e.profiles = a(a(
+				{}, e.profiles),
+				{},
 				{
 					index: n
 				})
@@ -9299,11 +7696,12 @@
 					r = t.profile;
 				if(r)
 				{
-					var a = e.profiles.files.slice();
-					a[n] = r, e.profiles = o()(
-					{}, e.profiles,
+					var i = e.profiles.files.slice();
+					i[n] = r, e.profiles = a(a(
+					{}, e.profiles),
+					{},
 					{
-						files: a
+						files: i
 					})
 				}
 			},
@@ -9311,8 +7709,9 @@
 			{
 				var n = t.index,
 					r = e.profiles.files.slice();
-				r.splice(n, 1), e.profiles = o()(
-				{}, e.profiles,
+				r.splice(n, 1), e.profiles = a(a(
+				{}, e.profiles),
+				{},
 				{
 					files: r
 				})
@@ -9322,10 +7721,11 @@
 				var n = t.profile,
 					r = e.profiles.files,
 					i = void 0 === r ? [] : r;
-				n && (e.profiles = o()(
-				{}, e.profiles,
+				n && (e.profiles = a(a(
+				{}, e.profiles),
+				{},
 				{
-					files: [].concat(a()(i), [n])
+					files: [].concat(o()(i), [n])
 				}))
 			},
 			SET_LOG_FILE_PATH: function(e, t)
@@ -9341,7 +7741,7 @@
 			APPEND_ERROR: function(e, t)
 			{
 				var n = t.error;
-				e.errors = [].concat(a()(e.errors), [n])
+				e.errors = [].concat(o()(e.errors), [n])
 			},
 			CHANGE_STATUS: function(e, t)
 			{
@@ -9366,7 +7766,7 @@
 			SAVE_SETTINGS_OBJECT: function(e, t)
 			{
 				var n = t.obj;
-				e.settings = n, c.a.writeFileSync(p.a.join(e.clashPath, "cfw-settings.yaml"), l.a.stringify(n))
+				e.settings = n, l.a.writeFileSync(h.a.join(e.clashPath, "cfw-settings.yaml"), p.a.stringify(n))
 			},
 			SET_SHOULD_USE_DARK_THEME: function(e, t)
 			{
@@ -9382,55 +7782,22 @@
 	}
 }, function(e, t, n)
 {
-	e.exports = {
-		default: n(222),
-		__esModule: !0
+	var r = n(93);
+	e.exports = function(e)
+	{
+		if(Array.isArray(e)) return r(e)
 	}
-}, function(e, t, n)
+}, function(e)
 {
-	n(50), n(223), e.exports = n(17)
-		.Array.from
-}, function(e, t, n)
+	e.exports = function(e)
+	{
+		if("undefined" != typeof Symbol && Symbol.iterator in Object(e)) return Array.from(e)
+	}
+}, function(e)
 {
-	"use strict";
-	var r = n(45),
-		a = n(25),
-		i = n(54),
-		o = n(143),
-		s = n(144),
-		c = n(117),
-		d = n(224),
-		l = n(123);
-	a(a.S + a.F * !n(149)((function(e)
+	e.exports = function()
 	{
-		Array.from(e)
-	})), "Array",
-	{
-		from: function(e)
-		{
-			var t, n, a, u, p = i(e),
-				f = "function" == typeof this ? this : Array,
-				h = arguments.length,
-				v = 1 < h ? arguments[1] : void 0,
-				m = void 0 !== v,
-				g = 0,
-				x = l(p);
-			if(m && (v = r(v, 2 < h ? arguments[2] : void 0, 2)), null == x || f == Array && s(x))
-				for(n = new f(t = c(p.length)); t > g; g++) d(n, g, m ? v(p[g], g) : p[g]);
-			else
-				for(u = x.call(p), n = new f; !(a = u.next())
-					.done; g++) d(n, g, m ? o(u, v, [a.value, g], !0) : a.value);
-			return n.length = g, n
-		}
-	})
-}, function(e, t, n)
-{
-	"use strict";
-	var r = n(27),
-		a = n(46);
-	e.exports = function(e, t, n)
-	{
-		t in e ? r.f(e, t, a(0, n)) : e[t] = n
+		throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
 	}
 }, function(e)
 {
@@ -9441,17 +7808,17 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(65);
+	var r = n(35);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".theme-light[data-v-04dc0df5]{background-color:#fff;color:#000}.theme-dark[data-v-04dc0df5]{background-color:#2c2a38;color:#fff}.theme-red[data-v-04dc0df5]{background-color:#f8b74f;color:#d33928}.wrapper[data-v-04dc0df5]{height:100vh;width:100vw;overflow:hidden}", ""])
+	.push([e.i, ".theme-light[data-v-18e9dcec]{background-color:#fff;color:#000}.theme-dark[data-v-18e9dcec]{background-color:#2c2a38;color:#fff}.theme-red[data-v-18e9dcec]{background-color:#f8b74f;color:#d33928}.wrapper[data-v-18e9dcec]{height:100vh;width:100vw;overflow:hidden}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(66);
+	var r = n(36);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9461,17 +7828,17 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(67);
+	var r = n(37);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, "main[data-v-04dc0df5]{display:flex;justify-content:space-between}.left-side[data-v-04dc0df5]{display:flex;flex-direction:column;width:170px;height:calc(100vh - 25px)}.right-side[data-v-04dc0df5]{z-index:1;flex-grow:1;width:calc(100vw - 170px);height:calc(100vh - 25px)}.welcome[data-v-04dc0df5]{color:#555;font-size:23px;margin-bottom:10px}.title[data-v-04dc0df5]{color:#2c3e50;font-size:20px;font-weight:700;margin-bottom:6px}.title.alt[data-v-04dc0df5]{font-size:18px;margin-bottom:10px}.doc p[data-v-04dc0df5]{color:#000;margin-bottom:10px}.doc button[data-v-04dc0df5]{font-size:.8em;cursor:pointer;outline:none;padding:.75em 2em;border-radius:2em;display:inline-block;color:#fff;background-color:#4fc08d;transition:all .15s ease;box-sizing:border-box;border:1px solid #4fc08d}.doc button.alt[data-v-04dc0df5]{color:#42b983;background-color:transparent}.clash-status-main[data-v-04dc0df5]{display:flex;align-items:center;position:absolute;height:40px;bottom:0;width:170px;left:0;justify-content:center}.clash-status-hint[data-v-04dc0df5]{margin-left:6px;font-size:.75em;letter-spacing:0;cursor:pointer}.clash-status-icon[data-v-04dc0df5]{width:12px;height:12px;border-radius:10px}.clash-running[data-v-04dc0df5]{background-color:#41b883}.clash-set-dns[data-v-04dc0df5]{background-color:#e7d91a}.clash-stopped[data-v-04dc0df5]{background-color:red}.cloud[data-v-04dc0df5]{position:fixed;opacity:.2;bottom:10px;left:calc(50% + 80px);transform:translateX(-50%);width:40%;pointer-events:none}.latern[data-v-04dc0df5]{position:fixed;opacity:.7;top:30px;left:125px;width:50px;pointer-events:none}", ""])
+	.push([e.i, "main[data-v-18e9dcec]{display:flex;justify-content:space-between}.left-side[data-v-18e9dcec]{display:flex;flex-direction:column;width:170px;height:calc(100vh - 25px)}.right-side[data-v-18e9dcec]{z-index:1;flex-grow:1;width:calc(100vw - 170px);height:calc(100vh - 25px)}.welcome[data-v-18e9dcec]{color:#555;font-size:23px;margin-bottom:10px}.title[data-v-18e9dcec]{color:#2c3e50;font-size:20px;font-weight:700;margin-bottom:6px}.title.alt[data-v-18e9dcec]{font-size:18px;margin-bottom:10px}.doc p[data-v-18e9dcec]{color:#000;margin-bottom:10px}.doc button[data-v-18e9dcec]{font-size:.8em;cursor:pointer;outline:none;padding:.75em 2em;border-radius:2em;display:inline-block;color:#fff;background-color:#4fc08d;transition:all .15s ease;box-sizing:border-box;border:1px solid #4fc08d}.doc button.alt[data-v-18e9dcec]{color:#42b983;background-color:transparent}.clash-status-main[data-v-18e9dcec]{display:flex;align-items:center;position:absolute;height:40px;bottom:0;width:170px;left:0;justify-content:center;z-index:2}.clash-status-hint[data-v-18e9dcec]{margin-left:6px;font-size:.75em;letter-spacing:0;cursor:pointer}.clash-status-icon[data-v-18e9dcec]{width:12px;height:12px;border-radius:10px}.clash-running[data-v-18e9dcec]{background-color:#41b883}.clash-set-dns[data-v-18e9dcec]{background-color:#e7d91a}.clash-stopped[data-v-18e9dcec]{background-color:red}.cloud[data-v-18e9dcec]{position:fixed;opacity:.2;bottom:10px;left:calc(50% + 80px);transform:translateX(-50%);width:40%;pointer-events:none}.latern[data-v-18e9dcec]{position:fixed;opacity:.7;top:30px;left:125px;width:50px;pointer-events:none}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(68);
+	var r = n(38);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9481,7 +7848,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(69);
+	var r = n(39);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9491,7 +7858,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(70);
+	var r = n(40);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9501,17 +7868,17 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(71);
+	var r = n(41);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-select-view[data-v-20b1bdec]{display:flex;align-items:center}.item-light[data-v-20b1bdec]{background-color:#c7bfbf}.item-dark[data-v-20b1bdec],.item-light[data-v-20b1bdec]{color:#fff;height:26px;font-size:.8em;line-height:25px;padding:0 6px;text-align:center;cursor:pointer;min-width:50px}.item-dark[data-v-20b1bdec]{background-color:#413c3c}.item-red[data-v-20b1bdec]{background-color:#d39126;color:#fff;height:26px;font-size:.8em;line-height:25px;padding:0 6px;text-align:center;cursor:pointer;min-width:50px}.item-first[data-v-20b1bdec]{border-top-left-radius:6px;border-bottom-left-radius:6px}.item-last[data-v-20b1bdec]{border-top-right-radius:6px;border-bottom-right-radius:6px}.item-selected-dark[data-v-20b1bdec],.item-selected-light[data-v-20b1bdec],.item-selected-red[data-v-20b1bdec]{background-color:#179bbb}", ""])
+	.push([e.i, ".main-select-view[data-v-38b9c85e]{display:flex;align-items:center}.item-dark[data-v-38b9c85e],.item-light[data-v-38b9c85e],.item-red[data-v-38b9c85e]{color:#fff;height:26px;font-size:.8em;line-height:25px;padding:0 6px;text-align:center;cursor:pointer;min-width:50px}.item-single-light[data-v-38b9c85e]{background-color:#c7bfbf}.item-single-dark[data-v-38b9c85e]{background-color:#413c3c}.item-single-red[data-v-38b9c85e]{background-color:#d39126}.item-double-light[data-v-38b9c85e]{background-color:#bdb3b3}.item-double-dark[data-v-38b9c85e]{background-color:#332f2f}.item-double-red[data-v-38b9c85e]{background-color:#be8222}.item-first[data-v-38b9c85e]{border-top-left-radius:6px;border-bottom-left-radius:6px}.item-last[data-v-38b9c85e]{border-top-right-radius:6px;border-bottom-right-radius:6px}.item-selected-dark[data-v-38b9c85e],.item-selected-light[data-v-38b9c85e],.item-selected-red[data-v-38b9c85e]{background-color:#179bbb}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(72);
+	var r = n(42);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9521,47 +7888,37 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(73);
+	var r = n(43);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".content-light[data-v-500b2c9f]{min-width:200px;position:absolute;top:18px;transform:translateY(-100%);left:23px;background-color:#fff;color:#17224f;padding:10px 15px;border-radius:3px;z-index:1000;font-size:14px;box-shadow:0 0 5px 2px rgba(0,0,0,.1)}.content-light a[data-v-500b2c9f]{color:#8abdf8;text-decoration:none;cursor:pointer}.content-dark[data-v-500b2c9f]{min-width:200px;position:absolute;top:18px;transform:translateY(-100%);left:23px;background-color:#686675;color:#fff;padding:10px 15px;border-radius:3px;z-index:1000;font-size:14px;box-shadow:0 0 5px 2px rgba(0,0,0,.1)}.content-dark a[data-v-500b2c9f]{color:#8abdf8;text-decoration:none;cursor:pointer}.content-red[data-v-500b2c9f]{min-width:200px;position:absolute;top:18px;transform:translateY(-100%);left:23px;background-color:#ca2b33;color:#fff;padding:10px 15px;border-radius:3px;z-index:1000;font-size:14px;box-shadow:0 0 5px 2px rgba(0,0,0,.1)}.content-red a[data-v-500b2c9f]{color:#8abdf8;text-decoration:none;cursor:pointer}.info-icon-main[data-v-500b2c9f]{position:relative;display:flex;align-items:center}.info-icon-main img[data-v-500b2c9f]{padding:5px;width:25px;height:25px;opacity:.7}", ""])
+	.push([e.i, ".content-light[data-v-4f58683a]{min-width:200px;position:absolute;top:18px;transform:translateY(-100%);left:23px;background-color:#fff;color:#17224f;padding:10px 15px;border-radius:3px;z-index:1000;font-size:14px;box-shadow:0 0 5px 2px rgba(0,0,0,.1)}.content-light a[data-v-4f58683a]{color:#8abdf8;text-decoration:none;cursor:pointer}.content-dark[data-v-4f58683a]{min-width:200px;position:absolute;top:18px;transform:translateY(-100%);left:23px;background-color:#686675;color:#fff;padding:10px 15px;border-radius:3px;z-index:1000;font-size:14px;box-shadow:0 0 5px 2px rgba(0,0,0,.1)}.content-dark a[data-v-4f58683a]{color:#8abdf8;text-decoration:none;cursor:pointer}.content-red[data-v-4f58683a]{min-width:200px;position:absolute;top:18px;transform:translateY(-100%);left:23px;background-color:#ca2b33;color:#fff;padding:10px 15px;border-radius:3px;z-index:1000;font-size:14px;box-shadow:0 0 5px 2px rgba(0,0,0,.1)}.content-red a[data-v-4f58683a]{color:#8abdf8;text-decoration:none;cursor:pointer}.info-icon-main[data-v-4f58683a]{position:relative;display:flex;align-items:center;margin-left:4px}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(74);
+	var r = n(44);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".content[data-v-27ee0397]{padding:5px;flex-grow:1;overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;margin:0 auto;width:70vw;height:80vh;max-height:600px;max-width:650px}.item-light[data-v-27ee0397]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-light[data-v-27ee0397]:hover{background-color:#f1f1f1}.item-dark[data-v-27ee0397]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-dark[data-v-27ee0397]:hover{background-color:#606068}.item-red[data-v-27ee0397]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-red[data-v-27ee0397]:hover{background-color:#eda94c}.title-light[data-v-27ee0397]{color:#2c3e50}.title-dark[data-v-27ee0397],.title-light[data-v-27ee0397]{font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.title-dark[data-v-27ee0397]{color:#e9e9e9}.title-red[data-v-27ee0397]{color:#b72d29;font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.clickable-light[data-v-27ee0397]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px;border-bottom-color:rgba(50,50,50,.2)}.clickable-dark[data-v-27ee0397]{border-bottom-color:#959595}.clickable-dark[data-v-27ee0397],.clickable-red[data-v-27ee0397]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px}.clickable-red[data-v-27ee0397]{border-bottom-color:rgba(218,20,30,.247059)}.interfaces-card-light[data-v-27ee0397]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#fff;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-light[data-v-27ee0397]::-webkit-scrollbar{width:10px}.interfaces-card-light[data-v-27ee0397]::-webkit-scrollbar-thumb{background-color:#cac8c6}.interfaces-card-dark[data-v-27ee0397]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#686675;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-dark[data-v-27ee0397]::-webkit-scrollbar{width:10px}.interfaces-card-dark[data-v-27ee0397]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.interfaces-card-red[data-v-27ee0397]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#ca2b33;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-red[data-v-27ee0397]::-webkit-scrollbar{width:10px}.interfaces-card-red[data-v-27ee0397]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.interfaces-content-light[data-v-27ee0397]{color:#17224f;display:flex;align-items:flex-end;margin:10px 0;align-items:center}.interfaces-content-dark[data-v-27ee0397],.interfaces-content-red[data-v-27ee0397]{color:#fff;display:flex;align-items:flex-end;margin:10px 0;align-items:center}", ""])
+	.push([e.i, ".content[data-v-7faa54ca]{padding:5px;flex-grow:1;overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;margin:0 auto;width:70vw;height:80vh;max-height:600px;max-width:650px}.item-light[data-v-7faa54ca]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-light[data-v-7faa54ca]:hover{background-color:#f1f1f1}.item-dark[data-v-7faa54ca]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-dark[data-v-7faa54ca]:hover{background-color:#606068}.item-red[data-v-7faa54ca]{position:relative;padding:4px 20px;font-size:1.1em;display:flex;align-items:center;justify-content:space-between;border-radius:3px;height:100%;transition:background-color .3s}.item-red[data-v-7faa54ca]:hover{background-color:#eda94c}.title-light[data-v-7faa54ca]{color:#2c3e50}.title-dark[data-v-7faa54ca],.title-light[data-v-7faa54ca]{font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.title-dark[data-v-7faa54ca]{color:#e9e9e9}.title-red[data-v-7faa54ca]{color:#b72d29;font-size:2em;font-weight:500;cursor:pointer;display:flex;align-items:center}.clickable-light[data-v-7faa54ca]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px;border-bottom-color:rgba(50,50,50,.2)}.clickable-dark[data-v-7faa54ca]{border-bottom-color:#959595}.clickable-dark[data-v-7faa54ca],.clickable-red[data-v-7faa54ca]{cursor:pointer;border-bottom-style:dashed;border-bottom-width:1px}.clickable-red[data-v-7faa54ca]{border-bottom-color:rgba(218,20,30,.247059)}.interfaces-card-light[data-v-7faa54ca]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#fff;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-light[data-v-7faa54ca]::-webkit-scrollbar{width:10px}.interfaces-card-light[data-v-7faa54ca]::-webkit-scrollbar-thumb{background-color:#cac8c6}.interfaces-card-dark[data-v-7faa54ca]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#686675;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-dark[data-v-7faa54ca]::-webkit-scrollbar{width:10px}.interfaces-card-dark[data-v-7faa54ca]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.interfaces-card-red[data-v-7faa54ca]{position:fixed;left:calc(170px + (100vw - 170px) / 2);transform:translate(-50%);bottom:20px;background-color:#ca2b33;padding:10px 30px;border-radius:5px;max-height:50vh;overflow-y:scroll;box-shadow:1px 1px 10px 2px rgba(50,50,50,.3);z-index:2000}.interfaces-card-red[data-v-7faa54ca]::-webkit-scrollbar{width:10px}.interfaces-card-red[data-v-7faa54ca]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.interfaces-content-light[data-v-7faa54ca]{color:#17224f;display:flex;align-items:flex-end;margin:10px 0;align-items:center}.interfaces-content-dark[data-v-7faa54ca],.interfaces-content-red[data-v-7faa54ca]{color:#fff;display:flex;align-items:flex-end;margin:10px 0;align-items:center}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(75);
+	var r = n(45);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, '#main-general-view[data-v-27ee0397]{display:flex;flex-direction:column;justify-content:space-between;height:calc(100vh - 25px)}.header[data-v-27ee0397]{margin-top:10px;display:flex;height:100px;width:calc(100vw - 170px);justify-content:center;align-items:center}.icon[data-v-27ee0397]{width:90px;height:90px;margin-right:20px}.title-name[data-v-27ee0397]{display:inline-block;cursor:pointer}.new-version-tag[data-v-27ee0397]{display:inline-block;color:#fff;padding:2px 4px;background-color:rgba(170,38,38,.8);border-radius:3px;font-size:.65em;position:relative;top:-8px;left:2px}.item-left[data-v-27ee0397]{display:flex;font-weight:500;font-size:1em;align-items:center}.item-right[data-v-27ee0397]{font-size:15px;font-weight:400;display:flex;align-items:center}.control-icon[data-v-27ee0397]{width:20px;height:20px;margin-right:10px;margin-top:2px;cursor:pointer}.systemCheckbox[data-v-27ee0397]{width:20px;height:20px}.systemCheckbox[data-v-27ee0397]:checked{background-color:#233376;border:none}.hiddenInput[data-v-27ee0397]{width:1px;height:1px;opacity:0}.version[data-v-27ee0397]{font-size:.5em;margin-left:10px;font-weight:400;cursor:pointer;margin-top:15px}.checkmark-container[data-v-27ee0397]{display:block;position:relative;padding-left:22px;margin-bottom:22px;cursor:pointer;font-size:22px}.checkmark-container input[data-v-27ee0397]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.system-checkmark[data-v-27ee0397]{cursor:pointer;position:absolute;top:0;border-radius:20px;left:0;height:25px;width:25px;background-color:#fff;box-shadow:0 0 5px 1px rgba(50,50,50,.5)}.checkmark-container:hover input~.system-checkmark[data-v-27ee0397]{background-color:#fff}.checkmark-container input:checked~.system-checkmark[data-v-27ee0397]{background-color:#464646}.system-checkmark-unknown[data-v-27ee0397]{background-color:#beb9b9}.system-checkmark[data-v-27ee0397]:after{content:"";position:absolute;display:none}.checkmark-container input:checked~.system-checkmark[data-v-27ee0397]:after{display:block}.checkmark-container .system-checkmark[data-v-27ee0397]:after{left:8px;top:5px;width:6px;height:9px;border:solid #fff;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.interface-address[data-v-27ee0397]{font-size:1em}.interface-name[data-v-27ee0397]{font-size:.8em;margin-left:15px}.edit-btn[data-v-27ee0397]{width:25px;height:25px;border-radius:4px;cursor:pointer;background-color:#464646;box-shadow:0 0 5px 1px rgba(50,50,50,.3)}.edit-btn>img[data-v-27ee0397]{width:17px;height:17px;margin:5px;cursor:pointer}.empty-div[data-v-27ee0397]{height:50px}', ""])
-}, function(e, t, n)
-{
-	n(250), e.exports = 9007199254740991
-}, function(e, t, n)
-{
-	var r = n(25);
-	r(r.S, "Number",
-	{
-		MAX_SAFE_INTEGER: 9007199254740991
-	})
+	.push([e.i, '#main-general-view[data-v-7faa54ca]{display:flex;flex-direction:column;justify-content:space-between;height:calc(100vh - 25px)}.header[data-v-7faa54ca]{margin-top:10px;display:flex;height:100px;width:calc(100vw - 170px);justify-content:center;align-items:center}.icon[data-v-7faa54ca]{width:90px;height:90px;margin-right:20px}.title-name[data-v-7faa54ca]{display:inline-block;cursor:pointer}.new-version-tag[data-v-7faa54ca]{display:inline-block;color:#fff;padding:2px 4px;background-color:rgba(170,38,38,.8);border-radius:3px;font-size:.65em;position:relative;top:-8px;left:2px}.item-left[data-v-7faa54ca]{display:flex;font-weight:500;font-size:1em;align-items:center}.item-right[data-v-7faa54ca]{font-size:15px;font-weight:400;display:flex;align-items:center}.control-icon[data-v-7faa54ca]{width:20px;height:20px;margin-right:10px;margin-top:2px;cursor:pointer}.systemCheckbox[data-v-7faa54ca]{width:20px;height:20px}.systemCheckbox[data-v-7faa54ca]:checked{background-color:#233376;border:none}.hiddenInput[data-v-7faa54ca]{width:1px;height:1px;opacity:0}.version[data-v-7faa54ca]{font-size:.5em;margin-left:10px;font-weight:400;cursor:pointer;margin-top:15px}.checkmark-container[data-v-7faa54ca]{display:block;position:relative;padding-left:22px;margin-bottom:22px;cursor:pointer;font-size:22px}.checkmark-container input[data-v-7faa54ca]{position:absolute;opacity:0;cursor:pointer;height:0;width:0}.system-checkmark[data-v-7faa54ca]{cursor:pointer;position:absolute;top:0;border-radius:20px;left:0;height:25px;width:25px;background-color:#fff;box-shadow:0 0 5px 1px rgba(50,50,50,.5)}.checkmark-container:hover input~.system-checkmark[data-v-7faa54ca]{background-color:#fff}.checkmark-container input:checked~.system-checkmark[data-v-7faa54ca]{background-color:#464646}.system-checkmark-unknown[data-v-7faa54ca]{background-color:#beb9b9}.system-checkmark[data-v-7faa54ca]:after{content:"";position:absolute;display:none}.checkmark-container input:checked~.system-checkmark[data-v-7faa54ca]:after{display:block}.checkmark-container .system-checkmark[data-v-7faa54ca]:after{left:8px;top:5px;width:6px;height:9px;border:solid #fff;border-width:0 3px 3px 0;-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.interface-address[data-v-7faa54ca]{font-size:1em}.interface-name[data-v-7faa54ca]{font-size:.8em;margin-left:15px}.edit-btn[data-v-7faa54ca]{width:25px;height:25px;border-radius:4px;cursor:pointer;background-color:#464646;box-shadow:0 0 5px 1px rgba(50,50,50,.3)}.edit-btn>img[data-v-7faa54ca]{width:17px;height:17px;margin:5px;cursor:pointer}.empty-div[data-v-7faa54ca]{height:50px}', ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(76);
+	var r = n(46);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9571,7 +7928,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(77);
+	var r = n(47);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9580,37 +7937,8 @@
 	.push([e.i, "", ""])
 }, function(e, t, n)
 {
-	n(256), e.exports = n(17)
-		.Object.entries
-}, function(e, t, n)
-{
-	var r = n(25),
-		a = n(257)(!0);
-	r(r.S, "Object",
-	{
-		entries: function(e)
-		{
-			return a(e)
-		}
-	})
-}, function(e, t, n)
-{
-	var r = n(38),
-		a = n(36),
-		i = n(49)
-		.f;
-	e.exports = function(e)
-	{
-		return function(t)
-		{
-			for(var n, o = a(t), s = r(o), c = s.length, d = 0, l = []; c > d;) i.call(o, n = s[d++]) && l.push(e ? [n, o[n]] : o[n]);
-			return l
-		}
-	}
-}, function(e, t, n)
-{
 	"use strict";
-	var r = n(78);
+	var r = n(48);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9620,80 +7948,57 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(79);
+	var r = n(49);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-provider-view[data-v-7c7f8c4f]{width:100%;height:calc(100% - 25px);position:absolute;top:25px;right:0;background-color:rgba(43,43,43,.555);display:flex;justify-content:center;align-items:center;z-index:10;color:#000}.main-provider-view .card-light[data-v-7c7f8c4f]{height:80%;width:60%;border-radius:3px;background-color:#fff;box-shadow:0 0 15px -5px rgba(50,50,50,.4);padding:20px 10px 20px 20px;overflow-y:scroll}.main-provider-view .card-light[data-v-7c7f8c4f]::-webkit-scrollbar{width:10px}.main-provider-view .card-light[data-v-7c7f8c4f]::-webkit-scrollbar-thumb{background-color:#cac8c6}.main-provider-view .card-light .title[data-v-7c7f8c4f]{font-size:19px;text-align:center;margin-bottom:20px}.main-provider-view .card-light .provider-item[data-v-7c7f8c4f]:last-child{border-bottom:none}.main-provider-view .card-light .provider-item[data-v-7c7f8c4f]{padding-top:10px;padding-bottom:10px;border-bottom:1px solid hsla(0,0%,72%,.377)}.main-provider-view .card-light .provider-item .header .name-type[data-v-7c7f8c4f],.main-provider-view .card-light .provider-item .header[data-v-7c7f8c4f]{display:flex;align-items:center}.main-provider-view .card-light .provider-item .header .name-type .name[data-v-7c7f8c4f]{font-size:18px;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.main-provider-view .card-light .provider-item .header .name-type .type[data-v-7c7f8c4f]{font-size:13px;margin-left:10px;padding:0 3px;background-color:rgba(78,79,82,.514);color:#fff}.main-provider-view .card-light .provider-item .header .update-hint[data-v-7c7f8c4f]{font-size:14px;color:#a1a1a1}.main-provider-view .card-light .provider-item .header .empty[data-v-7c7f8c4f]{flex-grow:1}.main-provider-view .card-light .provider-item .header .btn[data-v-7c7f8c4f]{text-align:center;background-color:#4e4e4e;color:#fff;margin:0 5px;height:35px;padding:3px 15px;border-radius:3px;font-size:14px;width:fit-content}.main-provider-view .card-light .provider-item .header .btn-update[data-v-7c7f8c4f]{min-width:80px}.main-provider-view .card-light .provider-item .header .btn-check[data-v-7c7f8c4f]{min-width:120px}.main-provider-view .card-light .provider-item .time[data-v-7c7f8c4f]{font-size:14px}.main-provider-view .card-light .provider-item .proxies[data-v-7c7f8c4f]{display:grid;grid-template-columns:repeat(auto-fill,130px);font-size:14px}.main-provider-view .card-light .provider-item .proxies .proxy-item[data-v-7c7f8c4f]{height:80px}.main-provider-view .card-light .hint[data-v-7c7f8c4f]{color:rgba(78,78,78,.781);font-size:20px;text-align:center;margin-top:200px}.main-provider-view .card-dark[data-v-7c7f8c4f]{height:80%;width:60%;border-radius:3px;background-color:#fff;box-shadow:0 0 15px -5px rgba(50,50,50,.4);padding:20px 10px 20px 20px;overflow-y:scroll}.main-provider-view .card-dark[data-v-7c7f8c4f]::-webkit-scrollbar{width:10px}.main-provider-view .card-dark[data-v-7c7f8c4f]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.main-provider-view .card-dark .title[data-v-7c7f8c4f]{font-size:19px;text-align:center;margin-bottom:20px}.main-provider-view .card-dark .provider-item[data-v-7c7f8c4f]:last-child{border-bottom:none}.main-provider-view .card-dark .provider-item[data-v-7c7f8c4f]{padding-top:10px;padding-bottom:10px;border-bottom:1px solid hsla(0,0%,72%,.377)}.main-provider-view .card-dark .provider-item .header .name-type[data-v-7c7f8c4f],.main-provider-view .card-dark .provider-item .header[data-v-7c7f8c4f]{display:flex;align-items:center}.main-provider-view .card-dark .provider-item .header .name-type .name[data-v-7c7f8c4f]{font-size:18px;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.main-provider-view .card-dark .provider-item .header .name-type .type[data-v-7c7f8c4f]{font-size:13px;margin-left:10px;padding:0 3px;background-color:rgba(78,79,82,.514);color:#fff}.main-provider-view .card-dark .provider-item .header .update-hint[data-v-7c7f8c4f]{font-size:14px;color:#a1a1a1}.main-provider-view .card-dark .provider-item .header .empty[data-v-7c7f8c4f]{flex-grow:1}.main-provider-view .card-dark .provider-item .header .btn[data-v-7c7f8c4f]{text-align:center;background-color:#4e4e4e;color:#fff;margin:0 5px;height:35px;padding:3px 15px;border-radius:3px;font-size:14px;width:fit-content}.main-provider-view .card-dark .provider-item .header .btn-update[data-v-7c7f8c4f]{min-width:80px}.main-provider-view .card-dark .provider-item .header .btn-check[data-v-7c7f8c4f]{min-width:120px}.main-provider-view .card-dark .provider-item .time[data-v-7c7f8c4f]{font-size:14px}.main-provider-view .card-dark .provider-item .proxies[data-v-7c7f8c4f]{display:grid;grid-template-columns:repeat(auto-fill,130px);font-size:14px}.main-provider-view .card-dark .provider-item .proxies .proxy-item[data-v-7c7f8c4f]{height:80px}.main-provider-view .card-dark .hint[data-v-7c7f8c4f]{color:rgba(78,78,78,.781);font-size:20px;text-align:center;margin-top:200px}.main-provider-view .card-red[data-v-7c7f8c4f]{height:80%;width:60%;border-radius:3px;background-color:#fff;box-shadow:0 0 15px -5px rgba(50,50,50,.4);padding:20px 10px 20px 20px;overflow-y:scroll}.main-provider-view .card-red[data-v-7c7f8c4f]::-webkit-scrollbar{width:10px}.main-provider-view .card-red[data-v-7c7f8c4f]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.main-provider-view .card-red .title[data-v-7c7f8c4f]{font-size:19px;text-align:center;margin-bottom:20px}.main-provider-view .card-red .provider-item[data-v-7c7f8c4f]:last-child{border-bottom:none}.main-provider-view .card-red .provider-item[data-v-7c7f8c4f]{padding-top:10px;padding-bottom:10px;border-bottom:1px solid hsla(0,0%,72%,.377)}.main-provider-view .card-red .provider-item .header .name-type[data-v-7c7f8c4f],.main-provider-view .card-red .provider-item .header[data-v-7c7f8c4f]{display:flex;align-items:center}.main-provider-view .card-red .provider-item .header .name-type .name[data-v-7c7f8c4f]{font-size:18px;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.main-provider-view .card-red .provider-item .header .name-type .type[data-v-7c7f8c4f]{font-size:13px;margin-left:10px;padding:0 3px;background-color:rgba(78,79,82,.514);color:#fff}.main-provider-view .card-red .provider-item .header .update-hint[data-v-7c7f8c4f]{font-size:14px;color:#a1a1a1}.main-provider-view .card-red .provider-item .header .empty[data-v-7c7f8c4f]{flex-grow:1}.main-provider-view .card-red .provider-item .header .btn[data-v-7c7f8c4f]{text-align:center;background-color:#4e4e4e;color:#fff;margin:0 5px;height:35px;padding:3px 15px;border-radius:3px;font-size:14px;width:fit-content}.main-provider-view .card-red .provider-item .header .btn-update[data-v-7c7f8c4f]{min-width:80px}.main-provider-view .card-red .provider-item .header .btn-check[data-v-7c7f8c4f]{min-width:120px}.main-provider-view .card-red .provider-item .time[data-v-7c7f8c4f]{font-size:14px}.main-provider-view .card-red .provider-item .proxies[data-v-7c7f8c4f]{display:grid;grid-template-columns:repeat(auto-fill,130px);font-size:14px}.main-provider-view .card-red .provider-item .proxies .proxy-item[data-v-7c7f8c4f]{height:80px}.main-provider-view .card-red .hint[data-v-7c7f8c4f]{color:rgba(78,78,78,.781);font-size:20px;text-align:center;margin-top:200px}.fade-enter-active[data-v-7c7f8c4f],.fade-leave-active[data-v-7c7f8c4f]{transition:opacity .3s ease-out}.fade-enter[data-v-7c7f8c4f],.fade-leave-to[data-v-7c7f8c4f]{opacity:0}", ""])
+	.push([e.i, ".main-provider-view[data-v-5194739c]{width:calc(100% - 170px);height:calc(100% - 25px);position:absolute;top:25px;right:0;background-color:rgba(43,43,43,.555);display:flex;justify-content:center;align-items:center;z-index:10;color:#000}.main-provider-view .card-light[data-v-5194739c]{height:80%;width:80%;border-radius:3px;background-color:#fff;box-shadow:0 0 15px -5px rgba(50,50,50,.4);padding:20px 10px 20px 20px;overflow-y:scroll}.main-provider-view .card-light[data-v-5194739c]::-webkit-scrollbar{width:10px}.main-provider-view .card-light[data-v-5194739c]::-webkit-scrollbar-thumb{background-color:#cac8c6}.main-provider-view .card-light .title[data-v-5194739c]{font-size:19px;text-align:center;margin-bottom:20px}.main-provider-view .card-light .provider-item[data-v-5194739c]:last-child{border-bottom:none}.main-provider-view .card-light .provider-item[data-v-5194739c]{padding-top:10px;padding-bottom:10px;border-bottom:1px solid hsla(0,0%,72%,.377)}.main-provider-view .card-light .provider-item .header .name-type[data-v-5194739c],.main-provider-view .card-light .provider-item .header[data-v-5194739c]{display:flex;align-items:center}.main-provider-view .card-light .provider-item .header .name-type .name[data-v-5194739c]{font-size:18px;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.main-provider-view .card-light .provider-item .header .name-type .type[data-v-5194739c]{font-size:13px;margin-left:10px;padding:0 3px;background-color:rgba(78,79,82,.514);color:#fff}.main-provider-view .card-light .provider-item .header .update-hint[data-v-5194739c]{font-size:14px;color:#a1a1a1}.main-provider-view .card-light .provider-item .header .empty[data-v-5194739c]{flex-grow:1}.main-provider-view .card-light .provider-item .header .btn[data-v-5194739c]{text-align:center;background-color:#4e4e4e;color:#fff;margin:0 5px;height:35px;padding:3px 15px;border-radius:3px;font-size:14px;width:fit-content}.main-provider-view .card-light .provider-item .header .btn-update[data-v-5194739c]{min-width:80px}.main-provider-view .card-light .provider-item .header .btn-check[data-v-5194739c]{min-width:120px}.main-provider-view .card-light .provider-item .time[data-v-5194739c]{font-size:14px}.main-provider-view .card-light .provider-item .proxies[data-v-5194739c]{display:grid;grid-template-columns:repeat(auto-fill,130px);font-size:14px}.main-provider-view .card-light .provider-item .proxies .proxy-item[data-v-5194739c]{height:80px}.main-provider-view .card-light .hint[data-v-5194739c]{color:rgba(78,78,78,.781);font-size:20px;text-align:center;margin-top:200px}.main-provider-view .card-dark[data-v-5194739c]{height:80%;width:80%;border-radius:3px;background-color:#fff;box-shadow:0 0 15px -5px rgba(50,50,50,.4);padding:20px 10px 20px 20px;overflow-y:scroll}.main-provider-view .card-dark[data-v-5194739c]::-webkit-scrollbar{width:10px}.main-provider-view .card-dark[data-v-5194739c]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.main-provider-view .card-dark .title[data-v-5194739c]{font-size:19px;text-align:center;margin-bottom:20px}.main-provider-view .card-dark .provider-item[data-v-5194739c]:last-child{border-bottom:none}.main-provider-view .card-dark .provider-item[data-v-5194739c]{padding-top:10px;padding-bottom:10px;border-bottom:1px solid hsla(0,0%,72%,.377)}.main-provider-view .card-dark .provider-item .header .name-type[data-v-5194739c],.main-provider-view .card-dark .provider-item .header[data-v-5194739c]{display:flex;align-items:center}.main-provider-view .card-dark .provider-item .header .name-type .name[data-v-5194739c]{font-size:18px;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.main-provider-view .card-dark .provider-item .header .name-type .type[data-v-5194739c]{font-size:13px;margin-left:10px;padding:0 3px;background-color:rgba(78,79,82,.514);color:#fff}.main-provider-view .card-dark .provider-item .header .update-hint[data-v-5194739c]{font-size:14px;color:#a1a1a1}.main-provider-view .card-dark .provider-item .header .empty[data-v-5194739c]{flex-grow:1}.main-provider-view .card-dark .provider-item .header .btn[data-v-5194739c]{text-align:center;background-color:#4e4e4e;color:#fff;margin:0 5px;height:35px;padding:3px 15px;border-radius:3px;font-size:14px;width:fit-content}.main-provider-view .card-dark .provider-item .header .btn-update[data-v-5194739c]{min-width:80px}.main-provider-view .card-dark .provider-item .header .btn-check[data-v-5194739c]{min-width:120px}.main-provider-view .card-dark .provider-item .time[data-v-5194739c]{font-size:14px}.main-provider-view .card-dark .provider-item .proxies[data-v-5194739c]{display:grid;grid-template-columns:repeat(auto-fill,130px);font-size:14px}.main-provider-view .card-dark .provider-item .proxies .proxy-item[data-v-5194739c]{height:80px}.main-provider-view .card-dark .hint[data-v-5194739c]{color:rgba(78,78,78,.781);font-size:20px;text-align:center;margin-top:200px}.main-provider-view .card-red[data-v-5194739c]{height:80%;width:80%;border-radius:3px;background-color:#fff;box-shadow:0 0 15px -5px rgba(50,50,50,.4);padding:20px 10px 20px 20px;overflow-y:scroll}.main-provider-view .card-red[data-v-5194739c]::-webkit-scrollbar{width:10px}.main-provider-view .card-red[data-v-5194739c]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.main-provider-view .card-red .title[data-v-5194739c]{font-size:19px;text-align:center;margin-bottom:20px}.main-provider-view .card-red .provider-item[data-v-5194739c]:last-child{border-bottom:none}.main-provider-view .card-red .provider-item[data-v-5194739c]{padding-top:10px;padding-bottom:10px;border-bottom:1px solid hsla(0,0%,72%,.377)}.main-provider-view .card-red .provider-item .header .name-type[data-v-5194739c],.main-provider-view .card-red .provider-item .header[data-v-5194739c]{display:flex;align-items:center}.main-provider-view .card-red .provider-item .header .name-type .name[data-v-5194739c]{font-size:18px;max-width:180px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.main-provider-view .card-red .provider-item .header .name-type .type[data-v-5194739c]{font-size:13px;margin-left:10px;padding:0 3px;background-color:rgba(78,79,82,.514);color:#fff}.main-provider-view .card-red .provider-item .header .update-hint[data-v-5194739c]{font-size:14px;color:#a1a1a1}.main-provider-view .card-red .provider-item .header .empty[data-v-5194739c]{flex-grow:1}.main-provider-view .card-red .provider-item .header .btn[data-v-5194739c]{text-align:center;background-color:#4e4e4e;color:#fff;margin:0 5px;height:35px;padding:3px 15px;border-radius:3px;font-size:14px;width:fit-content}.main-provider-view .card-red .provider-item .header .btn-update[data-v-5194739c]{min-width:80px}.main-provider-view .card-red .provider-item .header .btn-check[data-v-5194739c]{min-width:120px}.main-provider-view .card-red .provider-item .time[data-v-5194739c]{font-size:14px}.main-provider-view .card-red .provider-item .proxies[data-v-5194739c]{display:grid;grid-template-columns:repeat(auto-fill,130px);font-size:14px}.main-provider-view .card-red .provider-item .proxies .proxy-item[data-v-5194739c]{height:80px}.main-provider-view .card-red .hint[data-v-5194739c]{color:rgba(78,78,78,.781);font-size:20px;text-align:center;margin-top:200px}.fade-enter-active[data-v-5194739c],.fade-leave-active[data-v-5194739c]{transition:opacity .3s ease-out}.fade-enter[data-v-5194739c],.fade-leave-to[data-v-5194739c]{opacity:0}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(80);
+	var r = n(50);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".fake-item-light[data-v-22acc631]{height:45px;background-color:#e3e3e3;box-shadow:none}.fake-item-dark[data-v-22acc631]{height:45px;background-color:#32323f;box-shadow:none}.fake-item-red[data-v-22acc631]{height:45px;background-color:#c28f3d;box-shadow:none}.fake-section-light[data-v-22acc631]{background-color:#e3e3e3;height:50px;width:300px;margin-top:20px;margin-left:40px}.fake-section-dark[data-v-22acc631]{background-color:#32323f;height:50px;width:300px;margin-top:20px;margin-left:40px}.fake-section-red[data-v-22acc631]{background-color:#c28f3d;height:50px;width:300px;margin-top:20px;margin-left:40px}#main-proxy-view[data-v-22acc631]{height:100%;display:flex;flex-direction:column;overflow:hidden}.scroll-view-light[data-v-22acc631]{padding-bottom:70px;flex-grow:1;overflow-y:scroll}.scroll-view-light[data-v-22acc631]::-webkit-scrollbar{width:10px}.scroll-view-light[data-v-22acc631]::-webkit-scrollbar-thumb{background-color:#cac8c6}.scroll-view-dark[data-v-22acc631]{padding-bottom:70px;flex-grow:1;overflow-y:scroll}.scroll-view-dark[data-v-22acc631]::-webkit-scrollbar{width:10px}.scroll-view-dark[data-v-22acc631]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.scroll-view-red[data-v-22acc631]{padding-bottom:70px;flex-grow:1;overflow-y:scroll}.scroll-view-red[data-v-22acc631]::-webkit-scrollbar{width:10px}.scroll-view-red[data-v-22acc631]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.proxy-item[data-v-22acc631]{margin:4px 5px;background-color:#32323f;padding:7px 0 7px 14px;display:flex;color:#fff;justify-content:space-between;align-items:center;border-radius:3px;flex-grow:1}.proxy-item .left[data-v-22acc631]{flex-grow:1}.proxy-section-light[data-v-22acc631]{background-color:#fff}.proxy-section-dark[data-v-22acc631],.proxy-section-light[data-v-22acc631]{font-size:1.2em;font-weight:400;padding-top:20px;padding-bottom:10px;display:flex;align-items:flex-end;justify-content:space-between;cursor:pointer;position:sticky;top:-1px}.proxy-section-dark[data-v-22acc631]{background-color:#2c2a38}.proxy-section-red[data-v-22acc631]{font-size:1.2em;font-weight:400;padding-top:20px;padding-bottom:10px;display:flex;align-items:flex-end;justify-content:space-between;cursor:pointer;position:sticky;top:-1px;background-color:#f8b74f}", ""])
+	.push([e.i, ".fake-item-light[data-v-00718cb4]{height:45px;background-color:#e3e3e3;box-shadow:none}.fake-item-dark[data-v-00718cb4]{height:45px;background-color:#32323f;box-shadow:none}.fake-item-red[data-v-00718cb4]{height:45px;background-color:#c28f3d;box-shadow:none}.fake-section-light[data-v-00718cb4]{background-color:#e3e3e3;height:50px;width:300px;margin-top:20px;margin-left:40px}.fake-section-dark[data-v-00718cb4]{background-color:#32323f;height:50px;width:300px;margin-top:20px;margin-left:40px}.fake-section-red[data-v-00718cb4]{background-color:#c28f3d;height:50px;width:300px;margin-top:20px;margin-left:40px}#main-proxy-view[data-v-00718cb4]{height:100%;display:flex;flex-direction:column;overflow:hidden}.scroll-view-light[data-v-00718cb4]{padding-bottom:70px;flex-grow:1;overflow-y:scroll}.scroll-view-light[data-v-00718cb4]::-webkit-scrollbar{width:10px}.scroll-view-light[data-v-00718cb4]::-webkit-scrollbar-thumb{background-color:#cac8c6}.scroll-view-dark[data-v-00718cb4]{padding-bottom:70px;flex-grow:1;overflow-y:scroll}.scroll-view-dark[data-v-00718cb4]::-webkit-scrollbar{width:10px}.scroll-view-dark[data-v-00718cb4]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.scroll-view-red[data-v-00718cb4]{padding-bottom:70px;flex-grow:1;overflow-y:scroll}.scroll-view-red[data-v-00718cb4]::-webkit-scrollbar{width:10px}.scroll-view-red[data-v-00718cb4]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.proxy-item[data-v-00718cb4]{margin:4px 5px;background-color:#32323f;padding:7px 0 7px 14px;display:flex;color:#fff;justify-content:space-between;align-items:center;border-radius:3px;flex-grow:1}.proxy-item .left[data-v-00718cb4]{flex-grow:1}.proxy-section-light[data-v-00718cb4]{background-color:#fff}.proxy-section-dark[data-v-00718cb4],.proxy-section-light[data-v-00718cb4]{font-size:1.2em;font-weight:400;padding-top:20px;padding-bottom:10px;display:flex;align-items:flex-end;justify-content:space-between;cursor:pointer;position:sticky;top:-1px}.proxy-section-dark[data-v-00718cb4]{background-color:#2c2a38}.proxy-section-red[data-v-00718cb4]{font-size:1.2em;font-weight:400;padding-top:20px;padding-bottom:10px;display:flex;align-items:flex-end;justify-content:space-between;cursor:pointer;position:sticky;top:-1px;background-color:#f8b74f}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(81);
+	var r = n(51);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".proxy-list[data-v-22acc631]{margin:0 30px 0 40px}.proxy-items[data-v-22acc631]{display:flex;flex-wrap:wrap;justify-content:space-around}.proxy-items>i[data-v-22acc631]{margin:0 5px;flex-grow:1;height:0}.item-hint[data-v-22acc631]{font-size:.75em;margin-top:3px}.item-name[data-v-22acc631]{font-size:.9em;display:flex;align-items:center;overflow:hidden}.proxy-hint[data-v-22acc631]{display:inline;text-overflow:ellipsis;white-space:nowrap}.proxy-hint-loadbalance[data-v-22acc631],.proxy-hint[data-v-22acc631]{font-size:.7em;margin-left:5px;overflow:hidden;padding-bottom:2px}.proxy-item[data-v-22acc631] div,span[data-v-22acc631]{cursor:pointer}.selected[data-v-22acc631]{background-color:hsla(0,0%,100%,.2)}.proxy-section-name[data-v-22acc631]{font-size:1.05em;display:flex;align-items:flex-end;max-width:500px}.proxy-section-name-left[data-v-22acc631]{display:flex;align-items:flex-end;flex-shrink:0;height:27px}.proxy-section-test-btn[data-v-22acc631]{cursor:pointer;height:30px;width:30px}.proxy-section-right[data-v-22acc631]{display:flex;align-items:flex-end;height:100%}.proxy-section-right>img[data-v-22acc631]{height:20px;width:20px;margin-left:10px;cursor:pointer}.clickable>div[data-v-22acc631],.clickable[data-v-22acc631]{cursor:pointer}.offline[data-v-22acc631]{color:#ff9595;font-weight:400}.time[data-v-22acc631]{min-width:70px;text-align:right;font-size:.75em;padding:12px 14px 12px 12px;cursor:pointer}.filter-keyword[data-v-22acc631]{position:fixed;bottom:10px;right:45px;width:150px;height:30px}.filter-keyword input[data-v-22acc631]{width:150px;padding:0 10px;border:none;background-color:#494949;border-radius:5px;height:30px;color:#fff;top:0;right:5px;position:absolute}.filter-keyword input[data-v-22acc631]:focus{outline:none}.filter-keyword div[data-v-22acc631]{width:30px;height:30px;position:absolute;right:0;top:0;display:flex;align-items:center;justify-content:center;background-color:#494949;border-radius:5px}.filter-keyword div img[data-v-22acc631]{height:20px;width:20px}.fall-fade-enter-active[data-v-22acc631]{transition:all .2s ease-in-out}.fall-fade-enter[data-v-22acc631],.fall-fade-leave-to[data-v-22acc631]{transform:translateY(-10px);opacity:0}.move-right-enter-active[data-v-22acc631]{transition:all .2s ease}.move-right-enter[data-v-22acc631],.move-right-leave-to[data-v-22acc631]{transform:scaleX(.1);transform-origin:right}", ""])
+	.push([e.i, ".proxy-list[data-v-00718cb4]{margin:0 30px 0 40px}.proxy-items[data-v-00718cb4]{display:flex;flex-wrap:wrap;justify-content:space-around}.proxy-items>i[data-v-00718cb4]{margin:0 5px;flex-grow:1;height:0}.item-hint[data-v-00718cb4]{font-size:.75em;margin-top:3px}.item-name[data-v-00718cb4]{font-size:.9em;display:flex;align-items:center;overflow:hidden}.proxy-hint[data-v-00718cb4]{display:inline;text-overflow:ellipsis;white-space:nowrap}.proxy-hint-loadbalance[data-v-00718cb4],.proxy-hint[data-v-00718cb4]{font-size:.7em;margin-left:5px;overflow:hidden;padding-bottom:2px}.proxy-item[data-v-00718cb4] div,span[data-v-00718cb4]{cursor:pointer}.selected[data-v-00718cb4]{background-color:hsla(0,0%,100%,.2)}.proxy-section-name[data-v-00718cb4]{font-size:1.05em;display:flex;align-items:flex-end;max-width:500px}.proxy-section-name-left[data-v-00718cb4]{display:flex;align-items:flex-end;flex-shrink:0;height:27px}.proxy-section-test-btn[data-v-00718cb4]{cursor:pointer;height:30px;width:30px}.proxy-section-right[data-v-00718cb4]{display:flex;align-items:flex-end;height:100%}.icon[data-v-00718cb4]{height:20px;width:20px;margin-left:10px;cursor:pointer}.clickable>div[data-v-00718cb4],.clickable[data-v-00718cb4]{cursor:pointer}.offline[data-v-00718cb4]{color:#ff9595;font-weight:400}.time[data-v-00718cb4]{min-width:70px;text-align:right;font-size:.75em;padding:12px 14px 12px 12px;cursor:pointer}.filter-keyword[data-v-00718cb4]{position:fixed;bottom:10px;right:45px;width:150px;height:30px}.filter-keyword input[data-v-00718cb4]{width:150px;padding:0 10px;border:none;background-color:#494949;border-radius:5px;height:30px;color:#fff;top:0;right:5px;position:absolute}.filter-keyword input[data-v-00718cb4]:focus{outline:none}.filter-keyword div[data-v-00718cb4]{width:30px;height:30px;position:absolute;right:0;top:0;display:flex;align-items:center;justify-content:center;background-color:#494949;border-radius:5px}.filter-keyword div img[data-v-00718cb4]{height:20px;width:20px}.fall-fade-enter-active[data-v-00718cb4]{transition:all .2s ease-in-out}.fall-fade-enter[data-v-00718cb4],.fall-fade-leave-to[data-v-00718cb4]{transform:translateY(-10px);opacity:0}.move-right-enter-active[data-v-00718cb4]{transition:all .2s ease}.move-right-enter[data-v-00718cb4],.move-right-leave-to[data-v-00718cb4]{transform:scaleX(.1);transform-origin:right}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(82);
+	var r = n(52);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-log-view-light[data-v-161d6630]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.main-log-view-light .title[data-v-161d6630]{padding:0 20px;font-size:20px;height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dcdcdc}.main-log-view-light .title .text .hint[data-v-161d6630]{font-size:16px;font-weight:400}.main-log-view-dark[data-v-161d6630]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.main-log-view-dark .title[data-v-161d6630]{padding:0 20px;font-size:20px;height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #554f4f}.main-log-view-dark .title .text .hint[data-v-161d6630]{font-size:16px;font-weight:400}.main-log-view-red[data-v-161d6630]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.main-log-view-red .title[data-v-161d6630]{padding:0 20px;font-size:20px;height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(218,20,30,.247059)}.main-log-view-red .title .text .hint[data-v-161d6630]{font-size:16px;font-weight:400}.log-item-light[data-v-161d6630]{border-bottom:1px solid rgba(50,50,50,.1)}.log-item-dark[data-v-161d6630],.log-item-light[data-v-161d6630]{display:flex;justify-content:space-between;flex-direction:column;padding:5px 20px}.log-item-dark[data-v-161d6630]{border-bottom:1px solid #494242}.log-item-red[data-v-161d6630]{display:flex;justify-content:space-between;flex-direction:column;padding:5px 20px;border-bottom:1px solid rgba(218,20,30,.247059)}.rule-light[data-v-161d6630]{font-size:14px;color:rgba(50,50,50,.7);display:flex;align-items:center;flex-wrap:wrap}.rule-light div[data-v-161d6630]{margin-right:5px}.rule-light .payload[data-v-161d6630]{color:#045c85}.rule-dark[data-v-161d6630]{font-size:14px;color:hsla(0,0%,88%,.712);display:flex;align-items:center;flex-wrap:wrap}.rule-dark div[data-v-161d6630]{margin-right:5px}.rule-dark .payload[data-v-161d6630]{color:#5fbeca}.rule-red[data-v-161d6630]{font-size:14px;color:#3f3f3f;display:flex;align-items:center;flex-wrap:wrap}.rule-red div[data-v-161d6630]{margin-right:5px}.rule-red .payload[data-v-161d6630]{color:#0d508f}.log-list-light[data-v-161d6630]{width:calc(100% - 0px);height:calc(100% - 80px);overflow-y:scroll}.log-list-light[data-v-161d6630]::-webkit-scrollbar{width:10px}.log-list-light[data-v-161d6630]::-webkit-scrollbar-thumb{background-color:#cac8c6}.log-list-light .empty-list[data-v-161d6630]{font-size:18px;color:gray;width:100%;height:100%;display:flex;align-items:center;flex-direction:column;justify-content:center}.log-list-light .empty-list div[data-v-161d6630]:last-child{font-size:14px}.log-list-dark[data-v-161d6630]{width:calc(100% - 0px);height:calc(100% - 80px);overflow-y:scroll}.log-list-dark[data-v-161d6630]::-webkit-scrollbar{width:10px}.log-list-dark[data-v-161d6630]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.log-list-dark .empty-list[data-v-161d6630]{font-size:18px;color:gray;width:100%;height:100%;display:flex;align-items:center;flex-direction:column;justify-content:center}.log-list-dark .empty-list div[data-v-161d6630]:last-child{font-size:14px}.log-list-red[data-v-161d6630]{width:calc(100% - 0px);height:calc(100% - 80px);overflow-y:scroll}.log-list-red[data-v-161d6630]::-webkit-scrollbar{width:10px}.log-list-red[data-v-161d6630]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.log-list-red .empty-list[data-v-161d6630]{font-size:18px;color:gray;width:100%;height:100%;display:flex;align-items:center;flex-direction:column;justify-content:center}.log-list-red .empty-list div[data-v-161d6630]:last-child{font-size:14px}.url[data-v-161d6630]{word-break:break-all;white-space:normal;display:flex;flex-direction:column;flex-grow:1}.url .name[data-v-161d6630]{font-size:16px}.url div[data-v-161d6630]{margin-right:5px}.proxy-name[data-v-161d6630]{font-size:16px;margin:auto 0 auto 20px;min-width:50%;text-align:right}.left[data-v-161d6630]{display:flex}", ""])
+	.push([e.i, ".main-log-view-light[data-v-689e14fc]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.main-log-view-light .title[data-v-689e14fc]{padding:0 20px;font-size:20px;height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dcdcdc}.main-log-view-light .title .text .hint[data-v-689e14fc]{font-size:16px;font-weight:400}.main-log-view-dark[data-v-689e14fc]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.main-log-view-dark .title[data-v-689e14fc]{padding:0 20px;font-size:20px;height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #554f4f}.main-log-view-dark .title .text .hint[data-v-689e14fc]{font-size:16px;font-weight:400}.main-log-view-red[data-v-689e14fc]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.main-log-view-red .title[data-v-689e14fc]{padding:0 20px;font-size:20px;height:80px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(218,20,30,.247059)}.main-log-view-red .title .text .hint[data-v-689e14fc]{font-size:16px;font-weight:400}.log-item-light[data-v-689e14fc]{border-bottom:1px solid rgba(50,50,50,.1)}.log-item-dark[data-v-689e14fc],.log-item-light[data-v-689e14fc]{display:flex;justify-content:space-between;flex-direction:column;padding:5px 20px}.log-item-dark[data-v-689e14fc]{border-bottom:1px solid #494242}.log-item-red[data-v-689e14fc]{display:flex;justify-content:space-between;flex-direction:column;padding:5px 20px;border-bottom:1px solid rgba(218,20,30,.247059)}.rule-light[data-v-689e14fc]{font-size:14px;color:rgba(50,50,50,.7);display:flex;align-items:center;flex-wrap:wrap}.rule-light div[data-v-689e14fc]{margin-right:5px}.rule-light .payload[data-v-689e14fc]{color:#045c85}.rule-dark[data-v-689e14fc]{font-size:14px;color:hsla(0,0%,88%,.712);display:flex;align-items:center;flex-wrap:wrap}.rule-dark div[data-v-689e14fc]{margin-right:5px}.rule-dark .payload[data-v-689e14fc]{color:#5fbeca}.rule-red[data-v-689e14fc]{font-size:14px;color:#3f3f3f;display:flex;align-items:center;flex-wrap:wrap}.rule-red div[data-v-689e14fc]{margin-right:5px}.rule-red .payload[data-v-689e14fc]{color:#0d508f}.log-list-light[data-v-689e14fc]{width:calc(100% - 0px);height:calc(100% - 80px);overflow-y:scroll}.log-list-light[data-v-689e14fc]::-webkit-scrollbar{width:10px}.log-list-light[data-v-689e14fc]::-webkit-scrollbar-thumb{background-color:#cac8c6}.log-list-light .empty-list[data-v-689e14fc]{font-size:18px;color:gray;width:100%;height:100%;display:flex;align-items:center;flex-direction:column;justify-content:center}.log-list-light .empty-list div[data-v-689e14fc]:last-child{font-size:14px}.log-list-dark[data-v-689e14fc]{width:calc(100% - 0px);height:calc(100% - 80px);overflow-y:scroll}.log-list-dark[data-v-689e14fc]::-webkit-scrollbar{width:10px}.log-list-dark[data-v-689e14fc]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.log-list-dark .empty-list[data-v-689e14fc]{font-size:18px;color:gray;width:100%;height:100%;display:flex;align-items:center;flex-direction:column;justify-content:center}.log-list-dark .empty-list div[data-v-689e14fc]:last-child{font-size:14px}.log-list-red[data-v-689e14fc]{width:calc(100% - 0px);height:calc(100% - 80px);overflow-y:scroll}.log-list-red[data-v-689e14fc]::-webkit-scrollbar{width:10px}.log-list-red[data-v-689e14fc]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.log-list-red .empty-list[data-v-689e14fc]{font-size:18px;color:gray;width:100%;height:100%;display:flex;align-items:center;flex-direction:column;justify-content:center}.log-list-red .empty-list div[data-v-689e14fc]:last-child{font-size:14px}.url[data-v-689e14fc]{word-break:break-all;white-space:normal;display:flex;flex-direction:column;flex-grow:1}.url .name[data-v-689e14fc]{font-size:16px}.url div[data-v-689e14fc]{margin-right:5px}.proxy-name[data-v-689e14fc]{font-size:16px;margin:auto 0 auto 20px;min-width:50%;text-align:right}.left[data-v-689e14fc]{display:flex}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(83);
+	var r = n(53);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".warning[data-v-161d6630]{color:red}.btns[data-v-161d6630]{display:flex;width:150px;justify-content:space-between}.button[data-v-161d6630]{font-size:.8em;height:30px;line-height:30px;color:#fff;width:70px;text-align:center;border-radius:3px;cursor:pointer}.button-on[data-v-161d6630]{background-color:rgba(14,151,185,.959)}.button-off[data-v-161d6630]{background-color:rgba(243,61,61,.801)}.button-clear[data-v-161d6630]{background-color:rgba(23,156,6,.904)}", ""])
-}, function(e, t, n)
-{
-	e.exports = {
-		default: n(271),
-		__esModule: !0
-	}
-}, function(e, t, n)
-{
-	n(272);
-	var r = n(17)
-		.Object;
-	e.exports = function(e, t, n)
-	{
-		return r.defineProperty(e, t, n)
-	}
-}, function(e, t, n)
-{
-	var r = n(25);
-	r(r.S + r.F * !n(31), "Object",
-	{
-		defineProperty: n(27)
-			.f
-	})
+	.push([e.i, ".warning[data-v-689e14fc]{color:red}.btns[data-v-689e14fc]{display:flex;width:150px;justify-content:space-between}.button[data-v-689e14fc]{font-size:.8em;height:30px;line-height:30px;color:#fff;width:70px;text-align:center;border-radius:3px;cursor:pointer}.button-on[data-v-689e14fc]{background-color:rgba(14,151,185,.959)}.button-off[data-v-689e14fc]{background-color:rgba(243,61,61,.801)}.button-clear[data-v-689e14fc]{background-color:rgba(23,156,6,.904)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(84);
+	var r = n(54);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9703,7 +8008,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(85);
+	var r = n(55);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9713,27 +8018,27 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(86);
+	var r = n(56);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".dragArea[data-v-48392b2b]{min-height:1px}.dragArea>[data-v-48392b2b]{-webkit-user-drag:element}.proxy-group[data-v-48392b2b]{flex:1;overflow-y:scroll;padding:0 20px 20px 15px}.proxy-group[data-v-48392b2b]::-webkit-scrollbar{width:10px}.proxy-group[data-v-48392b2b]::-webkit-scrollbar-thumb{background-color:rgba(101,81,122,.7)}.proxy[data-v-48392b2b]{flex:1;overflow-y:scroll;direction:rtl;padding:0 15px 20px 20px}.proxy[data-v-48392b2b]::-webkit-scrollbar{width:10px}.proxy[data-v-48392b2b]::-webkit-scrollbar-thumb{background-color:rgba(55,57,72,.7)}", ""])
+	.push([e.i, ".dragArea[data-v-3c8e2f94]{min-height:1px}.dragArea>[data-v-3c8e2f94]{-webkit-user-drag:element}.proxy-group[data-v-3c8e2f94]{flex:1;overflow-y:scroll;padding:0 20px 20px 15px}.proxy-group[data-v-3c8e2f94]::-webkit-scrollbar{width:10px}.proxy-group[data-v-3c8e2f94]::-webkit-scrollbar-thumb{background-color:rgba(101,81,122,.7)}.proxy[data-v-3c8e2f94]{flex:1;overflow-y:scroll;direction:rtl;padding:0 15px 20px 20px}.proxy[data-v-3c8e2f94]::-webkit-scrollbar{width:10px}.proxy[data-v-3c8e2f94]::-webkit-scrollbar-thumb{background-color:rgba(55,57,72,.7)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(87);
+	var r = n(57);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, "#main-config-view[data-v-48392b2b]{height:100%;position:fixed}.floating[data-v-48392b2b]{position:fixed;left:170px;height:60px;width:calc(100vw - 170px);display:flex;justify-content:space-between;padding:0 50px 0 40px;align-items:center;box-shadow:2px 2px 4px 1px rgba(50,50,50,.2)}.floating-right[data-v-48392b2b]{display:flex;justify-content:flex-end}.hint[data-v-48392b2b]{font-size:1.1em}.main-btn[data-v-48392b2b]{cursor:pointer;margin-left:20px;box-shadow:0 0 4px 1px rgba(50,50,50,.2);text-align:center;padding:5px 0;width:80px;border-radius:5px;color:#fff}.reload[data-v-48392b2b]{background-color:#c7ca10}.save[data-v-48392b2b]{background-color:#31a7e3}.drag[data-v-48392b2b]{display:flex;padding:0 0 20px;margin-top:60px;left:20vw;height:calc(100% - 70px);width:calc(100vw - 170px);max-width:900px}.proxy>div[data-v-48392b2b],.proxy>draggable[data-v-48392b2b]{direction:ltr}.section-title[data-v-48392b2b]{display:flex;justify-content:space-between;align-items:center;margin:20px 0 0;font-size:.8em}img[data-v-48392b2b]{width:20px;height:20px;margin-left:10px;cursor:pointer}.add-icon[data-v-48392b2b]{background-color:#677a94;border-radius:5px;color:#fff;font-size:.9em;letter-spacing:1px;padding:3px 10px;cursor:pointer;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}.left-item[data-v-48392b2b]{background-color:#373948}.right-item[data-v-48392b2b]{background-color:#65517a}.group-type[data-v-48392b2b]{font-size:.7em}.proxy-item[data-v-48392b2b]{opacity:.8;cursor:pointer;font-size:1em;padding:5px 10px;margin:10px 0;display:flex;color:#fff;border-radius:5px;justify-content:space-between;align-items:center;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}", ""])
+	.push([e.i, "#main-config-view[data-v-3c8e2f94]{height:100%;position:fixed}.floating[data-v-3c8e2f94]{position:fixed;left:170px;height:60px;width:calc(100vw - 170px);display:flex;justify-content:space-between;padding:0 50px 0 40px;align-items:center;box-shadow:2px 2px 4px 1px rgba(50,50,50,.2)}.floating-right[data-v-3c8e2f94]{display:flex;justify-content:flex-end}.hint[data-v-3c8e2f94]{font-size:1.1em}.main-btn[data-v-3c8e2f94]{cursor:pointer;margin-left:20px;box-shadow:0 0 4px 1px rgba(50,50,50,.2);text-align:center;padding:5px 0;width:80px;border-radius:5px;color:#fff}.reload[data-v-3c8e2f94]{background-color:#c7ca10}.save[data-v-3c8e2f94]{background-color:#31a7e3}.drag[data-v-3c8e2f94]{display:flex;padding:0 0 20px;margin-top:60px;left:20vw;height:calc(100% - 70px);width:calc(100vw - 170px);max-width:900px}.proxy>div[data-v-3c8e2f94],.proxy>draggable[data-v-3c8e2f94]{direction:ltr}.section-title[data-v-3c8e2f94]{display:flex;justify-content:space-between;align-items:center;margin:20px 0 0;font-size:.8em}img[data-v-3c8e2f94]{width:20px;height:20px;margin-left:10px;cursor:pointer}.add-icon[data-v-3c8e2f94]{background-color:#677a94;border-radius:5px;color:#fff;font-size:.9em;letter-spacing:1px;padding:3px 10px;cursor:pointer;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}.left-item[data-v-3c8e2f94]{background-color:#373948}.right-item[data-v-3c8e2f94]{background-color:#65517a}.group-type[data-v-3c8e2f94]{font-size:.7em}.proxy-item[data-v-3c8e2f94]{opacity:.8;cursor:pointer;font-size:1em;padding:5px 10px;margin:10px 0;display:flex;color:#fff;border-radius:5px;justify-content:space-between;align-items:center;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(88);
+	var r = n(58);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9743,7 +8048,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(89);
+	var r = n(59);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9753,57 +8058,57 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(90);
+	var r = n(60);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".rule-light[data-v-15c44713]{font-size:13px;color:rgba(50,50,50,.7)}.rule-dark[data-v-15c44713]{font-size:13px;color:hsla(0,0%,88%,.712)}.rule-red[data-v-15c44713]{font-size:13px;color:#3f3f3f}.log-item-light[data-v-15c44713]{border-bottom:1px solid rgba(50,50,50,.1)}.log-item-dark[data-v-15c44713],.log-item-light[data-v-15c44713]{display:flex;justify-content:space-between;align-items:center;padding:5px 20px}.log-item-dark[data-v-15c44713]{border-bottom:1px solid #494242}.log-item-red[data-v-15c44713]{display:flex;justify-content:space-between;align-items:center;padding:5px 20px;border-bottom:1px solid rgba(218,20,30,.247059)}.log-list-light[data-v-15c44713]{width:calc(100% - 0px);border:0 solid rgba(50,50,50,.2);height:calc(100% - 100px);border-style:dashed;padding:10px 20px;overflow-y:scroll}.log-list-light[data-v-15c44713]::-webkit-scrollbar{width:10px}.log-list-light[data-v-15c44713]::-webkit-scrollbar-thumb{background-color:#cac8c6}.log-list-dark[data-v-15c44713]{width:calc(100% - 0px);border:0 solid rgba(50,50,50,.2);height:calc(100% - 100px);border-style:dashed;padding:10px 20px;overflow-y:scroll}.log-list-dark[data-v-15c44713]::-webkit-scrollbar{width:10px}.log-list-dark[data-v-15c44713]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.log-list-red[data-v-15c44713]{width:calc(100% - 0px);border:0 solid rgba(50,50,50,.2);height:calc(100% - 100px);border-style:dashed;padding:10px 20px;overflow-y:scroll}.log-list-red[data-v-15c44713]::-webkit-scrollbar{width:10px}.log-list-red[data-v-15c44713]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}", ""])
+	.push([e.i, ".rule-light[data-v-0090abcc]{font-size:13px;color:rgba(50,50,50,.7)}.rule-dark[data-v-0090abcc]{font-size:13px;color:hsla(0,0%,88%,.712)}.rule-red[data-v-0090abcc]{font-size:13px;color:#3f3f3f}.log-item-light[data-v-0090abcc]{border-bottom:1px solid rgba(50,50,50,.1)}.log-item-dark[data-v-0090abcc],.log-item-light[data-v-0090abcc]{display:flex;justify-content:space-between;align-items:center;padding:5px 20px}.log-item-dark[data-v-0090abcc]{border-bottom:1px solid #494242}.log-item-red[data-v-0090abcc]{display:flex;justify-content:space-between;align-items:center;padding:5px 20px;border-bottom:1px solid rgba(218,20,30,.247059)}.log-list-light[data-v-0090abcc]{width:calc(100% - 0px);border:0 solid rgba(50,50,50,.2);height:calc(100% - 100px);border-style:dashed;padding:10px 20px;overflow-y:scroll}.log-list-light[data-v-0090abcc]::-webkit-scrollbar{width:10px}.log-list-light[data-v-0090abcc]::-webkit-scrollbar-thumb{background-color:#cac8c6}.log-list-dark[data-v-0090abcc]{width:calc(100% - 0px);border:0 solid rgba(50,50,50,.2);height:calc(100% - 100px);border-style:dashed;padding:10px 20px;overflow-y:scroll}.log-list-dark[data-v-0090abcc]::-webkit-scrollbar{width:10px}.log-list-dark[data-v-0090abcc]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.log-list-red[data-v-0090abcc]{width:calc(100% - 0px);border:0 solid rgba(50,50,50,.2);height:calc(100% - 100px);border-style:dashed;padding:10px 20px;overflow-y:scroll}.log-list-red[data-v-0090abcc]::-webkit-scrollbar{width:10px}.log-list-red[data-v-0090abcc]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(91);
+	var r = n(61);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, "#main-log-view[data-v-15c44713]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.icon[data-v-15c44713]{margin:auto 2px;cursor:pointer}.icon-left[data-v-15c44713]{margin-left:20px}.icon-middle[data-v-15c44713]{margin-right:10px}.emoji-name[data-v-15c44713],.header[data-v-15c44713]{display:flex;align-items:center}.header[data-v-15c44713]{justify-content:space-between;padding:0 50px 0 40px;height:60px}.header-btns[data-v-15c44713]{display:flex;justify-content:flex-end}.filter-view[data-v-15c44713]{width:calc(100vw - 170px);height:50px}.filter-view input[data-v-15c44713]{margin:0 40px 10px;cursor:text;width:calc(100vw - 250px);height:40px;padding:0 20px;border:none;background-color:#eee;border-radius:5px;font-size:1.1em}.filter-view input[data-v-15c44713]:focus{outline:none}.btn[data-v-15c44713]{cursor:pointer;box-shadow:0 0 4px 1px rgba(50,50,50,.2);margin-left:20px;width:80px;text-align:center;padding:5px 10px;border-radius:5px;color:#fff}.btn-add[data-v-15c44713]{background-color:#31a7e3}.btn-save[data-v-15c44713]{background-color:#41b883}.btn-back[data-v-15c44713]{background-color:#e0dd22}.title[data-v-15c44713]{font-size:1.1em;margin-bottom:0}.log-item[data-v-15c44713]{display:flex;justify-content:space-between;align-items:center;padding:5px 20px;width:100%;border-bottom:1px solid rgba(50,50,50,.1)}.left[data-v-15c44713]{flex-grow:1;padding-right:40px;overflow:hidden}.right-main[data-v-15c44713]{display:flex;align-items:center}img[data-v-15c44713]{margin-left:10px;width:25px;height:25px}.url[data-v-15c44713]{font-size:18px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.rule-set[data-v-15c44713]{color:#ff5e00}.right[data-v-15c44713]{font-size:1em;padding:5px 10px;border-radius:4px;color:#fff;opacity:.8;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}", ""])
+	.push([e.i, "#main-log-view[data-v-0090abcc]{height:100%;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between}.icon[data-v-0090abcc]{width:22px;height:22px;cursor:pointer;margin-left:10px}.emoji-name[data-v-0090abcc],.header[data-v-0090abcc]{display:flex;align-items:center}.header[data-v-0090abcc]{justify-content:space-between;padding:0 50px 0 40px;height:60px}.header-btns[data-v-0090abcc]{display:flex;justify-content:flex-end}.filter-view[data-v-0090abcc]{width:calc(100vw - 170px);height:50px}.filter-view input[data-v-0090abcc]{margin:0 40px 10px;cursor:text;width:calc(100vw - 250px);height:40px;padding:0 20px;border:none;background-color:#eee;border-radius:5px;font-size:1.1em}.filter-view input[data-v-0090abcc]:focus{outline:none}.btn[data-v-0090abcc]{cursor:pointer;box-shadow:0 0 4px 1px rgba(50,50,50,.2);margin-left:20px;width:80px;text-align:center;padding:5px 10px;border-radius:5px;color:#fff}.btn-add[data-v-0090abcc]{background-color:#31a7e3}.btn-save[data-v-0090abcc]{background-color:#41b883}.btn-back[data-v-0090abcc]{background-color:#e0dd22}.title[data-v-0090abcc]{font-size:1.1em;margin-bottom:0}.log-item[data-v-0090abcc]{display:flex;justify-content:space-between;align-items:center;padding:5px 20px;width:100%;border-bottom:1px solid rgba(50,50,50,.1)}.left[data-v-0090abcc]{flex-grow:1;padding-right:40px;overflow:hidden}.right-main[data-v-0090abcc]{display:flex;align-items:center}img[data-v-0090abcc]{margin-left:10px;width:25px;height:25px}.url[data-v-0090abcc]{font-size:18px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap}.rule-set[data-v-0090abcc]{color:#ff5e00}.right[data-v-0090abcc]{font-size:1em;padding:5px 10px;border-radius:4px;color:#fff;opacity:.8;box-shadow:0 0 4px 1px rgba(50,50,50,.2)}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(92);
+	var r = n(62);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".card-light[data-v-30c02cb0]{background-color:#fff;border-bottom:1px solid #dcdcdc}.card-dark[data-v-30c02cb0],.card-light[data-v-30c02cb0]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between}.card-dark[data-v-30c02cb0]{background-color:#2c2a38;border-bottom:1px solid #554f4f}.card-red[data-v-30c02cb0]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between;background-color:#f8b74f;border-bottom:1px solid rgba(218,20,30,.247059)}.hint-success-light[data-v-30c02cb0]{color:#1d2b63}.hint-success-dark[data-v-30c02cb0],.hint-success-red[data-v-30c02cb0]{color:#3aa1cc}.list-item-light[data-v-30c02cb0]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#7e7b7b;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-light[data-v-30c02cb0]:hover{opacity:1}.list-item-dark[data-v-30c02cb0]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#3f3f49;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-dark[data-v-30c02cb0]:hover{opacity:1}.list-item-red[data-v-30c02cb0]{height:130px;opacity:.8;padding:5px 15px;border-radius:3px;color:#fff;background:#a77018;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-red[data-v-30c02cb0]:hover{opacity:1}.item-cur-light[data-v-30c02cb0]{opacity:1;background-color:#464646}.item-cur-dark[data-v-30c02cb0]{opacity:1;background-color:#5f5f5f}.item-cur-red[data-v-30c02cb0]{opacity:1;background-color:rgba(218,20,30,.6)}.main[data-v-30c02cb0]{display:flex;flex-direction:column}#main-server-view[data-v-30c02cb0]{height:100%}.list-view-light[data-v-30c02cb0]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-light[data-v-30c02cb0]::-webkit-scrollbar{width:10px}.list-view-light[data-v-30c02cb0]::-webkit-scrollbar-thumb{background-color:#cac8c6}.list-view-light>[data-v-30c02cb0]{-webkit-user-drag:element}.list-view-light i[data-v-30c02cb0]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-dark[data-v-30c02cb0]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-dark[data-v-30c02cb0]::-webkit-scrollbar{width:10px}.list-view-dark[data-v-30c02cb0]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.list-view-dark>[data-v-30c02cb0]{-webkit-user-drag:element}.list-view-dark i[data-v-30c02cb0]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-red[data-v-30c02cb0]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-red[data-v-30c02cb0]::-webkit-scrollbar{width:10px}.list-view-red[data-v-30c02cb0]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.list-view-red>[data-v-30c02cb0]{-webkit-user-drag:element}.list-view-red i[data-v-30c02cb0]{width:290px;margin:5px 10px;flex-grow:1;height:0}.input-container[data-v-30c02cb0]{display:flex;flex-grow:1;overflow:hidden;padding-right:10px;justify-content:space-between}.input-container input[data-v-30c02cb0]{border-top-left-radius:3px;border-bottom-left-radius:3px}.input-container img[data-v-30c02cb0]{border-top-right-radius:3px;border-bottom-right-radius:3px}", ""])
+	.push([e.i, ".card-light[data-v-abd7c9bc]{background-color:#fff;border-bottom:1px solid #dcdcdc}.card-dark[data-v-abd7c9bc],.card-light[data-v-abd7c9bc]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between}.card-dark[data-v-abd7c9bc]{background-color:#2c2a38;border-bottom:1px solid #554f4f}.card-red[data-v-abd7c9bc]{position:fixed;padding:0 35px;height:80px;width:calc(100vw - 170px);display:flex;justify-content:space-between;background-color:#f8b74f;border-bottom:1px solid rgba(218,20,30,.247059)}.hint-success-light[data-v-abd7c9bc]{color:#1d2b63}.hint-success-dark[data-v-abd7c9bc],.hint-success-red[data-v-abd7c9bc]{color:#3aa1cc}.list-item-light[data-v-abd7c9bc]{height:130px;opacity:.8;padding:5px 10px;border-radius:3px;color:#fff;background:#7e7b7b;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-light[data-v-abd7c9bc]:hover{opacity:1}.list-item-dark[data-v-abd7c9bc]{height:130px;opacity:.8;padding:5px 10px;border-radius:3px;color:#fff;background:#3f3f49;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-dark[data-v-abd7c9bc]:hover{opacity:1}.list-item-red[data-v-abd7c9bc]{height:130px;opacity:.8;padding:5px 10px;border-radius:3px;color:#fff;background:#a77018;display:flex;flex-direction:column;justify-content:space-between;position:relative;width:290px;margin:5px 10px;flex-grow:1;transition:opacity .3s}.list-item-red[data-v-abd7c9bc]:hover{opacity:1}.item-cur-light[data-v-abd7c9bc]{opacity:1;background-color:#464646}.item-cur-dark[data-v-abd7c9bc]{opacity:1;background-color:#5f5f5f}.item-cur-red[data-v-abd7c9bc]{opacity:1;background-color:rgba(218,20,30,.6)}.main[data-v-abd7c9bc]{display:flex;flex-direction:column}#main-server-view[data-v-abd7c9bc]{height:100%}.list-view-light[data-v-abd7c9bc]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-light[data-v-abd7c9bc]::-webkit-scrollbar{width:10px}.list-view-light[data-v-abd7c9bc]::-webkit-scrollbar-thumb{background-color:#cac8c6}.list-view-light>[data-v-abd7c9bc]{-webkit-user-drag:element}.list-view-light i[data-v-abd7c9bc]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-dark[data-v-abd7c9bc]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-dark[data-v-abd7c9bc]::-webkit-scrollbar{width:10px}.list-view-dark[data-v-abd7c9bc]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.list-view-dark>[data-v-abd7c9bc]{-webkit-user-drag:element}.list-view-dark i[data-v-abd7c9bc]{width:290px;margin:5px 10px;flex-grow:1;height:0}.list-view-red[data-v-abd7c9bc]{margin-top:80px;padding:25px 20px 25px 30px;height:calc(100vh - 25px - 80px);overflow-y:scroll;display:flex;flex-wrap:wrap;align-content:flex-start}.list-view-red[data-v-abd7c9bc]::-webkit-scrollbar{width:10px}.list-view-red[data-v-abd7c9bc]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.list-view-red>[data-v-abd7c9bc]{-webkit-user-drag:element}.list-view-red i[data-v-abd7c9bc]{width:290px;margin:5px 10px;flex-grow:1;height:0}.input-container[data-v-abd7c9bc]{display:flex;flex-grow:1;overflow:hidden;padding-right:10px;justify-content:space-between}.input-container input[data-v-abd7c9bc]{border-top-left-radius:3px;border-bottom-left-radius:3px}.input-container svg[data-v-abd7c9bc]{border-top-right-radius:3px;border-bottom-right-radius:3px}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(93);
+	var r = n(63);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, "input[data-v-30c02cb0]{cursor:text;width:calc(100vw - 230px);height:45px;font-size:1em;border:1px solid rgba(50,50,50,.2);padding:0 10px}input[data-v-30c02cb0]:focus{outline:none;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.remote-view[data-v-30c02cb0]{display:flex;align-items:center;justify-content:space-around}.local-view[data-v-30c02cb0]{right:0;margin:0 2vw 20px 1vw}.list-view[data-v-30c02cb0]>:last-child{margin-bottom:25px}.item-name[data-v-30c02cb0]{font-size:1em;cursor:pointer}.item-name-top[data-v-30c02cb0]{display:flex;justify-content:space-between;align-items:center;cursor:pointer}.item-name-top>div[data-v-30c02cb0]{max-width:calc((80vw - 80px) / 2 - 65px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-name-bottom[data-v-30c02cb0]{margin-top:3px;width:fit-content;font-size:.8em;cursor:pointer;max-width:calc((80vw - 80px) / 2 - 35px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-icon[data-v-30c02cb0]{padding:5px;width:30px;height:30px;margin-right:-4px;cursor:pointer;border-radius:20px;transition:background-color .3s}.item-icon[data-v-30c02cb0]:hover{background-color:hsla(0,0%,100%,.2)}.item-icon-right[data-v-30c02cb0]{margin-left:8px}.item-icon-left[data-v-30c02cb0]{margin-right:4px}.item-time[data-v-30c02cb0]{display:flex;flex-direction:column;justify-content:space-between;height:65px;padding:4px 0 0;font-size:.8em;cursor:pointer}.item-time-now[data-v-30c02cb0]{color:#9eff71}.item-edit-zone[data-v-30c02cb0]{padding:0 15px 5px;width:calc(100% + 30px);margin-left:-15px;display:flex;justify-content:space-between}.local-icon[data-v-30c02cb0]{opacity:.3}.local-icon[data-v-30c02cb0]:hover{cursor:not-allowed;background-color:rgba(50,50,50,0)}.btns-container[data-v-30c02cb0]{display:flex;align-items:center;max-width:230px;justify-content:space-between}.confirm[data-v-30c02cb0]{height:45px;color:#fff;cursor:pointer;line-height:45px;text-align:center;background-color:#7e7b7b;border-radius:3px;padding-left:20px;padding-right:20px;font-size:.85em;box-shadow:0 2px 20px 2px rgba(50,50,50,.1)}.confirm-left[data-v-30c02cb0]{width:150px;padding:auto 30px}.confirm-right[data-v-30c02cb0]{margin-left:20px}.confirm-copy[data-v-30c02cb0]{border-radius:5px}.btn-error[data-v-30c02cb0]{background-color:#ec2658}.btn-success[data-v-30c02cb0]{background-color:#8ade4e}.btn-loading[data-v-30c02cb0]{box-shadow:2px 2px 5px 1px rgba(50,50,50,.1)}.hint-normal[data-v-30c02cb0]{text-align:center;font-size:1em;font-weight:500}.hint-error[data-v-30c02cb0]{color:#ec2658}.copy-icon[data-v-30c02cb0]{flex-shrink:0;height:45px;width:45px;padding:10px;background-color:#5e798b;cursor:pointer;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.rotating[data-v-30c02cb0]{animation:downloading-data-v-30c02cb0 1s infinite;animation-timing-function:linear}@keyframes downloading-data-v-30c02cb0{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}", ""])
+	.push([e.i, "input[data-v-abd7c9bc]{cursor:text;width:calc(100vw - 230px);height:45px;font-size:1em;border:1px solid rgba(50,50,50,.2);padding:0 10px}input[data-v-abd7c9bc]:focus{outline:none;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.remote-view[data-v-abd7c9bc]{display:flex;align-items:center;justify-content:space-around}.local-view[data-v-abd7c9bc]{right:0;margin:0 2vw 20px 1vw}.list-view[data-v-abd7c9bc]>:last-child{margin-bottom:25px}.item-name[data-v-abd7c9bc]{font-size:1em;cursor:pointer;margin-left:5px}.item-name-top[data-v-abd7c9bc]{display:flex;justify-content:space-between;align-items:center;cursor:pointer}.item-name-top>div[data-v-abd7c9bc]{max-width:calc((80vw - 80px) / 2 - 65px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-name-bottom[data-v-abd7c9bc]{margin-top:3px;width:fit-content;font-size:.8em;cursor:pointer;max-width:calc((80vw - 80px) / 2 - 35px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-icon[data-v-abd7c9bc]{width:30px;height:30px;cursor:pointer;border-radius:20px;display:flex;align-items:center;justify-content:center;transition:background-color .3s}.item-icon>svg[data-v-abd7c9bc]{width:18px;height:18px}.item-icon[data-v-abd7c9bc]:hover{background-color:hsla(0,0%,100%,.2)}.item-time[data-v-abd7c9bc]{font-size:.8em;cursor:pointer;margin-left:5px}.item-parser[data-v-abd7c9bc]{font-size:.8em}.item-time-now[data-v-abd7c9bc]{color:#9eff71}.item-edit-zone[data-v-abd7c9bc]{padding:0 15px 5px;width:calc(100% + 30px);margin-left:-15px;display:flex;justify-content:space-between}.local-icon[data-v-abd7c9bc]{opacity:.3}.local-icon[data-v-abd7c9bc]:hover{cursor:not-allowed;background-color:rgba(50,50,50,0)}.btns-container[data-v-abd7c9bc]{display:flex;align-items:center;max-width:230px;justify-content:space-between}.confirm[data-v-abd7c9bc]{height:45px;color:#fff;cursor:pointer;line-height:45px;text-align:center;background-color:#7e7b7b;border-radius:3px;padding-left:20px;padding-right:20px;font-size:.85em;box-shadow:0 2px 20px 2px rgba(50,50,50,.1)}.confirm-left[data-v-abd7c9bc]{width:150px;padding:auto 30px}.confirm-right[data-v-abd7c9bc]{margin-left:20px}.confirm-copy[data-v-abd7c9bc]{border-radius:5px}.btn-error[data-v-abd7c9bc]{background-color:#ec2658}.btn-success[data-v-abd7c9bc]{background-color:#8ade4e}.btn-loading[data-v-abd7c9bc]{box-shadow:2px 2px 5px 1px rgba(50,50,50,.1)}.hint-normal[data-v-abd7c9bc]{text-align:center;font-size:1em;font-weight:500}.hint-error[data-v-abd7c9bc]{color:#ec2658}.copy-icon[data-v-abd7c9bc]{flex-shrink:0;height:45px;width:45px;padding:10px;background-color:#5e798b;cursor:pointer;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.rotating[data-v-abd7c9bc]{animation:downloading-data-v-abd7c9bc 1s infinite;animation-timing-function:linear}@keyframes downloading-data-v-abd7c9bc{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(94);
+	var r = n(64);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-connection-view-light[data-v-ab745176]{overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;height:100%}.main-connection-view-light .control-view[data-v-ab745176]{display:flex;padding:0 20px 10px 16px;justify-content:space-between;height:40px;border-bottom:1px solid #dcdcdc}.main-connection-view-light .control-view .labels[data-v-ab745176]{display:flex;align-items:center;color:#fff}.main-connection-view-light .control-view .labels .label[data-v-ab745176]{height:25px;font-size:14px;font-weight:400;margin:0 5px 0 0;padding:0 5px;line-height:25px;cursor:pointer;background-color:hsla(0,0%,39%,.5);border-radius:3px}.main-connection-view-light .control-view .labels .label-selected[data-v-ab745176]{background-color:rgba(14,184,65,.932)}.main-connection-view-dark[data-v-ab745176]{overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;height:100%}.main-connection-view-dark .control-view[data-v-ab745176]{display:flex;padding:0 20px 10px 16px;justify-content:space-between;height:40px;border-bottom:1px solid #554f4f}.main-connection-view-dark .control-view .labels[data-v-ab745176]{display:flex;align-items:center;color:#fff}.main-connection-view-dark .control-view .labels .label[data-v-ab745176]{height:25px;font-size:14px;font-weight:400;margin:0 5px 0 0;padding:0 5px;line-height:25px;cursor:pointer;background-color:hsla(0,0%,39%,.5);border-radius:3px}.main-connection-view-dark .control-view .labels .label-selected[data-v-ab745176]{background-color:rgba(14,184,65,.932)}.main-connection-view-red[data-v-ab745176]{overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;height:100%}.main-connection-view-red .control-view[data-v-ab745176]{display:flex;padding:0 20px 10px 16px;justify-content:space-between;height:40px;border-bottom:1px solid rgba(218,20,30,.247059)}.main-connection-view-red .control-view .labels[data-v-ab745176]{display:flex;align-items:center;color:#fff}.main-connection-view-red .control-view .labels .label[data-v-ab745176]{height:25px;font-size:14px;font-weight:400;margin:0 5px 0 0;padding:0 5px;line-height:25px;cursor:pointer;background-color:hsla(0,0%,39%,.5);border-radius:3px}.main-connection-view-red .control-view .labels .label-selected[data-v-ab745176]{background-color:rgba(14,184,65,.932)}.header[data-v-ab745176]{height:40px;display:flex;justify-content:space-between;align-items:baseline;margin:auto 20px}.title[data-v-ab745176]{font-size:20px;height:40px;line-height:40px}.header-right[data-v-ab745176]{display:flex;align-items:center}.total-hint[data-v-ab745176]{font-size:.95em}.scroll-view-light[data-v-ab745176]{height:calc(100% - 60px);width:calc(100% - 0px);overflow-y:scroll}.scroll-view-light[data-v-ab745176]::-webkit-scrollbar{width:10px}.scroll-view-light[data-v-ab745176]::-webkit-scrollbar-thumb{background-color:#cac8c6}.scroll-view-dark[data-v-ab745176]{height:calc(100% - 60px);width:calc(100% - 0px);overflow-y:scroll}.scroll-view-dark[data-v-ab745176]::-webkit-scrollbar{width:10px}.scroll-view-dark[data-v-ab745176]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.scroll-view-red[data-v-ab745176]{height:calc(100% - 60px);width:calc(100% - 0px);overflow-y:scroll}.scroll-view-red[data-v-ab745176]::-webkit-scrollbar{width:10px}.scroll-view-red[data-v-ab745176]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.conn-item-light[data-v-ab745176]{border-bottom:1px solid hsla(0,0%,79%,.342)}.conn-item-dark[data-v-ab745176],.conn-item-light[data-v-ab745176]{padding:1px 20px;display:flex;justify-content:space-between;align-items:center}.conn-item-dark[data-v-ab745176]{border-bottom:1px solid #626262}.conn-item-red[data-v-ab745176]{padding:1px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(218,20,30,.247059)}.conn-item-closed[data-v-ab745176]{opacity:.7}.conn-item-top[data-v-ab745176]{display:flex;justify-content:space-between}.conn-host[data-v-ab745176]{font-size:1em;font-weight:500}.close-btn[data-v-ab745176]{width:23px;height:23px;border-radius:15px;cursor:pointer;background-color:rgba(223,51,51,.876);color:#fff;opacity:.8}.close-btn [data-v-ab745176]{cursor:pointer}.close-btn[data-v-ab745176]:hover{opacity:1}.item-icon[data-v-ab745176]{width:19px;margin:2px;height:19px}.close-all-btn[data-v-ab745176]{padding:0 10px;margin-left:10px;text-align:center;height:30px;line-height:30px;cursor:pointer;background-color:rgba(243,61,61,.801);border-radius:3px;color:#fff}.conn-labels[data-v-ab745176]{font-size:14px;display:flex;margin-bottom:5px;flex-wrap:wrap}.conn-labels>div[data-v-ab745176]{margin-right:5px;margin-top:4px;padding:3px 5px;color:#fff;border-radius:3px}.conn-network[data-v-ab745176]{background-color:#c26819cc}.conn-type[data-v-ab745176]{background-color:#c18310c5}.conn-traffic[data-v-ab745176]{background-color:#559834ce}.conn-endpoint[data-v-ab745176]{background-color:#00864cc9}.conn-time[data-v-ab745176]{background-color:#428ee4}", ""])
+	.push([e.i, ".main-connection-view-light[data-v-2a778fb9]{overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;height:100%}.main-connection-view-light .control-view[data-v-2a778fb9]{display:flex;padding:0 20px 10px 16px;justify-content:space-between;height:40px;border-bottom:1px solid #dcdcdc}.main-connection-view-light .control-view .labels[data-v-2a778fb9]{display:flex;align-items:center;color:#fff}.main-connection-view-light .control-view .labels .label[data-v-2a778fb9]{height:25px;font-size:14px;font-weight:400;margin:0 5px 0 0;padding:0 5px;line-height:25px;cursor:pointer;background-color:hsla(0,0%,39%,.5);border-radius:3px}.main-connection-view-light .control-view .labels .label-selected[data-v-2a778fb9]{background-color:rgba(14,184,65,.932)}.main-connection-view-dark[data-v-2a778fb9]{overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;height:100%}.main-connection-view-dark .control-view[data-v-2a778fb9]{display:flex;padding:0 20px 10px 16px;justify-content:space-between;height:40px;border-bottom:1px solid #554f4f}.main-connection-view-dark .control-view .labels[data-v-2a778fb9]{display:flex;align-items:center;color:#fff}.main-connection-view-dark .control-view .labels .label[data-v-2a778fb9]{height:25px;font-size:14px;font-weight:400;margin:0 5px 0 0;padding:0 5px;line-height:25px;cursor:pointer;background-color:hsla(0,0%,39%,.5);border-radius:3px}.main-connection-view-dark .control-view .labels .label-selected[data-v-2a778fb9]{background-color:rgba(14,184,65,.932)}.main-connection-view-red[data-v-2a778fb9]{overflow:hidden;display:flex;justify-content:space-between;flex-direction:column;height:100%}.main-connection-view-red .control-view[data-v-2a778fb9]{display:flex;padding:0 20px 10px 16px;justify-content:space-between;height:40px;border-bottom:1px solid rgba(218,20,30,.247059)}.main-connection-view-red .control-view .labels[data-v-2a778fb9]{display:flex;align-items:center;color:#fff}.main-connection-view-red .control-view .labels .label[data-v-2a778fb9]{height:25px;font-size:14px;font-weight:400;margin:0 5px 0 0;padding:0 5px;line-height:25px;cursor:pointer;background-color:hsla(0,0%,39%,.5);border-radius:3px}.main-connection-view-red .control-view .labels .label-selected[data-v-2a778fb9]{background-color:rgba(14,184,65,.932)}.header[data-v-2a778fb9]{height:40px;display:flex;justify-content:space-between;align-items:baseline;margin:auto 20px}.title[data-v-2a778fb9]{font-size:20px;height:40px;line-height:40px}.header-right[data-v-2a778fb9]{display:flex;align-items:center}.total-hint[data-v-2a778fb9]{font-size:.95em}.scroll-view-light[data-v-2a778fb9]{height:calc(100% - 60px);width:calc(100% - 0px);overflow-y:scroll}.scroll-view-light[data-v-2a778fb9]::-webkit-scrollbar{width:10px}.scroll-view-light[data-v-2a778fb9]::-webkit-scrollbar-thumb{background-color:#cac8c6}.scroll-view-dark[data-v-2a778fb9]{height:calc(100% - 60px);width:calc(100% - 0px);overflow-y:scroll}.scroll-view-dark[data-v-2a778fb9]::-webkit-scrollbar{width:10px}.scroll-view-dark[data-v-2a778fb9]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.scroll-view-red[data-v-2a778fb9]{height:calc(100% - 60px);width:calc(100% - 0px);overflow-y:scroll}.scroll-view-red[data-v-2a778fb9]::-webkit-scrollbar{width:10px}.scroll-view-red[data-v-2a778fb9]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.conn-item-light[data-v-2a778fb9]{border-bottom:1px solid hsla(0,0%,79%,.342)}.conn-item-dark[data-v-2a778fb9],.conn-item-light[data-v-2a778fb9]{padding:1px 20px;display:flex;justify-content:space-between;align-items:center}.conn-item-dark[data-v-2a778fb9]{border-bottom:1px solid #626262}.conn-item-red[data-v-2a778fb9]{padding:1px 20px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(218,20,30,.247059)}.conn-item-closed[data-v-2a778fb9]{opacity:.7}.conn-item-top[data-v-2a778fb9]{display:flex;justify-content:space-between}.conn-host[data-v-2a778fb9]{font-size:1em;font-weight:500}.close-btn[data-v-2a778fb9]{width:23px;height:23px;border-radius:15px;cursor:pointer;background-color:rgba(223,51,51,.876);color:#fff;opacity:.8}.close-btn [data-v-2a778fb9]{cursor:pointer}.close-btn[data-v-2a778fb9]:hover{opacity:1}.item-icon[data-v-2a778fb9]{width:19px;margin:2px;height:19px}.close-all-btn[data-v-2a778fb9]{padding:0 10px;margin-left:10px;text-align:center;height:30px;line-height:30px;cursor:pointer;background-color:rgba(243,61,61,.801);border-radius:3px;color:#fff}.conn-labels[data-v-2a778fb9]{font-size:14px;display:flex;margin-bottom:5px;flex-wrap:wrap}.conn-labels>div[data-v-2a778fb9]{margin-right:5px;margin-top:4px;padding:3px 5px;color:#fff;border-radius:3px}.conn-network[data-v-2a778fb9]{background-color:#c26819cc}.conn-type[data-v-2a778fb9]{background-color:#c18310c5}.conn-traffic[data-v-2a778fb9]{background-color:#559834ce}.conn-endpoint[data-v-2a778fb9]{background-color:#00864cc9}.conn-time[data-v-2a778fb9]{background-color:#428ee4}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(95);
+	var r = n(65);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9813,7 +8118,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(96);
+	var r = n(66);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9823,7 +8128,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(97);
+	var r = n(67);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9833,7 +8138,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(98);
+	var r = n(68);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9843,7 +8148,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(99);
+	var r = n(69);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9853,17 +8158,17 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(100);
+	var r = n(70);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-setting-view-light[data-v-66c4955c]{height:100%}.main-setting-view-light .title[data-v-66c4955c]{height:80px;border-bottom:1px solid #dcdcdc;font-size:20px;background-color:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 20px}.main-setting-view-light .title .btns[data-v-66c4955c]{height:100%;display:flex;align-items:center}.main-setting-view-light .title .btns .btn[data-v-66c4955c]{cursor:pointer;font-size:14px;color:#fa1313;font-weight:400;padding:5px 15px;border-radius:3px;background-color:#f1f1f1}.main-setting-view-light .content[data-v-66c4955c]{overflow-y:scroll;padding:10px 10px 20px;height:calc(100% - 80px)}.main-setting-view-light .content[data-v-66c4955c]::-webkit-scrollbar{width:10px}.main-setting-view-light .content[data-v-66c4955c]::-webkit-scrollbar-thumb{background-color:#cac8c6}.main-setting-view-light .item[data-v-66c4955c]{font-weight:400;display:flex;justify-content:space-between;align-items:center;height:35px}.main-setting-view-light .item .short-input[data-v-66c4955c]{width:190px}.main-setting-view-light .item .hint[data-v-66c4955c]{margin-left:10px}.main-setting-view-light .item .interface-hint[data-v-66c4955c]{margin-right:10px}.main-setting-view-dark[data-v-66c4955c]{height:100%}.main-setting-view-dark .title[data-v-66c4955c]{height:80px;border-bottom:1px solid #554f4f;font-size:20px;background-color:#2c2a38;display:flex;justify-content:space-between;align-items:center;padding:0 20px}.main-setting-view-dark .title .btns[data-v-66c4955c]{height:100%;display:flex;align-items:center}.main-setting-view-dark .title .btns .btn[data-v-66c4955c]{cursor:pointer;font-size:14px;color:#ff5f5f;font-weight:400;padding:5px 15px;border-radius:3px;background-color:#606068}.main-setting-view-dark .content[data-v-66c4955c]{overflow-y:scroll;padding:10px 10px 20px;height:calc(100% - 80px)}.main-setting-view-dark .content[data-v-66c4955c]::-webkit-scrollbar{width:10px}.main-setting-view-dark .content[data-v-66c4955c]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.main-setting-view-dark .item[data-v-66c4955c]{font-weight:400;display:flex;justify-content:space-between;align-items:center;height:35px}.main-setting-view-dark .item .short-input[data-v-66c4955c]{width:190px}.main-setting-view-dark .item .hint[data-v-66c4955c]{margin-left:10px}.main-setting-view-dark .item .interface-hint[data-v-66c4955c]{margin-right:10px}.main-setting-view-red[data-v-66c4955c]{height:100%}.main-setting-view-red .title[data-v-66c4955c]{height:80px;border-bottom:1px solid rgba(218,20,30,.247059);font-size:20px;background-color:#f8b74f;display:flex;justify-content:space-between;align-items:center;padding:0 20px}.main-setting-view-red .title .btns[data-v-66c4955c]{height:100%;display:flex;align-items:center}.main-setting-view-red .title .btns .btn[data-v-66c4955c]{cursor:pointer;font-size:14px;color:red;font-weight:400;padding:5px 15px;border-radius:3px;background-color:#eda94c}.main-setting-view-red .content[data-v-66c4955c]{overflow-y:scroll;padding:10px 10px 20px;height:calc(100% - 80px)}.main-setting-view-red .content[data-v-66c4955c]::-webkit-scrollbar{width:10px}.main-setting-view-red .content[data-v-66c4955c]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.main-setting-view-red .item[data-v-66c4955c]{font-weight:400;display:flex;justify-content:space-between;align-items:center;height:35px}.main-setting-view-red .item .short-input[data-v-66c4955c]{width:190px}.main-setting-view-red .item .hint[data-v-66c4955c]{margin-left:10px}.main-setting-view-red .item .interface-hint[data-v-66c4955c]{margin-right:10px}", ""])
+	.push([e.i, ".main-setting-view-light[data-v-71718b9e]{height:100%}.main-setting-view-light .blur[data-v-71718b9e]{filter:blur(15px)}.main-setting-view-light .title[data-v-71718b9e]{height:80px;border-bottom:1px solid #dcdcdc;font-size:20px;background-color:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 20px}.main-setting-view-light .title .btns[data-v-71718b9e]{height:100%;display:flex;align-items:center}.main-setting-view-light .title .btns .btn[data-v-71718b9e]{cursor:pointer;font-size:14px;color:#fa1313;font-weight:400;padding:5px 15px;border-radius:3px;background-color:#f1f1f1}.main-setting-view-light .content[data-v-71718b9e]{overflow-y:scroll;padding:10px 10px 20px;height:calc(100% - 80px)}.main-setting-view-light .content[data-v-71718b9e]::-webkit-scrollbar{width:10px}.main-setting-view-light .content[data-v-71718b9e]::-webkit-scrollbar-thumb{background-color:#cac8c6}.main-setting-view-light .item[data-v-71718b9e]{font-weight:400;display:flex;justify-content:space-between;align-items:center;height:35px}.main-setting-view-light .item .short-input[data-v-71718b9e]{width:190px}.main-setting-view-light .item .hint[data-v-71718b9e]{margin-left:10px}.main-setting-view-light .item .interface-hint[data-v-71718b9e]{margin-right:10px}.main-setting-view-light .edit-hint[data-v-71718b9e]{background-color:rgba(0,0,0,.4);position:fixed;top:25px;width:calc(100% - 170px);height:calc(100vh - 25px);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}.main-setting-view-light .edit-hint div[data-v-71718b9e]:first-child{font-size:20px}.main-setting-view-light .edit-hint div[data-v-71718b9e]:nth-child(2){font-size:16px;margin-top:20px}.main-setting-view-light .edit-hint .btn[data-v-71718b9e]{font-size:18px;margin-top:40px;background-color:rgba(26,26,26,.7);padding:4px 12px;border-radius:3px;cursor:pointer}.main-setting-view-dark[data-v-71718b9e]{height:100%}.main-setting-view-dark .blur[data-v-71718b9e]{filter:blur(15px)}.main-setting-view-dark .title[data-v-71718b9e]{height:80px;border-bottom:1px solid #554f4f;font-size:20px;background-color:#2c2a38;display:flex;justify-content:space-between;align-items:center;padding:0 20px}.main-setting-view-dark .title .btns[data-v-71718b9e]{height:100%;display:flex;align-items:center}.main-setting-view-dark .title .btns .btn[data-v-71718b9e]{cursor:pointer;font-size:14px;color:#ff5f5f;font-weight:400;padding:5px 15px;border-radius:3px;background-color:#606068}.main-setting-view-dark .content[data-v-71718b9e]{overflow-y:scroll;padding:10px 10px 20px;height:calc(100% - 80px)}.main-setting-view-dark .content[data-v-71718b9e]::-webkit-scrollbar{width:10px}.main-setting-view-dark .content[data-v-71718b9e]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.main-setting-view-dark .item[data-v-71718b9e]{font-weight:400;display:flex;justify-content:space-between;align-items:center;height:35px}.main-setting-view-dark .item .short-input[data-v-71718b9e]{width:190px}.main-setting-view-dark .item .hint[data-v-71718b9e]{margin-left:10px}.main-setting-view-dark .item .interface-hint[data-v-71718b9e]{margin-right:10px}.main-setting-view-dark .edit-hint[data-v-71718b9e]{background-color:rgba(0,0,0,.4);position:fixed;top:25px;width:calc(100% - 170px);height:calc(100vh - 25px);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}.main-setting-view-dark .edit-hint div[data-v-71718b9e]:first-child{font-size:20px}.main-setting-view-dark .edit-hint div[data-v-71718b9e]:nth-child(2){font-size:16px;margin-top:20px}.main-setting-view-dark .edit-hint .btn[data-v-71718b9e]{font-size:18px;margin-top:40px;background-color:rgba(26,26,26,.7);padding:4px 12px;border-radius:3px;cursor:pointer}.main-setting-view-red[data-v-71718b9e]{height:100%}.main-setting-view-red .blur[data-v-71718b9e]{filter:blur(15px)}.main-setting-view-red .title[data-v-71718b9e]{height:80px;border-bottom:1px solid rgba(218,20,30,.247059);font-size:20px;background-color:#f8b74f;display:flex;justify-content:space-between;align-items:center;padding:0 20px}.main-setting-view-red .title .btns[data-v-71718b9e]{height:100%;display:flex;align-items:center}.main-setting-view-red .title .btns .btn[data-v-71718b9e]{cursor:pointer;font-size:14px;color:red;font-weight:400;padding:5px 15px;border-radius:3px;background-color:#eda94c}.main-setting-view-red .content[data-v-71718b9e]{overflow-y:scroll;padding:10px 10px 20px;height:calc(100% - 80px)}.main-setting-view-red .content[data-v-71718b9e]::-webkit-scrollbar{width:10px}.main-setting-view-red .content[data-v-71718b9e]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.main-setting-view-red .item[data-v-71718b9e]{font-weight:400;display:flex;justify-content:space-between;align-items:center;height:35px}.main-setting-view-red .item .short-input[data-v-71718b9e]{width:190px}.main-setting-view-red .item .hint[data-v-71718b9e]{margin-left:10px}.main-setting-view-red .item .interface-hint[data-v-71718b9e]{margin-right:10px}.main-setting-view-red .edit-hint[data-v-71718b9e]{background-color:rgba(0,0,0,.4);position:fixed;top:25px;width:calc(100% - 170px);height:calc(100vh - 25px);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center}.main-setting-view-red .edit-hint div[data-v-71718b9e]:first-child{font-size:20px}.main-setting-view-red .edit-hint div[data-v-71718b9e]:nth-child(2){font-size:16px;margin-top:20px}.main-setting-view-red .edit-hint .btn[data-v-71718b9e]{font-size:18px;margin-top:40px;background-color:rgba(26,26,26,.7);padding:4px 12px;border-radius:3px;cursor:pointer}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(101);
+	var r = n(71);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9873,7 +8178,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(102);
+	var r = n(72);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9883,7 +8188,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(103);
+	var r = n(73);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9893,7 +8198,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(104);
+	var r = n(74);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9903,7 +8208,7 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(105);
+	var r = n(75);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -9913,17 +8218,17 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(106);
+	var r = n(76);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-alert-view-plugin[data-v-daa6cfce]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;display:flex;flex-direction:column;align-items:center;justify-content:center;background-color:rgba(50,50,50,.6);color:#000;z-index:10}.main-alert-view-plugin .card-main[data-v-daa6cfce]{border-radius:2px;background-color:#fff;display:flex;flex-direction:column;justify-content:space-around;width:50%}.main-alert-view-plugin .card-main .card-content[data-v-daa6cfce]{padding:15px 20px}.main-alert-view-plugin .card-main .card-content .content-title[data-v-daa6cfce]{font-size:1.2em;margin-bottom:15px}.main-alert-view-plugin .card-main .card-content .content-content-light[data-v-daa6cfce]{font-size:15px;text-overflow:inherit;word-wrap:break-word;max-height:200px;overflow-y:scroll}.main-alert-view-plugin .card-main .card-content .content-content-light[data-v-daa6cfce]::-webkit-scrollbar{width:10px}.main-alert-view-plugin .card-main .card-content .content-content-light[data-v-daa6cfce]::-webkit-scrollbar-thumb{background-color:#cac8c6}.main-alert-view-plugin .card-main .card-content .content-content-dark[data-v-daa6cfce]{font-size:15px;text-overflow:inherit;word-wrap:break-word;max-height:200px;overflow-y:scroll}.main-alert-view-plugin .card-main .card-content .content-content-dark[data-v-daa6cfce]::-webkit-scrollbar{width:10px}.main-alert-view-plugin .card-main .card-content .content-content-dark[data-v-daa6cfce]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.main-alert-view-plugin .card-main .card-content .content-content-red[data-v-daa6cfce]{font-size:15px;text-overflow:inherit;word-wrap:break-word;max-height:200px;overflow-y:scroll}.main-alert-view-plugin .card-main .card-content .content-content-red[data-v-daa6cfce]::-webkit-scrollbar{width:10px}.main-alert-view-plugin .card-main .card-content .content-content-red[data-v-daa6cfce]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.main-alert-view-plugin .card-main .card-content .card-btns[data-v-daa6cfce]{margin-top:20px;display:flex;justify-content:space-around}.main-alert-view-plugin .card-main .card-content .card-btns .btn[data-v-daa6cfce]{cursor:pointer;color:#fff;width:100px;height:40px;text-align:center;line-height:40px;border-radius:1px}.main-alert-view-plugin .card-main .card-content .card-btns .btn-cancel[data-v-daa6cfce]{background-color:#676475}.main-alert-view-plugin .card-main .card-content .card-btns .btn-ok[data-v-daa6cfce]{background-color:#3e3c4d}", ""])
+	.push([e.i, ".main-alert-view-plugin[data-v-167443f4]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;display:flex;flex-direction:column;align-items:center;justify-content:center;background-color:rgba(50,50,50,.6);color:#000;z-index:10}.main-alert-view-plugin .card-main[data-v-167443f4]{border-radius:2px;background-color:#fff;display:flex;flex-direction:column;justify-content:space-around;width:50%}.main-alert-view-plugin .card-main .card-content[data-v-167443f4]{padding:15px 20px}.main-alert-view-plugin .card-main .card-content .content-title[data-v-167443f4]{font-size:1.2em;margin-bottom:15px}.main-alert-view-plugin .card-main .card-content .content-content-light[data-v-167443f4]{font-size:15px;text-overflow:inherit;word-wrap:break-word;max-height:200px;overflow-y:scroll}.main-alert-view-plugin .card-main .card-content .content-content-light[data-v-167443f4]::-webkit-scrollbar{width:10px}.main-alert-view-plugin .card-main .card-content .content-content-light[data-v-167443f4]::-webkit-scrollbar-thumb{background-color:#cac8c6}.main-alert-view-plugin .card-main .card-content .content-content-dark[data-v-167443f4]{font-size:15px;text-overflow:inherit;word-wrap:break-word;max-height:200px;overflow-y:scroll}.main-alert-view-plugin .card-main .card-content .content-content-dark[data-v-167443f4]::-webkit-scrollbar{width:10px}.main-alert-view-plugin .card-main .card-content .content-content-dark[data-v-167443f4]::-webkit-scrollbar-thumb{background-color:#4d4d5a}.main-alert-view-plugin .card-main .card-content .content-content-red[data-v-167443f4]{font-size:15px;text-overflow:inherit;word-wrap:break-word;max-height:200px;overflow-y:scroll}.main-alert-view-plugin .card-main .card-content .content-content-red[data-v-167443f4]::-webkit-scrollbar{width:10px}.main-alert-view-plugin .card-main .card-content .content-content-red[data-v-167443f4]::-webkit-scrollbar-thumb{background-color:rgba(183,46,41,.643137)}.main-alert-view-plugin .card-main .card-content .card-btns[data-v-167443f4]{margin-top:20px;display:flex;justify-content:space-around}.main-alert-view-plugin .card-main .card-content .card-btns .btn[data-v-167443f4]{cursor:pointer;color:#fff;width:100px;height:40px;text-align:center;line-height:40px;border-radius:1px}.main-alert-view-plugin .card-main .card-content .card-btns .btn-cancel[data-v-167443f4]{background-color:#676475}.main-alert-view-plugin .card-main .card-content .card-btns .btn-ok[data-v-167443f4]{background-color:#3e3c4d}", ""])
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(107);
+	var r = n(77);
 	n.n(r)
 		.a
 }, function(e, t, n)
@@ -10178,7 +8483,7 @@
 	}()
 }, function(e, t, n)
 {
-	var r = n(325);
+	var r = n(216);
 	"string" == typeof r && (r = [
 		[e.i, r, ""]
 	]), r.locals && (e.exports = r.locals);
@@ -10192,13 +8497,13 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = n(108);
+	var r = n(78);
 	n.n(r)
 		.a
 }, function(e, t, n)
 {
 	(e.exports = n(7)(!1))
-	.push([e.i, ".main-code-view-light[data-v-3225f475]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;left:0;background-color:hsla(0,0%,48%,.726);display:flex;align-items:center;justify-content:center;z-index:100}.main-code-view-light .content[data-v-3225f475]{border-radius:3px;background-color:#23241f;width:80%;height:80%;position:relative;box-shadow:2px 2px 10px 4px rgba(0,0,0,.219)}.main-code-view-light .content .base[data-v-3225f475]{padding:10px 10px 100px;position:absolute;top:0;left:0;height:100%;width:100%;font-size:14px;font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace;overflow:scroll}.main-code-view-light .content .base[data-v-3225f475]::-webkit-scrollbar{width:10px;height:10px}.main-code-view-light .content .base[data-v-3225f475]::-webkit-scrollbar-thumb{background-color:#616161}.main-code-view-light .content .base[data-v-3225f475]::-webkit-scrollbar-corner{background-color:#3d3d3d00}.main-code-view-light .content .editor[data-v-3225f475]{padding:10px 10px 120px;color:#fff}.main-code-view-light .content .editor .token[data-v-3225f475]{word-break:break-word}.main-code-view-light .content .hidden-input[data-v-3225f475]{white-space:nowrap;border:none;outline-style:none;color:transparent;caret-color:#b8b8b8;background-color:transparent;resize:none}.main-code-view-light .content .btn[data-v-3225f475]{position:absolute;right:40px;bottom:40px;width:30px;height:30px;border-radius:15px;background-color:#fff;cursor:pointer}.main-code-view-light .content .btn img[data-v-3225f475]{width:20px;height:20px;margin:5px;cursor:pointer}.main-code-view-light .content .error-hint[data-v-3225f475]{position:absolute;bottom:0;left:0;background-color:#da2626;color:#fff;padding:4px 5px;width:100%;font-size:14px;text-align:center}.main-code-view-dark[data-v-3225f475]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;left:0;background-color:hsla(0,0%,48%,.726);display:flex;align-items:center;justify-content:center;z-index:100}.main-code-view-dark .content[data-v-3225f475]{border-radius:3px;background-color:#23241f;width:80%;height:80%;position:relative;box-shadow:2px 2px 10px 4px rgba(0,0,0,.219)}.main-code-view-dark .content .base[data-v-3225f475]{padding:10px 10px 100px;position:absolute;top:0;left:0;height:100%;width:100%;font-size:14px;font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace;overflow:scroll}.main-code-view-dark .content .base[data-v-3225f475]::-webkit-scrollbar{width:10px;height:10px}.main-code-view-dark .content .base[data-v-3225f475]::-webkit-scrollbar-thumb{background-color:#616161}.main-code-view-dark .content .base[data-v-3225f475]::-webkit-scrollbar-corner{background-color:#3d3d3d00}.main-code-view-dark .content .editor[data-v-3225f475]{padding:10px 10px 120px;color:#fff}.main-code-view-dark .content .editor .token[data-v-3225f475]{word-break:break-word}.main-code-view-dark .content .hidden-input[data-v-3225f475]{white-space:nowrap;border:none;outline-style:none;color:transparent;caret-color:#b8b8b8;background-color:transparent;resize:none}.main-code-view-dark .content .btn[data-v-3225f475]{position:absolute;right:40px;bottom:40px;width:30px;height:30px;border-radius:15px;background-color:#fff;cursor:pointer}.main-code-view-dark .content .btn img[data-v-3225f475]{width:20px;height:20px;margin:5px;cursor:pointer}.main-code-view-dark .content .error-hint[data-v-3225f475]{position:absolute;bottom:0;left:0;background-color:#da2626;color:#fff;padding:4px 5px;width:100%;font-size:14px;text-align:center}.main-code-view-red[data-v-3225f475]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;left:0;background-color:hsla(0,0%,48%,.726);display:flex;align-items:center;justify-content:center;z-index:100}.main-code-view-red .content[data-v-3225f475]{border-radius:3px;background-color:#23241f;width:80%;height:80%;position:relative;box-shadow:2px 2px 10px 4px rgba(0,0,0,.219)}.main-code-view-red .content .base[data-v-3225f475]{padding:10px 10px 100px;position:absolute;top:0;left:0;height:100%;width:100%;font-size:14px;font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace;overflow:scroll}.main-code-view-red .content .base[data-v-3225f475]::-webkit-scrollbar{width:10px;height:10px}.main-code-view-red .content .base[data-v-3225f475]::-webkit-scrollbar-thumb{background-color:#616161}.main-code-view-red .content .base[data-v-3225f475]::-webkit-scrollbar-corner{background-color:#3d3d3d00}.main-code-view-red .content .editor[data-v-3225f475]{padding:10px 10px 120px;color:#fff}.main-code-view-red .content .editor .token[data-v-3225f475]{word-break:break-word}.main-code-view-red .content .hidden-input[data-v-3225f475]{white-space:nowrap;border:none;outline-style:none;color:transparent;caret-color:#b8b8b8;background-color:transparent;resize:none}.main-code-view-red .content .btn[data-v-3225f475]{position:absolute;right:40px;bottom:40px;width:30px;height:30px;border-radius:15px;background-color:#fff;cursor:pointer}.main-code-view-red .content .btn img[data-v-3225f475]{width:20px;height:20px;margin:5px;cursor:pointer}.main-code-view-red .content .error-hint[data-v-3225f475]{position:absolute;bottom:0;left:0;background-color:#da2626;color:#fff;padding:4px 5px;width:100%;font-size:14px;text-align:center}", ""])
+	.push([e.i, ".main-code-view-light[data-v-6d1f415c]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;left:0;background-color:hsla(0,0%,48%,.726);display:flex;align-items:center;justify-content:center;z-index:100}.main-code-view-light .content[data-v-6d1f415c]{border-radius:3px;background-color:#23241f;width:80%;height:80%;position:relative;box-shadow:2px 2px 10px 4px rgba(0,0,0,.219)}.main-code-view-light .content .base[data-v-6d1f415c]{padding:10px 10px 100px;position:absolute;top:0;left:0;height:100%;width:100%;font-size:14px;font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace;overflow:scroll}.main-code-view-light .content .base[data-v-6d1f415c]::-webkit-scrollbar{width:10px;height:10px}.main-code-view-light .content .base[data-v-6d1f415c]::-webkit-scrollbar-thumb{background-color:#616161}.main-code-view-light .content .base[data-v-6d1f415c]::-webkit-scrollbar-corner{background-color:#3d3d3d00}.main-code-view-light .content .editor[data-v-6d1f415c]{padding:10px 10px 120px;color:#fff}.main-code-view-light .content .editor .token[data-v-6d1f415c]{word-break:break-word}.main-code-view-light .content .hidden-input[data-v-6d1f415c]{white-space:nowrap;border:none;outline-style:none;color:transparent;caret-color:#b8b8b8;background-color:transparent;resize:none}.main-code-view-light .content .btn[data-v-6d1f415c]{position:absolute;right:40px;bottom:40px;width:30px;height:30px;border-radius:15px;background-color:#fff;cursor:pointer}.main-code-view-light .content .btn svg[data-v-6d1f415c]{width:20px;height:20px;margin:5px;cursor:pointer}.main-code-view-light .content .error-hint[data-v-6d1f415c]{position:absolute;bottom:0;left:0;background-color:#da2626;color:#fff;padding:4px 5px;width:100%;font-size:14px;text-align:center}.main-code-view-dark[data-v-6d1f415c]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;left:0;background-color:hsla(0,0%,48%,.726);display:flex;align-items:center;justify-content:center;z-index:100}.main-code-view-dark .content[data-v-6d1f415c]{border-radius:3px;background-color:#23241f;width:80%;height:80%;position:relative;box-shadow:2px 2px 10px 4px rgba(0,0,0,.219)}.main-code-view-dark .content .base[data-v-6d1f415c]{padding:10px 10px 100px;position:absolute;top:0;left:0;height:100%;width:100%;font-size:14px;font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace;overflow:scroll}.main-code-view-dark .content .base[data-v-6d1f415c]::-webkit-scrollbar{width:10px;height:10px}.main-code-view-dark .content .base[data-v-6d1f415c]::-webkit-scrollbar-thumb{background-color:#616161}.main-code-view-dark .content .base[data-v-6d1f415c]::-webkit-scrollbar-corner{background-color:#3d3d3d00}.main-code-view-dark .content .editor[data-v-6d1f415c]{padding:10px 10px 120px;color:#fff}.main-code-view-dark .content .editor .token[data-v-6d1f415c]{word-break:break-word}.main-code-view-dark .content .hidden-input[data-v-6d1f415c]{white-space:nowrap;border:none;outline-style:none;color:transparent;caret-color:#b8b8b8;background-color:transparent;resize:none}.main-code-view-dark .content .btn[data-v-6d1f415c]{position:absolute;right:40px;bottom:40px;width:30px;height:30px;border-radius:15px;background-color:#fff;cursor:pointer}.main-code-view-dark .content .btn svg[data-v-6d1f415c]{width:20px;height:20px;margin:5px;cursor:pointer}.main-code-view-dark .content .error-hint[data-v-6d1f415c]{position:absolute;bottom:0;left:0;background-color:#da2626;color:#fff;padding:4px 5px;width:100%;font-size:14px;text-align:center}.main-code-view-red[data-v-6d1f415c]{width:100%;height:calc(100% - 25px);position:fixed;top:25px;left:0;background-color:hsla(0,0%,48%,.726);display:flex;align-items:center;justify-content:center;z-index:100}.main-code-view-red .content[data-v-6d1f415c]{border-radius:3px;background-color:#23241f;width:80%;height:80%;position:relative;box-shadow:2px 2px 10px 4px rgba(0,0,0,.219)}.main-code-view-red .content .base[data-v-6d1f415c]{padding:10px 10px 100px;position:absolute;top:0;left:0;height:100%;width:100%;font-size:14px;font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace;overflow:scroll}.main-code-view-red .content .base[data-v-6d1f415c]::-webkit-scrollbar{width:10px;height:10px}.main-code-view-red .content .base[data-v-6d1f415c]::-webkit-scrollbar-thumb{background-color:#616161}.main-code-view-red .content .base[data-v-6d1f415c]::-webkit-scrollbar-corner{background-color:#3d3d3d00}.main-code-view-red .content .editor[data-v-6d1f415c]{padding:10px 10px 120px;color:#fff}.main-code-view-red .content .editor .token[data-v-6d1f415c]{word-break:break-word}.main-code-view-red .content .hidden-input[data-v-6d1f415c]{white-space:nowrap;border:none;outline-style:none;color:transparent;caret-color:#b8b8b8;background-color:transparent;resize:none}.main-code-view-red .content .btn[data-v-6d1f415c]{position:absolute;right:40px;bottom:40px;width:30px;height:30px;border-radius:15px;background-color:#fff;cursor:pointer}.main-code-view-red .content .btn svg[data-v-6d1f415c]{width:20px;height:20px;margin:5px;cursor:pointer}.main-code-view-red .content .error-hint[data-v-6d1f415c]{position:absolute;bottom:0;left:0;background-color:#da2626;color:#fff;padding:4px 5px;width:100%;font-size:14px;text-align:center}", ""])
 }, function(e)
 {
 	e.exports = require("vue-electron")
@@ -10213,7 +8518,7 @@
 			for(var n = [], r = 0, a = 0, i = 0; i < e.length;) r = e.charCodeAt(i++), a ? (n.push((65536 + (a - 55296 << 10) + (r - 56320))
 				.toString(16)), a = 0) : 55296 <= r && 56319 >= r ? a = r : n.push(r.toString(16));
 			return n.join(t || "-")
-		}(0 > e.indexOf(I) ? e.replace(O, "") : e)
+		}(0 > e.indexOf(Z) ? e.replace(J, "") : e)
 	}
 
 	function a(e)
@@ -10221,12 +8526,14 @@
 		e.prototype.$parseEmoji = function(e)
 		{
 			var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 22,
-				n = (2 < arguments.length && void 0 !== arguments[2] && arguments[2], 3 < arguments.length && void 0 !== arguments[3] && arguments[3], e.replace(A, (function(e)
+				n = (2 < arguments.length && void 0 !== arguments[2] && arguments[2], 3 < arguments.length && void 0 !== arguments[3] && arguments[3], e.replace(X, (function(e)
 				{
 					var n = r(e);
-					return -1 < E.indexOf(n + ".svg") ? '<img src="static/svg/' + n + '.svg" style="width: ' + t + "px; height: " + t + 'px;vertical-align: text-bottom;"/>' : e
+					return -1 < Y.indexOf("".concat(n, ".svg")) ? '<img src="static/svg/'.concat(n, '.svg" style="width: ')
+						.concat(t, "px; height: ")
+						.concat(t, 'px;vertical-align: text-bottom;"/>') : e
 				})));
-			return '<span style="cursor: inherit" white-space: pre;">' + n + "</span>"
+			return '<span style="cursor: inherit" white-space: pre;">'.concat(n, "</span>")
 		}
 	}
 
@@ -10235,83 +8542,90 @@
 		var n = t.store;
 		e.prototype.$setSystemProxy = function()
 		{
-			var e = L()(D.a.mark((function e(t)
+			var e = ne()(ee.a.mark((function e(t)
 			{
-				var r, a, i, o, s, c, d, l, u, p, f, h, v, m, g, x, b, y = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] :
-				{};
-				return D.a.wrap((function(e)
+				var r, a, i, o, s, c, d, l, u, p, f, h, v, m, g, b, x, y, w = arguments;
+				return ee.a.wrap((function(e)
 				{
 					for(;;) switch (e.prev = e.next)
 					{
 						case 0:
-							if(r = n.state.app.settings.bypassText, a = [], r) try
+							if(r = 1 < w.length && void 0 !== w[1] ? w[1] :
+							{}, a = n.state.app.settings.bypassText, i = [], a) try
 							{
-								i = U.parse(r), o = i.bypass, a = (void 0 === o ? [] : o) || []
+								o = oe.parse(a), s = o.bypass, i = (void 0 === s ? [] : s) || []
 							}
 							catch (e)
 							{}
-							else a = z.a;
-							if(e.prev = 3, s = !1, "darwin" !== process.platform)
+							else i = se.a;
+							if(e.prev = 4, c = !1, !Object(ce.e)())
 							{
 								e.next = 14;
 								break
 							}
-							c = n.state.app.clashPath, d = y["mixed-port"], l = void 0 === d ? 7890 : d, u = void 0, u = t ? ["-http", "127.0.0.1:" + l, "-https", "127.0.0.1:" + l, "-socks", "127.0.0.1:" + l] : ["-stop"], 0 === H.spawnSync("./sysproxy", u,
+							d = n.state.app.clashPath, l = r["mixed-port"], u = void 0 === l ? 7890 : l, p = t ? ["-http", "127.0.0.1:".concat(u), "-https", "127.0.0.1:".concat(u), "-socks", "127.0.0.1:".concat(u)] : ["-stop"], 0 === de.spawnSync("./sysproxy", p,
 								{
-									cwd: c,
+									cwd: d,
 									windowsHide: !0
 								})
-								.status && (t && H.spawnSync("./sysproxy", ["-bypass", a.join(",")],
+								.status && (t && de.spawnSync("./sysproxy", ["-bypass", i.join(",")],
 								{
-									cwd: c,
+									cwd: d,
 									windowsHide: !0
-								}), s = !0, n.commit("CHANGE_STATUS",
+								}), c = !0, n.commit("CHANGE_STATUS",
 								{
-									status: t ? M.b.SYSTEM_PROXY : M.b.DEFAULT
+									status: t ? re.b.SYSTEM_PROXY : re.b.DEFAULT
 								})), e.next = 41;
 							break;
 						case 14:
-							if(p = n.state.app.settings.systemProxyTypeIndex, f = void 0 === p ? 0 : p, h = y["mixed-port"], v = void 0 === h ? 7890 : h, m = n.getters.filesPath, g = ["set", "1"], !t)
+							if(!Object(ce.f)())
+							{
+								e.next = 41;
+								break
+							}
+							if(f = n.state.app.settings.systemProxyTypeIndex, h = void 0 === f ? 0 : f, v = r["mixed-port"], m = void 0 === v ? 7890 : v, g = le.join(n.getters.filesPath, "win"), b = ["set", "1"], !t)
 							{
 								e.next = 39;
 								break
 							}
-							if(0 !== f)
+							if(0 !== h)
 							{
-								e.next = 24;
+								e.next = 25;
 								break
-							}(g = ["global", "127.0.0.1:" + v])
-							.push(a.join(";")), e.next = 39;
+							}(b = ["global", "127.0.0.1:".concat(m)])
+							.push(i.join(";")), e.next = 39;
 							break;
-						case 24:
-							return e.prev = 24, x = "http://127.0.0.1:" + R.a + "/pac/" + v + "?t=" + (new Date)
-								.getTime(), e.next = 28, F.head(x);
-						case 28:
-							if(b = e.sent, 200 === b.status)
+						case 25:
+							return e.prev = 25, x = "http://127.0.0.1:".concat(ae.a, "/pac/")
+								.concat(m, "?t=")
+								.concat((new Date)
+									.getTime()), e.next = 29, ie.head(x);
+						case 29:
+							if(y = e.sent, 200 === y.status)
 							{
 								e.next = 33;
 								break
 							}
 							return e.abrupt("return", !1);
 						case 33:
-							g = ["pac", x], e.next = 39;
+							b = ["pac", x], e.next = 39;
 							break;
 						case 36:
-							return e.prev = 36, e.t0 = e.catch(24), e.abrupt("return", !1);
+							return e.prev = 36, e.t0 = e.catch(25), e.abrupt("return", !1);
 						case 39:
-							0 === H.spawnSync("sysproxy.exe", g,
+							0 === de.spawnSync("sysproxy.exe", b,
 								{
-									cwd: m,
+									cwd: g,
 									windowsHide: !0
 								})
-								.status && (s = !0, n.commit("CHANGE_STATUS",
+								.status && (c = !0, n.commit("CHANGE_STATUS",
 								{
-									status: t ? M.b.SYSTEM_PROXY : M.b.DEFAULT
+									status: t ? re.b.SYSTEM_PROXY : re.b.DEFAULT
 								}));
 						case 41:
-							return e.abrupt("return", s);
+							return e.abrupt("return", c);
 						case 44:
-							e.prev = 44, e.t1 = e.catch(3), console.error(e.t1.stack), this.$electron.remote.dialog.showMessageBox(
+							e.prev = 44, e.t1 = e.catch(4), console.error(e.t1.stack), this.$electron.remote.dialog.showMessageBox(
 							{
 								title: "Clash for Windows",
 								type: "warning",
@@ -10326,8 +8640,8 @@
 							return e.stop()
 					}
 				}), e, this, [
-					[3, 44],
-					[24, 36]
+					[4, 44],
+					[25, 36]
 				])
 			})));
 			return function()
@@ -10337,10 +8651,10 @@
 		}(), e.prototype.$getSystemProxyStatus = function()
 		{
 			var e = !1;
-			if("darwin" === process.platform)
+			if(Object(ce.e)())
 			{
 				var t = n.state.app.clashPath,
-					r = H.spawnSync("./sysproxy", ["-show"],
+					r = de.spawnSync("./sysproxy", ["-show"],
 					{
 						cwd: t,
 						windowsHide: !0
@@ -10355,379 +8669,39 @@
 				}
 				return n.commit("CHANGE_STATUS",
 				{
-					status: e ? M.b.SYSTEM_PROXY : M.b.DEFAULT
+					status: e ? re.b.SYSTEM_PROXY : re.b.DEFAULT
 				}), e
 			}
-			var s = n.getters.filesPath,
-				c = H.spawnSync("sysproxy.exe", ["query"],
+			var s = le.join(n.getters.filesPath, "win"),
+				c = de.spawnSync("sysproxy.exe", ["query"],
 				{
 					cwd: s,
 					windowsHide: !0
 				});
-			return !c.error && (0 === c.status && c.stdout ? 51 === c.stdout[0] || 53 === c.stdout[0] : (n.commit("CHANGE_STATUS",
+			return c.error && (e = !1), 0 === c.status && c.stdout && (e = 51 === c.stdout[0] || 53 === c.stdout[0]), n.commit("CHANGE_STATUS",
 			{
-				status: e ? M.b.SYSTEM_PROXY : M.b.DEFAULT
-			}), e))
+				status: e ? re.b.SYSTEM_PROXY : re.b.DEFAULT
+			}), e
 		}, e.prototype.$getTrayIcon = function(e)
 		{
 			var t = n.state.app.settings,
 				r = t.iconSystemProxy,
 				a = t.iconDefault,
-				i = [G.join(__static, "tray_normal_Z8R_icon.ico"), G.join(__static, "icon_reverse.ico")];
+				i = [le.join(__static, "tray_normal.ico"), le.join(__static, "tray_reverse.ico")];
 			return a && (i[0] = a), r && (i[1] = r), i[e]
 		}
 	}
 
-	function o(e)
+	function o()
 	{
-		e.prototype.$setAutoLaunch = J
+		return s.apply(this, arguments)
 	}
 
-	function s(e, t)
+	function s()
 	{
-		var r = t.store;
-		e.prototype.$wait = re, e.prototype.$showNotification = function(e)
-		{
-			var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
-				n = !(2 < arguments.length && void 0 !== arguments[2]) || arguments[2],
-				a = r.state.app.settings.showNotifications;
-			void 0 !== a && a && this.$electron.ipcRenderer.send("show-notification",
+		return (s = ne()(ee.a.mark((function e(t)
 			{
-				title: e,
-				body: t,
-				silent: n
-			})
-		}, e.prototype.$downloadProfile = function(e)
-		{
-			var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] :
-				{},
-				n = (2 < arguments.length && void 0 !== arguments[2] && arguments[2], r.state.app.settings.headersText),
-				a = {};
-			if(n) try
-			{
-				var i = U.parse(n),
-					o = i.headers,
-					s = void 0 === o ?
-					{} : o;
-				a = s
-			}
-			catch (t)
-			{}
-			return Object(F.get)(e, h()(
-			{
-				validateStatus: function()
-				{
-					return !0
-				}
-			}, t,
-			{
-				headers: h()(
-				{
-					pragma: "no-cache"
-				}, a),
-				responseType: "text",
-				transformResponse: void 0
-			}))
-		}, e.prototype.$parseProfile = function()
-		{
-			var e = L()(D.a.mark((function e(t, a)
-			{
-				var i, o, s, d, l, u, p, f, h, v, m, g, x, b, y, w, _, k, C, S, P, T, $ = this;
-				return D.a.wrap((function(e)
-				{
-					for(;;) switch (e.prev = e.next)
-					{
-						case 0:
-							if(i = r.state.app.profiles.files, o = (void 0 === i ? [] : i)
-								.find((function(e)
-								{
-									return e.url === t
-								})), s = {
-									axios: n(18),
-									yaml: n(11),
-									notify: function(e)
-									{
-										var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
-											n = !(2 < arguments.length && void 0 !== arguments[2]) || arguments[2];
-										$.$showNotification(e, t, n)
-									}
-								}, d = r.state.app.settings.profileParsersText, l = [], d) try
-							{
-								u = U.parse(d), p = u.parsers, l = (void 0 === p ? [] : p) || []
-							}
-							catch (e)
-							{}
-							f = l.filter((function(e)
-							{
-								var n = e.url,
-									r = e.reg;
-								return n ? n === t : r ? new RegExp(r)
-									.test(t) : void 0
-							})), h = a, v = !0, m = !1, g = void 0, e.prev = 11, x = ee()(f);
-						case 13:
-							if(v = (b = x.next())
-								.done)
-							{
-								e.next = 40;
-								break
-							}
-							if(y = b.value, w = y.code, _ = y.file, k = y.yaml, !w)
-							{
-								e.next = 21;
-								break
-							}
-							return C = ne("'use strict';\n" + w), e.next = 20, C.parse(h, s, o);
-						case 20:
-							h = e.sent;
-						case 21:
-							if(!_)
-							{
-								e.next = 36;
-								break
-							}
-							S = te.readFileSync(_, "utf-8"), e.prev = 23, P = U.parse(S), console.log(P), h = c(h, P), e.next = 36;
-							break;
-						case 29:
-							return e.prev = 29, e.t0 = e.catch(23), console.error(e.t0), T = ne("'use strict';\n" + S), e.next = 35, T.parse(h, s, o);
-						case 35:
-							h = e.sent;
-						case 36:
-							k && (h = c(h, k));
-						case 37:
-							v = !0, e.next = 13;
-							break;
-						case 40:
-							e.next = 46;
-							break;
-						case 42:
-							e.prev = 42, e.t1 = e.catch(11), m = !0, g = e.t1;
-						case 46:
-							e.prev = 46, e.prev = 47, !v && x.return && x.return();
-						case 49:
-							if(e.prev = 49, !m)
-							{
-								e.next = 52;
-								break
-							}
-							throw g;
-						case 52:
-							return e.finish(49);
-						case 53:
-							return e.finish(46);
-						case 54:
-							return e.abrupt("return", h);
-						case 55:
-						case "end":
-							return e.stop()
-					}
-				}), e, this, [
-					[11, 42, 46, 54],
-					[23, 29],
-					[47, , 49, 53]
-				])
-			})));
-			return function()
-			{
-				return e.apply(this, arguments)
-			}
-		}()
-	}
-
-	function c(e, t)
-	{
-		var n = t["append-rules"],
-			r = void 0 === n ? [] : n,
-			a = t["prepend-rules"],
-			i = void 0 === a ? [] : a,
-			o = t["append-proxies"],
-			s = void 0 === o ? [] : o,
-			c = t["prepend-proxies"],
-			d = void 0 === c ? [] : c,
-			l = t["append-proxy-groups"],
-			u = void 0 === l ? [] : l,
-			p = t["prepend-proxy-groups"],
-			f = void 0 === p ? [] : p,
-			v = t["mix-proxy-providers"],
-			m = void 0 === v ?
-			{} : v,
-			g = t["mix-rule-providers"],
-			x = void 0 === g ?
-			{} : g,
-			b = t["mix-object"],
-			y = void 0 === b ?
-			{} : b,
-			w = U.parse(e),
-			_ = X.cloneDeep(w),
-			k = w.rules,
-			C = void 0 === k ? [] : k,
-			S = w.proxies,
-			P = void 0 === S ? [] : S,
-			T = w["proxy-groups"],
-			$ = void 0 === T ? [] : T,
-			E = w["proxy-providers"],
-			A = void 0 === E ?
-			{} : E,
-			O = w["rule-providers"],
-			I = void 0 === O ?
-			{} : O;
-		return _.rules = i.concat(C)
-			.concat(r), _.proxies = d.concat(P)
-			.concat(s), _["proxy-groups"] = f.concat($)
-			.concat(u), _["proxy-providers"] = h()(
-			{}, A, m), _["rule-providers"] = h()(
-			{}, I, x), U.stringify(h()(
-			{}, _, y))
-	}
-	n.r(t);
-	var d = {};
-	n.r(d), n.d(d, "install", (function()
-	{
-		return a
-	}));
-	var l = {};
-	n.r(l), n.d(l, "install", (function()
-	{
-		return i
-	}));
-	var u = {};
-	n.r(u), n.d(u, "install", (function()
-	{
-		return o
-	}));
-	var p = {};
-	n.r(p), n.d(p, "install", (function()
-	{
-		return s
-	}));
-	var f = n(2),
-		h = n.n(f),
-		v = n(16),
-		m = n(5),
-		g = n.n(m),
-		x = n(131),
-		b = n.n(x),
-		y = (n(164), n(3)),
-		w = Object(y.a)(
-		{
-			name: "Clash"
-		}, (function()
-		{
-			var e = this.$createElement,
-				t = this._self._c || e;
-			return t("div",
-			{
-				attrs:
-				{
-					id: "app"
-				}
-			}, [t("router-view")], 1)
-		}), [], !1, null, null, null);
-	w.options.__file = "App.vue";
-	var _ = w.exports,
-		k = n(132),
-		C = n.n(k);
-	v.a.use(C.a);
-	var S = new C.a(
-		{
-			routes: [
-			{
-				path: "/home",
-				name: "landing-page",
-				component: n(331)
-					.default,
-				children: [
-				{
-					path: "general",
-					component: n(333)
-						.default,
-					meta:
-					{
-						keepAlive: !0
-					}
-				},
-				{
-					path: "proxy",
-					component: n(334)
-						.default,
-					meta:
-					{
-						keepAlive: !0
-					}
-				},
-				{
-					path: "log",
-					component: n(336)
-						.default
-				},
-				{
-					path: "server",
-					component: n(332)
-						.default
-				},
-				{
-					path: "connection",
-					component: n(337)
-						.default,
-					meta:
-					{
-						keepAlive: !1
-					}
-				},
-				{
-					path: "setting",
-					component: n(330)
-						.default,
-					meta:
-					{
-						keepAlive: !0
-					}
-				},
-				{
-					path: "about",
-					component: n(335)
-						.default,
-					meta:
-					{
-						keepAlive: !0
-					}
-				}]
-			},
-			{
-				path: "*",
-				redirect: "/home/general"
-			}],
-			saveScrollPosition: !0
-		}),
-		P = n(30),
-		T = n(6),
-		$ = n(5),
-		E = T.readdirSync($.join(__static, "svg")),
-		A = /(?:\ud83d\udc68\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc68\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc68\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc68\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc68\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffe]|\ud83e\uddd1\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\u200d\ud83e\udd1d\u200d\ud83e\uddd1|\ud83d\udc6b\ud83c[\udffb-\udfff]|\ud83d\udc6c\ud83c[\udffb-\udfff]|\ud83d\udc6d\ud83c[\udffb-\udfff]|\ud83d[\udc6b-\udc6d])|(?:\ud83d[\udc68\udc69]|\ud83e\uddd1)(?:\ud83c[\udffb-\udfff])?\u200d(?:\u2695\ufe0f|\u2696\ufe0f|\u2708\ufe0f|\ud83c[\udf3e\udf73\udf93\udfa4\udfa8\udfeb\udfed]|\ud83d[\udcbb\udcbc\udd27\udd2c\ude80\ude92]|\ud83e[\uddaf-\uddb3\uddbc\uddbd])|(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75]|\u26f9)((?:\ud83c[\udffb-\udfff]|\ufe0f)\u200d[\u2640\u2642]\ufe0f)|(?:\ud83c[\udfc3\udfc4\udfca]|\ud83d[\udc6e\udc71\udc73\udc77\udc81\udc82\udc86\udc87\ude45-\ude47\ude4b\ude4d\ude4e\udea3\udeb4-\udeb6]|\ud83e[\udd26\udd35\udd37-\udd39\udd3d\udd3e\uddb8\uddb9\uddcd-\uddcf\uddd6-\udddd])(?:\ud83c[\udffb-\udfff])?\u200d[\u2640\u2642]\ufe0f|(?:\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f|\ud83c\udff3\ufe0f\u200d\ud83c\udf08|\ud83c\udff4\u200d\u2620\ufe0f|\ud83d\udc15\u200d\ud83e\uddba|\ud83d\udc41\u200d\ud83d\udde8|\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc6f\u200d\u2640\ufe0f|\ud83d\udc6f\u200d\u2642\ufe0f|\ud83e\udd3c\u200d\u2640\ufe0f|\ud83e\udd3c\u200d\u2642\ufe0f|\ud83e\uddde\u200d\u2640\ufe0f|\ud83e\uddde\u200d\u2642\ufe0f|\ud83e\udddf\u200d\u2640\ufe0f|\ud83e\udddf\u200d\u2642\ufe0f)|[#*0-9]\ufe0f?\u20e3|(?:[©®\u2122\u265f]\ufe0f)|(?:\ud83c[\udc04\udd70\udd71\udd7e\udd7f\ude02\ude1a\ude2f\ude37\udf21\udf24-\udf2c\udf36\udf7d\udf96\udf97\udf99-\udf9b\udf9e\udf9f\udfcd\udfce\udfd4-\udfdf\udff3\udff5\udff7]|\ud83d[\udc3f\udc41\udcfd\udd49\udd4a\udd6f\udd70\udd73\udd76-\udd79\udd87\udd8a-\udd8d\udda5\udda8\uddb1\uddb2\uddbc\uddc2-\uddc4\uddd1-\uddd3\udddc-\uddde\udde1\udde3\udde8\uddef\uddf3\uddfa\udecb\udecd-\udecf\udee0-\udee5\udee9\udef0\udef3]|[\u203c\u2049\u2139\u2194-\u2199\u21a9\u21aa\u231a\u231b\u2328\u23cf\u23ed-\u23ef\u23f1\u23f2\u23f8-\u23fa\u24c2\u25aa\u25ab\u25b6\u25c0\u25fb-\u25fe\u2600-\u2604\u260e\u2611\u2614\u2615\u2618\u2620\u2622\u2623\u2626\u262a\u262e\u262f\u2638-\u263a\u2640\u2642\u2648-\u2653\u2660\u2663\u2665\u2666\u2668\u267b\u267f\u2692-\u2697\u2699\u269b\u269c\u26a0\u26a1\u26a7\u26aa\u26ab\u26b0\u26b1\u26bd\u26be\u26c4\u26c5\u26c8\u26cf\u26d1\u26d3\u26d4\u26e9\u26ea\u26f0-\u26f5\u26f8\u26fa\u26fd\u2702\u2708\u2709\u270f\u2712\u2714\u2716\u271d\u2721\u2733\u2734\u2744\u2747\u2757\u2763\u2764\u27a1\u2934\u2935\u2b05-\u2b07\u2b1b\u2b1c\u2b50\u2b55\u3030\u303d\u3297\u3299])(?:\ufe0f|(?!\ufe0e))|(?:(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75\udd90]|[\u261d\u26f7\u26f9\u270c\u270d])(?:\ufe0f|(?!\ufe0e))|(?:\ud83c[\udf85\udfc2-\udfc4\udfc7\udfca]|\ud83d[\udc42\udc43\udc46-\udc50\udc66-\udc69\udc6e\udc70-\udc78\udc7c\udc81-\udc83\udc85-\udc87\udcaa\udd7a\udd95\udd96\ude45-\ude47\ude4b-\ude4f\udea3\udeb4-\udeb6\udec0\udecc]|\ud83e[\udd0f\udd18-\udd1c\udd1e\udd1f\udd26\udd30-\udd39\udd3d\udd3e\uddb5\uddb6\uddb8\uddb9\uddbb\uddcd-\uddcf\uddd1-\udddd]|[\u270a\u270b]))(?:\ud83c[\udffb-\udfff])?|(?:\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc73\udb40\udc63\udb40\udc74\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc77\udb40\udc6c\udb40\udc73\udb40\udc7f|\ud83c\udde6\ud83c[\udde8-\uddec\uddee\uddf1\uddf2\uddf4\uddf6-\uddfa\uddfc\uddfd\uddff]|\ud83c\udde7\ud83c[\udde6\udde7\udde9-\uddef\uddf1-\uddf4\uddf6-\uddf9\uddfb\uddfc\uddfe\uddff]|\ud83c\udde8\ud83c[\udde6\udde8\udde9\uddeb-\uddee\uddf0-\uddf5\uddf7\uddfa-\uddff]|\ud83c\udde9\ud83c[\uddea\uddec\uddef\uddf0\uddf2\uddf4\uddff]|\ud83c\uddea\ud83c[\udde6\udde8\uddea\uddec\udded\uddf7-\uddfa]|\ud83c\uddeb\ud83c[\uddee-\uddf0\uddf2\uddf4\uddf7]|\ud83c\uddec\ud83c[\udde6\udde7\udde9-\uddee\uddf1-\uddf3\uddf5-\uddfa\uddfc\uddfe]|\ud83c\udded\ud83c[\uddf0\uddf2\uddf3\uddf7\uddf9\uddfa]|\ud83c\uddee\ud83c[\udde8-\uddea\uddf1-\uddf4\uddf6-\uddf9]|\ud83c\uddef\ud83c[\uddea\uddf2\uddf4\uddf5]|\ud83c\uddf0\ud83c[\uddea\uddec-\uddee\uddf2\uddf3\uddf5\uddf7\uddfc\uddfe\uddff]|\ud83c\uddf1\ud83c[\udde6-\udde8\uddee\uddf0\uddf7-\uddfb\uddfe]|\ud83c\uddf2\ud83c[\udde6\udde8-\udded\uddf0-\uddff]|\ud83c\uddf3\ud83c[\udde6\udde8\uddea-\uddec\uddee\uddf1\uddf4\uddf5\uddf7\uddfa\uddff]|\ud83c\uddf4\ud83c\uddf2|\ud83c\uddf5\ud83c[\udde6\uddea-\udded\uddf0-\uddf3\uddf7-\uddf9\uddfc\uddfe]|\ud83c\uddf6\ud83c\udde6|\ud83c\uddf7\ud83c[\uddea\uddf4\uddf8\uddfa\uddfc]|\ud83c\uddf8\ud83c[\udde6-\uddea\uddec-\uddf4\uddf7-\uddf9\uddfb\uddfd-\uddff]|\ud83c\uddf9\ud83c[\udde6\udde8\udde9\uddeb-\udded\uddef-\uddf4\uddf7\uddf9\uddfb\uddfc\uddff]|\ud83c\uddfa\ud83c[\udde6\uddec\uddf2\uddf3\uddf8\uddfe\uddff]|\ud83c\uddfb\ud83c[\udde6\udde8\uddea\uddec\uddee\uddf3\uddfa]|\ud83c\uddfc\ud83c[\uddeb\uddf8]|\ud83c\uddfd\ud83c\uddf0|\ud83c\uddfe\ud83c[\uddea\uddf9]|\ud83c\uddff\ud83c[\udde6\uddf2\uddfc]|\ud83c[\udccf\udd8e\udd91-\udd9a\udde6-\uddff\ude01\ude32-\ude36\ude38-\ude3a\ude50\ude51\udf00-\udf20\udf2d-\udf35\udf37-\udf7c\udf7e-\udf84\udf86-\udf93\udfa0-\udfc1\udfc5\udfc6\udfc8\udfc9\udfcf-\udfd3\udfe0-\udff0\udff4\udff8-\udfff]|\ud83d[\udc00-\udc3e\udc40\udc44\udc45\udc51-\udc65\udc6a\udc6f\udc79-\udc7b\udc7d-\udc80\udc84\udc88-\udca9\udcab-\udcfc\udcff-\udd3d\udd4b-\udd4e\udd50-\udd67\udda4\uddfb-\ude44\ude48-\ude4a\ude80-\udea2\udea4-\udeb3\udeb7-\udebf\udec1-\udec5\uded0-\uded2\uded5\udeeb\udeec\udef4-\udefa\udfe0-\udfeb]|\ud83e[\udd0d\udd0e\udd10-\udd17\udd1d\udd20-\udd25\udd27-\udd2f\udd3a\udd3c\udd3f-\udd45\udd47-\udd71\udd73-\udd76\udd7a-\udda2\udda5-\uddaa\uddae-\uddb4\uddb7\uddba\uddbc-\uddca\uddd0\uddde-\uddff\ude70-\ude73\ude78-\ude7a\ude80-\ude82\ude90-\ude95]|[\u23e9-\u23ec\u23f0\u23f3\u267e\u26ce\u2705\u2728\u274c\u274e\u2753-\u2755\u2795-\u2797\u27b0\u27bf\ue50a])|\ufe0f/g,
-		O = /\uFE0F/g,
-		I = "‍",
-		j = n(0),
-		D = n.n(j),
-		N = n(1),
-		L = n.n(N),
-		M = n(12),
-		R = n(43),
-		F = n(18),
-		U = n(11),
-		z = n(110),
-		H = n(19),
-		G = n(5),
-		B = n(24),
-		V = n.n(B),
-		W = n(14),
-		K = n.n(W),
-		q = n(51),
-		Y = n.n(q),
-		X = n(21),
-		J = function()
-		{
-			var e = L()(D.a.mark((function e(t)
-			{
-				return D.a.wrap((function(e)
+				return ee.a.wrap((function(e)
 				{
 					for(;;) switch (e.prev = e.next)
 					{
@@ -10735,12 +8709,12 @@
 							if(this.$electron.remote.app.setLoginItemSettings(
 							{
 								openAtLogin: t
-							}), "win32" !== process.platform)
+							}), !Object(ce.f)())
 							{
 								e.next = 10;
 								break
 							}
-							return e.prev = 2, e.next = 5, Z(this);
+							return e.prev = 2, e.next = 5, c(this);
 						case 5:
 							e.next = 10;
 							break;
@@ -10753,31 +8727,34 @@
 				}), e, this, [
 					[2, 7]
 				])
-			})));
-			return function()
-			{
-				return e.apply(this, arguments)
-			}
-		}(),
-		Z = function()
-		{
-			var e = L()(D.a.mark((function e(t)
+			}))))
+			.apply(this, arguments)
+	}
+
+	function c()
+	{
+		return d.apply(this, arguments)
+	}
+
+	function d()
+	{
+		return (d = ne()(ee.a.mark((function e(t)
 			{
 				var n, r, a, i, o, s;
-				return D.a.wrap((function(e)
+				return ee.a.wrap((function(e)
 				{
 					for(;;) switch (e.prev = e.next)
 					{
 						case 0:
-							return n = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", r = "Clash for Windows", a = Y()(
-							{}, n, Y()(
+							return n = "HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", r = "Clash for Windows", a = I()(
+							{}, n, I()(
 							{}, r,
 							{
 								type: "REG_SZ",
 								value: ""
 							})), i = function()
 							{
-								return new K.a((function(e, r)
+								return new Promise((function(e, r)
 								{
 									t.$regedit.list(n, (function(t, a)
 									{
@@ -10796,7 +8773,7 @@
 								}))
 							}, o = function()
 							{
-								return new K.a((function(e)
+								return new Promise((function(e)
 								{
 									t.$regedit.putValue(a, (function(t)
 									{
@@ -10805,7 +8782,7 @@
 								}))
 							}, e.prev = 5, e.next = 8, i();
 						case 8:
-							if(s = e.sent, !V()(s)
+							if(s = e.sent, !Object.keys(s)
 								.includes(r))
 							{
 								e.next = 12;
@@ -10824,24 +8801,637 @@
 				}), e, this, [
 					[5, 14]
 				])
+			}))))
+			.apply(this, arguments)
+	}
+
+	function l(e)
+	{
+		e.prototype.$setAutoLaunch = o
+	}
+
+	function u(e, t)
+	{
+		var n;
+		if("undefined" == typeof Symbol || null == e[Symbol.iterator])
+		{
+			if(Array.isArray(e) || (n = function(e, t)
+			{
+				if(e)
+				{
+					if("string" == typeof e) return p(e, t);
+					var n = Object.prototype.toString.call(e)
+						.slice(8, -1);
+					return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? p(e, t) : void 0
+				}
+			}(e)) || t && e && "number" == typeof e.length)
+			{
+				n && (e = n);
+				var r = 0,
+					a = function() {};
+				return {
+					s: a,
+					n: function()
+					{
+						return r >= e.length ?
+						{
+							done: !0
+						} :
+						{
+							done: !1,
+							value: e[r++]
+						}
+					},
+					e: function(e)
+					{
+						throw e
+					},
+					f: a
+				}
+			}
+			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+		}
+		var i, o = !0,
+			s = !1;
+		return {
+			s: function()
+			{
+				n = e[Symbol.iterator]()
+			},
+			n: function()
+			{
+				var e = n.next();
+				return o = e.done, e
+			},
+			e: function(e)
+			{
+				s = !0, i = e
+			},
+			f: function()
+			{
+				try
+				{
+					o || null == n.return || n.return()
+				}
+				finally
+				{
+					if(s) throw i
+				}
+			}
+		}
+	}
+
+	function p(e, t)
+	{
+		(null == t || t > e.length) && (t = e.length);
+		for(var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
+		return r
+	}
+
+	function f(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function h(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? f(Object(t), !0)
+			.forEach((function(n)
+			{
+				I()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : f(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function v(e, t)
+	{
+		var r = t.store;
+		e.prototype.$wait = he, e.prototype.$showNotification = function(e)
+		{
+			var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
+				n = !(2 < arguments.length && void 0 !== arguments[2]) || arguments[2],
+				a = r.state.app.settings.showNotifications;
+			void 0 !== a && a && this.$electron.ipcRenderer.send("show-notification",
+			{
+				title: e,
+				body: t,
+				silent: n
+			})
+		}, e.prototype.$downloadProfile = function(e)
+		{
+			var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] :
+				{},
+				n = (2 < arguments.length && void 0 !== arguments[2] && arguments[2], r.state.app.settings.headersText),
+				a = {};
+			if(n) try
+			{
+				var i = oe.parse(n),
+					o = i.headers,
+					s = void 0 === o ?
+					{} : o;
+				a = s
+			}
+			catch (t)
+			{}
+			return Object(ie.get)(e, h(h(
+			{
+				validateStatus: function()
+				{
+					return !0
+				}
+			}, t),
+			{},
+			{
+				headers: h(
+				{
+					pragma: "no-cache"
+				}, a),
+				responseType: "text",
+				transformResponse: void 0
+			}))
+		}, e.prototype.$parseProfile = function()
+		{
+			var e = ne()(ee.a.mark((function e(t, a)
+			{
+				var i, o, s, c, d, l, p, f, h, v, g, b, x, y, w, k, _, C, O, P = this;
+				return ee.a.wrap((function(e)
+				{
+					for(;;) switch (e.prev = e.next)
+					{
+						case 0:
+							if(i = r.state.app.profiles.files, o = (void 0 === i ? [] : i)
+								.find((function(e)
+								{
+									return e.url === t
+								})), s = {
+									axios: n(19),
+									yaml: n(12),
+									notify: function(e)
+									{
+										var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
+											n = !(2 < arguments.length && void 0 !== arguments[2]) || arguments[2];
+										P.$showNotification(e, t, n)
+									}
+								}, c = r.state.app.settings.profileParsersText, d = [], c) try
+							{
+								l = oe.parse(c), p = l.parsers, d = (void 0 === p ? [] : p) || []
+							}
+							catch (e)
+							{}
+							f = d.filter((function(e)
+							{
+								var n = e.url,
+									r = e.reg;
+								return n ? n === t : r ? new RegExp(r)
+									.test(t) : void 0
+							})), h = a, v = u(f), e.prev = 9, v.s();
+						case 11:
+							if((g = v.n())
+								.done)
+							{
+								e.next = 37;
+								break
+							}
+							if(b = g.value, x = b.code, y = b.file, w = b.yaml, !x)
+							{
+								e.next = 19;
+								break
+							}
+							return k = fe("'use strict';\n".concat(x)), e.next = 18, k.parse(h, s, o);
+						case 18:
+							h = e.sent;
+						case 19:
+							if(!y)
+							{
+								e.next = 34;
+								break
+							}
+							_ = pe.readFileSync(y, "utf-8"), e.prev = 21, C = oe.parse(_), console.log(C), h = m(h, C), e.next = 34;
+							break;
+						case 27:
+							return e.prev = 27, e.t0 = e.catch(21), console.error(e.t0), O = fe("'use strict';\n".concat(_)), e.next = 33, O.parse(h, s, o);
+						case 33:
+							h = e.sent;
+						case 34:
+							w && (h = m(h, w));
+						case 35:
+							e.next = 11;
+							break;
+						case 37:
+							e.next = 42;
+							break;
+						case 39:
+							e.prev = 39, e.t1 = e.catch(9), v.e(e.t1);
+						case 42:
+							return e.prev = 42, v.f(), e.finish(42);
+						case 45:
+							return e.abrupt("return", h);
+						case 46:
+						case "end":
+							return e.stop()
+					}
+				}), e, null, [
+					[9, 39, 42, 45],
+					[21, 27]
+				])
 			})));
 			return function()
 			{
 				return e.apply(this, arguments)
 			}
-		}(),
-		Q = n(20),
-		ee = n.n(Q),
-		te = n(6),
-		ne = n(151),
-		re = function(e)
+		}()
+	}
+
+	function m(e, t)
+	{
+		var n = t["append-rules"],
+			r = void 0 === n ? [] : n,
+			a = t["prepend-rules"],
+			i = void 0 === a ? [] : a,
+			o = t["append-proxies"],
+			s = void 0 === o ? [] : o,
+			c = t["prepend-proxies"],
+			d = void 0 === c ? [] : c,
+			l = t["append-proxy-groups"],
+			u = void 0 === l ? [] : l,
+			p = t["prepend-proxy-groups"],
+			f = void 0 === p ? [] : p,
+			v = t["mix-proxy-providers"],
+			m = void 0 === v ?
+			{} : v,
+			g = t["mix-rule-providers"],
+			b = void 0 === g ?
+			{} : g,
+			x = t["mix-object"],
+			y = void 0 === x ?
+			{} : x,
+			w = oe.parse(e),
+			k = ue.cloneDeep(w),
+			_ = w.rules,
+			C = void 0 === _ ? [] : _,
+			O = w.proxies,
+			P = void 0 === O ? [] : O,
+			S = w["proxy-groups"],
+			j = void 0 === S ? [] : S,
+			E = w["proxy-providers"],
+			T = void 0 === E ?
+			{} : E,
+			$ = w["rule-providers"],
+			D = void 0 === $ ?
+			{} : $;
+		return k.rules = i.concat(C)
+			.concat(r), k.proxies = d.concat(P)
+			.concat(s), k["proxy-groups"] = f.concat(j)
+			.concat(u), k["proxy-providers"] = h(h(
+			{}, T), m), k["rule-providers"] = h(h(
+			{}, D), b), oe.stringify(h(h(
+			{}, k), y))
+	}
+
+	function g(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
 		{
-			return new K.a((function(t)
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function b(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? g(Object(t), !0)
+			.forEach((function(n)
+			{
+				I()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : g(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function x(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function y(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? x(Object(t), !0)
+			.forEach((function(n)
+			{
+				I()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : x(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function w(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function k(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function _(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? k(Object(t), !0)
+			.forEach((function(n)
+			{
+				I()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : k(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function C(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function O(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? C(Object(t), !0)
+			.forEach((function(n)
+			{
+				I()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : C(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function P(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function S(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? P(Object(t), !0)
+			.forEach((function(n)
+			{
+				I()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : P(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function j(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+	n.r(t);
+	var E = {};
+	n.r(E), n.d(E, "install", (function()
+	{
+		return a
+	}));
+	var T = {};
+	n.r(T), n.d(T, "install", (function()
+	{
+		return i
+	}));
+	var $ = {};
+	n.r($), n.d($, "install", (function()
+	{
+		return l
+	}));
+	var D = {};
+	n.r(D), n.d(D, "install", (function()
+	{
+		return v
+	}));
+	var A = n(2),
+		I = n.n(A),
+		L = n(16),
+		N = n(3),
+		M = n.n(N),
+		R = n(88),
+		z = n.n(R),
+		F = (n(100), n(4)),
+		U = Object(F.a)(
+		{
+			name: "Clash"
+		}, (function()
+		{
+			var e = this.$createElement,
+				t = this._self._c || e;
+			return t("div",
+			{
+				attrs:
+				{
+					id: "app"
+				}
+			}, [t("router-view")], 1)
+		}), [], !1, null, null, null);
+	U.options.__file = "App.vue";
+	var H = U.exports,
+		V = n(89),
+		B = n.n(V);
+	L.a.use(B.a);
+	var G = new B.a(
+		{
+			routes: [
+			{
+				path: "/home",
+				name: "landing-page",
+				component: n(222)
+					.default,
+				children: [
+				{
+					path: "general",
+					component: n(224)
+						.default,
+					meta:
+					{
+						keepAlive: !0
+					}
+				},
+				{
+					path: "proxy",
+					component: n(225)
+						.default,
+					meta:
+					{
+						keepAlive: !0
+					}
+				},
+				{
+					path: "log",
+					component: n(227)
+						.default
+				},
+				{
+					path: "server",
+					component: n(223)
+						.default
+				},
+				{
+					path: "connection",
+					component: n(228)
+						.default,
+					meta:
+					{
+						keepAlive: !1
+					}
+				},
+				{
+					path: "setting",
+					component: n(221)
+						.default,
+					meta:
+					{
+						keepAlive: !0
+					}
+				},
+				{
+					path: "about",
+					component: n(226)
+						.default,
+					meta:
+					{
+						keepAlive: !0
+					}
+				}]
+			},
+			{
+				path: "*",
+				redirect: "/home/general"
+			}],
+			saveScrollPosition: !0
+		}),
+		W = n(21),
+		K = n(6),
+		q = n(3),
+		Y = K.readdirSync(q.join(__static, "svg")),
+		X = /(?:\ud83d\udc68\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc68\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc68\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc68\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc68\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffc-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffd-\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb\udffc\udffe\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffd\udfff]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc68\ud83c[\udffb-\udffe]|\ud83d\udc69\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83d\udc69\ud83c[\udffb-\udffe]|\ud83e\uddd1\ud83c\udffb\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffc\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffd\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udffe\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\ud83c\udfff\u200d\ud83e\udd1d\u200d\ud83e\uddd1\ud83c[\udffb-\udfff]|\ud83e\uddd1\u200d\ud83e\udd1d\u200d\ud83e\uddd1|\ud83d\udc6b\ud83c[\udffb-\udfff]|\ud83d\udc6c\ud83c[\udffb-\udfff]|\ud83d\udc6d\ud83c[\udffb-\udfff]|\ud83d[\udc6b-\udc6d])|(?:\ud83d[\udc68\udc69]|\ud83e\uddd1)(?:\ud83c[\udffb-\udfff])?\u200d(?:\u2695\ufe0f|\u2696\ufe0f|\u2708\ufe0f|\ud83c[\udf3e\udf73\udf93\udfa4\udfa8\udfeb\udfed]|\ud83d[\udcbb\udcbc\udd27\udd2c\ude80\ude92]|\ud83e[\uddaf-\uddb3\uddbc\uddbd])|(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75]|\u26f9)((?:\ud83c[\udffb-\udfff]|\ufe0f)\u200d[\u2640\u2642]\ufe0f)|(?:\ud83c[\udfc3\udfc4\udfca]|\ud83d[\udc6e\udc71\udc73\udc77\udc81\udc82\udc86\udc87\ude45-\ude47\ude4b\ude4d\ude4e\udea3\udeb4-\udeb6]|\ud83e[\udd26\udd35\udd37-\udd39\udd3d\udd3e\uddb8\uddb9\uddcd-\uddcf\uddd6-\udddd])(?:\ud83c[\udffb-\udfff])?\u200d[\u2640\u2642]\ufe0f|(?:\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d\udc8b\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\u2764\ufe0f\u200d\ud83d\udc68|\ud83d\udc68\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc68\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\u2764\ufe0f\u200d\ud83d[\udc68\udc69]|\ud83d\udc69\u200d\ud83d\udc66\u200d\ud83d\udc66|\ud83d\udc69\u200d\ud83d\udc67\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f|\ud83c\udff3\ufe0f\u200d\ud83c\udf08|\ud83c\udff4\u200d\u2620\ufe0f|\ud83d\udc15\u200d\ud83e\uddba|\ud83d\udc41\u200d\ud83d\udde8|\ud83d\udc68\u200d\ud83d[\udc66\udc67]|\ud83d\udc69\u200d\ud83d[\udc66\udc67]|\ud83d\udc6f\u200d\u2640\ufe0f|\ud83d\udc6f\u200d\u2642\ufe0f|\ud83e\udd3c\u200d\u2640\ufe0f|\ud83e\udd3c\u200d\u2642\ufe0f|\ud83e\uddde\u200d\u2640\ufe0f|\ud83e\uddde\u200d\u2642\ufe0f|\ud83e\udddf\u200d\u2640\ufe0f|\ud83e\udddf\u200d\u2642\ufe0f)|[#*0-9]\ufe0f?\u20e3|(?:[©®\u2122\u265f]\ufe0f)|(?:\ud83c[\udc04\udd70\udd71\udd7e\udd7f\ude02\ude1a\ude2f\ude37\udf21\udf24-\udf2c\udf36\udf7d\udf96\udf97\udf99-\udf9b\udf9e\udf9f\udfcd\udfce\udfd4-\udfdf\udff3\udff5\udff7]|\ud83d[\udc3f\udc41\udcfd\udd49\udd4a\udd6f\udd70\udd73\udd76-\udd79\udd87\udd8a-\udd8d\udda5\udda8\uddb1\uddb2\uddbc\uddc2-\uddc4\uddd1-\uddd3\udddc-\uddde\udde1\udde3\udde8\uddef\uddf3\uddfa\udecb\udecd-\udecf\udee0-\udee5\udee9\udef0\udef3]|[\u203c\u2049\u2139\u2194-\u2199\u21a9\u21aa\u231a\u231b\u2328\u23cf\u23ed-\u23ef\u23f1\u23f2\u23f8-\u23fa\u24c2\u25aa\u25ab\u25b6\u25c0\u25fb-\u25fe\u2600-\u2604\u260e\u2611\u2614\u2615\u2618\u2620\u2622\u2623\u2626\u262a\u262e\u262f\u2638-\u263a\u2640\u2642\u2648-\u2653\u2660\u2663\u2665\u2666\u2668\u267b\u267f\u2692-\u2697\u2699\u269b\u269c\u26a0\u26a1\u26a7\u26aa\u26ab\u26b0\u26b1\u26bd\u26be\u26c4\u26c5\u26c8\u26cf\u26d1\u26d3\u26d4\u26e9\u26ea\u26f0-\u26f5\u26f8\u26fa\u26fd\u2702\u2708\u2709\u270f\u2712\u2714\u2716\u271d\u2721\u2733\u2734\u2744\u2747\u2757\u2763\u2764\u27a1\u2934\u2935\u2b05-\u2b07\u2b1b\u2b1c\u2b50\u2b55\u3030\u303d\u3297\u3299])(?:\ufe0f|(?!\ufe0e))|(?:(?:\ud83c[\udfcb\udfcc]|\ud83d[\udd74\udd75\udd90]|[\u261d\u26f7\u26f9\u270c\u270d])(?:\ufe0f|(?!\ufe0e))|(?:\ud83c[\udf85\udfc2-\udfc4\udfc7\udfca]|\ud83d[\udc42\udc43\udc46-\udc50\udc66-\udc69\udc6e\udc70-\udc78\udc7c\udc81-\udc83\udc85-\udc87\udcaa\udd7a\udd95\udd96\ude45-\ude47\ude4b-\ude4f\udea3\udeb4-\udeb6\udec0\udecc]|\ud83e[\udd0f\udd18-\udd1c\udd1e\udd1f\udd26\udd30-\udd39\udd3d\udd3e\uddb5\uddb6\uddb8\uddb9\uddbb\uddcd-\uddcf\uddd1-\udddd]|[\u270a\u270b]))(?:\ud83c[\udffb-\udfff])?|(?:\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc73\udb40\udc63\udb40\udc74\udb40\udc7f|\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc77\udb40\udc6c\udb40\udc73\udb40\udc7f|\ud83c\udde6\ud83c[\udde8-\uddec\uddee\uddf1\uddf2\uddf4\uddf6-\uddfa\uddfc\uddfd\uddff]|\ud83c\udde7\ud83c[\udde6\udde7\udde9-\uddef\uddf1-\uddf4\uddf6-\uddf9\uddfb\uddfc\uddfe\uddff]|\ud83c\udde8\ud83c[\udde6\udde8\udde9\uddeb-\uddee\uddf0-\uddf5\uddf7\uddfa-\uddff]|\ud83c\udde9\ud83c[\uddea\uddec\uddef\uddf0\uddf2\uddf4\uddff]|\ud83c\uddea\ud83c[\udde6\udde8\uddea\uddec\udded\uddf7-\uddfa]|\ud83c\uddeb\ud83c[\uddee-\uddf0\uddf2\uddf4\uddf7]|\ud83c\uddec\ud83c[\udde6\udde7\udde9-\uddee\uddf1-\uddf3\uddf5-\uddfa\uddfc\uddfe]|\ud83c\udded\ud83c[\uddf0\uddf2\uddf3\uddf7\uddf9\uddfa]|\ud83c\uddee\ud83c[\udde8-\uddea\uddf1-\uddf4\uddf6-\uddf9]|\ud83c\uddef\ud83c[\uddea\uddf2\uddf4\uddf5]|\ud83c\uddf0\ud83c[\uddea\uddec-\uddee\uddf2\uddf3\uddf5\uddf7\uddfc\uddfe\uddff]|\ud83c\uddf1\ud83c[\udde6-\udde8\uddee\uddf0\uddf7-\uddfb\uddfe]|\ud83c\uddf2\ud83c[\udde6\udde8-\udded\uddf0-\uddff]|\ud83c\uddf3\ud83c[\udde6\udde8\uddea-\uddec\uddee\uddf1\uddf4\uddf5\uddf7\uddfa\uddff]|\ud83c\uddf4\ud83c\uddf2|\ud83c\uddf5\ud83c[\udde6\uddea-\udded\uddf0-\uddf3\uddf7-\uddf9\uddfc\uddfe]|\ud83c\uddf6\ud83c\udde6|\ud83c\uddf7\ud83c[\uddea\uddf4\uddf8\uddfa\uddfc]|\ud83c\uddf8\ud83c[\udde6-\uddea\uddec-\uddf4\uddf7-\uddf9\uddfb\uddfd-\uddff]|\ud83c\uddf9\ud83c[\udde6\udde8\udde9\uddeb-\udded\uddef-\uddf4\uddf7\uddf9\uddfb\uddfc\uddff]|\ud83c\uddfa\ud83c[\udde6\uddec\uddf2\uddf3\uddf8\uddfe\uddff]|\ud83c\uddfb\ud83c[\udde6\udde8\uddea\uddec\uddee\uddf3\uddfa]|\ud83c\uddfc\ud83c[\uddeb\uddf8]|\ud83c\uddfd\ud83c\uddf0|\ud83c\uddfe\ud83c[\uddea\uddf9]|\ud83c\uddff\ud83c[\udde6\uddf2\uddfc]|\ud83c[\udccf\udd8e\udd91-\udd9a\udde6-\uddff\ude01\ude32-\ude36\ude38-\ude3a\ude50\ude51\udf00-\udf20\udf2d-\udf35\udf37-\udf7c\udf7e-\udf84\udf86-\udf93\udfa0-\udfc1\udfc5\udfc6\udfc8\udfc9\udfcf-\udfd3\udfe0-\udff0\udff4\udff8-\udfff]|\ud83d[\udc00-\udc3e\udc40\udc44\udc45\udc51-\udc65\udc6a\udc6f\udc79-\udc7b\udc7d-\udc80\udc84\udc88-\udca9\udcab-\udcfc\udcff-\udd3d\udd4b-\udd4e\udd50-\udd67\udda4\uddfb-\ude44\ude48-\ude4a\ude80-\udea2\udea4-\udeb3\udeb7-\udebf\udec1-\udec5\uded0-\uded2\uded5\udeeb\udeec\udef4-\udefa\udfe0-\udfeb]|\ud83e[\udd0d\udd0e\udd10-\udd17\udd1d\udd20-\udd25\udd27-\udd2f\udd3a\udd3c\udd3f-\udd45\udd47-\udd71\udd73-\udd76\udd7a-\udda2\udda5-\uddaa\uddae-\uddb4\uddb7\uddba\uddbc-\uddca\uddd0\uddde-\uddff\ude70-\ude73\ude78-\ude7a\ude80-\ude82\ude90-\ude95]|[\u23e9-\u23ec\u23f0\u23f3\u267e\u26ce\u2705\u2728\u274c\u274e\u2753-\u2755\u2795-\u2797\u27b0\u27bf\ue50a])|\ufe0f/g,
+		J = /\uFE0F/g,
+		Z = "‍",
+		Q = n(0),
+		ee = n.n(Q),
+		te = n(1),
+		ne = n.n(te),
+		re = n(13),
+		ae = n(25),
+		ie = n(19),
+		oe = n(12),
+		se = n(81),
+		ce = n(9),
+		de = n(17),
+		le = n(3),
+		ue = n(18),
+		pe = n(6),
+		fe = n(94),
+		he = function(e)
+		{
+			return new Promise((function(t)
 			{
 				return setTimeout(t, e)
 			}))
 		},
-		ae = (n(313), Object(y.a)(
+		ve = (n(204), Object(F.a)(
 		{
 			name: "InputView",
 			props: [],
@@ -10868,7 +9458,7 @@
 						i = void 0 === a ? "" : a,
 						o = e.hint,
 						s = void 0 === o ? "" : o;
-					return this.error = "", this.isShow = !0, this.data = r, this.title = i, this.hint = s, new K.a((function(e, n)
+					return this.error = "", this.isShow = !0, this.data = r, this.title = i, this.hint = s, new Promise((function(e, n)
 					{
 						t.resolve = e, t.reject = n
 					}))
@@ -10997,18 +9587,18 @@
 				}
 			}, [e._v("确认")])])], 2)])]) : e._e()
 		}), [], !1, null, "167ce269", null));
-	ae.options.__file = "InputView.vue";
-	var ie = ae.exports,
-		oe = {
+	ve.options.__file = "InputView.vue";
+	var me = ve.exports,
+		ge = {
 			install: function(e)
 			{
-				var t = new(e.extend(ie)),
+				var t = new(e.extend(me)),
 					n = t.$mount()
 					.$el;
 				document.body.appendChild(n), e.prototype.$input = t.show
 			}
 		},
-		se = (n(315), Object(y.a)(
+		be = (n(206), Object(F.a)(
 		{
 			name: "PreviewView",
 			props: [],
@@ -11086,19 +9676,19 @@
 				}, [e._v(e._s(e.data[t] || "--"))])])
 			}))], 2)])]) : e._e()
 		}), [], !1, null, "5188f882", null));
-	se.options.__file = "PreviewView.vue";
-	var ce = se.exports,
-		de = {
+	be.options.__file = "PreviewView.vue";
+	var xe = be.exports,
+		ye = {
 			install: function(e)
 			{
-				var t = new(e.extend(ce)),
+				var t = new(e.extend(xe)),
 					n = t.$mount()
 					.$el;
 				document.body.appendChild(n), e.prototype.$preview = t.show
 			}
 		},
-		le = n(4),
-		ue = {
+		we = n(5),
+		ke = {
 			name: "AlertView",
 			props: [],
 			data: function()
@@ -11112,9 +9702,9 @@
 					reject: null
 				}
 			},
-			computed: h()(
-			{}, Object(le.mapState)(
-			{}), Object(le.mapGetters)(["theme"])),
+			computed: b(b(
+			{}, Object(we.mapState)(
+			{})), Object(we.mapGetters)(["theme"])),
 			methods:
 			{
 				show: function(e)
@@ -11125,7 +9715,7 @@
 						a = e.content,
 						i = void 0 === a ? "" : a,
 						o = e.isShowErrorBtn;
-					return this.isShow = !0, this.title = r, this.content = i, this.isShowErrorBtn = void 0 !== o && o, new K.a((function(e, n)
+					return this.isShow = !0, this.title = r, this.content = i, this.isShowErrorBtn = void 0 !== o && o, new Promise((function(e, n)
 					{
 						t.resolve = e, t.reject = n
 					}))
@@ -11145,7 +9735,7 @@
 				}
 			}
 		},
-		pe = (n(317), Object(y.a)(ue, (function()
+		_e = (n(208), Object(F.a)(ke, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11176,8 +9766,12 @@
 				staticClass: "content-title"
 			}, [e._v(e._s(e.title))]), e._v(" "), n("div",
 			{
-				class: ["content-content-" + e.theme]
-			}, [e._v(e._s(e.content))]), e._v(" "), n("div",
+				class: ["content-content-" + e.theme],
+				domProps:
+				{
+					innerHTML: e._s(e.content)
+				}
+			}), e._v(" "), n("div",
 			{
 				staticClass: "card-btns"
 			}, [e.isShowErrorBtn ? n("div",
@@ -11195,15 +9789,16 @@
 					click: e.handleDone
 				}
 			}, [e._v("确认")])])])])]) : e._e()
-		}), [], !1, null, "daa6cfce", null));
-	pe.options.__file = "AlertView.vue";
-	var fe = pe.exports,
-		he = {
+		}), [], !1, null, "167443f4", null));
+	_e.options.__file = "AlertView.vue";
+	var Ce = _e.exports,
+		Oe = {
 			install: function(e, t)
 			{
 				var n = t.store,
-					r = new(e.extend(h()(
-					{}, fe,
+					r = new(e.extend(y(y(
+					{}, Ce),
+					{},
 					{
 						store: n
 					}))),
@@ -11212,7 +9807,7 @@
 				document.body.appendChild(a), e.prototype.$alert = r.show
 			}
 		},
-		ve = {
+		Pe = {
 			name: "SelectView",
 			props: [],
 			data: function()
@@ -11226,8 +9821,21 @@
 					reject: null
 				}
 			},
-			computed: h()(
-			{}, Object(le.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? w(Object(t), !0)
+					.forEach((function(n)
+					{
+						I()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : w(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(we.mapState)(
 			{})),
 			methods:
 			{
@@ -11240,7 +9848,7 @@
 						i = void 0 === a ? "选择" : a,
 						o = e.message,
 						s = void 0 === o ? "" : o;
-					return this.isShow = !0, this.title = i, this.items = r, this.message = s, new K.a((function(e, n)
+					return this.isShow = !0, this.title = i, this.items = r, this.message = s, new Promise((function(e, n)
 					{
 						t.resolve = e, t.reject = n
 					}))
@@ -11264,7 +9872,7 @@
 				}
 			}
 		},
-		me = (n(319), Object(y.a)(ve, (function()
+		Se = (n(210), Object(F.a)(Pe, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11319,14 +9927,15 @@
 				}, [e._v("\n          " + e._s(t) + "\n        ")])
 			})), 0)])])]) : e._e()
 		}), [], !1, null, "37c7777e", null));
-	me.options.__file = "SelectView.vue";
-	var ge = me.exports,
-		xe = {
+	Se.options.__file = "SelectView.vue";
+	var je = Se.exports,
+		Ee = {
 			install: function(e, t)
 			{
 				var n = t.store,
-					r = new(e.extend(h()(
-					{}, ge,
+					r = new(e.extend(_(_(
+					{}, je),
+					{},
 					{
 						store: n
 					}))),
@@ -11335,8 +9944,8 @@
 				document.body.appendChild(a), e.prototype.$select = r.show
 			}
 		},
-		be = n(113),
-		ye = (n(321), n(322), n(323), n(324), n(152),
+		Te = n(84),
+		$e = (n(212), n(213), n(214), n(215), n(95),
 		{
 			name: "CodeView",
 			props: [],
@@ -11355,13 +9964,14 @@
 			},
 			watch:
 			{},
-			computed: h()(
-			{}, Object(le.mapState)(
-			{}), Object(le.mapGetters)(["theme"]),
+			computed: O(O(O(
+			{}, Object(we.mapState)(
+			{})), Object(we.mapGetters)(["theme"])),
+			{},
 			{
 				code: function()
 				{
-					return Object(be.highlight)(this.rawCode, "js" === this.language ? be.languages.javascript : be.languages.yaml, this.language)
+					return Object(Te.highlight)(this.rawCode, "js" === this.language ? Te.languages.javascript : Te.languages.yaml, this.language)
 				}
 			}),
 			methods:
@@ -11372,7 +9982,7 @@
 						n = e.code,
 						r = e.language,
 						a = void 0 === r ? "yaml" : r;
-					return this.rawCode = n, this.isShow = !0, this.language = a, this.error = "", new K.a((function(e, n)
+					return this.rawCode = n, this.isShow = !0, this.language = a, this.error = "", new Promise((function(e, n)
 					{
 						t.resolve = e, t.reject = n
 					}))
@@ -11382,7 +9992,7 @@
 					var e = this;
 					if(this.resolve) try
 					{
-						"yaml" === this.language && U.parse(this.rawCode,
+						"yaml" === this.language && oe.parse(this.rawCode,
 						{
 							prettyErrors: !0
 						}), this.resolve(
@@ -11398,12 +10008,13 @@
 						{
 							var r = n.start,
 								a = n.end;
-							void 0 !== r && void 0 !== a && (t = ', at "' + this.rawCode.slice(r, a) + '"')
+							void 0 !== r && void 0 !== a && (t = ', at "'.concat(this.rawCode.slice(r, a), '"'))
 						}
-						this.error = "Error: " + i.message + t, setTimeout((function()
-						{
-							e.error = ""
-						}), 3e3)
+						this.error = "Error: ".concat(i.message)
+							.concat(t), setTimeout((function()
+							{
+								e.error = ""
+							}), 3e3)
 					}
 				},
 				handleKeyDown: function(e)
@@ -11435,7 +10046,7 @@
 			mounted: function() {},
 			beforeDestroy: function() {}
 		}),
-		we = (n(326), Object(y.a)(ye, (function()
+		De = (n(217), Object(F.a)($e, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11505,26 +10116,41 @@
 				{
 					click: e.handleSave
 				}
-			}, [n("img",
+			}, [n("svg",
 			{
 				attrs:
 				{
-					src: "static/imgs/save-black.svg",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "black"
 				}
-			})]), e._v(" "), e.error ? n("div",
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M17.59 3.59c-.38-.38-.89-.59-1.42-.59H5c-1.11 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7.83c0-.53-.21-1.04-.59-1.41l-2.82-2.83zM12 19c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm1-10H7c-1.1 0-2-.9-2-2s.9-2 2-2h6c1.1 0 2 .9 2 2s-.9 2-2 2z"
+				}
+			})])]), e._v(" "), e.error ? n("div",
 			{
 				staticClass: "error-hint"
 			}, [e._v(e._s(e.error))]) : e._e()])]) : e._e()
-		}), [], !1, null, "3225f475", null));
-	we.options.__file = "CodeView.vue";
-	var _e = we.exports,
-		ke = {
+		}), [], !1, null, "6d1f415c", null));
+	De.options.__file = "CodeView.vue";
+	var Ae = De.exports,
+		Ie = {
 			install: function(e, t)
 			{
 				var n = t.store,
-					r = new(e.extend(h()(
-					{}, _e,
+					r = new(e.extend(S(S(
+					{}, Ae),
+					{},
 					{
 						store: n
 					}))),
@@ -11533,24 +10159,24 @@
 				document.body.appendChild(a), e.prototype.$code = r.show
 			}
 		};
-	process.env.IS_WEB || v.a.use(n(328)), v.a.use(d), v.a.use(l,
+	process.env.IS_WEB || L.a.use(n(219)), L.a.use(E), L.a.use(T,
 	{
-		store: P.a
-	}), v.a.use(u), v.a.use(p,
+		store: W.a
+	}), L.a.use($), L.a.use(D,
 	{
-		store: P.a
-	}), v.a.use(oe), v.a.use(de), v.a.use(he,
+		store: W.a
+	}), L.a.use(ge), L.a.use(ye), L.a.use(Oe,
 	{
-		store: P.a
-	}), v.a.use(xe,
+		store: W.a
+	}), L.a.use(Ee,
 	{
-		store: P.a
-	}), v.a.use(ke,
+		store: W.a
+	}), L.a.use(Ie,
 	{
-		store: P.a
-	}), v.a.config.productionTip = !1;
-	var Ce = g.a.join(g.a.dirname(v.a.prototype.$electron.remote.app.getPath("exe")), "./resources/node_modules/regedit/vbs");
-	b.a.setExternalVBSLocation(Ce), v.a.prototype.$regedit = b.a, v.a.mixin(
+		store: W.a
+	}), L.a.config.productionTip = !1;
+	var Le = M.a.join(M.a.dirname(L.a.prototype.$electron.remote.app.getPath("exe")), "./resources/node_modules/regedit/vbs");
+	z.a.setExternalVBSLocation(Le), L.a.prototype.$regedit = z.a, L.a.mixin(
 		{
 			data: function()
 			{
@@ -11558,13 +10184,26 @@
 					mixinScrollTop: 0
 				}
 			},
-			computed: h()(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? j(Object(t), !0)
+					.forEach((function(n)
+					{
+						I()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : j(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
 			{
 				isWindows: function()
 				{
-					return "darwin" !== process.platform
+					return Object(ce.f)()
 				}
-			}, Object(le.mapGetters)(
+			}, Object(we.mapGetters)(
 			{
 				theme: "theme"
 			})),
@@ -11581,33 +10220,138 @@
 				var r = this.$refs["mixin-scroll-content"];
 				r && (this.mixinScrollTop = r.scrollTop), n()
 			}
-		}), new v.a(
+		}), new L.a(
 		{
 			components:
 			{
-				App: _
+				App: H
 			},
-			router: S,
-			store: P.a,
+			router: G,
+			store: W.a,
 			template: "<App/>"
 		})
 		.$mount("#app")
 }, function(e, t, n)
 {
 	"use strict";
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function i(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function o(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? i(Object(t), !0)
+			.forEach((function(n)
+			{
+				g()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : i(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function s(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function c(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function d(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? c(Object(t), !0)
+			.forEach((function(n)
+			{
+				g()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : c(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
 	n.r(t);
-	var r = n(32),
-		a = n.n(r),
-		i = n(0),
-		o = n.n(i),
-		s = n(1),
-		c = n.n(s),
-		d = n(2),
-		l = n.n(d),
-		u = (n(9), n(11)),
-		p = n(21),
-		f = n(4),
-		h = {
+	var l = n(22),
+		u = n.n(l),
+		p = n(0),
+		f = n.n(p),
+		h = n(1),
+		v = n.n(h),
+		m = n(2),
+		g = n.n(m),
+		b = (n(10), n(12)),
+		x = n(18),
+		y = n(5),
+		w = {
 			name: "setting-section",
 			props:
 			{
@@ -11617,12 +10361,25 @@
 			{
 				return {}
 			},
-			computed: l()(
-			{}, Object(f.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? r(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(y.mapState)(
 			{}))
 		},
-		v = (n(295), n(3)),
-		m = Object(v.a)(h, (function()
+		k = (n(186), n(4)),
+		_ = Object(k.a)(w, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11638,9 +10395,9 @@
 				staticClass: "content"
 			}, [e._t("default")], 2)])
 		}), [], !1, null, "f0b72b92", null);
-	m.options.__file = "Section.vue";
-	var g = m.exports,
-		x = {
+	_.options.__file = "Section.vue";
+	var C = _.exports,
+		O = {
 			name: "simple-input",
 			props:
 			{
@@ -11668,12 +10425,25 @@
 					ref: ""
 				}
 			},
-			computed: l()(
-			{}, Object(f.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? a(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : a(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(y.mapState)(
 			{})),
 			methods:
 			{
-				handleTextChange: p.debounce((function(e)
+				handleTextChange: x.debounce((function(e)
 				{
 					var t = e.target,
 						n = (t = void 0 === t ?
@@ -11685,13 +10455,13 @@
 			mounted: function()
 			{
 				var e = this;
-				this.ref = Object(p.uniqueId)("simple-input"), this.$nextTick((function()
+				this.ref = Object(x.uniqueId)("simple-input"), this.$nextTick((function()
 				{
 					e.suffixWidth = e.$refs[e.ref].clientWidth
 				}))
 			}
 		},
-		b = (n(297), Object(v.a)(x, (function()
+		P = (n(188), Object(k.a)(O, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11726,9 +10496,9 @@
 				staticClass: "suffix"
 			}, [e._v(e._s(e.suffix))])])
 		}), [], !1, null, "7f6c1bea", null));
-	b.options.__file = "SimpleInput.vue";
-	var y = b.exports,
-		w = {
+	P.options.__file = "SimpleInput.vue";
+	var S = P.exports,
+		j = {
 			name: "key-capture",
 			props:
 			{
@@ -11758,9 +10528,10 @@
 					e || this.$emit("change", this.shortcut)
 				}
 			},
-			computed: l()(
-			{}, Object(f.mapState)(
-			{}),
+			computed: o(o(
+			{}, Object(y.mapState)(
+			{})),
+			{},
 			{
 				shortcut: function()
 				{
@@ -11798,7 +10569,7 @@
 				this.keyChain = this.value.split("+")
 			}
 		},
-		_ = (n(299), Object(v.a)(w, (function()
+		E = (n(190), Object(k.a)(j, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11832,11 +10603,11 @@
 				}
 			})])
 		}), [], !1, null, "e947829c", null));
-	_.options.__file = "KeyCapture.vue";
-	var k = _.exports,
-		C = n(112),
-		S = n(111),
-		P = {
+	E.options.__file = "KeyCapture.vue";
+	var T = E.exports,
+		$ = n(83),
+		D = n(82),
+		A = {
 			name: "more-hint",
 			props:
 			{
@@ -11847,11 +10618,24 @@
 					default: !0
 				}
 			},
-			computed: l()(
-			{}, Object(f.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? s(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : s(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(y.mapState)(
 			{}))
 		},
-		T = (n(301), Object(v.a)(P, (function()
+		I = (n(192), Object(k.a)(A, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -11874,9 +10658,9 @@
 				staticClass: "tirangle"
 			}) : e._e()])
 		}), [], !1, null, "665fab0a", null));
-	T.options.__file = "MoreHint.vue";
-	var $ = T.exports,
-		E = (n(303), Object(v.a)(
+	I.options.__file = "MoreHint.vue";
+	var L = I.exports,
+		N = (n(194), Object(k.a)(
 		{
 			name: "separator"
 		}, (function()
@@ -11888,30 +10672,59 @@
 				class: ["main-settings-separator-" + e.theme]
 			})
 		}), [], !1, null, "0d6d5378", null));
-	E.options.__file = "Separator.vue";
-	var A = E.exports,
-		O = n(110),
-		I = n(44),
-		j = {
+	N.options.__file = "Separator.vue";
+	var M = N.exports,
+		R = n(81),
+		z = n(79),
+		F = n(26),
+		U = n(99),
+		H = n(6),
+		V = n(3),
+		B = n(17),
+		G = null,
+		W = function(e)
+		{
+			var t = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
+				n = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "code";
+			return new Promise((function(r, a)
+			{
+				G = a;
+				var i = U.remote.app.getPath("temp"),
+					o = Object(V.join)(i, "close-to-save.".concat(e));
+				Object(H.writeFileSync)(o, t), Object(B.exec)("".concat(n, " ")
+						.concat(o, " --wait"), (function(e)
+						{
+							e && a(e)
+						}))
+					.on("exit", (function()
+					{
+						r(Object(H.readFileSync)(o)
+							.toString())
+					}))
+			}))
+		},
+		K = n(9),
+		q = {
 			components:
 			{
-				Section: g,
-				SimpleInput: y,
-				KeyCapture: k,
-				MoreHint: $,
-				SelectView: C.a,
-				SwitchView: S.a,
-				Separator: A
+				Section: C,
+				SimpleInput: S,
+				KeyCapture: T,
+				MoreHint: L,
+				SelectView: $.a,
+				SwitchView: D.a,
+				Separator: M
 			},
 			data: function()
 			{
 				return {
 					scrollTop: 0,
-					fontFamilyPlaceholder: "darwin" === process.platform ? "PingFang SC" : "Microsoft Yahei"
+					fontFamilyPlaceholder: Object(K.e)() ? "PingFang SC" : "Microsoft Yahei",
+					isEditingExternal: !1
 				}
 			},
-			computed: l()(
-			{}, Object(f.mapState)(
+			computed: d(d(
+			{}, Object(y.mapState)(
 			{
 				sts: function(e)
 				{
@@ -11921,12 +10734,13 @@
 				{
 					return e.app.detectedInterfaceName
 				}
-			}),
+			})),
+			{},
 			{
 				settings: function()
 				{
 					var e = this;
-					return this.sts ? new Proxy(p.cloneDeep(this.sts),
+					return this.sts ? new Proxy(x.cloneDeep(this.sts),
 					{
 						get: function(e, t)
 						{
@@ -11936,7 +10750,7 @@
 						{
 							return t[n] = r, e.saveSettings(
 							{
-								obj: p.cloneDeep(t)
+								obj: x.cloneDeep(t)
 							}), !0
 						}
 					}) : void 0
@@ -11968,18 +10782,19 @@
 					this.refreshCore()
 				}
 			},
-			methods: l()(
-			{}, Object(f.mapMutations)(
+			methods: d(d(
+			{}, Object(y.mapMutations)(
 			{
 				saveSettings: "SAVE_SETTINGS_OBJECT"
-			}),
+			})),
+			{},
 			{
 				refreshCore: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -11989,88 +10804,119 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
+				},
+				cancelExternalEdit: function()
+				{
+					G && G()
 				},
 				edit: function(e)
 				{
-					var t = this,
-						n = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
-						r = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "yaml";
-					return c()(o.a.mark((function a()
+					var t = arguments,
+						n = this;
+					return v()(f.a.mark((function r()
 					{
-						var i, s, c, d;
-						return o.a.wrap((function(a)
+						var a, i, o, s, c, d, l, u, p, h, v, m;
+						return f.a.wrap((function(r)
 						{
-							for(;;) switch (a.prev = a.next)
+							for(;;) switch (r.prev = r.next)
 							{
 								case 0:
-									return a.prev = 0, (i = t.settings[e]) || (i = n), a.next = 5, t.$code(
+									if(a = 1 < t.length && void 0 !== t[1] ? t[1] : "", i = 2 < t.length && void 0 !== t[2] ? t[2] : "yaml", o = !1, r.prev = 3, s = n.settings, c = s[e], d = s.editor, c || (c = a), 0 !== (l = void 0 === d ? 0 : d))
 									{
-										code: i,
-										language: r
+										r.next = 16;
+										break
+									}
+									return r.next = 9, n.$code(
+									{
+										code: c,
+										language: i
 									});
-								case 5:
-									return s = a.sent, c = s.code, d = void 0 === c ? "" : c, t.settings[e] = d, a.abrupt("return", !0);
-								case 12:
-									a.prev = 12, a.t0 = a.catch(0);
-								case 14:
-									return a.abrupt("return", !1);
-								case 15:
+								case 9:
+									u = r.sent, p = u.code, h = void 0 === p ? "" : p, n.settings[e] = h, o = h === c, r.next = 32;
+									break;
+								case 16:
+									if(1 !== l)
+									{
+										r.next = 25;
+										break
+									}
+									return n.isEditingExternal = !0, r.next = 20, W(i, c);
+								case 20:
+									v = r.sent, n.settings[e] = v, o = v !== c, r.next = 32;
+									break;
+								case 25:
+									if(2 !== l)
+									{
+										r.next = 32;
+										break
+									}
+									return n.isEditingExternal = !0, r.next = 29, W(i, c, "subl");
+								case 29:
+									m = r.sent, n.settings[e] = m, o = m !== c;
+								case 32:
+									r.next = 36;
+									break;
+								case 34:
+									r.prev = 34, r.t0 = r.catch(3);
+								case 36:
+									return n.isEditingExternal = !1, r.abrupt("return", o);
+								case 38:
 								case "end":
-									return a.stop()
+									return r.stop()
 							}
-						}), a, t, [
-							[0, 12]
+						}), r, null, [
+							[3, 34]
 						])
 					})))()
 				},
 				handleEditBypass: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return t.next = 2, e.edit("bypassText", u.stringify(
+									return t.next = 2, e.edit("bypassText", b.stringify(
 									{
-										bypass: O.a
+										bypass: R.a
 									}));
 								case 2:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleEditPACContent: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return t.next = 2, e.edit("pacContentText", 'function FindProxyForURL(url, host) {\n  return "SOCKS5 127.0.0.1:%mixed-port%; DIRECT;"\n}', "js");
+									return t.next = 2, e.edit("pacContentText", z.a, "js");
 								case 2:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleEditMixinYAML: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
 						var n;
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -12094,16 +10940,16 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleEditMixinJS: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
 						var n;
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -12127,15 +10973,15 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleEditHeaders: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -12145,15 +10991,15 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleEditChildProcess: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -12170,21 +11016,21 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleSelectInterface: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
 						var n, r;
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return t.prev = 0, n = Object(I.b)()
+									return t.prev = 0, n = Object(F.b)()
 										.map((function(e)
 										{
 											return e.name
@@ -12192,7 +11038,7 @@
 										{
 											title: "Choose outbound interface",
 											message: "only works when TAP mode enabled",
-											items: [].concat(a()(n), ["[ Reset ]"])
+											items: [].concat(u()(n), ["[ Reset ]"])
 										});
 								case 4:
 									r = t.sent, e.settings.interfaceName = r === n.length ? "" : n[r], t.next = 10;
@@ -12203,7 +11049,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[0, 8]
 						])
 					})))()
@@ -12211,9 +11057,9 @@
 				handleEditProfileParsers: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -12223,7 +11069,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleChooseDefaultIcon: function()
@@ -12257,9 +11103,9 @@
 				handleReset: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -12267,7 +11113,7 @@
 									return t.prev = 0, t.next = 3, e.$alert(
 									{
 										title: "Warning",
-										content: "Are you sure to reset all settings?",
+										content: "您确定要重设所有设置吗？",
 										isShowErrorBtn: !0
 									});
 								case 3:
@@ -12283,7 +11129,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[0, 6]
 						])
 					})))()
@@ -12299,7 +11145,7 @@
 				n()
 			}
 		},
-		D = (n(305), Object(v.a)(j, (function()
+		Y = (n(196), Object(k.a)(q, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -12309,7 +11155,7 @@
 				class: ["main-setting-view-" + e.theme]
 			}, [n("div",
 			{
-				staticClass: "title"
+				class: ["title", e.isEditingExternal ? "blur" : ""]
 			}, [n("div", [e._v("设置")]), e._v(" "), n("div",
 			{
 				staticClass: "btns"
@@ -12323,8 +11169,46 @@
 			}, [e._v("重置所有设置")])])]), e._v(" "), e.settings ? n("div",
 			{
 				ref: "mixin-scroll-content",
-				staticClass: "content"
+				class: ["content", , e.isEditingExternal ? "blur" : ""]
 			}, [n("Section",
+			{
+				attrs:
+				{
+					title: "常规"
+				}
+			}, [n("div",
+			{
+				staticClass: "item"
+			}, [n("div", [e._v("Editor")]), e._v(" "), n("SelectView",
+			{
+				attrs:
+				{
+					items: ["CFW", "Visual Studio Code", "Sublime Text"]
+				},
+				model:
+				{
+					value: e.settings.editor,
+					callback: function(t)
+					{
+						e.$set(e.settings, "editor", t)
+					},
+					expression: "settings.editor"
+				}
+			})], 1), e._v(" "), n("div",
+			{
+				staticClass: "item"
+			}, [n("div", [e._v("通知")]), e._v(" "), n("SwitchView",
+			{
+				model:
+				{
+					value: e.settings.showNotifications,
+					callback: function(t)
+					{
+						e.$set(e.settings, "showNotifications", t)
+					},
+					expression: "settings.showNotifications"
+				}
+			})], 1)]), e._v(" "), n("Section",
 			{
 				attrs:
 				{
@@ -12477,20 +11361,6 @@
 						e.$set(e.settings, "trayColor", t)
 					},
 					expression: "settings.trayColor"
-				}
-			})], 1), e._v(" "), n("div",
-			{
-				staticClass: "item"
-			}, [n("div", [e._v("通知")]), e._v(" "), n("SwitchView",
-			{
-				model:
-				{
-					value: e.settings.showNotifications,
-					callback: function(t)
-					{
-						e.$set(e.settings, "showNotifications", t)
-					},
-					expression: "settings.showNotifications"
 				}
 			})], 1), e._v(" "), n("div",
 			{
@@ -13059,60 +11929,249 @@
 					},
 					expression: "settings.shortcutScriptMode"
 				}
-			})], 1)])], 1)], 1) : e._e()])
-		}), [], !1, null, "66c4955c", null));
-	D.options.__file = "SettingView.vue", t.default = D.exports
+			})], 1)])], 1)], 1) : e._e(), e._v(" "), e.isEditingExternal ? n("div",
+			{
+				staticClass: "edit-hint"
+			}, [n("div", [e._v("\n      " + e._s(["", "Visual Studio Code", "Sublime Text"][e.settings.editor]) + " is\n      launching for editing.\n    ")]), e._v(" "), n("div", [e._v("Close the editing file to Save.")]), e._v(" "), n("div",
+			{
+				staticClass: "btn",
+				on:
+				{
+					click: e.cancelExternalEdit
+				}
+			}, [e._v("取消")])]) : e._e()])
+		}), [], !1, null, "71718b9e", null));
+	Y.options.__file = "SettingView.vue", t.default = Y.exports
 }, function(e, t, n)
 {
 	"use strict";
 
-	function r()
+	function r(e, t)
 	{
-		var e = this,
-			t = new ee;
-		t.use(function()
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
 		{
-			var t = m()(h.a.mark((function t(n)
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
 			{
-				var r, a;
-				return h.a.wrap((function(e)
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? r(Object(t), !0)
+			.forEach((function(n)
+			{
+				g()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function i(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function o(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? i(Object(t), !0)
+			.forEach((function(n)
+			{
+				g()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : i(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function s(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function c()
+	{
+		var e = new se;
+		e.use(function()
+		{
+			var e = w()(x.a.mark((function e(t)
+			{
+				var n, r, a;
+				return x.a.wrap((function(e)
 				{
 					for(;;) switch (e.prev = e.next)
 					{
 						case 0:
-							/\/pac\/(\d+)/.test(n.path) ? (r = Q.a.state.app.settings.pacContentText, NaN !== (a = parseInt(RegExp.$1)) && (n.body = r.replace(/%mixed-port%/g, a))) : n.res.statusCode = 404;
+							/\/pac\/(\d+)/.test(t.path) ? (n = ie.a.state.app.settings.pacContentText, r = void 0 === n ? oe.a : n, NaN !== (a = parseInt(RegExp.$1)) && (t.body = r.replace(/%mixed-port%/g, a))) : t.res.statusCode = 404;
 						case 1:
 						case "end":
 							return e.stop()
 					}
-				}), t, e)
+				}), e)
 			})));
 			return function()
 			{
-				return t.apply(this, arguments)
+				return e.apply(this, arguments)
 			}
-		}()), t.listen(J.a, "127.0.0.1")
+		}()), e.listen(re.a, "127.0.0.1")
 	}
-	var a = Math.floor;
+
+	function d(e, t)
+	{
+		var n;
+		if("undefined" == typeof Symbol || null == e[Symbol.iterator])
+		{
+			if(Array.isArray(e) || (n = function(e, t)
+			{
+				if(e)
+				{
+					if("string" == typeof e) return l(e, t);
+					var n = Object.prototype.toString.call(e)
+						.slice(8, -1);
+					return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? l(e, t) : void 0
+				}
+			}(e)) || t && e && "number" == typeof e.length)
+			{
+				n && (e = n);
+				var r = 0,
+					a = function() {};
+				return {
+					s: a,
+					n: function()
+					{
+						return r >= e.length ?
+						{
+							done: !0
+						} :
+						{
+							done: !1,
+							value: e[r++]
+						}
+					},
+					e: function(e)
+					{
+						throw e
+					},
+					f: a
+				}
+			}
+			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+		}
+		var i, o = !0,
+			s = !1;
+		return {
+			s: function()
+			{
+				n = e[Symbol.iterator]()
+			},
+			n: function()
+			{
+				var e = n.next();
+				return o = e.done, e
+			},
+			e: function(e)
+			{
+				s = !0, i = e
+			},
+			f: function()
+			{
+				try
+				{
+					o || null == n.return || n.return()
+				}
+				finally
+				{
+					if(s) throw i
+				}
+			}
+		}
+	}
+
+	function l(e, t)
+	{
+		(null == t || t > e.length) && (t = e.length);
+		for(var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
+		return r
+	}
+
+	function u(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function p(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? u(Object(t), !0)
+			.forEach((function(n)
+			{
+				g()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : u(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+	var f = Math.floor;
 	n.r(t);
-	var i = n(20),
-		o = n.n(i),
-		s = n(26),
-		c = n.n(s),
-		d = n(14),
-		l = n.n(d),
-		u = n(2),
-		p = n.n(u),
-		f = n(0),
-		h = n.n(f),
-		v = n(1),
-		m = n.n(v),
-		g = n(4),
-		x = n(12),
-		b = n(40),
-		y = n.n(b),
-		w = n(5),
-		_ = {
+	var h = n(20),
+		v = n.n(h),
+		m = n(2),
+		g = n.n(m),
+		b = n(0),
+		x = n.n(b),
+		y = n(1),
+		w = n.n(y),
+		k = n(5),
+		_ = n(13),
+		C = n(23),
+		O = n.n(C),
+		P = n(9),
+		S = n(3),
+		j = {
 			props: [],
 			data: function()
 			{
@@ -13142,8 +12201,8 @@
 				},
 				status: function() {}
 			},
-			computed: p()(
-			{}, Object(g.mapState)(
+			computed: a(a(
+			{}, Object(k.mapState)(
 			{
 				confData: function(e)
 				{
@@ -13165,7 +12224,7 @@
 				{
 					return e.app.shouldUseDarkTheme
 				}
-			}), Object(g.mapGetters)(["resourcesPath"])),
+			})), Object(k.mapGetters)(["resourcesPath"])),
 			methods:
 			{
 				iconImage: function(e)
@@ -13187,10 +12246,10 @@
 					var e = this;
 					this.client && this.client.readyState !== WebSocket.CLOSED && this.client.readyState !== WebSocket.CONNECTING && this.client.terminate();
 					var t = this.$parent.$parent.createWsClient("traffic"),
-						n = this.iconImage(w.join(this.resourcesPath, "static/imgs/logo_64_eyes.png"));
+						n = this.iconImage(S.join(this.resourcesPath, "static/imgs/logo_64_eyes.png"));
 					t ? (t.on("message", (function(t)
 					{
-						if(e.speed = JSON.parse(t), "darwin" === process.platform)
+						if(e.speed = JSON.parse(t), Object(P.e)())
 						{
 							var r = e.settings,
 								a = r.iconSpeed,
@@ -13200,7 +12259,9 @@
 								c = document.createElement("canvas"),
 								d = c.getContext("2d"),
 								l = i || (e.isDark ? "#fff" : "#183040");
-							d.drawImage(n, 0, 0, 69, 69), d.globalCompositeOperation = "source-in", d.fillStyle = l, d.fillRect(0, 0, 69, 69), d.globalCompositeOperation = "source-over", d.textAlign = "right", d.fillStyle = l, d.font = "26px sans-serif", d.lineWidth = 2, d.strokeStyle = l, d.fillText(o.speed + " " + o.unit, 220, 30), d.fillText(s.speed + " " + s.unit, 220, 58), d.beginPath(), d.moveTo(63, 31), d.lineTo(70, 22), d.lineTo(77, 31), e.speed.up > e.speed.down && d.fill(), d.stroke(), d.beginPath(), d.moveTo(77, 38), d.lineTo(70, 47), d.lineTo(63, 38), e.speed.up < e.speed.down && d.fill(), d.stroke(), e.$electron.ipcRenderer.send("speed-update", c.toDataURL(), void 0 !== a && a)
+							d.drawImage(n, 0, 0, 69, 69), d.globalCompositeOperation = "source-in", d.fillStyle = l, d.fillRect(0, 0, 69, 69), d.globalCompositeOperation = "source-over", d.textAlign = "right", d.fillStyle = l, d.font = "26px sans-serif", d.lineWidth = 2, d.strokeStyle = l, d.fillText("".concat(o.speed, " ")
+								.concat(o.unit), 220, 30), d.fillText("".concat(s.speed, " ")
+								.concat(s.unit), 220, 58), d.beginPath(), d.moveTo(63, 31), d.lineTo(70, 22), d.lineTo(77, 31), e.speed.up > e.speed.down && d.fill(), d.stroke(), d.beginPath(), d.moveTo(77, 38), d.lineTo(70, 47), d.lineTo(63, 38), e.speed.up < e.speed.down && d.fill(), d.stroke(), e.$electron.ipcRenderer.send("speed-update", c.toDataURL(), void 0 !== a && a)
 						}
 					})), this.client = t) : setTimeout((function()
 					{
@@ -13217,8 +12278,8 @@
 				})), this.$electron.ipcRenderer.send("window-event", "show")
 			}
 		},
-		k = (n(200), n(202), n(3)),
-		C = Object(k.a)(_, (function()
+		E = (n(106), n(108), n(4)),
+		T = Object(E.a)(j, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -13249,12 +12310,12 @@
 				staticClass: "bold-icon"
 			}, [e._v("\n      " + e._s(e.withUnit(e.speed.down)
 				.unit) + "\n      ")])])])
-		}), [], !1, null, "bff51890", null);
-	C.options.__file = "ClashTrafficView.vue";
-	var S = C.exports,
-		P = n(13),
-		T = n.n(P),
-		$ = (n(204), Object(k.a)(
+		}), [], !1, null, "b09de488", null);
+	T.options.__file = "ClashTrafficView.vue";
+	var $ = T.exports,
+		D = n(14),
+		A = n.n(D),
+		I = (n(110), Object(E.a)(
 		{
 			props: ["startTime"],
 			data: function()
@@ -13268,16 +12329,18 @@
 			{
 				stringifyNum: function(e)
 				{
-					return 10 > e ? "0" + e : e
+					return 10 > e ? "0".concat(e) : e
 				},
 				calcRunTime: function()
 				{
 					var e = (new Date)
 						.getTime(),
-						t = a((e - this.startTime) / 1e3),
-						n = a(t / 60) % 60,
-						r = a(t / 3600);
-					return this.stringifyNum(r) + " : " + this.stringifyNum(n) + " : " + this.stringifyNum(t % 60)
+						t = f((e - this.startTime) / 1e3),
+						n = f(t / 60) % 60,
+						r = f(t / 3600);
+					return "".concat(this.stringifyNum(r), " : ")
+						.concat(this.stringifyNum(n), " : ")
+						.concat(this.stringifyNum(t % 60))
 				},
 				refreshTimeTicking: function()
 				{
@@ -13313,8 +12376,8 @@
 				staticClass: "timer-text"
 			}, [e._v(e._s(e.runningTime))])])
 		}), [], !1, null, "656063cc", null));
-	$.options.__file = "RunTimeView.vue";
-	var E = {
+	I.options.__file = "RunTimeView.vue";
+	var L = {
 			props: ["startTime", "selectedIdx"],
 			data: function()
 			{
@@ -13345,21 +12408,22 @@
 			},
 			components:
 			{
-				ClashTrafficView: S,
-				RunTimeView: $.exports
+				ClashTrafficView: $,
+				RunTimeView: I.exports
 			},
-			computed: p()(
-			{}, Object(g.mapState)(
+			computed: o(o(
+			{}, Object(k.mapState)(
 			{
 				clashGotClient: function(e)
 				{
 					return e.app.clashGotClient
 				}
-			}),
+			})),
+			{},
 			{
 				menuTheme: function()
 				{
-					return "menu-" + this.theme
+					return "menu-".concat(this.theme)
 				}
 			}),
 			methods:
@@ -13367,7 +12431,7 @@
 				itemStyle: function(e)
 				{
 					var t = [];
-					return this.selectedIdx === e && t.push("selected"), this.selectedIdx !== e && (t.push("selected-none"), t.push("item-none-" + this.theme)), this.selectedIdx === e + 1 && t.push("selected-top"), this.selectedIdx === e - 1 && t.push("selected-bottom"), t
+					return this.selectedIdx === e && t.push("selected"), this.selectedIdx !== e && (t.push("selected-none"), t.push("item-none-".concat(this.theme))), this.selectedIdx === e + 1 && t.push("selected-top"), this.selectedIdx === e - 1 && t.push("selected-bottom"), t
 				},
 				itemClick: function(e)
 				{
@@ -13375,7 +12439,7 @@
 				}
 			}
 		},
-		A = (n(206), n(208), Object(k.a)(E, (function()
+		N = (n(112), n(114), Object(E.a)(L, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -13415,12 +12479,12 @@
 					"start-time": e.startTime
 				}
 			})], 1)
-		}), [], !1, null, "b410ef4e", null));
-	A.options.__file = "MainMenu.vue";
-	var O = A.exports,
-		I = n(9),
-		j = n(10),
-		D = {
+		}), [], !1, null, "55c73196", null));
+	N.options.__file = "MainMenu.vue";
+	var M = N.exports,
+		R = n(10),
+		z = n(11),
+		F = {
 			props: [],
 			data: function()
 			{
@@ -13448,11 +12512,24 @@
 				pinApp: function()
 				{
 					this.isPinned = !this.isPinned, this.$electron.remote.getCurrentWindow()
-						.setAlwaysOnTop(this.isPinned), I.a.put(j.a.IS_PIN_ENABLED, this.isPinned)
+						.setAlwaysOnTop(this.isPinned), R.a.put(z.a.IS_PIN_ENABLED, this.isPinned)
 				}
 			},
-			computed: p()(
-			{}, Object(g.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? s(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : s(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(k.mapState)(
 			{})),
 			mounted: function()
 			{
@@ -13463,11 +12540,11 @@
 					})), this.win.on("unmaximize", (function()
 					{
 						e.isWinMax = !1
-					})), this.isPinned = I.a.get(j.a.IS_PIN_ENABLED) || !1, this.$electron.remote.getCurrentWindow()
+					})), this.isPinned = R.a.get(z.a.IS_PIN_ENABLED) || !1, this.$electron.remote.getCurrentWindow()
 					.setAlwaysOnTop(this.isPinned)
 			}
 		},
-		N = (n(211), Object(k.a)(D, (function()
+		U = (n(116), Object(E.a)(F, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -13482,56 +12559,155 @@
 				{
 					click: e.pinApp
 				}
-			}, [n("img",
+			}, [n("svg",
 			{
 				attrs:
 				{
-					src: "static/imgs/pin-icon" + (e.isPinned ? "-enable" : "dark" === e.theme ? "" : "-dark") + ".png",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					"enable-background": "new 0 0 24 24",
+					viewBox: "0 0 24 24",
+					fill: e.isPinned ? "#0C7D9D" : "dark" === e.theme ? "white" : "black",
+					width: "14px",
+					height: "14px"
 				}
-			})]) : e._e(), e._v(" "), e.isWindows ? n("div",
+			}, [n("g", [n("rect",
+			{
+				attrs:
+				{
+					fill: "none",
+					height: "24",
+					width: "24"
+				}
+			}), e._v(" "), n("rect",
+			{
+				attrs:
+				{
+					fill: "none",
+					height: "24",
+					width: "24"
+				}
+			})]), e._v(" "), n("g", [n("path",
+			{
+				attrs:
+				{
+					d: "M19,12.87c0-0.47-0.34-0.85-0.8-0.98C16.93,11.54,16,10.38,16,9V4l1,0 c0.55,0,1-0.45,1-1c0-0.55-0.45-1-1-1H7C6.45,2,6,2.45,6,3c0,0.55,0.45,1,1,1l1,0v5c0,1.38-0.93,2.54-2.2,2.89 C5.34,12.02,5,12.4,5,12.87V13c0,0.55,0.45,1,1,1h4.98L11,21c0,0.55,0.45,1,1,1c0.55,0,1-0.45,1-1l-0.02-7H18c0.55,0,1-0.45,1-1 V12.87z",
+					"fill-rule": "evenodd"
+				}
+			})])])]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				class: ["close-" + e.theme],
 				on:
 				{
 					click: e.miniApp
 				}
-			}, [n("img",
+			}, [n("svg",
 			{
 				attrs:
 				{
-					src: "static/imgs/mini-icon" + ("dark" === e.theme ? "" : "-dark") + ".png",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "dark" === e.theme ? "white" : "black",
+					width: "18px",
+					height: "18px"
 				}
-			})]) : e._e(), e._v(" "), e.isWindows ? n("div",
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M18 13H6c-.55 0-1-.45-1-1s.45-1 1-1h12c.55 0 1 .45 1 1s-.45 1-1 1z"
+				}
+			})])]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				class: ["close-" + e.theme],
 				on:
 				{
 					click: e.maxApp
 				}
-			}, [n("img",
+			}, [e.isWinMax ? n("svg",
 			{
 				attrs:
 				{
-					src: "static/imgs/" + (e.isWinMax ? "unmax" : "max") + "-icon" + ("dark" === e.theme ? "" : "-dark") + ".png",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "dark" === e.theme ? "white" : "black",
+					width: "18px",
+					height: "18px"
 				}
-			})]) : e._e(), e._v(" "), e.isWindows ? n("div",
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M24 0v24H0V0h24z",
+					fill: "none",
+					opacity: ".87"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M8.12 19.3c.39.39 1.02.39 1.41 0L12 16.83l2.47 2.47c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-3.17-3.17c-.39-.39-1.02-.39-1.41 0l-3.17 3.17c-.4.38-.4 1.02-.01 1.41zm7.76-14.6c-.39-.39-1.02-.39-1.41 0L12 7.17 9.53 4.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.03 0 1.42l3.17 3.17c.39.39 1.02.39 1.41 0l3.17-3.17c.4-.39.4-1.03.01-1.42z"
+				}
+			})]) : n("svg",
+			{
+				attrs:
+				{
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "dark" === e.theme ? "white" : "black",
+					width: "14px",
+					height: "14px"
+				}
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M18 19H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm1-16H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+				}
+			})])]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				class: ["close-" + e.theme],
 				on:
 				{
 					click: e.closeApp
 				}
-			}, [n("img",
+			}, [n("svg",
 			{
 				attrs:
 				{
-					src: "static/imgs/delete-icon" + ("dark" === e.theme ? "" : "-dark") + ".png",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "dark" === e.theme ? "white" : "black",
+					width: "18px",
+					height: "18px"
 				}
-			})]) : e._e()])
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+				}
+			})])]) : e._e()])
 		}), [function()
 		{
 			var e = this,
@@ -13547,52 +12723,55 @@
 			{
 				staticClass: "bottom"
 			})])
-		}], !1, null, "182b9d04", null));
-	N.options.__file = "StatusBar.vue";
-	var L = N.exports,
-		M = n(19),
-		R = n.n(M),
-		F = n(15),
-		U = (n(42), n(6)),
-		z = n.n(U),
-		H = n(5),
-		G = n.n(H),
-		B = n(18),
-		V = n.n(B),
-		W = n(11),
+		}], !1, null, "1ce41e42", null));
+	U.options.__file = "StatusBar.vue";
+	var H = U.exports,
+		V = n(17),
+		B = n.n(V),
+		G = n(15),
+		W = (n(24), n(6)),
 		K = n.n(W),
-		q = (n(213), n(64)),
-		Y = n(128),
-		X = n.n(Y),
-		J = n(43),
-		Z = n(44),
-		Q = n(30),
-		ee = n(225),
-		te = n(21),
-		ne = n(226),
-		re = n(130),
-		ae = n(151),
-		ie = n(152);
-	F.transports.console.format = function(e)
+		q = n(3),
+		Y = n.n(q),
+		X = n(19),
+		J = n.n(X),
+		Z = n(12),
+		Q = n.n(Z),
+		ee = (n(118), n(34)),
+		te = n(85),
+		ne = n.n(te),
+		re = n(25),
+		ae = n(26),
+		ie = n(21),
+		oe = n(79),
+		se = n(124),
+		ce = n(18),
+		de = n(125),
+		le = n(87),
+		ue = n(94),
+		pe = n(95);
+	G.transports.console.format = function(e)
 	{
 		return e.data
-	}, F.transports.file.format = function(e)
+	}, G.transports.file.format = function(e)
 	{
-		return 'time="' + e.date + '" level=' + e.level + ' msg="' + e.data + '"'
+		return 'time="'.concat(e.date, '" level=')
+			.concat(e.level, ' msg="')
+			.concat(e.data, '"')
 	};
-	var oe = {
+	var fe = {
 			name: "landing-page",
 			components:
 			{
-				MainMenu: O,
-				StatusBar: L
+				MainMenu: M,
+				StatusBar: H
 			},
 			data: function()
 			{
 				return {
 					clash: null,
 					userPath: "",
-					clashStatus: x.a.CONNECTED,
+					clashStatus: _.a.CONNECTED,
 					clashRestfulPort: null,
 					clashRestfulSecret: "",
 					confDataString: "",
@@ -13617,11 +12796,11 @@
 			{
 				finalInterfaceName: function(e)
 				{
-					F.info("new outbound interface: " + e), this.refreshProfile()
+					G.info("new outbound interface: ".concat(e)), this.refreshProfile()
 				},
 				clashStatus: function(e)
 				{
-					this.$electron.ipcRenderer.send("clash-core-status-change", e === x.a.CONNECTED ? 0 : 1)
+					this.$electron.ipcRenderer.send("clash-core-status-change", e === _.a.CONNECTED ? 0 : 1)
 				},
 				clashPath: function()
 				{
@@ -13632,7 +12811,7 @@
 					immediate: !0,
 					handler: function(e)
 					{
-						this.updateTrayIcon(), this.$electron.ipcRenderer.send("system-proxy-changed", e === x.b.SYSTEM_PROXY)
+						this.updateTrayIcon(), this.$electron.ipcRenderer.send("system-proxy-changed", e === _.b.SYSTEM_PROXY)
 					}
 				},
 				"settings.fontFamily": function(e)
@@ -13642,27 +12821,27 @@
 				"settings.shortcutSystemProxy": function(e, t)
 				{
 					var n = this;
-					this.rebindShortcut(e, t, m()(h.a.mark((function e()
+					this.rebindShortcut(e, t, w()(x.a.mark((function e()
 					{
 						var t, r;
-						return h.a.wrap((function(e)
+						return x.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
-									return n.loadConfData(), t = I.a.get(j.a.SYSTEM_PROXY) || !1, r = !t, e.next = 5, n.$setSystemProxy(r, n.confData);
+									return n.loadConfData(), t = R.a.get(z.a.SYSTEM_PROXY) || !1, r = !t, e.next = 5, n.$setSystemProxy(r, n.confData);
 								case 5:
 									if(!e.sent)
 									{
 										e.next = 8;
 										break
 									}
-									I.a.put(j.a.SYSTEM_PROXY, r), n.$showNotification("Shortcut", "System Proxy: " + (r ? "On" : "Off"));
+									R.a.put(z.a.SYSTEM_PROXY, r), n.$showNotification("Shortcut", "System Proxy: ".concat(r ? "On" : "Off"));
 								case 8:
 								case "end":
 									return e.stop()
 							}
-						}), e, n)
+						}), e)
 					}))))
 				},
 				"settings.shortcutMixin": function(e, t)
@@ -13674,91 +12853,91 @@
 						n.changeIsMixinEnable(
 						{
 							isMixin: e
-						}), n.refreshProfile(), n.$showNotification("Shortcut", "Mixin: " + (e ? "On" : "Off"))
+						}), n.refreshProfile(), n.$showNotification("Shortcut", "Mixin: ".concat(e ? "On" : "Off"))
 					}))
 				},
 				"settings.shortcutGlobalMode": function(e, t)
 				{
 					var n = this;
-					this.rebindShortcut(e, t, m()(h.a.mark((function e()
+					this.rebindShortcut(e, t, w()(x.a.mark((function e()
 					{
 						var t;
-						return h.a.wrap((function(e)
+						return x.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
 									return e.next = 2, n.switchMode("global");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: " + t.toUpperCase());
+									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
 							}
-						}), e, n)
+						}), e)
 					}))))
 				},
 				"settings.shortcutRuleMode": function(e, t)
 				{
 					var n = this;
-					this.rebindShortcut(e, t, m()(h.a.mark((function e()
+					this.rebindShortcut(e, t, w()(x.a.mark((function e()
 					{
 						var t;
-						return h.a.wrap((function(e)
+						return x.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
 									return e.next = 2, n.switchMode("rule");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: " + t.toUpperCase());
+									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
 							}
-						}), e, n)
+						}), e)
 					}))))
 				},
 				"settings.shortcutDirectMode": function(e, t)
 				{
 					var n = this;
-					this.rebindShortcut(e, t, m()(h.a.mark((function e()
+					this.rebindShortcut(e, t, w()(x.a.mark((function e()
 					{
 						var t;
-						return h.a.wrap((function(e)
+						return x.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
 									return e.next = 2, n.switchMode("direct");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: " + t.toUpperCase());
+									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
 							}
-						}), e, n)
+						}), e)
 					}))))
 				},
 				"settings.shortcutScriptMode": function(e, t)
 				{
 					var n = this;
-					this.rebindShortcut(e, t, m()(h.a.mark((function e()
+					this.rebindShortcut(e, t, w()(x.a.mark((function e()
 					{
 						var t;
-						return h.a.wrap((function(e)
+						return x.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
 									return e.next = 2, n.switchMode("script");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: " + t.toUpperCase());
+									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
 							}
-						}), e, n)
+						}), e)
 					}))))
 				},
 				"settings.systemProxyTypeIndex": function()
@@ -13778,8 +12957,8 @@
 					this.$electron.ipcRenderer.send("mixin-changed", e)
 				}
 			},
-			computed: p()(
-			{}, Object(g.mapState)(
+			computed: p(p(p(
+			{}, Object(k.mapState)(
 			{
 				profiles: function(e)
 				{
@@ -13829,11 +13008,12 @@
 				{
 					return e.app.detectedInterfaceName
 				}
-			}), Object(g.mapGetters)(["resourcesPath", "filesPath", "mixedPort"]),
+			})), Object(k.mapGetters)(["resourcesPath", "filesPath", "mixedPort"])),
+			{},
 			{
 				themeClass: function()
 				{
-					return "theme-" + this.theme
+					return "theme-".concat(this.theme)
 				},
 				finalInterfaceName: function()
 				{
@@ -13842,21 +13022,21 @@
 				},
 				statusHint: function()
 				{
-					return 0 < this.pkgDownloadProgress && 1 > this.pkgDownloadProgress ? "Download progress: " + (100 * this.pkgDownloadProgress)
-						.toFixed(2) + "%" : this.clashStatus === x.a.CONNECTED ? "连接成功" : this.clashStatus === x.a.DISCONNECTED ? "断开连接" : this.clashStatus === x.a.INSTALLING_TAP ? "正在安装" : this.clashStatus === x.a.UNINSTALLING_TAP ? "正在卸载" : void 0
+					return 0 < this.pkgDownloadProgress && 1 > this.pkgDownloadProgress ? "Download progress: ".concat((100 * this.pkgDownloadProgress)
+						.toFixed(2), "%") : this.clashStatus === _.a.CONNECTED ? "连接成功" : this.clashStatus === _.a.DISCONNECTED ? "断开连接" : this.clashStatus === _.a.INSTALLING_TAP ? "正在安装" : this.clashStatus === _.a.UNINSTALLING_TAP ? "正在卸载" : void 0
 				},
 				statusIcon: function()
 				{
 					return {
 						"clash-status-icon": !0,
-						"clash-running": this.clashStatus === x.a.CONNECTED,
-						"clash-stopped": this.clashStatus === x.a.DISCONNECTED,
-						"clash-set-dns": this.clashStatus === x.a.INSTALLING_TAP || this.clashStatus === x.a.UNINSTALLING_TAP
+						"clash-running": this.clashStatus === _.a.CONNECTED,
+						"clash-stopped": this.clashStatus === _.a.DISCONNECTED,
+						"clash-set-dns": this.clashStatus === _.a.INSTALLING_TAP || this.clashStatus === _.a.UNINSTALLING_TAP
 					}
 				}
 			}),
-			methods: p()(
-			{}, Object(g.mapMutations)(
+			methods: p(p(
+			{}, Object(k.mapMutations)(
 			{
 				setConfData: "SET_CONF_DATA",
 				changeProfile: "CHANGE_PROFILE",
@@ -13872,19 +13052,20 @@
 				setSettingsOjbect: "SET_SETTINGS_OBJECT",
 				setShouldUseDarkTheme: "SET_SHOULD_USE_DARK_THEME",
 				setDetectedInterfaceName: "SET_DETECTED_INTERFACE_NAME"
-			}),
+			})),
+			{},
 			{
 				resetSystemProxySettings: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if(!(I.a.get(j.a.SYSTEM_PROXY) || !1))
+									if(!(R.a.get(z.a.SYSTEM_PROXY) || !1))
 									{
 										t.next = 4;
 										break
@@ -13894,12 +13075,12 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				updateTrayIcon: function()
 				{
-					"win32" === process.platform && this.$electron.ipcRenderer.send("status-changed", this.$getTrayIcon(this.status === x.b.SYSTEM_PROXY ? 1 : 0))
+					Object(P.f)() && this.$electron.ipcRenderer.send("status-changed", this.$getTrayIcon(this.status === _.b.SYSTEM_PROXY ? 1 : 0))
 				},
 				setFont: function(e)
 				{
@@ -13908,9 +13089,9 @@
 				refreshClashStatus: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -13922,16 +13103,16 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				waitForClash: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
 						var n;
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -13940,14 +13121,14 @@
 								case 1:
 									return t.next = 4, e.refreshClashStatus();
 								case 4:
-									if(e.clashStatus !== x.a.CONNECTED)
+									if(e.clashStatus !== _.a.CONNECTED)
 									{
 										t.next = 6;
 										break
 									}
 									return t.abrupt("return", !0);
 								case 6:
-									return F.info("clash is not ready, retry " + n + " times"), t.next = 9, e.$wait(1e3);
+									return G.info("clash is not ready, retry ".concat(n, " times")), t.next = 9, e.$wait(1e3);
 								case 9:
 									if(!(10 <= (n += 1)))
 									{
@@ -13964,16 +13145,16 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				refreshProfile: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
-						var r, a, i, o, s, c, d, u, f, v, g, x, b, y, w, _, k, C, S, P, T, $, E, A, O, I, j, D, N, L, M, R, U, H, B, V, W, q, Y, X, J, Z, Q, ee, te, ne, re, ie, oe, se, ce, de, le, ue, pe;
-						return h.a.wrap((function(t)
+						var r, a, i, o, s, c, d, l, u, f, h, v, m, g, b, y, k, _, C, O, S, j, E, T, $, D, A, I, L, N, M, R, z, F, U, H, V, B, W, q, X, J, Z, ee, te, ne, re, ae, ie, oe, se, ce, de, le, pe;
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -13983,40 +13164,40 @@
 										t.next = 82;
 										break
 									}
-									if(F.info("restore at index: " + s), d = e.profiles.files[s], i = G.a.join(e.profilesPath, d.time), t.prev = 9, u = K.a.parse(z.a.readFileSync(i, "utf8"),
+									if(G.info("restore at index: ".concat(s)), d = e.profiles.files[s], i = Y.a.join(e.profilesPath, d.time), t.prev = 9, l = Q.a.parse(K.a.readFileSync(i, "utf8"),
 									{
 										prettyErrors: !0
-									}), f = e.settings, v = f.mixinType, g = void 0 === v ? 0 : v, x = f.mixinText, b = f.mixinCode, y = u, !e.isMixinEnable)
+									}), u = e.settings, f = u.mixinType, h = void 0 === f ? 0 : f, v = u.mixinText, m = u.mixinCode, g = l, !e.isMixinEnable)
 									{
 										t.next = 26;
 										break
 									}
-									t.t0 = g, t.next = 0 === t.t0 ? 17 : 1 === t.t0 ? 19 : 26;
+									t.t0 = h, t.next = 0 === t.t0 ? 17 : 1 === t.t0 ? 19 : 26;
 									break;
 								case 17:
-									if(x) try
+									if(v) try
 									{
-										w = K.a.parse(x), _ = w.mixin, y = p()(
-										{}, u, _)
+										b = Q.a.parse(v), y = b.mixin, g = p(p(
+										{}, l), y)
 									}
 									catch (t)
 									{}
 									return t.abrupt("break", 26);
 								case 19:
-									if(!b)
+									if(!m)
 									{
 										t.next = 25;
 										break
 									}
-									return k = ae(b), C = d.url, S = void 0 === C ? "" : C, P = d.name, t.next = 24, k.parse(
+									return k = ue(m), _ = d.url, C = void 0 === _ ? "" : _, O = d.name, t.next = 24, k.parse(
 									{
-										content: y,
-										url: S,
-										name: P
+										content: g,
+										url: C,
+										name: O
 									},
 									{
-										axios: n(18),
-										yaml: n(11),
+										axios: n(19),
+										yaml: n(12),
 										notify: function(t)
 										{
 											var n = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : "",
@@ -14025,19 +13206,19 @@
 										}
 									});
 								case 24:
-									y = t.sent;
+									g = t.sent;
 								case 25:
 									return t.abrupt("break", 26);
 								case 26:
-									if($ = (T = y)
-										.dns, E = void 0 === $ ?
-										{} : $, A = T["interface-name"], O = T.tun, I = void 0 === O ?
-										{} : O, j = E.enable, D = void 0 !== j && j, N = E.listen, L = I.enable, M = void 0 !== L && L, R = I["macOS-auto-detect-interface"], U = void 0 !== R && R, "darwin" !== process.platform)
+									if(j = (S = g)
+										.dns, E = void 0 === j ?
+										{} : j, T = S["interface-name"], $ = S.tun, D = void 0 === $ ?
+										{} : $, A = E.enable, I = void 0 !== A && A, L = E.listen, N = D.enable, M = void 0 !== N && N, R = D["macOS-auto-detect-interface"], z = void 0 !== R && R, !Object(P.e)())
 									{
 										t.next = 38;
 										break
 									}
-									if(!M || A || U)
+									if(!M || T || z)
 									{
 										t.next = 36;
 										break
@@ -14047,8 +13228,9 @@
 										t.next = 35;
 										break
 									}
-									y = p()(
-									{}, y,
+									g = p(p(
+									{}, g),
+									{},
 									{
 										"interface-name": e.finalInterfaceName
 									}), t.next = 36;
@@ -14063,17 +13245,17 @@
 									t.next = 51;
 									break;
 								case 38:
-									if(!(E && D && N))
+									if(!(E && I && L))
 									{
 										t.next = 51;
 										break
 									}
-									if(H = N.split(":")[0].trim(), B = N.split(":")[1].trim(), !["", "0.0.0.0"].includes(H) || "53" !== B)
+									if(F = L.split(":")[0].trim(), U = L.split(":")[1].trim(), !["", "0.0.0.0"].includes(F) || "53" !== U)
 									{
 										t.next = 51;
 										break
 									}
-									if(c = !0, A)
+									if(c = !0, T)
 									{
 										t.next = 51;
 										break
@@ -14083,8 +13265,9 @@
 										t.next = 49;
 										break
 									}
-									y = p()(
-									{}, y,
+									g = p(p(
+									{}, g),
+									{},
 									{
 										"interface-name": e.finalInterfaceName
 									}), t.next = 51;
@@ -14096,12 +13279,13 @@
 										message: "TAP mode enable but no interface-name setted"
 									});
 								case 51:
-									return W = (V = y)["proxy-providers"], q = V["rule-providers"], Y = void 0 !== W || void 0 !== q, X = e.confData, J = X["log-level"], Z = void 0 === J ? "info" : J, Q = X.ipv6, ee = void 0 !== Q && Q, t.next = 56, e.clashAxiosClient.put("/configs",
+									return V = (H = g)["proxy-providers"], B = H["rule-providers"], W = void 0 !== V || void 0 !== B, q = e.confData, X = q["log-level"], J = void 0 === X ? "info" : X, Z = q.ipv6, ee = void 0 !== Z && Z, t.next = 56, e.clashAxiosClient.put("/configs",
 									{
-										payload: K.a.stringify(p()(
-										{}, y,
+										payload: Q.a.stringify(p(p(
+										{}, g),
+										{},
 										{
-											"log-level": Z,
+											"log-level": J,
 											ipv6: ee
 										}))
 									},
@@ -14110,24 +13294,26 @@
 										{
 											return !0
 										},
-										timeout: Y ? 0 : 1e4
+										timeout: W ? 0 : 1e4
 									});
 								case 56:
-									te = t.sent, ne = te.status, re = te.data, r = 204 === ne, ie = re.message, a = ie || "Switching profile failed with status: " + ne, t.next = 71;
+									te = t.sent, ne = te.status, re = te.data, r = 204 === ne, ae = re.message, a = ae || "Switching profile failed with status: ".concat(ne), t.next = 71;
 									break;
 								case 64:
-									t.prev = 64, t.t1 = t.catch(9), oe = "", (se = t.t1.linePos) && ((ce = se.start) && (de = ce.line, le = ce.col, oe = ", on line: " + de + ", at column: " + le)), a = "Error: " + t.t1.message + oe, F.warn("fail to restore last profile with error: " + t.t1);
+									t.prev = 64, t.t1 = t.catch(9), ie = "", (oe = t.t1.linePos) && ((se = oe.start) && (ce = se.line, de = se.col, ie = ", on line: ".concat(ce, ", at column: ")
+											.concat(de))), a = "Error: ".concat(t.t1.message)
+										.concat(ie), G.warn("fail to restore last profile with error: ".concat(t.t1));
 								case 71:
-									if(ue = d.selected, pe = d.mode, !r || !ue)
+									if(le = d.selected, pe = d.mode, !r || !le)
 									{
 										t.next = 81;
 										break
 									}
-									return F.info("restore proxy settings"), t.prev = 74, t.next = 77, l.a.all(ue.map(function()
+									return G.info("restore proxy settings"), t.prev = 74, t.next = 77, Promise.all(le.map(function()
 									{
-										var t = m()(h.a.mark((function t(n)
+										var t = w()(x.a.mark((function t(n)
 										{
-											return h.a.wrap((function(t)
+											return x.a.wrap((function(t)
 											{
 												for(;;) switch (t.prev = t.next)
 												{
@@ -14142,7 +13328,7 @@
 													case "end":
 														return t.stop()
 												}
-											}), t, e)
+											}), t)
 										})));
 										return function()
 										{
@@ -14166,7 +13352,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[9, 64],
 							[74, 79]
 						])
@@ -14174,65 +13360,66 @@
 				},
 				switchMode: function(e)
 				{
-					var t = this,
-						n = !(1 < arguments.length && void 0 !== arguments[1]) || arguments[1];
-					return m()(h.a.mark((function r()
+					var t = arguments,
+						n = this;
+					return w()(x.a.mark((function r()
 					{
-						var a, i, o, s, c, d, l;
-						return h.a.wrap((function(r)
+						var a, i, o, s, c, d, l, u;
+						return x.a.wrap((function(r)
 						{
 							for(;;) switch (r.prev = r.next)
 							{
 								case 0:
-									return r.prev = 0, r.next = 3, t.clashAxiosClient.patch("/configs",
+									return a = !(1 < t.length && void 0 !== t[1]) || t[1], r.prev = 1, r.next = 4, n.clashAxiosClient.patch("/configs",
 									{
 										mode: e
 									});
-								case 3:
+								case 4:
 									if(204 !== r.sent.status)
 									{
-										r.next = 13;
+										r.next = 14;
 										break
 									}
-									if(a = t.settings.connMode, i = void 0 !== a && a, !n || !i)
+									if(i = n.settings.connMode, o = void 0 !== i && i, !a || !o)
 									{
-										r.next = 9;
+										r.next = 10;
 										break
 									}
-									return r.next = 9, t.clashAxiosClient.delete("connections");
-								case 9:
-									return o = t.profiles, s = o.files, c = void 0 === s ? [] : s, d = o.index, 0 <= (l = void 0 === d ? -1 : d) && c.length > l && t.changeProfile(
+									return r.next = 10, n.clashAxiosClient.delete("connections");
+								case 10:
+									return s = n.profiles, c = s.files, d = void 0 === c ? [] : c, l = s.index, 0 <= (u = void 0 === l ? -1 : l) && d.length > u && n.changeProfile(
 									{
-										index: l,
-										profile: p()(
-										{}, c[l],
+										index: u,
+										profile: p(p(
+										{}, d[u]),
+										{},
 										{
 											mode: e
 										})
-									}), t.$electron.ipcRenderer.send("mode-changed", e), r.abrupt("return", e);
-								case 13:
-									r.next = 17;
+									}), n.$electron.ipcRenderer.send("mode-changed", e), r.abrupt("return", e);
+								case 14:
+									r.next = 18;
 									break;
-								case 15:
-									r.prev = 15, r.t0 = r.catch(0);
-								case 17:
-									return r.abrupt("return", "");
+								case 16:
+									r.prev = 16, r.t0 = r.catch(1);
 								case 18:
+									return r.abrupt("return", "");
+								case 19:
 								case "end":
 									return r.stop()
 							}
-						}), r, t, [
-							[0, 15]
+						}), r, null, [
+							[1, 16]
 						])
 					})))()
 				},
 				getMode: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
 						var n, r, a, i;
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -14258,7 +13445,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				showLogsFolder: function()
@@ -14277,23 +13464,23 @@
 							.split(":")[1].trim();
 						this.setClashAxiosClient(
 						{
-							client: V.a.create(
+							client: J.a.create(
 							{
-								baseURL: "http://127.0.0.1:" + a + "/",
+								baseURL: "http://127.0.0.1:".concat(a, "/"),
 								timeout: 5e3,
 								headers:
 								{
-									Authorization: "Bearer " + n
+									Authorization: "Bearer ".concat(n)
 								}
 							})
 						}), this.setClashGotClient(
 						{
-							client: y.a.extend(
+							client: O.a.extend(
 							{
-								baseUrl: "http://127.0.0.1:" + a,
+								baseUrl: "http://127.0.0.1:".concat(a),
 								headers:
 								{
-									Authorization: "Bearer " + this.confData.secret
+									Authorization: "Bearer ".concat(this.confData.secret)
 								}
 							})
 						})
@@ -14306,8 +13493,10 @@
 					if(!t) return null;
 					var n = t.split(":")[1].trim();
 					/^\//.test(e) || (e = "/" + e);
-					var r = "ws://127.0.0.1:" + n + e + "?token=" + this.confData.secret;
-					return new ne(r)
+					var r = "ws://127.0.0.1:".concat(n)
+						.concat(e, "?token=")
+						.concat(this.confData.secret);
+					return new de(r)
 				},
 				open: function(e)
 				{
@@ -14317,15 +13506,15 @@
 				{
 					this.menuSelectedIdx = e, this.$router.replace(
 					{
-						path: "/home/" + ["general", "proxy", "server", "log", "connection", "setting", "about"][e]
+						path: "/home/".concat(["general", "proxy", "server", "log", "connection", "setting", "about"][e])
 					})
 				},
 				handlerRestartClash: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -14341,7 +13530,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				resetClashStatus: function()
@@ -14351,33 +13540,33 @@
 				spawnClash: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
-						var n, r, a, i, o, s, c, d, l;
-						return h.a.wrap((function(t)
+						var n, r, a, i, o, s, c, d, l, u, p;
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if(F.info("restarting clash core..."), e.loadConfData(), e.confData ? (n = e.settings.profilePath, e.setProfilesPath(
+									if(G.info("restarting clash core..."), e.loadConfData(), e.confData ? (a = e.settings.profilePath, e.setProfilesPath(
 									{
-										path: n || G.a.join(e.clashPath, "profiles")
+										path: a || Y.a.join(e.clashPath, "profiles")
 									})) : e.setProfilesPath(
 									{
-										path: G.a.join(e.clashPath, "profiles")
-									}), e.initConfigFolder(), e.loadConfData(), r = e.settings.fontFamily, e.setFont(r), a = e.settings.profilePath, e.setProfilesPath(
+										path: Y.a.join(e.clashPath, "profiles")
+									}), e.initConfigFolder(), e.loadConfData(), i = e.settings.fontFamily, e.setFont(i), o = e.settings.profilePath, e.setProfilesPath(
 									{
-										path: a || G.a.join(e.clashPath, "profiles")
-									}), e.loadProfiles(), i = G.a.join(e.clashPath, "logs", T()()
-										.format("YYYY-MM-DD-HHmmss") + ".log"), z.a.readdir(G.a.join(e.clashPath, "logs"), (function(t, n)
+										path: o || Y.a.join(e.clashPath, "profiles")
+									}), e.loadProfiles(), s = Y.a.join(e.clashPath, "logs", "".concat(A()()
+										.format("YYYY-MM-DD-HHmmss"), ".log")), K.a.readdir(Y.a.join(e.clashPath, "logs"), (function(t, n)
 									{
 										!t && 0 < n.length && n.forEach((function(t)
 										{
-											/^(.*?)\.log$/.test(t) && (T()(RegExp.$1, "YYYY-MM-DD-HHmmss")
-												.isBefore(T()()
-													.subtract(7, "days")) && z.a.unlink(G.a.join(e.clashPath, "logs", t), (function() {})))
+											/^(.*?)\.log$/.test(t) && (A()(RegExp.$1, "YYYY-MM-DD-HHmmss")
+												.isBefore(A()()
+													.subtract(7, "days")) && K.a.unlink(Y.a.join(e.clashPath, "logs", t), (function() {})))
 										}))
-									})), !I.a.get(j.a.SYSTEM_PROXY) || !e.confData)
+									})), !R.a.get(z.a.SYSTEM_PROXY) || !e.confData)
 									{
 										t.next = 17;
 										break
@@ -14386,17 +13575,17 @@
 								case 16:
 									e.loadConfData();
 								case 17:
-									return o = [], e.portableMode && (o = ["-d", "."]), s = e.filesPath, c = "darwin" === process.platform ? "./clash-darwin" : "clash-win64.exe", d = R.a.spawn(c, o,
+									return c = [], e.portableMode && (c = ["-d", "."]), d = (n = {}, g()(n, P.b, Y.a.join(e.filesPath, "win", "ia32")), g()(n, P.c, Y.a.join(e.filesPath, "win", "x64")), g()(n, P.a, Y.a.join(e.filesPath, "darwin", "x64")), n)[Object(P.d)()], l = (r = {}, g()(r, P.b, "clash-win32.exe"), g()(r, P.c, "clash-win64.exe"), g()(r, P.a, "./clash-darwin"), r)[Object(P.d)()], u = B.a.spawn(l, c,
 									{
-										cwd: s
+										cwd: d
 									}), ["level=info", "level=warning"].map((function(e)
 									{
 										return new RegExp(e)
-									})), d.stdout.on("data", function()
+									})), u.stdout.on("data", function()
 									{
-										var t = m()(h.a.mark((function t(n)
+										var t = w()(x.a.mark((function t(n)
 										{
-											return h.a.wrap((function(t)
+											return x.a.wrap((function(t)
 											{
 												for(;;) switch (t.prev = t.next)
 												{
@@ -14406,29 +13595,29 @@
 															t.next = 4;
 															break
 														}
-														return F.info("clash core startup success!"), t.next = 4, e.refreshClashStatus();
+														return G.info("clash core startup success!"), t.next = 4, e.refreshClashStatus();
 													case 4:
-														/level=fatal/.test(n.toString()) && (F.error("clash core startup failed!!!"), e.refreshClashStatus());
+														/level=fatal/.test(n.toString()) && (G.error("clash core startup failed!!!"), e.refreshClashStatus());
 													case 5:
 													case "end":
 														return t.stop()
 												}
-											}), t, e)
+											}), t)
 										})));
 										return function()
 										{
 											return t.apply(this, arguments)
 										}
-									}()), d.on("exit", (function()
+									}()), u.on("exit", (function()
 									{
 										e.refreshClashStatus()
-									})), "silent" !== e.confData["log-level"] && (l = z.a.createWriteStream(i,
+									})), "silent" !== e.confData["log-level"] && (p = K.a.createWriteStream(s,
 									{
 										flags: "a"
-									}), d.stdout.pipe(l), d.stderr.pipe(l), e.setLogFilePath(
+									}), u.stdout.pipe(p), u.stderr.pipe(p), e.setLogFilePath(
 									{
-										path: i
-									})), e.clash = d, I.a.put(j.a.LAST_CLASH_PID, e.clash.pid), t.next = 32, e.waitForClash();
+										path: s
+									})), e.clash = u, R.a.put(z.a.LAST_CLASH_PID, e.clash.pid), t.next = 32, e.waitForClash();
 								case 32:
 									if(!t.sent)
 									{
@@ -14437,7 +13626,7 @@
 									}
 									return t.next = 35, e.clashAxiosClient.patch("/configs",
 									{
-										"allow-lan": I.a.get(j.a.IS_ALLOW_LAN) || !1
+										"allow-lan": R.a.get(z.a.IS_ALLOW_LAN) || !1
 									});
 								case 35:
 									return t.next = 37, e.refreshProfile();
@@ -14447,7 +13636,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				sudoRunBAT: function(e)
@@ -14457,18 +13646,18 @@
 						{
 							try
 							{
-								return R.a.execSync("net session"), !0
+								return B.a.execSync("net session"), !0
 							}
 							catch (e)
 							{}
 							return !1
 						};
-					return new l.a((function(r)
+					return new Promise((function(r)
 					{
-						n() ? R.a.exec(e, (function(e)
+						n() ? B.a.exec(e, (function(e)
 						{
 							t && t(void 0 === e), r(void 0 === e)
-						})) : Object(q.exec)(e,
+						})) : Object(ee.exec)(e,
 						{
 							name: "Clash for Windows"
 						}, (function(e)
@@ -14479,84 +13668,86 @@
 				},
 				setupTapDevice: function()
 				{
-					var e = this,
-						t = !(0 < arguments.length && void 0 !== arguments[0]) || arguments[0];
-					this.clashStatus = t ? x.a.INSTALLING_TAP : x.a.UNINSTALLING_TAP;
-					var n = G.a.join(this.filesPath, "tun2socks"),
-						r = G.a.join(n, (t ? "add" : "remove") + "_tap_device.bat");
-					return this.sudoRunBAT('"' + r + '" "' + n + '"', m()(h.a.mark((function t()
+					var e, t = this,
+						n = !(0 < arguments.length && void 0 !== arguments[0]) || arguments[0];
+					this.clashStatus = n ? _.a.INSTALLING_TAP : _.a.UNINSTALLING_TAP;
+					var r = (e = {}, g()(e, P.c, Y.a.join(this.filesPath, "win", "x64", "tun2socks")), g()(e, P.b, Y.a.join(this.filesPath, "win", "ia32", "tun2socks")), e)[Object(P.d)()],
+						a = Y.a.join(r, "".concat(n ? "add" : "remove", "_tap_device.bat")),
+						i = '"'.concat(a, '" "')
+						.concat(r, '"');
+					return this.sudoRunBAT(i, w()(x.a.mark((function e()
 					{
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(e)
 						{
-							for(;;) switch (t.prev = t.next)
+							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
-									e.refreshClashStatus();
+									t.refreshClashStatus();
 								case 1:
 								case "end":
-									return t.stop()
+									return e.stop()
 							}
-						}), t, e)
+						}), e)
 					}))))
 				},
 				spawnTun2socks: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
-						var n, r, a, i;
-						return h.a.wrap((function(t)
+						var n, r, a, i, o, s;
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if("darwin" !== process.platform)
+									if(!Object(P.e)())
 									{
 										t.next = 2;
 										break
 									}
 									return t.abrupt("return");
 								case 2:
-									if(F.info("Spawn go-tun2socks"), e.tun2socks && (e.killSpawned(e.tun2socks), e.tun2socks = null), n = e.mixedPort)
+									if(G.info("Spawn go-tun2socks"), e.tun2socks && (e.killSpawned(e.tun2socks), e.tun2socks = null), r = e.mixedPort)
 									{
 										t.next = 7;
 										break
 									}
 									return t.abrupt("return");
 								case 7:
-									r = ["-tunName", "cfw-tap", "-tunDns", "10.0.0.1", "-tunAddr", "10.0.0.1", "-tunMask", "255.255.255.0", "-tunGw", "10.0.0.0", "-proxyServer", "127.0.0.1:" + n, "-loglevel", "none"], e.tun2socks = R.a.spawn("go-tun2socks.exe", r,
+									a = ["-tunName", "cfw-tap", "-tunDns", "10.0.0.1", "-tunAddr", "10.0.0.1", "-tunMask", "255.255.255.0", "-tunGw", "10.0.0.0", "-proxyServer", "127.0.0.1:" + r, "-loglevel", "none"], i = (n = {}, g()(n, P.c, Y.a.join(e.filesPath, "win", "x64", "tun2socks")), g()(n, P.b, Y.a.join(e.filesPath, "win", "ia32", "tun2socks")), n)[Object(P.d)()], e.tun2socks = B.a.spawn("go-tun2socks.exe", a,
 									{
-										cwd: G.a.join(e.filesPath, "tun2socks")
-									}), a = 10;
-								case 10:
-									if(!a--)
+										cwd: i
+									}), o = 10;
+								case 11:
+									if(!o--)
 									{
-										t.next = 24;
+										t.next = 25;
 										break
 									}
-									if(t.prev = 11, i = R.a.execSync("route print 10.0.0.0 mask 255.255.255.0")
-										.toString(), !/(10\.0\.0\.0\s+?255\.255\.255\.0[\s\S]+10\.0\.0\.1)/.test(i))
+									if(t.prev = 12, s = B.a.execSync("route print 10.0.0.0 mask 255.255.255.0")
+										.toString(), !/(10\.0\.0\.0\s+?255\.255\.255\.0[\s\S]+10\.0\.0\.1)/.test(s))
 									{
-										t.next = 16;
+										t.next = 17;
 										break
 									}
-									return R.a.execSync("route add 0.0.0.0 mask 0.0.0.0 10.0.0.0 metric 1"), t.abrupt("break", 24);
-								case 16:
-									t.next = 20;
+									return B.a.execSync("route add 0.0.0.0 mask 0.0.0.0 10.0.0.0 metric 1"), t.abrupt("break", 25);
+								case 17:
+									t.next = 21;
 									break;
-								case 18:
-									t.prev = 18, t.t0 = t.catch(11);
-								case 20:
-									return t.next = 22, e.$wait(1e3);
-								case 22:
-									t.next = 10;
+								case 19:
+									t.prev = 19, t.t0 = t.catch(12);
+								case 21:
+									return t.next = 23, e.$wait(1e3);
+								case 23:
+									t.next = 11;
 									break;
-								case 24:
+								case 25:
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
-							[11, 18]
+						}), t, null, [
+							[12, 19]
 						])
 					})))()
 				},
@@ -14567,7 +13758,7 @@
 						var t = e.pid;
 						if(t) try
 						{
-							R.a.execSync("darwin" === process.platform ? "kill -9 " + t : "taskkill /F /PID " + t)
+							B.a.execSync(Object(P.e)() ? "kill -9 ".concat(t) : "taskkill /F /PID ".concat(t))
 						}
 						catch (t)
 						{}
@@ -14576,29 +13767,29 @@
 				setRoutes: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
 						var n, r;
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return n = G.a.join(e.filesPath, "tun2socks"), r = G.a.join(n, "set_routes.bat"), t.abrupt("return", e.sudoRunBAT('"' + r + '"'));
+									return n = Y.a.join(e.filesPath, "tun2socks"), r = Y.a.join(n, "set_routes.bat"), t.abrupt("return", e.sudoRunBAT('"'.concat(r, '"')));
 								case 3:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				getClashStatus: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
 						var n, r;
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -14611,14 +13802,14 @@
 										}
 									});
 								case 3:
-									return n = t.sent, r = n.status, t.abrupt("return", 405 === r ? x.a.CONNECTED : x.a.DISCONNECTED);
+									return n = t.sent, r = n.status, t.abrupt("return", 405 === r ? _.a.CONNECTED : _.a.DISCONNECTED);
 								case 8:
-									return t.prev = 8, t.t0 = t.catch(0), t.abrupt("return", x.a.DISCONNECTED);
+									return t.prev = 8, t.t0 = t.catch(0), t.abrupt("return", _.a.DISCONNECTED);
 								case 11:
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[0, 8]
 						])
 					})))()
@@ -14626,15 +13817,15 @@
 				checkForUpdate: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
 						var n, r, a, i, o, s, c, d;
-						return h.a.wrap((function(t)
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return n = e.$electron.remote.app.getVersion(), F.info("check for app update, current: " + n), t.next = 4, V.a.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest");
+									return n = e.$electron.remote.app.getVersion(), G.info("check for app update, current: ".concat(n)), t.next = 4, J.a.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest");
 								case 4:
 									200 === (r = t.sent)
 										.status && (a = r.data.tag_name, (i = function(e)
@@ -14650,7 +13841,7 @@
 										})(a) > i(n) && (o = "https://github.com/Fndroid/clash_for_windows_pkg/releases", e.portableMode ? (s = r.data.assets.find((function(e)
 										{
 											return /\.7z$/.test(e.name)
-										}))) && (o = s.browser_download_url) : "darwin" === process.platform ? (c = r.data.assets.find((function(e)
+										}))) && (o = s.browser_download_url) : Object(P.e)() ? (c = r.data.assets.find((function(e)
 										{
 											return /\.dmg$/.test(e.name)
 										}))) && (o = c.browser_download_url) : (d = r.data.assets.find((function(e)
@@ -14665,18 +13856,18 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				loadConfData: function()
 				{
-					F.info("load data from general config.yaml");
-					var e = G.a.join(this.clashPath, "config.yaml");
+					G.info("load data from general config.yaml");
+					var e = Y.a.join(this.clashPath, "config.yaml");
 					try
 					{
-						var t = z.a.readFileSync(e, "utf8")
+						var t = K.a.readFileSync(e, "utf8")
 							.toString(),
-							n = K.a.parse(t,
+							n = Q.a.parse(t,
 							{
 								prettyErrors: !0
 							});
@@ -14692,49 +13883,57 @@
 						if(a)
 						{
 							var i = a.start;
-							if(i) r = ", on line: " + i.line + ", at column: " + i.col
+							if(i)
+							{
+								var o = i.line,
+									s = i.col;
+								r = ", on line: ".concat(o, ", at column: ")
+									.concat(s)
+							}
 						}
 						this.appendError(
 						{
-							error: "Error: " + t + r
-						}), F.warn("fail to load general config.yaml with error: " + t)
+							error: "Error: ".concat(t)
+								.concat(r)
+						}), G.warn("fail to load general config.yaml with error: ".concat(t))
 					}
 				},
 				mkdirPathSync: function(e)
 				{
-					return e !== G.a.dirname(e) && (!!z.a.existsSync(e) || (this.mkdirPathSync(G.a.dirname(e)) ? (z.a.mkdirSync(e), !0) : void 0))
+					return e !== Y.a.dirname(e) && (!!K.a.existsSync(e) || (this.mkdirPathSync(Y.a.dirname(e)) ? (K.a.mkdirSync(e), !0) : void 0))
 				},
 				initConfigFolder: function()
 				{
 					this.mkdirPathSync(this.clashPath);
-					var e = G.a.join(this.filesPath, "default/config.yaml"),
-						t = G.a.join(this.clashPath, "config.yaml"),
-						n = G.a.join(this.clashPath, "config.yml");
-					if(z.a.existsSync(n) && (z.a.unlinkSync(t), z.a.renameSync(n, t)), z.a.existsSync(t) && "" !== z.a.readFileSync(t,
+					var e = Y.a.join(this.filesPath, "default/config.yaml"),
+						t = Y.a.join(this.clashPath, "config.yaml"),
+						n = Y.a.join(this.clashPath, "config.yml");
+					if(K.a.existsSync(n) && (K.a.unlinkSync(t), K.a.renameSync(n, t)), K.a.existsSync(t) && "" !== K.a.readFileSync(t,
 					{
 						encoding: "utf8"
 					})) try
 					{
-						var r = K.a.parseDocument(z.a.readFileSync(t, "utf8"));
+						var r = Q.a.parseDocument(K.a.readFileSync(t, "utf8"));
 						if(!r.get("mixed-port"))
 						{
 							var a = r.get("port"),
 								i = r.get("socks-port");
-							r.delete("port"), r.delete("socks-port"), z.a.writeFileSync(t, "mixed-port: " + (a || i || 7890) + "\n" + r.toString())
+							r.delete("port"), r.delete("socks-port"), K.a.writeFileSync(t, "mixed-port: ".concat(a || i || 7890, "\n")
+								.concat(r.toString()))
 						}
 					}
 					catch (t)
 					{}
-					else F.info("first luanch, creating config.yaml..."), z.a.copyFileSync(e, t);
-					var o = G.a.join(this.filesPath, "default/Country.mmdb"),
-						s = G.a.join(this.clashPath, "Country.mmdb");
-					z.a.existsSync(s) || z.a.copyFileSync(o, s);
-					var c = G.a.join(this.clashPath, "logs");
-					z.a.existsSync(c) || z.a.mkdirSync(c);
+					else G.info("first luanch, creating config.yaml..."), K.a.copyFileSync(e, t);
+					var o = Y.a.join(this.filesPath, "default/Country.mmdb"),
+						s = Y.a.join(this.clashPath, "Country.mmdb");
+					K.a.existsSync(s) || K.a.copyFileSync(o, s);
+					var c = Y.a.join(this.clashPath, "logs");
+					K.a.existsSync(c) || K.a.mkdirSync(c);
 					var d = this.profilesPath;
-					z.a.existsSync(d) || z.a.mkdirSync(d);
-					var l = G.a.join(this.profilesPath, "list.yml");
-					z.a.existsSync(l) || z.a.writeFileSync(l, "files: []\nindex: -1",
+					K.a.existsSync(d) || K.a.mkdirSync(d);
+					var l = Y.a.join(this.profilesPath, "list.yml");
+					K.a.existsSync(l) || K.a.writeFileSync(l, "files: []\nindex: -1",
 					{
 						flag: "ax"
 					})
@@ -14747,7 +13946,7 @@
 						r = e.options,
 						a = void 0 === r ?
 						{} : r;
-					return R.a.spawn(e.command, n, a)
+					return B.a.spawn(e.command, n, a)
 				},
 				spawnUserDefindExes: function()
 				{
@@ -14758,7 +13957,7 @@
 							n = void 0 === t ? "" : t;
 						try
 						{
-							e = K.a.parse(n)
+							e = Q.a.parse(n)
 								.processes || []
 						}
 						catch (t)
@@ -14770,38 +13969,37 @@
 								.pid;
 							r.push(i)
 						}
-						I.a.put(j.a.LAST_USER_EXE_PIDS, r)
+						R.a.put(z.a.LAST_USER_EXE_PIDS, r)
 					}
 				},
 				preDownloadAds: function()
 				{
-					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function e()
 					{
-						var n, r, a, i, o;
-						return h.a.wrap((function(e)
+						var t, n, r, a, i;
+						return x.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
-									return e.next = 2, V.a.get("https://raw.githubusercontent.com/Fndroid/ads/master/ads_v2.json?t=" + (new Date)
+									return e.next = 2, J.a.get("https://raw.githubusercontent.com/Fndroid/ads/master/ads_v2.json?t=" + (new Date)
 										.getTime());
 								case 2:
-									n = e.sent, r = n.status, a = n.data, 200 === r && ((i = a.feedback) && (o = i, I.a.put(j.a.AD_IMAGES, o)));
+									t = e.sent, n = t.status, r = t.data, 200 === n && ((a = r.feedback) && (i = a, R.a.put(z.a.AD_IMAGES, i)));
 								case 5:
 								case "end":
 									return e.stop()
 							}
-						}), t, e)
+						}), e)
 					})))()
 				},
 				profileUpdater: function()
 				{
 					var e = this;
-					return m()(h.a.mark((function t()
+					return w()(x.a.mark((function t()
 					{
-						var n, r, a, i, s, d, u, p, f, v, m, g, x, b, y, w, _, k, C, S, P, $;
-						return h.a.wrap((function(t)
+						var n, r, a, i, o, s, c, l, u, p, f, h, m, g, b, y, w, k;
+						return x.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -14817,12 +14015,12 @@
 									{
 										return (new Date)
 											.getTime()
-									}, r = e.profiles, a = r.files, i = void 0 === a ? [] : a, s = r.index, d = void 0 === s ? 0 : s, u = i.filter((function(t)
+									}, r = e.profiles, a = r.files, i = void 0 === a ? [] : a, o = r.index, s = void 0 === o ? 0 : o, c = i.filter((function(t)
 									{
 										var r = t.interval,
 											a = t.url,
 											i = t.time,
-											o = z.a.statSync(G.a.join(e.profilesPath, i))
+											o = K.a.statSync(Y.a.join(e.profilesPath, i))
 											.mtime;
 										if(0 < r && a && o)
 										{
@@ -14830,17 +14028,17 @@
 											var s = e.profileUpdateFailed[a];
 											if(void 0 !== s)
 											{
-												if(!T()(s)
+												if(!A()(s)
 													.add(r, "hours")
-													.isBefore(T()())) return !1;
+													.isBefore(A()())) return !1;
 												delete e.profileUpdateFailed[a]
 											}
-											return T()(o)
+											return A()(o)
 												.add(r, "hours")
-												.isBefore(T()())
+												.isBefore(A()())
 										}
 										return !1
-									})), t.next = 8, l.a.all(u.map((function(t)
+									})), t.next = 8, Promise.all(c.map((function(t)
 									{
 										return e.$downloadProfile(t.url,
 										{
@@ -14848,83 +14046,71 @@
 										}, e.confData)
 									})));
 								case 8:
-									p = t.sent, f = !0, v = !1, m = void 0, t.prev = 12, g = o()(u.entries());
-								case 14:
-									if(f = (x = g.next())
+									l = t.sent, u = d(c.entries()), t.prev = 10, u.s();
+								case 12:
+									if((p = u.n())
 										.done)
 									{
-										t.next = 36;
+										t.next = 30;
 										break
 									}
-									if(b = x.value, y = c()(b, 2), w = y[0], _ = y[1], 200 === p[w].status)
+									if(f = v()(p.value, 2), h = f[0], m = f[1], 200 === l[h].status)
 									{
-										t.next = 25;
+										t.next = 20;
 										break
 									}
-									return k = u[w].url, F.warn("fail to update profile with url: " + k), e.$showNotification("Profile update failed", k), e.profileUpdateFailed.hasOwnProperty(k) || (e.profileUpdateFailed[k] = n()), t.abrupt("continue", 33);
-								case 25:
-									return C = G.a.join(e.profilesPath, _.time), t.next = 28, e.$parseProfile(_.url, p[w].data);
+									return g = c[h].url, G.warn("fail to update profile with url: ".concat(g)), e.$showNotification("Profile update failed", g), e.profileUpdateFailed.hasOwnProperty(g) || (e.profileUpdateFailed[g] = n()), t.abrupt("continue", 28);
+								case 20:
+									return b = Y.a.join(e.profilesPath, m.time), t.next = 23, e.$parseProfile(m.url, l[h].data);
+								case 23:
+									if(y = t.sent, K.a.writeFileSync(b, y), m.time !== i[s].time)
+									{
+										t.next = 28;
+										break
+									}
+									return t.next = 28, e.refreshProfile();
 								case 28:
-									if(S = t.sent, z.a.writeFileSync(C, S), _.time !== i[d].time)
-									{
-										t.next = 33;
-										break
-									}
-									return t.next = 33, e.refreshProfile();
-								case 33:
-									f = !0, t.next = 14;
+									t.next = 12;
 									break;
-								case 36:
-									t.next = 42;
+								case 30:
+									t.next = 35;
 									break;
+								case 32:
+									t.prev = 32, t.t0 = t.catch(10), u.e(t.t0);
+								case 35:
+									return t.prev = 35, u.f(), t.finish(35);
 								case 38:
-									t.prev = 38, t.t0 = t.catch(12), v = !0, m = t.t0;
-								case 42:
-									t.prev = 42, t.prev = 43, !f && g.return && g.return();
-								case 45:
-									if(t.prev = 45, !v)
-									{
-										t.next = 48;
-										break
-									}
-									throw m;
-								case 48:
-									return t.finish(45);
-								case 49:
-									return t.finish(42);
-								case 50:
-									P = e.profiles.files, $ = (void 0 === P ? [] : P)
+									w = e.profiles.files, k = (void 0 === w ? [] : w)
 										.map((function(e)
 										{
 											return e.time
-										})), z.a.readdir(G.a.join(e.profilesPath), (function(t, n)
+										})), K.a.readdir(Y.a.join(e.profilesPath), (function(t, n)
 										{
 											!t && 0 < n.length && n.forEach((function(t)
 											{
 												if(/^\d+\.yml$/.test(t))
 												{
 													var n = !1,
-														r = z.a.statSync(G.a.join(e.profilesPath, t))
+														r = K.a.statSync(Y.a.join(e.profilesPath, t))
 														.mtimeMs;
-													r && (n = T()(r)
-														.isBefore(T()()
-															.subtract(1, "month"))), n && !$.includes(t) && z.a.unlinkSync(G.a.join(e.profilesPath, t))
+													r && (n = A()(r)
+														.isBefore(A()()
+															.subtract(1, "month"))), n && !k.includes(t) && K.a.unlinkSync(Y.a.join(e.profilesPath, t))
 												}
 											}))
 										}));
-								case 53:
+								case 41:
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
-							[12, 38, 42, 50],
-							[43, , 45, 49]
+						}), t, null, [
+							[10, 32, 35, 38]
 						])
 					})))()
 				},
 				md5Encrypt: function(e)
 				{
-					return X.a.createHash("md5")
+					return ne.a.createHash("md5")
 						.update(e)
 						.digest("hex")
 				},
@@ -14933,15 +14119,15 @@
 					var e = this;
 					if(this.clashPath && !this.configFileWatcher)
 					{
-						var t = G.a.join(this.clashPath, "config.yaml"),
-							n = te.debounce((function()
+						var t = Y.a.join(this.clashPath, "config.yaml"),
+							n = ce.debounce((function()
 							{
-								var n = z.a.readFileSync(t)
+								var n = K.a.readFileSync(t)
 									.toString();
 								e.md5Encrypt(n) === e.md5Encrypt(e.confDataString) || (e.confDataString = n, e.$showNotification("config.yaml has been changed", "", !1), e.handlerRestartClash()
 									.then((function() {})))
 							}), 1e3);
-						this.configFileWatcher = z.a.watch(t,
+						this.configFileWatcher = K.a.watch(t,
 						{}, n)
 					}
 				},
@@ -14984,78 +14170,71 @@
 			beforeMount: function()
 			{
 				var e = this;
-				return m()(h.a.mark((function t()
+				return w()(x.a.mark((function t()
 				{
-					var n, a, i, s, c, d, l, u, f, v, g, x, b, y, w, _;
-					return h.a.wrap((function(t)
+					var n, r, a, i, o, s, l, u, f, h, v, m, g;
+					return x.a.wrap((function(t)
 					{
 						for(;;) switch (t.prev = t.next)
 						{
 							case 0:
 								e.startTime = (new Date)
-									.getTime(), e.devMode = re;
+									.getTime(), e.devMode = le;
 								try
 								{
-									"win32" === process.platform && (r(), F.info("http server started at: " + J.a))
+									Object(P.f)() && (c(), G.info("http server started at: ".concat(re.a)))
 								}
 								catch (t)
 								{
-									F.info("http server failed to start with error: " + t)
+									G.info("http server failed to start with error: ".concat(t))
 								}
-								for(n = e.devMode ? "" : e.$electron.remote.app.getPath("exe"), e.setExePath(
+								n = e.devMode ? "" : e.$electron.remote.app.getPath("exe"), e.setExePath(
 								{
 									path: n
-								}), F.info("app start with mode: " + (re ? "dev" : "production")), (a = I.a.get(j.a.LAST_CLASH_PID)) && e.killSpawned(
+								}), G.info("app start with mode: ".concat(le ? "dev" : "production")), (r = R.a.get(z.a.LAST_CLASH_PID)) && e.killSpawned(
 								{
-									pid: a
-								}), i = I.a.get(j.a.LAST_USER_EXE_PIDS) || [], s = !0, c = !1, d = void 0, t.prev = 12, l = o()(i); !(s = (u = l.next())
-									.done); s = !0) f = u.value, e.killSpawned(
+									pid: r
+								}), a = R.a.get(z.a.LAST_USER_EXE_PIDS) || [], i = d(a);
+								try
 								{
-									pid: f
-								});
-								t.next = 20;
-								break;
-							case 16:
-								t.prev = 16, t.t0 = t.catch(12), c = !0, d = t.t0;
-							case 20:
-								t.prev = 20, t.prev = 21, !s && l.return && l.return();
-							case 23:
-								if(t.prev = 23, !c)
-								{
-									t.next = 26;
-									break
+									for(i.s(); !(o = i.n())
+										.done;) s = o.value, e.killSpawned(
+									{
+										pid: s
+									})
 								}
-								throw d;
-							case 26:
-								return t.finish(23);
-							case 27:
-								return t.finish(20);
-							case 28:
-								(v = e.$electron.remote.nativeTheme) && (e.setShouldUseDarkTheme(
+								catch (e)
 								{
-									shouldUseDarkTheme: v.shouldUseDarkColors
-								}), v.on("updated", (function()
+									i.e(e)
+								}
+								finally
+								{
+									i.f()
+								}(l = e.$electron.remote.nativeTheme) && (e.setShouldUseDarkTheme(
+								{
+									shouldUseDarkTheme: l.shouldUseDarkColors
+								}), l.on("updated", (function()
 								{
 									e.setShouldUseDarkTheme(
 									{
-										shouldUseDarkTheme: v.shouldUseDarkColors
+										shouldUseDarkTheme: l.shouldUseDarkColors
 									})
-								}))), e.$electron.ipcRenderer.send("clash-core-status-change", 0), g = function()
+								}))), e.$electron.ipcRenderer.send("clash-core-status-change", 0), u = function()
 								{
-									var t = m()(h.a.mark((function t()
+									var t = w()(x.a.mark((function t()
 									{
-										return h.a.wrap((function(t)
+										return x.a.wrap((function(t)
 										{
 											for(;;) switch (t.prev = t.next)
 											{
 												case 0:
-													if(F.info("app exiting, turn off system proxy"), e.killSpawned(e.clash), e.clash = null, e.setClashAxiosClient(
+													if(G.info("app exiting, turn off system proxy"), e.killSpawned(e.clash), e.clash = null, e.setClashAxiosClient(
 													{
 														client: null
 													}), e.setClashGotClient(
 													{
 														client: null
-													}), t.prev = 5, !I.a.get(j.a.SYSTEM_PROXY))
+													}), t.prev = 5, !R.a.get(z.a.SYSTEM_PROXY))
 													{
 														t.next = 10;
 														break
@@ -15072,7 +14251,7 @@
 												case "end":
 													return t.stop()
 											}
-										}), t, e, [
+										}), t, null, [
 											[5, 12, 14, 17]
 										])
 									})));
@@ -15080,16 +14259,16 @@
 									{
 										return t.apply(this, arguments)
 									}
-								}(), e.$electron.ipcRenderer.on("app-exit", g), e.$electron.ipcRenderer.on("app-resume", (function()
+								}(), e.$electron.ipcRenderer.on("app-exit", u), e.$electron.ipcRenderer.on("app-resume", (function()
 								{
-									e.tun2socks && (F.info("system resume, restart tun2socks"), e.killSpawned(e.tun2socks), e.tun2socks = null, e.spawnTun2socks()), e.refreshProfile()
+									e.tun2socks && (G.info("system resume, restart tun2socks"), e.killSpawned(e.tun2socks), e.tun2socks = null, e.spawnTun2socks()), e.refreshProfile()
 										.then((function() {}))
 										.catch((function() {}))
 								})), e.$electron.ipcRenderer.on("system-proxy-changed", function()
 								{
-									var t = m()(h.a.mark((function t(n, r)
+									var t = w()(x.a.mark((function t(n, r)
 									{
-										return h.a.wrap((function(t)
+										return x.a.wrap((function(t)
 										{
 											for(;;) switch (t.prev = t.next)
 											{
@@ -15101,12 +14280,12 @@
 														t.next = 5;
 														break
 													}
-													I.a.put(j.a.SYSTEM_PROXY, r);
+													R.a.put(z.a.SYSTEM_PROXY, r);
 												case 5:
 												case "end":
 													return t.stop()
 											}
-										}), t, e)
+										}), t)
 									})));
 									return function()
 									{
@@ -15123,10 +14302,10 @@
 									e.switchMode(n)
 								})), e.$electron.ipcRenderer.on("app-open", function()
 								{
-									var t = m()(h.a.mark((function t(n, r)
+									var t = w()(x.a.mark((function t(n, r)
 									{
 										var a;
-										return h.a.wrap((function(t)
+										return x.a.wrap((function(t)
 										{
 											for(;;) switch (t.prev = t.next)
 											{
@@ -15142,12 +14321,12 @@
 														t.next = 4;
 														break
 													}
-													return t.next = 4, g();
+													return t.next = 4, u();
 												case 4:
 												case "end":
 													return t.stop()
 											}
-										}), t, e)
+										}), t)
 									})));
 									return function()
 									{
@@ -15156,42 +14335,43 @@
 								}()), e.$electron.ipcRenderer.on("menu-item-change", (function(t, n)
 								{
 									e.selected(n)
-								})), e.$electron.ipcRenderer.on("window-event", (function(e, t) {})), x = e.$electron.remote.app.getPath("home"), b = G.a.join(x, "/.config/clash"), z.a.existsSync(G.a.join(e.filesPath, "config.yaml")) && (b = e.filesPath, e.portableMode = !0), e.userPath = x, e.setClashPath(
+								})), e.$electron.ipcRenderer.on("window-event", (function(e, t) {})), f = e.$electron.remote.app.getPath("home"), h = Y.a.join(f, "/.config/clash"), K.a.existsSync(Y.a.join(e.filesPath, "config.yaml")) && (h = e.filesPath, e.portableMode = !0), e.userPath = f, e.setClashPath(
 								{
-									path: b
+									path: h
 								}), e.setProfilesPath(
 								{
-									path: G.a.join(e.clashPath, "profiles")
+									path: Y.a.join(e.clashPath, "profiles")
 								});
 								try
 								{
-									y = z.a.readFileSync(G.a.join(e.clashPath, "cfw-settings.yaml"))
-										.toString(), (w = K.a.parse(y)) && (void 0 === w.showNewVersionIcon ? e.setSettingsOjbect(
+									v = K.a.readFileSync(Y.a.join(e.clashPath, "cfw-settings.yaml"))
+										.toString(), (m = Q.a.parse(v)) && (void 0 === m.showNewVersionIcon ? e.setSettingsOjbect(
 										{
-											obj: p()(
-											{}, w,
+											obj: p(p(
+											{}, m),
+											{},
 											{
 												showNewVersionIcon: !0
 											})
 										}) : e.setSettingsOjbect(
 										{
-											obj: w
+											obj: m
 										}))
 								}
 								catch (t)
 								{
 									console.error(t)
 								}
-								return t.next = 50, e.handlerRestartClash();
-							case 50:
-								e.showStartup || (e.showStartup = !0, e.$showNotification("Clash 已经在后台运行", "享受你的自由时光！")), (_ = function()
+								return t.next = 33, e.handlerRestartClash();
+							case 33:
+								e.showStartup || (e.showStartup = !0, e.$showNotification("Clash 已经在后台运行", "享受你的自由时光！")), (g = function()
 									{
-										var t = Object(Z.a)();
+										var t = Object(ae.a)();
 										t && t !== e.detectedInterfaceName && e.setDetectedInterfaceName(
 										{
 											interfaceName: t
 										})
-									})(), setInterval(_, 3e3), e.spawnUserDefindExes(), e.checkForUpdate()
+									})(), setInterval(g, 3e3), e.spawnUserDefindExes(), e.checkForUpdate()
 									.then((function() {}))
 									.catch((function(e)
 									{
@@ -15201,23 +14381,20 @@
 									.catch((function(e)
 									{
 										return console.error(e)
-									})), setInterval(e.profileUpdater, 6e4), e.profileUpdater(), ie.bind(["command+f12", "ctrl+f12"], (function()
+									})), setInterval(e.profileUpdater, 6e4), e.profileUpdater(), pe.bind(["command+f12", "ctrl+f12"], (function()
 									{
 										return e.$electron.remote.getCurrentWindow()
 											.webContents.toggleDevTools(), !1
 									}));
-							case 61:
+							case 44:
 							case "end":
 								return t.stop()
 						}
-					}), t, e, [
-						[12, 16, 20, 28],
-						[21, , 23, 27]
-					])
+					}), t)
 				})))()
 			}
 		},
-		se = (n(227), n(229), n(231), Object(k.a)(oe, (function()
+		he = (n(126), n(128), n(130), Object(E.a)(fe, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -15296,33 +14473,195 @@
 					click: e.showLogsFolder
 				}
 			}, [e._v("\n        " + e._s(e.statusHint) + "\n      ")])])])], 1)
-		}), [], !1, null, "04dc0df5", null));
-	se.options.__file = "LandingPage.vue", t.default = se.exports
+		}), [], !1, null, "18e9dcec", null));
+	he.options.__file = "LandingPage.vue", t.default = he.exports
 }, function(e, t, n)
 {
 	"use strict";
-	var r = Math.floor;
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function i(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function o(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function s(e, t)
+	{
+		var n;
+		if("undefined" == typeof Symbol || null == e[Symbol.iterator])
+		{
+			if(Array.isArray(e) || (n = function(e, t)
+			{
+				if(e)
+				{
+					if("string" == typeof e) return c(e, t);
+					var n = Object.prototype.toString.call(e)
+						.slice(8, -1);
+					return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? c(e, t) : void 0
+				}
+			}(e)) || t && e && "number" == typeof e.length)
+			{
+				n && (e = n);
+				var r = 0,
+					a = function() {};
+				return {
+					s: a,
+					n: function()
+					{
+						return r >= e.length ?
+						{
+							done: !0
+						} :
+						{
+							done: !1,
+							value: e[r++]
+						}
+					},
+					e: function(e)
+					{
+						throw e
+					},
+					f: a
+				}
+			}
+			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+		}
+		var i, o = !0,
+			s = !1;
+		return {
+			s: function()
+			{
+				n = e[Symbol.iterator]()
+			},
+			n: function()
+			{
+				var e = n.next();
+				return o = e.done, e
+			},
+			e: function(e)
+			{
+				s = !0, i = e
+			},
+			f: function()
+			{
+				try
+				{
+					o || null == n.return || n.return()
+				}
+				finally
+				{
+					if(s) throw i
+				}
+			}
+		}
+	}
+
+	function c(e, t)
+	{
+		(null == t || t > e.length) && (t = e.length);
+		for(var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
+		return r
+	}
+
+	function d(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function l(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? d(Object(t), !0)
+			.forEach((function(n)
+			{
+				g()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : d(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+	var u = Math.floor;
 	n.r(t);
-	var a = n(51),
-		i = n.n(a),
-		o = n(20),
-		s = n.n(o),
-		c = n(0),
-		d = n.n(c),
-		l = n(1),
-		u = n.n(l),
-		p = n(2),
+	var p = n(0),
 		f = n.n(p),
-		h = n(13),
+		h = n(1),
 		v = n.n(h),
-		m = n(11),
+		m = n(2),
 		g = n.n(m),
-		x = n(4),
-		b = n(109),
-		y = n.n(b),
-		w = n(41),
-		_ = n.n(w),
-		k = {
+		b = n(14),
+		x = n.n(b),
+		y = n(12),
+		w = n.n(y),
+		k = n(5),
+		_ = n(80),
+		C = n.n(_),
+		O = {
 			props: ["type", "data"],
 			data: function()
 			{
@@ -15355,8 +14694,21 @@
 					proxyWsHeaders: ""
 				}
 			},
-			computed: f()(
-			{}, Object(x.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? r(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(k.mapState)(
 			{})),
 			methods:
 			{
@@ -15427,7 +14779,7 @@
 						"obfs-host" in this.data && (this.proxyObfshost = this.data["obfs-host"]), "tls" in this.data && (this.proxyTls = this.data.tls), "cipher" in this.data && (this.proxyChipher = this.data.cipher), "uuid" in this.data && (this.proxyUuid = this.data.uuid), "alterId" in this.data && (this.proxyAlterid = this.data.alterId), "skip-cert-verify" in this.data && (this.proxySkipCertVerify = this.data["skip-cert-verify"]), "network" in this.data && (this.proxyNetwork = this.data.network), "ws-path" in this.data && (this.proxyWsPath = this.data["ws-path"]);
 						try
 						{
-							"ws-headers" in this.data && (this.proxyWsHeaders = _()(this.data["ws-headers"]))
+							"ws-headers" in this.data && (this.proxyWsHeaders = JSON.stringify(this.data["ws-headers"]))
 						}
 						catch (t)
 						{}
@@ -15437,8 +14789,8 @@
 				}
 			}
 		},
-		C = (n(273), n(275), n(3)),
-		S = Object(C.a)(k, (function()
+		P = (n(164), n(166), n(4)),
+		S = Object(P.a)(O, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -16154,20 +15506,20 @@
 			}, [e._v("确认")])])])
 		}), [], !1, null, "15e4a5f6", null);
 	S.options.__file = "AppendProxyView.vue";
-	var P = S.exports,
-		T = n(6),
-		$ = n.n(T),
-		E = n(5),
-		A = n.n(E),
-		O = "proxy-groups",
+	var j = S.exports,
+		E = n(6),
+		T = n.n(E),
+		$ = n(3),
+		D = n.n($),
+		A = "proxy-groups",
 		I = "proxies",
-		j = "rules",
-		D = {
+		L = "rules",
+		N = {
 			props: ["profileName"],
 			components:
 			{
-				draggable: y.a,
-				AppendProxyView: P
+				draggable: C.a,
+				AppendProxyView: j
 			},
 			data: function()
 			{
@@ -16185,8 +15537,21 @@
 					saveBtn: "保存"
 				}
 			},
-			computed: f()(
-			{}, Object(x.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? a(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : a(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(k.mapState)(
 			{
 				clashPath: function(e)
 				{
@@ -16205,13 +15570,13 @@
 				},
 				removeFromGroup: function(e, t)
 				{
-					this.conf[O][e].proxies.splice(t, 1)
+					this.conf[A][e].proxies.splice(t, 1)
 				},
 				removeFromProxies: function(e, t)
 				{
 					e.stopPropagation();
 					var n = this.conf[I][t].name;
-					this.conf[I].splice(t, 1), this.conf[O].forEach((function(e)
+					this.conf[I].splice(t, 1), this.conf[A].forEach((function(e)
 					{
 						e.proxies = e.proxies.filter((function(e)
 						{
@@ -16222,8 +15587,8 @@
 				removeGroup: function(e, t)
 				{
 					e.stopPropagation();
-					var n = this.conf[O][t].name;
-					this.conf[O].splice(t, 1), this.conf[O].forEach((function(e)
+					var n = this.conf[A][t].name;
+					this.conf[A].splice(t, 1), this.conf[A].forEach((function(e)
 					{
 						e.proxies = e.proxies.filter((function(e)
 						{
@@ -16233,7 +15598,7 @@
 				},
 				renameGroup: function(e, t)
 				{
-					this.conf[O].forEach((function(n)
+					this.conf[A].forEach((function(n)
 					{
 						n.proxies = n.proxies.map((function(n)
 						{
@@ -16243,27 +15608,31 @@
 				},
 				renameRule: function(e, t)
 				{
-					this.conf[j] = this.conf[j].map((function(n)
+					this.conf[L] = this.conf[L].map((function(n)
 					{
 						if(/\s*MATCH\s*,([^,]*)($|,*|\/\/|#)/.test(n))
 						{
-							if(RegExp.$1.trim() === e.trim()) return "MATCH," + t + RegExp.$2
+							if(RegExp.$1.trim() === e.trim()) return "MATCH,".concat(t)
+								.concat(RegExp.$2)
 						}
-						else if(/([^,]*?),([^,]*?),([^,]*)($|,*|\/\/|#)/.test(n) && RegExp.$3.trim() === e.trim()) return RegExp.$1 + "," + RegExp.$2 + "," + t + RegExp.$4;
+						else if(/([^,]*?),([^,]*?),([^,]*)($|,*|\/\/|#)/.test(n) && RegExp.$3.trim() === e.trim()) return "".concat(RegExp.$1, ",")
+							.concat(RegExp.$2, ",")
+							.concat(t)
+							.concat(RegExp.$4);
 						return n
 					}))
 				},
 				handleInputDone: function(e)
 				{
 					if(this.addType = -1, 0 === e.type)
-						if(-1 === e.index) this.conf[O].push(e.content);
+						if(-1 === e.index) this.conf[A].push(e.content);
 						else
 						{
-							var t = this.conf[O][e.index].proxies,
+							var t = this.conf[A][e.index].proxies,
 								n = e.content,
-								r = this.conf[O][e.index].name,
+								r = this.conf[A][e.index].name,
 								a = e.content.name;
-							n.proxies = t, this.conf[O][e.index] = n, this.renameGroup(r, a), this.renameRule(r, a)
+							n.proxies = t, this.conf[A][e.index] = n, this.renameGroup(r, a), this.renameRule(r, a)
 						}
 					else if(1 === e.type)
 						if(-1 === e.index) this.conf[I].push(e.content);
@@ -16283,7 +15652,7 @@
 					var n = e.type;
 					return ["url-test", "fallback", "select", "load-balance"].includes(n) ? (this.addType = 0, e._index = t, void(this.addData = e)) : void this.$alert(
 					{
-						content: "Could not edit proxy gorup type [" + n + "]."
+						content: "Could not edit proxy gorup type [".concat(n, "].")
 					})
 				},
 				newProxy: function()
@@ -16295,16 +15664,16 @@
 					var n = e.type;
 					return ["ss", "vmess", "http", "socks"].includes(n) ? (this.addType = 1, e._index = t, void(this.addData = e)) : void this.$alert(
 					{
-						content: "Could not edit proxy type [" + n + "]."
+						content: "Could not edit proxy type [".concat(n, "].")
 					})
 				},
 				loadData: function()
 				{
-					var e = A.a.join(this.profilesPath, this.profileName),
-						t = $.a.readFileSync(e, "utf8");
+					var e = D.a.join(this.profilesPath, this.profileName),
+						t = T.a.readFileSync(e, "utf8");
 					try
 					{
-						this.conf = g.a.parse(t)
+						this.conf = w.a.parse(t)
 					}
 					catch (t)
 					{}
@@ -16313,8 +15682,8 @@
 				{
 					if("保存" === this.saveBtn) try
 					{
-						var e = A.a.join(this.profilesPath, this.profileName);
-						$.a.writeFileSync(e, g.a.stringify(this.conf)), this.$emit("done")
+						var e = D.a.join(this.profilesPath, this.profileName);
+						T.a.writeFileSync(e, w.a.stringify(this.conf)), this.$emit("done")
 					}
 					catch (e)
 					{
@@ -16327,7 +15696,7 @@
 				this.loadData()
 			}
 		},
-		N = (n(277), n(279), Object(C.a)(D, (function()
+		M = (n(168), n(170), Object(P.a)(N, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -16458,11 +15827,15 @@
 					{
 						innerHTML: e._s(e.$parseEmoji(t.name, 20, 0))
 					}
-				}), e._v(" "), n("img",
+				}), e._v(" "), n("svg",
 				{
 					attrs:
 					{
-						src: "static/imgs/delete-icon.png"
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white",
+						width: "18px",
+						height: "18px"
 					},
 					on:
 					{
@@ -16471,7 +15844,20 @@
 							return e.removeGroup(t, r)
 						}
 					}
-				})])
+				}, [n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+					}
+				})])])
 			})), 0), e._v(" "), n("div",
 			{
 				staticClass: "section-title"
@@ -16527,11 +15913,15 @@
 					{
 						innerHTML: e._s(e.$parseEmoji(t.name, 20, 0))
 					}
-				}), e._v(" "), n("img",
+				}), e._v(" "), n("svg",
 				{
 					attrs:
 					{
-						src: "static/imgs/delete-icon.png"
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white",
+						width: "18px",
+						height: "18px"
 					},
 					on:
 					{
@@ -16540,7 +15930,20 @@
 							return e.removeFromProxies(t, r)
 						}
 					}
-				})])
+				}, [n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+					}
+				})])])
 			})), 0)], 1), e._v(" "), n("div",
 			{
 				staticClass: "proxy-group"
@@ -16598,11 +16001,15 @@
 						{
 							innerHTML: e._s(e.$parseEmoji(t, 20, 0))
 						}
-					}), e._v(" "), n("img",
+					}), e._v(" "), n("svg",
 					{
 						attrs:
 						{
-							src: "static/imgs/delete-icon.png"
+							xmlns: "http://www.w3.org/2000/svg",
+							viewBox: "0 0 24 24",
+							fill: "white",
+							width: "18px",
+							height: "18px"
 						},
 						on:
 						{
@@ -16611,7 +16018,20 @@
 								return e.removeFromGroup(r, a)
 							}
 						}
-					})])
+					}, [n("path",
+					{
+						attrs:
+						{
+							d: "M0 0h24v24H0V0z",
+							fill: "none"
+						}
+					}), e._v(" "), n("path",
+					{
+						attrs:
+						{
+							d: "M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+						}
+					})])])
 				})), 0)], 1)
 			})), 0)]) : e._e(), e._v(" "), -1 === e.addType ? e._e() : n("append-proxy-view",
 			{
@@ -16638,16 +16058,12 @@
 			{
 				staticClass: "section-title"
 			}, [n("h2", [e._v("Special Proxies")])])
-		}], !1, null, "48392b2b", null));
-	N.options.__file = "ConfigView.vue";
-	var L = N.exports,
-		M = n(14),
-		R = n.n(M),
-		F = n(26),
-		U = n.n(F),
-		z = n(24),
-		H = n.n(z),
-		G = (n(18),
+		}], !1, null, "3c8e2f94", null));
+	M.options.__file = "ConfigView.vue";
+	var R = M.exports,
+		z = n(20),
+		F = n.n(z),
+		U = (n(19),
 		{
 			props: [],
 			data: function()
@@ -16660,8 +16076,21 @@
 					content: ""
 				}
 			},
-			computed: f()(
-			{}, Object(x.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? i(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : i(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(k.mapState)(
 			{
 				clashAxiosClient: function(e)
 				{
@@ -16694,11 +16123,11 @@
 				this.clashAxiosClient.get("/proxies")
 					.then((function(t)
 					{
-						200 === t.status && (e.proxyGroups = H()(t.data.proxies))
+						200 === t.status && (e.proxyGroups = Object.keys(t.data.proxies))
 					}))
 			}
 		}),
-		B = (n(281), n(283), Object(C.a)(G, (function()
+		H = (n(172), n(174), Object(P.a)(U, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -16843,11 +16272,11 @@
 				}, [e._v("\n                " + e._s(t) + "\n              ")])
 			})), 0)])])])])])], 1)
 		}), [], !1, null, "3b2a837a", null));
-	B.options.__file = "RuleAlterView.vue";
-	var V = B.exports,
-		W = n(21),
-		K = [],
-		q = {
+	H.options.__file = "RuleAlterView.vue";
+	var V = H.exports,
+		B = n(18),
+		G = [],
+		W = {
 			props: ["profileName"],
 			data: function()
 			{
@@ -16868,8 +16297,21 @@
 			},
 			watch:
 			{},
-			computed: f()(
-			{}, Object(x.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? o(Object(t), !0)
+					.forEach((function(n)
+					{
+						g()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : o(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(k.mapState)(
 			{
 				clashPath: function(e)
 				{
@@ -16892,40 +16334,38 @@
 			{
 				handleRuleClick: function(e)
 				{
-					var t = this,
-						n = e.type,
-						r = e.payload;
-					return u()(d.a.mark((function e()
+					var t = this;
+					return v()(f.a.mark((function n()
 					{
-						var a;
-						return d.a.wrap((function(e)
+						var r, a, i;
+						return f.a.wrap((function(n)
 						{
-							for(;;) switch (e.prev = e.next)
+							for(;;) switch (n.prev = n.next)
 							{
 								case 0:
-									if("RULE-SET" !== n)
+									if(r = e.type, a = e.payload, "RULE-SET" !== r)
 									{
-										e.next = 12;
+										n.next = 13;
 										break
 									}
-									return e.prev = 1, e.next = 4, t.clashAxiosClient.put("/providers/rules/" + encodeURIComponent(r));
-								case 4:
-									a = e.sent, 204 === a.status ? (t.loadData(), t.$showNotification("Success", "RULE-SET [" + r + "] has been updated!")) : t.$showNotification("Failed", "RULE-SET [" + r + "] update failed(Server Error)!"), e.next = 12;
+									return n.prev = 2, n.next = 5, t.clashAxiosClient.put("/providers/rules/".concat(encodeURIComponent(a)));
+								case 5:
+									i = n.sent, 204 === i.status ? (t.loadData(), t.$showNotification("Success", "RULE-SET [".concat(a, "] has been updated!"))) : t.$showNotification("Failed", "RULE-SET [".concat(a, "] update failed(Server Error)!")), n.next = 13;
 									break;
-								case 9:
-									e.prev = 9, e.t0 = e.catch(1), t.$showNotification("Failed", "RULE-SET [" + r + "] update failed(Network Error)!");
-								case 12:
+								case 10:
+									n.prev = 10, n.t0 = n.catch(2), t.$showNotification("Failed", "RULE-SET [".concat(a, "] update failed(Network Error)!"));
+								case 13:
 								case "end":
-									return e.stop()
+									return n.stop()
 							}
-						}), e, t, [
-							[1, 9]
+						}), n, null, [
+							[2, 10]
 						])
 					})))()
 				},
 				fromNow: function(e)
 				{
-					return v()(e)
+					return x()(e)
 						.fromNow()
 				},
 				providerOfPayload: function(e)
@@ -16933,46 +16373,42 @@
 					var t = this.providers[e];
 					return t || null
 				},
-				iconPath: function(e)
-				{
-					var t = ["top_icon.png", "bottom_icon.png", "rule-delete-icon.png", "top_icon_dark.png", "bottom_icon_dark.png", "rule-delete-icon_dark.png"].map((function(e)
-					{
-						return "static/imgs/" + e
-					}));
-					return "dark" === this.theme ? t[e + 3] : t[e]
-				},
 				moveItem: function(e, t, n)
 				{
 					this.removeItem(t, n), e ? this.memoryData.unshift(t) : this.memoryData.push(t), this.listData = this.memoryData.slice(0, 100)
 				},
 				randomBGC: function(e)
 				{
-					var t = K.find((function(t)
+					var t = G.find((function(t)
 					{
 						return t.type === e
 					}));
 					if(t) return {
-						"background-color": "rgb(" + t.r + "," + t.g + "," + t.b + ")"
+						"background-color": "rgb(".concat(t.r, ",")
+							.concat(t.g, ",")
+							.concat(t.b, ")")
 					};
-					var n = r(100 * Math.random() + 10),
-						a = r(100 * Math.random() + 10),
-						i = r(100 * Math.random() + 10);
-					return K.push(
+					var n = u(100 * Math.random() + 10),
+						r = u(100 * Math.random() + 10),
+						a = u(100 * Math.random() + 10);
+					return G.push(
 					{
 						type: e,
 						r: n,
-						g: a,
-						b: i
+						g: r,
+						b: a
 					}),
 					{
-						"background-color": "rgb(" + n + "," + a + "," + i + ")"
+						"background-color": "rgb(".concat(n, ",")
+							.concat(r, ",")
+							.concat(a, ")")
 					}
 				},
 				inputDone: function(e)
 				{
 					this.showAlterModel = !1, e && (this.memoryData.unshift(e), this.listData.unshift(e))
 				},
-				handleFilterKeywordInput: W.debounce((function(e)
+				handleFilterKeywordInput: B.debounce((function(e)
 				{
 					var t = e.target;
 					if(t)
@@ -16984,25 +16420,30 @@
 				applyRules: function()
 				{
 					var e = this;
-					return u()(d.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
 						var n, r, a, i, o;
-						return d.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
 									try
 									{
-										n = JSON.parse(_()(e.memoryData)), r = n.map((function(e)
+										n = JSON.parse(JSON.stringify(e.memoryData)), r = n.map((function(e)
 											{
 												var t = e.type,
 													n = e.payload,
 													r = e.proxy,
-													a = e.params;
-												return n ? t + "," + n + "," + r + (void 0 === a ? "" : a) : t + "," + r
-											})), a = A.a.join(e.profilesPath, e.profileName), i = $.a.readFileSync(a, "utf8"), (o = g.a.parse(i))
-											.rules = r, $.a.writeFileSync(a, g.a.stringify(o)), e.$emit("done"), e.saveBtnText = "Done"
+													a = e.params,
+													i = void 0 === a ? "" : a;
+												return n ? "".concat(t, ",")
+													.concat(n, ",")
+													.concat(r)
+													.concat(i) : "".concat(t, ",")
+													.concat(r)
+											})), a = D.a.join(e.profilesPath, e.profileName), i = T.a.readFileSync(a, "utf8"), (o = w.a.parse(i))
+											.rules = r, T.a.writeFileSync(a, w.a.stringify(o)), e.$emit("done"), e.saveBtnText = "Done"
 									}
 									catch (t)
 									{
@@ -17016,7 +16457,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				removeItem: function(e, t)
@@ -17029,20 +16470,20 @@
 				loadData: function()
 				{
 					var e = this;
-					return u()(d.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						var n, r, a, i, o, s, c, l, u, p, f, h;
-						return d.a.wrap((function(t)
+						var n, r, a, i, o, s, c, d, l, u, p, h;
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return n = A.a.join(e.profilesPath, e.profileName), r = $.a.readFileSync(n, "utf8"), t.prev = 2, t.next = 5, R.a.all([e.clashAxiosClient.get("/rules"), e.clashAxiosClient.get("/providers/rules")]);
+									return n = D.a.join(e.profilesPath, e.profileName), r = T.a.readFileSync(n, "utf8"), t.prev = 2, t.next = 5, Promise.all([e.clashAxiosClient.get("/rules"), e.clashAxiosClient.get("/providers/rules")]);
 								case 5:
-									a = t.sent, i = U()(a, 2), o = i[0].data, s = void 0 === o ?
-										{} : o, c = i[1].data, l = (c = void 0 === c ?
+									a = t.sent, i = F()(a, 2), o = i[0].data, s = void 0 === o ?
+										{} : o, c = i[1].data, d = (c = void 0 === c ?
 										{} : c)
-										.providers, e.providers = l, u = s.rules, void 0 === u ? [] : u, p = g.a.parse(r), e.memoryData = p.rules.map((function(e)
+										.providers, e.providers = d, l = s.rules, void 0 === l ? [] : l, u = w.a.parse(r), e.memoryData = u.rules.map((function(e)
 										{
 											return /^([^\\#].+?),(.+?),(.+?)(?=$|,|#|\/\/)(.*)$/.test(e) ?
 											{
@@ -17060,9 +16501,9 @@
 										.filter((function(e)
 										{
 											return e
-										})), "" === e.filterKeywords ? e.listData = e.memoryData.slice(0, 100) : (f = e.filterKeywords.trim()
+										})), "" === e.filterKeywords ? e.listData = e.memoryData.slice(0, 100) : (p = e.filterKeywords.trim()
 											.split(/\s+/)
-											.join("|"), h = new RegExp(f, "i"), e.listData = e.memoryData.filter((function(e)
+											.join("|"), h = new RegExp(p, "i"), e.listData = e.memoryData.filter((function(e)
 											{
 												return h.test(e.proxy) || h.test(e.payload) || h.test(e.type)
 											}))
@@ -17074,7 +16515,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[2, 19]
 						])
 					})))()
@@ -17086,7 +16527,7 @@
 			},
 			destroyed: function() {}
 		},
-		Y = (n(285), n(287), Object(C.a)(q, (function()
+		K = (n(176), n(178), Object(P.a)(W, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -17208,12 +16649,15 @@
 					{
 						innerHTML: e._s(e.$parseEmoji(t.proxy, 22, 0, 0))
 					}
-				}, [e._v("\n          " + e._s(t.proxy) + "\n        ")]), e._v(" "), n("img",
+				}, [e._v("\n          " + e._s(t.proxy) + "\n        ")]), e._v(" "), n("svg",
 				{
-					staticClass: "icon icon-left",
+					staticClass: "icon",
 					attrs:
 					{
-						src: e.iconPath(0)
+						xmlns: "http://www.w3.org/2000/svg",
+						"enable-background": "new 0 0 24 24",
+						viewBox: "0 0 24 24",
+						fill: "dark" === e.theme ? "white" : "black"
 					},
 					on:
 					{
@@ -17222,12 +16666,29 @@
 							return n.stopPropagation(), e.moveItem(!0, t, r)
 						}
 					}
-				}), e._v(" "), n("img",
+				}, [n("rect",
 				{
-					staticClass: "icon icon-middle",
 					attrs:
 					{
-						src: e.iconPath(1)
+						fill: "none",
+						height: "24",
+						width: "24"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M5.71,9.7L5.71,9.7c0.39,0.39,1.02,0.39,1.41,0L11,5.83V21c0,0.55,0.45,1,1,1h0c0.55,0,1-0.45,1-1V5.83l3.88,3.88 c0.39,0.39,1.02,0.39,1.41,0l0,0c0.39-0.39,0.39-1.02,0-1.41L12.7,2.7c-0.39-0.39-1.02-0.39-1.41,0L5.71,8.29 C5.32,8.68,5.32,9.32,5.71,9.7z"
+					}
+				})]), e._v(" "), n("svg",
+				{
+					staticClass: "icon",
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						"enable-background": "new 0 0 24 24",
+						viewBox: "0 0 24 24",
+						fill: "dark" === e.theme ? "white" : "black"
 					},
 					on:
 					{
@@ -17236,12 +16697,28 @@
 							return n.stopPropagation(), e.moveItem(!1, t, r)
 						}
 					}
-				}), e._v(" "), n("img",
+				}, [n("rect",
 				{
-					staticClass: "icon icon-right",
 					attrs:
 					{
-						src: e.iconPath(2)
+						fill: "none",
+						height: "24",
+						width: "24"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M18.3,14.29L18.3,14.29c-0.39-0.39-1.02-0.39-1.41,0L13,18.17V3c0-0.55-0.45-1-1-1h0c-0.55,0-1,0.45-1,1v15.18l-3.88-3.88 c-0.39-0.39-1.02-0.39-1.41,0l0,0c-0.39,0.39-0.39,1.02,0,1.41l5.59,5.59c0.39,0.39,1.02,0.39,1.41,0l5.59-5.59 C18.68,15.32,18.68,14.68,18.3,14.29z"
+					}
+				})]), e._v(" "), n("svg",
+				{
+					staticClass: "icon",
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "dark" === e.theme ? "white" : "black"
 					},
 					on:
 					{
@@ -17250,7 +16727,20 @@
 							return n.stopPropagation(), e.removeItem(t, r)
 						}
 					}
-				})])])
+				}, [n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zm3.17-7.83c.39-.39 1.02-.39 1.41 0L12 12.59l1.42-1.42c.39-.39 1.02-.39 1.41 0 .39.39.39 1.02 0 1.41L13.41 14l1.42 1.42c.39.39.39 1.02 0 1.41-.39.39-1.02.39-1.41 0L12 15.41l-1.42 1.42c-.39.39-1.02.39-1.41 0-.39-.39-.39-1.02 0-1.41L10.59 14l-1.42-1.42c-.39-.38-.39-1.02 0-1.41zM15.5 4l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1h-2.5z"
+					}
+				})])])])
 			})), 0), e._v(" "), e.showAlterModel ? n("rule-alter-view",
 			{
 				on:
@@ -17262,15 +16752,15 @@
 					done: e.inputDone
 				}
 			}) : e._e()], 1)
-		}), [], !1, null, "15c44713", null));
-	Y.options.__file = "RuleView.vue";
-	var X = Y.exports,
-		J = n(6),
-		Z = n(5),
-		Q = n(18),
-		ee = n(21),
-		te = Q.CancelToken,
-		ne = {
+		}), [], !1, null, "0090abcc", null));
+	K.options.__file = "RuleView.vue";
+	var q = K.exports,
+		Y = n(6),
+		X = n(3),
+		J = n(19),
+		Z = n(18),
+		Q = J.CancelToken,
+		ee = {
 			props: ["updateUrl"],
 			data: function()
 			{
@@ -17289,9 +16779,9 @@
 			},
 			components:
 			{
-				draggable: y.a,
-				ConfigView: L,
-				RuleView: X
+				draggable: C.a,
+				ConfigView: R,
+				RuleView: q
 			},
 			directives:
 			{
@@ -17303,8 +16793,8 @@
 					}
 				}
 			},
-			computed: f()(
-			{}, Object(x.mapState)(
+			computed: l(l(
+			{}, Object(k.mapState)(
 			{
 				clashPath: function(e)
 				{
@@ -17330,7 +16820,8 @@
 				{
 					return e.app.settings
 				}
-			}),
+			})),
+			{},
 			{
 				profiles:
 				{
@@ -17378,19 +16869,64 @@
 				getHintClass: function()
 				{
 					var e = ["hint-normal"];
-					return 1 === this.btnType && e.push("hint-error"), 2 === this.btnType && e.push("hint-success-" + this.theme), e
+					return 1 === this.btnType && e.push("hint-error"), 2 === this.btnType && e.push("hint-success-".concat(this.theme)), e
 				}
 			}),
-			methods: f()(
-			{}, Object(x.mapMutations)(
+			methods: l(l(
+			{}, Object(k.mapMutations)(
 			{
 				changeProfiles: "CHANGE_PROFILES",
 				changeProfilesIndex: "CHANGE_PROFILES_INDEX",
 				changeProfile: "CHANGE_PROFILE",
 				appendProfile: "APPEND_PROFILE",
 				deleteProfile: "DELETE_PROFILE"
-			}),
+			})),
+			{},
 			{
+				parserHint: function(e)
+				{
+					var t = e.url,
+						n = e.reg;
+					return t ? "url (".concat(t.slice(0, 8), "...")
+						.concat(t.slice(-20), ")") : n ? "reg (".concat(n, ")") : ""
+				},
+				matchingParserCount: function(e)
+				{
+					var t = this.settings.profileParsersText,
+						n = [];
+					if(t) try
+					{
+						var r = w.a.parse(t)
+							.parsers;
+						n = (void 0 === r ? [] : r) || []
+					}
+					catch (t)
+					{}
+					var a = e.url;
+					return a ? n.filter((function(e)
+					{
+						var t = e.url,
+							n = e.reg;
+						return t ? t === a : n ? new RegExp(n)
+							.test(a) : void 0
+					})) : []
+				},
+				handleParserInfoShow: function(e)
+				{
+					var t = this,
+						n = this.matchingParserCount(e),
+						r = n.map((function(e, n)
+						{
+							return "".concat(n + 1, ". ")
+								.concat(t.parserHint(e))
+						}))
+						.join("<br />");
+					this.$alert(
+					{
+						title: "找到了 ".concat(n.length, " 个匹配解析器"),
+						content: "".concat(r)
+					})
+				},
 				handleLocalFileOpen: function(e, t)
 				{
 					e.stopPropagation();
@@ -17420,10 +16956,10 @@
 				handleCopyProfile: function(e)
 				{
 					var t = this;
-					return u()(d.a.mark((function n()
+					return v()(f.a.mark((function n()
 					{
 						var r, a, i, o;
-						return d.a.wrap((function(n)
+						return f.a.wrap((function(n)
 						{
 							for(;;) switch (n.prev = n.next)
 							{
@@ -17440,7 +16976,7 @@
 										data: r
 									});
 								case 4:
-									a = n.sent, i = a.filename, o = void 0 === i ? "" : i, t.localCopy(o, Z.join(t.profilesPath, e.time)), n.next = 12;
+									a = n.sent, i = a.filename, o = void 0 === i ? "" : i, t.localCopy(o, X.join(t.profilesPath, e.time)), n.next = 12;
 									break;
 								case 10:
 									n.prev = 10, n.t0 = n.catch(1);
@@ -17448,7 +16984,7 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t, [
+						}), n, null, [
 							[1, 10]
 						])
 					})))()
@@ -17456,15 +16992,15 @@
 				handleEditItem: function(e)
 				{
 					var t = this;
-					return u()(d.a.mark((function n()
+					return v()(f.a.mark((function n()
 					{
-						var r, a, i, o, s, c, l, u;
-						return d.a.wrap((function(n)
+						var r, a, i, o, s, c, d, u;
+						return f.a.wrap((function(n)
 						{
 							for(;;) switch (n.prev = n.next)
 							{
 								case 0:
-									return r = f()(
+									return r = l(
 									{}, t.pfs.files[e]), "编辑配置信息", a = r.interval, i = void 0 === a ? 0 : a, o = [
 									{
 										key: "name",
@@ -17491,7 +17027,7 @@
 										data: o
 									});
 								case 7:
-									s = n.sent, c = s.name, l = s.url, u = s.interval, r.name = c, r.url = l, r.interval = 1 * u, t.changeProfile(
+									s = n.sent, c = s.name, d = s.url, u = s.interval, r.name = c, r.url = d, r.interval = 1 * u, t.changeProfile(
 									{
 										index: e,
 										profile: r
@@ -17503,24 +17039,24 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t, [
+						}), n, null, [
 							[4, 17]
 						])
 					})))()
 				},
 				listItemClassNames: function(e)
 				{
-					var t = ["list-item-" + this.theme];
+					var t = ["list-item-".concat(this.theme)];
 					"" === this.pfs.files[e].url && t.push("item-local");
 					var n = this.pfs.index;
-					return e === (void 0 === n ? -1 : n) && t.push("item-cur-" + this.theme), t
+					return e === (void 0 === n ? -1 : n) && t.push("item-cur-".concat(this.theme)), t
 				},
 				handleURLConfirm: function(e)
 				{
 					var t = this;
-					return u()(d.a.mark((function n()
+					return v()(f.a.mark((function n()
 					{
-						return d.a.wrap((function(n)
+						return f.a.wrap((function(n)
 						{
 							for(;;) switch (n.prev = n.next)
 							{
@@ -17535,16 +17071,16 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t)
+						}), n)
 					})))()
 				},
 				handleDownload: function()
 				{
 					var e = this;
-					return u()(d.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
 						var n;
-						return d.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -17577,7 +17113,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[4, 12]
 						])
 					})))()
@@ -17585,10 +17121,10 @@
 				handleImport: function()
 				{
 					var e = this;
-					return u()(d.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
 						var n, r, a;
-						return d.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -17596,39 +17132,34 @@
 									(n = e.$electron.remote.dialog) && ((r = n.showOpenDialogSync(
 									{
 										properties: ["openFile"]
-									})) && 0 < r.length && (a = r[0], e.localCopy(Z.basename(a), Z.resolve(a))));
+									})) && 0 < r.length && (a = r[0], e.localCopy(X.basename(a), X.resolve(a))));
 								case 2:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				dropProfile: function(e)
 				{
 					e.preventDefault(), e.stopPropagation();
-					var t = !0,
-						n = !1,
-						r = void 0;
+					var t, n = s(e.dataTransfer.files);
 					try
 					{
-						for(var a, i, o = s()(e.dataTransfer.files); !(t = (a = o.next())
-							.done); t = !0) i = a.value, this.localCopy(Z.basename(i.path), Z.resolve(i.path))
+						for(n.s(); !(t = n.n())
+							.done;)
+						{
+							var r = t.value;
+							this.localCopy(X.basename(r.path), X.resolve(r.path))
+						}
 					}
-					catch (t)
+					catch (e)
 					{
-						n = !0, r = t
+						n.e(e)
 					}
 					finally
 					{
-						try
-						{
-							!t && o.return && o.return()
-						}
-						finally
-						{
-							if(n) throw r
-						}
+						n.f()
 					}
 				},
 				dragOverProfile: function(e)
@@ -17651,7 +17182,7 @@
 					{
 						var n = (new Date)
 							.getTime() + ".yml",
-							r = f()(
+							r = l(
 							{}, this.pfs),
 							a = r.files.findIndex((function(t)
 							{
@@ -17672,25 +17203,25 @@
 								selected: []
 							}
 						});
-						var i = Z.join(this.clashPath, "config.yaml"),
+						var i = X.join(this.clashPath, "config.yaml"),
 							o = r.files,
 							s = r.index,
 							c = void 0 === s ? -1 : s;
 						if(0 <= c && c < o.length)
 						{
-							var d = Z.join(this.profilesPath, o[c].time);
-							J.existsSync(d) && (i = d)
+							var d = X.join(this.profilesPath, o[c].time);
+							Y.existsSync(d) && (i = d)
 						}
-						"" !== t && (i = t), J.copyFileSync(i, Z.join(this.profilesPath, n))
+						"" !== t && (i = t), Y.copyFileSync(i, X.join(this.profilesPath, n))
 					}
 				},
 				handleDeleteProfile: function(e)
 				{
 					var t = this;
-					return u()(d.a.mark((function n()
+					return v()(f.a.mark((function n()
 					{
-						var r, a, i, o, s, c, l, u;
-						return d.a.wrap((function(n)
+						var r, a, i, o, s, c, d, l;
+						return f.a.wrap((function(n)
 						{
 							for(;;) switch (n.prev = n.next)
 							{
@@ -17699,7 +17230,7 @@
 									{
 										title: "Clash for Windows",
 										type: "warning",
-										message: '您确定要删除 "' + a + '"?',
+										message: '您确定要删除 "'.concat(a, '"?'),
 										buttons: ["是", "否"]
 									});
 								case 4:
@@ -17707,7 +17238,7 @@
 									{
 										try
 										{
-											s = t.pfs.files, c = (void 0 === s ? [] : s)[e].time, J.unlinkSync(Z.join(t.profilesPath, c))
+											s = t.pfs.files, c = (void 0 === s ? [] : s)[e].time, Y.unlinkSync(X.join(t.profilesPath, c))
 										}
 										catch (e)
 										{}
@@ -17716,31 +17247,31 @@
 											index: e
 										})
 									}
-									l = t.pfs.index, e === (u = void 0 === l ? -1 : l) ? t.changeProfilesIndex(
+									d = t.pfs.index, e === (l = void 0 === d ? -1 : d) ? t.changeProfilesIndex(
 									{
 										index: -1
-									}) : e < u && t.changeProfilesIndex(
+									}) : e < l && t.changeProfilesIndex(
 									{
-										index: u - 1
+										index: l - 1
 									});
 								case 9:
 								case "end":
 									return n.stop()
 							}
-						}), n, t)
+						}), n)
 					})))()
 				},
 				openProfile: function(e)
 				{
-					this.$electron.shell.openPath(Z.join(this.profilesPath, e.time))
+					this.$electron.shell.openPath(X.join(this.profilesPath, e.time))
 				},
 				switchProfile: function(e)
 				{
 					var t = this;
-					return u()(d.a.mark((function n()
+					return v()(f.a.mark((function n()
 					{
 						var r, a, i, o;
-						return d.a.wrap((function(n)
+						return f.a.wrap((function(n)
 						{
 							for(;;) switch (n.prev = n.next)
 							{
@@ -17788,16 +17319,16 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t)
+						}), n)
 					})))()
 				},
 				refreshProfile: function(e)
 				{
 					var t = this;
-					return u()(d.a.mark((function n()
+					return v()(f.a.mark((function n()
 					{
-						var r, a, o, s;
-						return d.a.wrap((function(n)
+						var r, a, i, o;
+						return f.a.wrap((function(n)
 						{
 							for(;;) switch (n.prev = n.next)
 							{
@@ -17809,22 +17340,23 @@
 									}
 									return n.abrupt("return");
 								case 3:
-									if(!(o = t.downlodingUrls[a]))
+									if(!(i = t.downlodingUrls[a]))
 									{
 										n.next = 8;
 										break
 									}
-									return o(), t.$delete(t.downlodingUrls, a), n.abrupt("return");
+									return i(), t.$delete(t.downlodingUrls, a), n.abrupt("return");
 								case 8:
-									return n.prev = 8, s = new te((function(e)
+									return n.prev = 8, o = new Q((function(e)
 									{
-										t.downlodingUrls = f()(
-										{}, t.downlodingUrls, i()(
+										t.downlodingUrls = l(l(
+										{}, t.downlodingUrls),
+										{}, g()(
 										{}, a, e))
 									})), n.next = 12, t.updateConfig(
 									{
 										url: a,
-										cancelToken: s
+										cancelToken: o
 									});
 								case 12:
 									n.next = 16;
@@ -17837,7 +17369,7 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t, [
+						}), n, null, [
 							[8, 14, 16, 19]
 						])
 					})))()
@@ -17852,16 +17384,16 @@
 				},
 				parseDomain: function(e)
 				{
-					return /https?:\/\/(.*?)\//.test(e) ? "➥ " + RegExp.$1.trim() : "➥ 本地配置"
+					return /https?:\/\/(.*?)\//.test(e) ? "➥ ".concat(RegExp.$1.trim()) : "➥ 本地配置"
 				},
 				parseDate: function(e)
 				{
 					var t = e.time;
 					try
 					{
-						var n = J.statSync(Z.join(this.profilesPath, t))
+						var n = Y.statSync(X.join(this.profilesPath, t))
 							.mtime;
-						return v()(n)
+						return x()(n)
 							.fromNow()
 					}
 					catch (t)
@@ -17871,84 +17403,80 @@
 				},
 				updateConfig: function(e)
 				{
-					var t = this,
-						n = e.url,
-						r = e.cancelToken,
-						a = void 0 === r ? null : r,
-						i = e.selectAfterUpdated;
-					return u()(d.a.mark((function e()
+					var t = this;
+					return v()(f.a.mark((function n()
 					{
-						var r, o, s, c, l, u, p, h, v, m, g, x, b, y, w, _, k, C, S, P, T, $, E, A;
-						return d.a.wrap((function(e)
+						var r, a, i, o, s, c, d, u, p, h, v, m, g, b, x, y, w, k, _, C, O, P, S, j, E, T, $, D, A;
+						return f.a.wrap((function(n)
 						{
-							for(;;) switch (e.prev = e.next)
+							for(;;) switch (n.prev = n.next)
 							{
 								case 0:
-									return e.prev = 0, e.next = 3, t.$downloadProfile(n,
+									return r = e.url, a = e.cancelToken, i = void 0 === a ? null : a, o = e.selectAfterUpdated, s = void 0 !== o && o, n.prev = 1, n.next = 4, t.$downloadProfile(r,
 									{
-										cancelToken: a
+										cancelToken: i
 									}, t.confData);
-								case 3:
-									r = e.sent, o = r.status, s = r.headers, c = void 0 === s ?
-										{} : s, l = r.data, u = "config.yaml", p = (new Date)
+								case 4:
+									c = n.sent, d = c.status, u = c.headers, p = void 0 === u ?
+										{} : u, h = c.data, v = "config.yaml", m = (new Date)
 										.getTime() + ".yml";
 									try
 									{
-										u = Z.basename(n)
+										v = X.basename(r)
 									}
 									catch (e)
 									{
 										console.error(e.stack)
 									}
-									if(/([^\/]*?)(?:$|\?)/.test(n) && (u = decodeURIComponent(RegExp.$1.trim())), h = c["profile-update-interval"], v = void 0 === h ? 0 : h, (m = c["content-disposition"]) && /filename="*(.*?)(?:$|;|")/.test(m) && (u = decodeURIComponent(RegExp.$1.trim())), g = parseInt(v) || 0, x = Z.join(t.profilesPath, p), b = -1, 200 !== o)
+									if(/([^\/]*?)(?:$|\?)/.test(r) && (v = decodeURIComponent(RegExp.$1.trim())), g = p["profile-update-interval"], b = void 0 === g ? 0 : g, (x = p["content-disposition"]) && /filename="*(.*?)(?:$|;|")/.test(x) && (v = decodeURIComponent(RegExp.$1.trim())), y = parseInt(b) || 0, w = X.join(t.profilesPath, m), k = -1, 200 !== d)
 									{
-										e.next = 32;
+										n.next = 33;
 										break
 									}
-									return e.next = 20, t.$parseProfile(n, l);
-								case 20:
-									if(y = e.sent, w = t.pfs, _ = w.files, k = void 0 === _ ? [] : _, C = w.index, void 0 === C ? -1 : C, -1 < (S = k.findIndex((function(e)
+									return n.next = 21, t.$parseProfile(r, h);
+								case 21:
+									if(_ = n.sent, C = t.pfs, O = C.files, P = void 0 === O ? [] : O, S = C.index, void 0 === S ? -1 : S, -1 < (j = P.findIndex((function(e)
 									{
-										return e.url === n
-									}))) ? (P = f()(
-									{}, k[S]), T = P.time, x = Z.join(t.profilesPath, T), b = S) : ($ = {
-										time: p,
-										name: u,
-										url: n,
+										return e.url === r
+									}))) ? (E = l(
+									{}, P[j]), T = E.time, w = X.join(t.profilesPath, T), k = j) : ($ = {
+										time: m,
+										name: v,
+										url: r,
 										selected: [],
-										interval: g
+										interval: y
 									}, t.appendProfile(
 									{
 										profile: $
-									}), b = k.length), J.writeFileSync(x, y), E = t.settings.selectAfterUpdated, A = void 0 !== E && E, !(void 0 !== i && i || A))
+									}), k = P.length), Y.writeFileSync(w, _), D = t.settings.selectAfterUpdated, A = void 0 !== D && D, !s && !A)
 									{
-										e.next = 29;
+										n.next = 30;
 										break
 									}
-									return e.next = 29, t.switchProfile(b);
-								case 29:
-									return e.abrupt("return", !0);
-								case 32:
+									return n.next = 30, t.switchProfile(k);
+								case 30:
+									return n.abrupt("return", !0);
+								case 33:
 									t.$alert(
 									{
-										content: "Download profile failed with error: HTTP Response Status Code(" + o + ")"
+										content: "Download profile failed with error: HTTP Response Status Code(".concat(d, ")")
 									});
-								case 33:
-									e.next = 39;
+								case 34:
+									n.next = 40;
 									break;
-								case 35:
-									e.prev = 35, e.t0 = e.catch(0), e.t0.message && t.$alert(
+								case 36:
+									n.prev = 36, n.t0 = n.catch(1), n.t0.message && t.$alert(
 									{
-										content: "Download profile failed with error: " + e.t0.message
+										content: "Download profile failed with error: ".concat(n.t0.message)
 									});
-								case 39:
-									return e.abrupt("return", !1);
 								case 40:
+									return n.abrupt("return", !1);
+								case 41:
 								case "end":
-									return e.stop()
+									return n.stop()
 							}
-						}), e, t, [
-							[0, 35]
+						}), n, null, [
+							[1, 36]
 						])
 					})))()
 				},
@@ -17960,14 +17488,14 @@
 				setupWatcher: function()
 				{
 					var e = this,
-						t = ee.debounce((function(t, n)
+						t = Z.debounce((function(t, n)
 						{
 							/^\d+(?:\.yml)$/.test(n) ? e.pfs.files.find((function(e)
 							{
 								return e.time === n
 							})) && (e.editProfileName = n, e.editDone()) : /list\.yml/.test(n)
 						}), 2e3);
-					this.fileWatcher = J.watch(Z.join(this.profilesPath),
+					this.fileWatcher = Y.watch(X.join(this.profilesPath),
 					{}, t)
 				},
 				removeWatcher: function()
@@ -17977,9 +17505,9 @@
 				urlSchemeUpdate: function()
 				{
 					var e = this;
-					return u()(d.a.mark((function t()
+					return v()(f.a.mark((function t()
 					{
-						return d.a.wrap((function(t)
+						return f.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -17994,18 +17522,17 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				}
 			}),
 			beforeRouteEnter: function(e, t, n)
 			{
-				var r = this;
 				n(function()
 				{
-					var e = u()(d.a.mark((function e(t)
+					var e = v()(f.a.mark((function e(t)
 					{
-						return d.a.wrap((function(e)
+						return f.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
@@ -18023,7 +17550,7 @@
 								case "end":
 									return e.stop()
 							}
-						}), e, r)
+						}), e)
 					})));
 					return function()
 					{
@@ -18040,7 +17567,7 @@
 				n()
 			}
 		},
-		re = (n(289), n(291), Object(C.a)(ne, (function()
+		te = (n(180), n(182), Object(P.a)(ee, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -18137,19 +17664,33 @@
 						t.target.composing || (e.subUrl = t.target.value)
 					}
 				}
-			}), e._v(" "), n("img",
+			}), e._v(" "), n("svg",
 			{
 				staticClass: "copy-icon",
 				attrs:
 				{
-					src: "static/imgs/paste-icon.png",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "white"
 				},
 				on:
 				{
 					click: e.pasteURL
 				}
-			})]), e._v(" "), n("div",
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M15 1H4c-1.1 0-2 .9-2 2v13c0 .55.45 1 1 1s1-.45 1-1V4c0-.55.45-1 1-1h10c.55 0 1-.45 1-1s-.45-1-1-1zm.59 4.59l4.83 4.83c.37.37.58.88.58 1.41V21c0 1.1-.9 2-2 2H7.99C6.89 23 6 22.1 6 21l.01-14c0-1.1.89-2 1.99-2h6.17c.53 0 1.04.21 1.42.59zM15 12h4.5L14 6.5V11c0 .55.45 1 1 1z"
+				}
+			})])]), e._v(" "), n("div",
 			{
 				staticClass: "btns-container"
 			}, [n("div",
@@ -18208,12 +17749,16 @@
 				}, [n("div",
 				{
 					staticClass: "item-name-top"
-				}, [n("div", [e._v(e._s(t.name))]), e._v(" "), n("img",
+				}, [n("div", [e._v(e._s(t.name))]), e._v(" "), n("div",
 				{
-					staticClass: "item-icon",
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
 					attrs:
 					{
-						src: "static/imgs/delete-icon.png"
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					},
 					on:
 					{
@@ -18225,7 +17770,20 @@
 							e.stopPropagation()
 						}]
 					}
-				})]), e._v(" "), n("div",
+				}, [n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+					}
+				})])])]), e._v(" "), n("div",
 				{
 					staticClass: "item-name-bottom",
 					attrs:
@@ -18248,7 +17806,7 @@
 					{
 						"item-time": !0
 					}
-				}, [e._v("\n          " + e._s("上次更新: " + e.parseDate(t)) + "\n          "), n("div",
+				}, [e._v("\n          " + e._s("Last updated: " + e.parseDate(t)) + "\n        ")]), e._v(" "), n("div",
 				{
 					staticClass: "item-edit-zone",
 					on:
@@ -18258,13 +17816,16 @@
 							e.stopPropagation()
 						}
 					}
-				}, [n("img",
+				}, [n("div",
 				{
-					staticClass: "item-icon item-icon-left",
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
 					attrs:
 					{
-						title: "文本编辑",
-						src: "static/imgs/config-icon.png"
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					},
 					on:
 					{
@@ -18276,13 +17837,29 @@
 							e.stopPropagation()
 						}]
 					}
-				}), e._v(" "), n("img",
+				}, [n("title", [e._v("文本编辑")]), e._v(" "), n("path",
 				{
-					staticClass: "item-icon",
 					attrs:
 					{
-						title: "策略编辑",
-						src: "static/imgs/edit-proxy-icon.png"
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M8.7 15.9L4.8 12l3.9-3.9c.39-.39.39-1.01 0-1.4-.39-.39-1.01-.39-1.4 0l-4.59 4.59c-.39.39-.39 1.02 0 1.41l4.59 4.6c.39.39 1.01.39 1.4 0 .39-.39.39-1.01 0-1.4zm6.6 0l3.9-3.9-3.9-3.9c-.39-.39-.39-1.01 0-1.4.39-.39 1.01-.39 1.4 0l4.59 4.59c.39.39.39 1.02 0 1.41l-4.59 4.6c-.39.39-1.01.39-1.4 0-.39-.39-.39-1.01 0-1.4z"
+					}
+				})])]), e._v(" "), n("div",
+				{
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					},
 					on:
 					{
@@ -18294,13 +17871,29 @@
 							e.stopPropagation()
 						}]
 					}
-				}), e._v(" "), n("img",
+				}, [n("title", [e._v("策略编辑")]), e._v(" "), n("path",
 				{
-					staticClass: "item-icon item-icon-right",
 					attrs:
 					{
-						title: "规则编辑",
-						src: "static/imgs/rule-icon.png"
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M3.4 20.4l17.45-7.48c.81-.35.81-1.49 0-1.84L3.4 3.6c-.66-.29-1.39.2-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91z"
+					}
+				})])]), e._v(" "), n("div",
+				{
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					},
 					on:
 					{
@@ -18312,13 +17905,29 @@
 							e.stopPropagation()
 						}]
 					}
-				}), e._v(" "), n("img",
+				}, [n("title", [e._v("规则编辑")]), e._v(" "), n("path",
 				{
-					staticClass: "item-icon item-icon-right",
 					attrs:
 					{
-						title: "复制配置文件",
-						src: "static/imgs/copy-icon.png"
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M12 9h4c.55 0 1-.45 1-1s-.45-1-1-1h-4c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h4c.55 0 1-.45 1-1s-.45-1-1-1h-4c-.55 0-1 .45-1 1s.45 1 1 1zm0 4h4c.55 0 1-.45 1-1s-.45-1-1-1h-4c-.55 0-1 .45-1 1s.45 1 1 1zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7zM20 3H4c-.55 0-1 .45-1 1v16c0 .55.45 1 1 1h16c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1zm-1 16H5V5h14v14z"
+					}
+				})])]), e._v(" "), n("div",
+				{
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					},
 					on:
 					{
@@ -18330,13 +17939,97 @@
 							e.stopPropagation()
 						}]
 					}
-				}), e._v(" "), n("img",
+				}, [n("title", [e._v("复制配置文件")]), e._v(" "), n("path",
 				{
-					staticClass: "item-icon item-icon-right",
 					attrs:
 					{
-						title: "修改配置文件信息",
-						src: "static/imgs/info-icon2.png"
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M15 1H4c-1.1 0-2 .9-2 2v13c0 .55.45 1 1 1s1-.45 1-1V4c0-.55.45-1 1-1h10c.55 0 1-.45 1-1s-.45-1-1-1zm4 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 16H9c-.55 0-1-.45-1-1V8c0-.55.45-1 1-1h9c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1z"
+					}
+				})])]), e._v(" "), n("div",
+				{
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
+					},
+					on:
+					{
+						click: [function(n)
+						{
+							return e.handleLocalFileOpen(n, t)
+						}, function(e)
+						{
+							e.stopPropagation()
+						}]
+					}
+				}, [n("title", [e._v("打开订阅地址")]), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+					}
+				})])]), e._v(" "), n("div",
+				{
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
+					},
+					on:
+					{
+						click: [function()
+						{
+							return e.handleParserInfoShow(t)
+						}, function(e)
+						{
+							e.stopPropagation()
+						}]
+					}
+				}, [n("title", [e._v("解析器信息")]), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M10 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h5v1c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1zm0 15H5l5-6v6zm9-15h-5v2h4c.55 0 1 .45 1 1v12l-5-6v9h5c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+					}
+				})])]), e._v(" "), n("div",
+				{
+					staticClass: "item-icon"
+				}, [n("svg",
+				{
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					},
 					on:
 					{
@@ -18348,16 +18041,33 @@
 							e.stopPropagation()
 						}]
 					}
-				}), e._v(" "), n("img",
+				}, [n("title", [e._v("修改配置文件信息")]), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"
+					}
+				})])]), e._v(" "), n("div",
+				{
+					staticClass: "item-icon"
+				}, [n("svg",
 				{
 					class:
 					{
-						"item-icon": !0, rotating: e.downlodingUrls[t.url], "local-icon": "" === t.url
+						rotating: e.downlodingUrls[t.url], "local-icon": "" === t.url, "item-icon-larger": !0
 					},
 					attrs:
 					{
-						title: "更新配置文件",
-						src: "static/imgs/refresh-icon.png"
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					},
 					on:
 					{
@@ -18369,7 +18079,20 @@
 							e.stopPropagation()
 						}]
 					}
-				})])])])
+				}, [n("title", [e._v("更新配置文件")]), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M17.65 6.35c-1.63-1.63-3.94-2.57-6.48-2.31-3.67.37-6.69 3.35-7.1 7.02C3.52 15.91 7.27 20 12 20c3.19 0 5.93-1.87 7.21-4.56.32-.67-.16-1.44-.9-1.44-.37 0-.72.2-.88.53-1.13 2.43-3.84 3.97-6.8 3.31-2.22-.49-4.01-2.3-4.48-4.52C5.31 9.44 8.26 6 12 6c1.66 0 3.14.69 4.22 1.78l-1.51 1.51c-.63.63-.19 1.71.7 1.71H19c.55 0 1-.45 1-1V6.41c0-.89-1.08-1.34-1.71-.71l-.64.65z"
+					}
+				})])])])])
 			})), e._v(" "), e._l(Array(20), (function(e, t)
 			{
 				return n("i",
@@ -18377,42 +18100,101 @@
 					key: "hidden" + t
 				})
 			}))], 2)], 1)], 1)
-		}), [], !1, null, "30c02cb0", null));
-	re.options.__file = "ServerView.vue", t.default = re.exports
+		}), [], !1, null, "abd7c9bc", null));
+	te.options.__file = "ServerView.vue", t.default = te.exports
 }, function(e, t, n)
 {
 	"use strict";
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function i(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function o(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? i(Object(t), !0)
+			.forEach((function(n)
+			{
+				h()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : i(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
 	n.r(t);
-	var r = n(26),
-		a = n.n(r),
-		i = n(14),
-		o = n.n(i),
-		s = n(0),
+	var s = n(20),
 		c = n.n(s),
-		d = n(1),
+		d = n(0),
 		l = n.n(d),
-		u = n(2),
+		u = n(1),
 		p = n.n(u),
-		f = n(4),
-		h = n(5),
-		v = n.n(h),
-		m = n(6),
+		f = n(2),
+		h = n.n(f),
+		v = n(5),
+		m = n(3),
 		g = n.n(m),
-		x = n(13),
-		b = n.n(x),
-		y = n(40),
+		b = n(6),
+		x = n.n(b),
+		y = n(14),
 		w = n.n(y),
-		_ = (n(42), n(19)),
-		k = n.n(_),
-		C = (n(128), n(154)),
-		S = n.n(C),
-		P = n(155),
-		T = n.n(P),
-		$ = n(12),
-		E = n(10),
-		A = n(9),
-		O = n(44),
-		I = {
+		k = n(23),
+		_ = n.n(k),
+		C = (n(24), n(17)),
+		O = n.n(C),
+		P = (n(85), n(97)),
+		S = n.n(P),
+		j = n(98),
+		E = n.n(j),
+		T = n(13),
+		$ = n(11),
+		D = n(10),
+		A = n(26),
+		I = n(9),
+		L = {
 			props: [],
 			data: function()
 			{
@@ -18421,8 +18203,21 @@
 					intervalID: null
 				}
 			},
-			computed: p()(
-			{}, Object(f.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? r(Object(t), !0)
+					.forEach((function(n)
+					{
+						h()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(v.mapState)(
 			{
 				clashPath: function(e)
 				{
@@ -18450,10 +18245,10 @@
 				autoFix: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n, r;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -18472,7 +18267,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				}
 			},
@@ -18491,7 +18286,7 @@
 										return /level=fatal/.test(e)
 									}))
 									.join("<br /><br />")
-							}(Object(m.readFileSync)(e.logFilePath)
+							}(Object(b.readFileSync)(e.logFilePath)
 								.toString());
 							e.logs = t || (0 < e.errors.length ? e.errors.join("<br /><br />") : "无法连接到Clash Core")
 						}
@@ -18505,8 +18300,8 @@
 				this.intervalID && (clearInterval(this.intervalID), this.intervalID = null)
 			}
 		},
-		j = (n(233), n(235), n(3)),
-		D = Object(j.a)(I, (function()
+		N = (n(132), n(134), n(4)),
+		M = Object(N.a)(L, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -18556,11 +18351,11 @@
 				}
 			}, [e._v("尝试修复")])])])
 		}), [], !1, null, "5dfca82f", null);
-	D.options.__file = "ErrorView.vue";
-	var N = D.exports,
-		L = n(111),
-		M = n(112),
-		R = (n(241), Object(j.a)(
+	M.options.__file = "ErrorView.vue";
+	var R = M.exports,
+		z = n(82),
+		F = n(83),
+		U = (n(140), Object(N.a)(
 		{
 			props: [],
 			data: function()
@@ -18586,9 +18381,9 @@
 				staticClass: "hint"
 			}, [e._v("Loading...")])])
 		}], !1, null, "9aafb65c", null));
-	R.options.__file = "LoadingView.vue";
-	var F = R.exports,
-		U = {
+	U.options.__file = "LoadingView.vue";
+	var H = U.exports,
+		V = {
 			name: "info-icon",
 			data: function()
 			{
@@ -18596,8 +18391,21 @@
 					isShowContent: !1
 				}
 			},
-			computed: p()(
-			{}, Object(f.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? a(Object(t), !0)
+					.forEach((function(n)
+					{
+						h()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : a(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(v.mapState)(
 			{})),
 			methods:
 			{
@@ -18612,7 +18420,7 @@
 				}
 			}
 		},
-		z = (n(243), Object(j.a)(U, (function()
+		B = (n(142), Object(N.a)(V, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -18638,25 +18446,41 @@
 				{
 					click: e.handleContentClick
 				}
-			}, [e._t("default")], 2) : e._e(), e._v(" "), n("img",
+			}, [e._t("default")], 2) : e._e(), e._v(" "), n("svg",
 			{
 				attrs:
 				{
-					src: "static/imgs/info-icon" + ("light" === e.theme ? "-dark" : "") + ".png",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "dark" === e.theme ? "white" : "black",
+					width: "16px",
+					height: "16px"
 				}
-			})])
-		}), [], !1, null, "500b2c9f", null));
-	z.options.__file = "Info.vue";
-	var H = z.exports,
-		G = {
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 15c-.55 0-1-.45-1-1v-4c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1zm1-8h-2V7h2v2z"
+				}
+			})])])
+		}), [], !1, null, "4f58683a", null));
+	B.options.__file = "Info.vue";
+	var G = B.exports,
+		W = {
 			components:
 			{
-				ErrorView: N,
-				SwitchView: L.a,
-				SelectView: M.a,
-				LoadingView: F,
-				InfoIcon: H
+				ErrorView: R,
+				SwitchView: z.a,
+				SelectView: F.a,
+				LoadingView: H,
+				InfoIcon: G
 			},
 			props: ["confDataString"],
 			data: function()
@@ -18669,7 +18493,7 @@
 					geoipUpdateTime: "",
 					systemProxy: !1,
 					systemProxyLoading: !0,
-					autoLaunch: A.a.get(E.a.AUTO_LAUNCH) || !1,
+					autoLaunch: D.a.get($.a.AUTO_LAUNCH) || !1,
 					autoLaunchLoading: !0,
 					protableMode: !1,
 					version: "",
@@ -18683,13 +18507,13 @@
 			},
 			watch:
 			{
-				confData: function()
+				status: function()
 				{
 					this.setupSwitches()
 				}
 			},
-			computed: p()(
-			{}, Object(f.mapState)(
+			computed: o(o(o(
+			{}, Object(v.mapState)(
 			{
 				clashPath: function(e)
 				{
@@ -18710,12 +18534,17 @@
 				settings: function(e)
 				{
 					return e.app.settings
+				},
+				status: function(e)
+				{
+					return e.app.status
 				}
-			}), Object(f.mapGetters)(["themeIndex", "resourcesPath", "filesPath", "mixedPort"]),
+			})), Object(v.mapGetters)(["themeIndex", "resourcesPath", "filesPath", "mixedPort"])),
+			{},
 			{
 				autoLaunchHint: function()
 				{
-					return "darwin" === process.platform ? "Start with macOS" : "开机自启动"
+					return Object(I.e)() ? "开机自启动" : Object(I.f)() ? "开机自启动" : void 0
 				},
 				isShowNewIcon: function()
 				{
@@ -18724,26 +18553,27 @@
 					return (!(void 0 !== e) || e) && t
 				}
 			}),
-			methods: p()(
-			{}, Object(f.mapMutations)(
+			methods: o(o(
+			{}, Object(v.mapMutations)(
 			{
 				changeIsMixinEnable: "CHANGE_IS_MIXIN_ENABLE"
-			}),
+			})),
+			{},
 			{
 				isClashOwnByRoot: function()
 				{
-					if("win32" === process.platform) return !1;
-					var e = this.filesPath,
-						t = k.a.execSync("stat " + v.a.join(e.replace(/(\s+)/g, "\\$1"), "clash-darwin"));
+					if(Object(I.f)()) return !1;
+					var e = g.a.join(this.filesPath, "darwin", "x64"),
+						t = O.a.execSync("stat ".concat(g.a.join(e.replace(/(\s+)/g, "\\$1"), "clash-darwin")));
 					return /\-rwsr[\s\S]+root/.test(t.toString())
 				},
 				handleAllowLANChange: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -18753,20 +18583,20 @@
 										"allow-lan": n
 									});
 								case 3:
-									204 === t.sent.status && (A.a.put(E.a.IS_ALLOW_LAN, n), e.isAllowLan = n);
+									204 === t.sent.status && (D.a.put($.a.IS_ALLOW_LAN, n), e.isAllowLan = n);
 								case 5:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleMixinSwitchClick: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -18779,16 +18609,16 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleSystemProxySwitchClick: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n, r, a, i;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -18800,15 +18630,15 @@
 									}
 									return t.abrupt("return");
 								case 2:
-									if("darwin" !== process.platform)
+									if(!Object(I.e)())
 									{
 										t.next = 10;
 										break
 									}
-									if(n = v.a.join(e.clashPath, "sysproxy"), r = v.a.join(e.filesPath, "sysproxy"), a = function(t)
+									if(n = g.a.join(e.clashPath, "sysproxy"), r = g.a.join(e.filesPath, "darwin", "x64", "sysproxy"), a = function(t)
 									{
-										return e.$parent.md5Encrypt(g.a.readFileSync(t))
-									}, g.a.existsSync(n) && a(n) === a(r))
+										return e.$parent.md5Encrypt(x.a.readFileSync(t))
+									}, x.a.existsSync(n) && a(n) === a(r))
 									{
 										t.next = 10;
 										break
@@ -18819,21 +18649,21 @@
 								case 10:
 									return e.systemProxyLoading = !0, e.$parent.loadConfData(), i = !e.systemProxy, t.next = 15, e.$setSystemProxy(i, e.confData);
 								case 15:
-									t.sent && (e.systemProxy = i, A.a.put(E.a.SYSTEM_PROXY, i)), e.systemProxyLoading = !1;
+									t.sent && (e.systemProxy = i, D.a.put($.a.SYSTEM_PROXY, i)), e.systemProxyLoading = !1;
 								case 18:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleAutoLaunchSwitchClick: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -18845,57 +18675,58 @@
 									}
 									return t.abrupt("return");
 								case 3:
-									e.autoLaunchLoading = !0, e.$setAutoLaunch(n), e.autoLaunch = n, A.a.put(E.a.AUTO_LAUNCH, n), e.autoLaunchLoading = !1;
+									e.autoLaunchLoading = !0, e.$setAutoLaunch(n), e.autoLaunch = n, D.a.put($.a.AUTO_LAUNCH, n), e.autoLaunchLoading = !1;
 								case 8:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				authClashBinary: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var r;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									"darwin" === process.platform && (r = e.filesPath, n(64)
-										.exec("chown root " + r.replace(/(\s+)/g, "\\$1") + "/clash-darwin && chmod u+s " + r.replace(/(\s+)/g, "\\$1") + "/clash-darwin",
-										{
-											name: "Clash for Windows"
-										}, (function(t, n, r)
-										{
-											console.log(t || n || r), e.$parent.handlerRestartClash()
-										})));
+									Object(I.e)() && (r = g.a.join(e.filesPath, "darwin", "x64"), n(34)
+										.exec("chown root ".concat(r.replace(/(\s+)/g, "\\$1"), "/clash-darwin && chmod u+s ")
+											.concat(r.replace(/(\s+)/g, "\\$1"), "/clash-darwin"),
+											{
+												name: "Clash for Windows"
+											}, (function(t, n, r)
+											{
+												console.log(t || n || r), e.$parent.handlerRestartClash()
+											})));
 								case 1:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				installTapDevice: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if("win32" !== process.platform)
+									if(!Object(I.f)())
 									{
 										t.next = 12;
 										break
 									}
-									if(e.$parent.clashStatus !== $.a.INSTALLING_TAP)
+									if(e.$parent.clashStatus !== T.a.INSTALLING_TAP)
 									{
 										t.next = 3;
 										break
@@ -18917,7 +18748,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[3, 10]
 						])
 					})))()
@@ -18925,10 +18756,10 @@
 				openCmdWithProxy: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n, r;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -18940,13 +18771,13 @@
 										items: ["CMD", "Powershell", "Windows Terminal"]
 									});
 								case 3:
-									n = t.sent, r = ["cmd", "powershell", "wt"], Object(_.exec)("start " + r[n],
+									n = t.sent, r = ["cmd", "powershell", "wt"], Object(C.exec)("start ".concat(r[n]),
 									{
 										cwd: e.$parent.userPath,
 										env:
 										{
-											http_proxy: "http://127.0.0.1:" + e.port,
-											https_proxy: "http://127.0.0.1:" + e.port
+											http_proxy: "http://127.0.0.1:".concat(e.port),
+											https_proxy: "http://127.0.0.1:".concat(e.port)
 										}
 									}), t.next = 10;
 									break;
@@ -18956,55 +18787,58 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[0, 8]
 						])
 					})))()
 				},
 				editBtnClick: function()
 				{
-					this.$electron.shell.openPath(v.a.join(this.clashPath, "config.yaml"))
+					this.$electron.shell.openPath(g.a.join(this.clashPath, "config.yaml"))
 				},
 				authSyshelperBinary: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var r, a;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if("darwin" !== process.platform)
+									if(!Object(I.e)())
 									{
 										t.next = 4;
 										break
 									}
-									return r = e.filesPath, a = r.replace(/(\s+)/g, "\\$1"), t.abrupt("return", new o.a((function(t, r)
+									return r = g.a.join(e.filesPath, "darwin", "x64"), a = r.replace(/(\s+)/g, "\\$1"), t.abrupt("return", new Promise((function(t, r)
 									{
-										n(64)
-											.exec("cp " + a + "/sysproxy " + e.clashPath + "/sysproxy && chown root " + e.clashPath + "/sysproxy && chmod u+s " + e.clashPath + "/sysproxy",
-											{
-												name: "Clash for Windows"
-											}, (function(e, n, a)
-											{
-												e && r(e), t(n || a)
-											}))
+										n(34)
+											.exec("cp ".concat(a, "/sysproxy ")
+												.concat(e.clashPath, "/sysproxy && chown root ")
+												.concat(e.clashPath, "/sysproxy && chmod u+s ")
+												.concat(e.clashPath, "/sysproxy"),
+												{
+													name: "Clash for Windows"
+												}, (function(e, n, a)
+												{
+													e && r(e), t(n || a)
+												}))
 									})));
 								case 4:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				spawnLoopback: function()
 				{
-					if("win32" === process.platform)
+					if(Object(I.f)())
 					{
-						var e = this.filesPath;
-						this.$electron.shell.openPath(v.a.join(e, "EnableLoopback.exe"))
+						var e = g.a.join(this.filesPath, "win");
+						this.$electron.shell.openPath(g.a.join(e, "EnableLoopback.exe"))
 					}
 				},
 				reloadElectron: function()
@@ -19014,20 +18848,20 @@
 				openGithubRelease: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
 									return n = function()
 									{
-										var t = l()(c.a.mark((function t()
+										var t = p()(l.a.mark((function t()
 										{
 											var n, r, a, i, o;
-											return c.a.wrap((function(t)
+											return l.a.wrap((function(t)
 											{
 												for(;;) switch (t.prev = t.next)
 												{
@@ -19039,7 +18873,7 @@
 														}
 														return t.next = 4, e.$select(
 														{
-															title: a + " had been released",
+															title: "".concat(a, " had been released"),
 															message: i.replace(/\n/g, "<br />"),
 															items: ["下载", "Copy URL", "取消"]
 														});
@@ -19049,14 +18883,14 @@
 													case 8:
 														e.$alert(
 														{
-															title: "Sorry",
-															content: "No new updates found."
+															title: "You are awesome",
+															content: "The current version is up to date."
 														});
 													case 9:
 													case "end":
 														return t.stop()
 												}
-											}), t, e)
+											}), t)
 										})));
 										return function()
 										{
@@ -19069,12 +18903,12 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleHomeDirectoryOpen: function()
 				{
-					this.$electron.shell.openPath(v.a.resolve(this.clashPath))
+					this.$electron.shell.openPath(g.a.resolve(this.clashPath))
 				},
 				handleGeoipDatabaseUpdate: function()
 				{
@@ -19083,22 +18917,29 @@
 				handlePortClick: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n, r;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if(n = void 0, "darwin" !== process.platform)
+									if(!Object(I.e)())
 									{
-										t.next = 5;
+										t.next = 4;
 										break
 									}
-									n = "export https_proxy=http://127.0.0.1:" + e.port + ";export http_proxy=http://127.0.0.1:" + e.port + ";export all_proxy=socks5://127.0.0.1:" + e.port, t.next = 14;
+									n = "export https_proxy=http://127.0.0.1:".concat(e.port, ";export http_proxy=http://127.0.0.1:")
+										.concat(e.port, ";export all_proxy=socks5://127.0.0.1:")
+										.concat(e.port), t.next = 14;
 									break;
-								case 5:
+								case 4:
+									if(!Object(I.f)())
+									{
+										t.next = 14;
+										break
+									}
 									return t.prev = 5, t.next = 8, e.$select(
 									{
 										title: "复制终端代理命令",
@@ -19106,7 +18947,9 @@
 										items: ["CMD", "Powershell"]
 									});
 								case 8:
-									r = t.sent, n = 0 === r ? "set http_proxy=http://127.0.0.1:" + e.port + " & set https_proxy=http://127.0.0.1:" + e.port : '$Env:http_proxy="http://127.0.0.1:' + e.port + '";$Env:https_proxy="http://127.0.0.1:' + e.port + '"', t.next = 14;
+									r = t.sent, n = 0 === r ? "set http_proxy=http://127.0.0.1:".concat(e.port, " & set https_proxy=http://127.0.0.1:")
+										.concat(e.port) : '$Env:http_proxy="http://127.0.0.1:'.concat(e.port, '";$Env:https_proxy="http://127.0.0.1:')
+										.concat(e.port, '"'), t.next = 14;
 									break;
 								case 12:
 									t.prev = 12, t.t0 = t.catch(5);
@@ -19116,7 +18959,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[5, 12]
 						])
 					})))()
@@ -19125,13 +18968,13 @@
 				{
 					try
 					{
-						g.a.unlinkSync(v.a.join(this.clashPath, "config.yaml"))
+						x.a.unlinkSync(g.a.join(this.clashPath, "config.yaml"))
 					}
 					catch (e)
 					{}
 					try
 					{
-						g.a.unlinkSync(v.a.join(this.clashPath, "country.mmdb"))
+						x.a.unlinkSync(g.a.join(this.clashPath, "country.mmdb"))
 					}
 					catch (e)
 					{}
@@ -19140,15 +18983,15 @@
 				updateGeoipDB: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
-						var n, r, a, i, o, s, d, l, u, p, f, h, m, x, b, y, _;
-						return c.a.wrap((function(t)
+						var n, r, a, i, o, s, c, d, u, p, f, h, v, m, b, y, w;
+						return l.a.wrap((function(t)
 						{
-							for(var c = Math.round;;) switch (t.prev = t.next)
+							for(var l = Math.round;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if("win32" !== process.platform)
+									if(!Object(I.f)())
 									{
 										t.next = 3;
 										break
@@ -19171,13 +19014,13 @@
 										name: "MaxMind User License Key",
 										key: "token",
 										placeholder: "",
-										value: A.a.get(E.a.GEOIP_TOKEN) || ""
+										value: D.a.get($.a.GEOIP_TOKEN) || ""
 									},
 									{
 										name: "地址",
 										key: "url",
 										placeholder: "",
-										value: A.a.get(E.a.GEOIP_URL) || "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
+										value: D.a.get($.a.GEOIP_URL) || "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
 									}], t.prev = 8, t.next = 11, e.$input(
 									{
 										title: "Update GeoIP database",
@@ -19185,60 +19028,60 @@
 										hint: "Input fields are alternative"
 									});
 								case 11:
-									if(a = t.sent, i = a.url, o = void 0 === i ? "" : i, s = a.token, d = void 0 === s ? "" : s, A.a.put(E.a.GEOIP_TOKEN, d), A.a.put(E.a.GEOIP_URL, o), e.clashPath)
+									if(a = t.sent, i = a.url, o = void 0 === i ? "" : i, s = a.token, c = void 0 === s ? "" : s, D.a.put($.a.GEOIP_TOKEN, c), D.a.put($.a.GEOIP_URL, o), e.clashPath)
 									{
 										t.next = 20;
 										break
 									}
 									return t.abrupt("return");
 								case 20:
-									l = function(t, n)
+									d = function(t, n)
 									{
-										g.a.ftruncateSync(g.a.openSync(t, "r+"), n), e.$parent.handlerRestartClash(), e.intervalID = setInterval(e.setupComponent, 3e3)
-									}, d ? (e.geoipUpdateTime = "Updating... (0%)", u = v.a.join(e.$electron.remote.app.getPath("temp")), v.a.join(u, "cfw_geoip.tag.gz"), (p = w.a.stream("https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=" + d + "&suffix=tar.gz"))
+										x.a.ftruncateSync(x.a.openSync(t, "r+"), n), e.$parent.handlerRestartClash(), e.intervalID = setInterval(e.setupComponent, 3e3)
+									}, c ? (e.geoipUpdateTime = "Updating... (0%)", u = g.a.join(e.$electron.remote.app.getPath("temp")), g.a.join(u, "cfw_geoip.tag.gz"), (p = _.a.stream("https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=".concat(c, "&suffix=tar.gz")))
 										.on("downloadProgress", (function(t)
 										{
 											var n;
-											n = 1 === t.percent ? "Restarting core..." : "Updating... (" + c(100 * t.percent) + "%)", e.geoipUpdateTime = n
+											n = 1 === t.percent ? "Restarting core..." : "Updating... (".concat(l(100 * t.percent), "%)"), e.geoipUpdateTime = n
 										})), p.on("error", (function(t)
 										{
 											e.$alert(
 											{
-												content: "Download GeoIP database failed with error: " + t.name
+												content: "Download GeoIP database failed with error: ".concat(t.name)
 											}), e.geoipUpdateTime = n
-										})), f = v.a.join(e.clashPath, "Country.mmdb"), h = T.a.extract(), m = 0, h.on("entry", (function(e, t, n)
+										})), f = g.a.join(e.clashPath, "Country.mmdb"), h = E.a.extract(), v = 0, h.on("entry", (function(e, t, n)
 										{
 											t.on("end", (function()
 											{
 												n()
-											})), /GeoLite2-Country\.mmdb$/.test(e.name) ? (m = e.size, t.pipe(g.a.createWriteStream(f,
+											})), /GeoLite2-Country\.mmdb$/.test(e.name) ? (v = e.size, t.pipe(x.a.createWriteStream(f,
 											{
 												flags: "r+"
 											}))) : t.resume()
 										})), h.on("finish", (function()
 										{
-											l(f, m)
+											d(f, v)
 										})), p.pipe(S.a.createGunzip())
-										.pipe(h)) : o && (e.geoipUpdateTime = "Updating... (0%)", x = w.a.stream(o), b = 0, x.on("downloadProgress", (function(t)
+										.pipe(h)) : o && (e.geoipUpdateTime = "Updating... (0%)", m = _.a.stream(o), b = 0, m.on("downloadProgress", (function(t)
 										{
 											var n = "",
 												r = t.percent,
 												a = t.total;
-											1 === r ? (b = a, n = "Restarting core...") : n = "Updating... (" + c(100 * t.percent) + "%)", e.geoipUpdateTime = n
-										})), x.on("error", (function(t)
+											1 === r ? (b = a, n = "Restarting core...") : n = "Updating... (".concat(l(100 * t.percent), "%)"), e.geoipUpdateTime = n
+										})), m.on("error", (function(t)
 										{
 											e.$alert(
 											{
-												content: "Download GeoIP database failed with error: " + t.name
+												content: "Download GeoIP database failed with error: ".concat(t.name)
 											}), e.geoipUpdateTime = n
-										})), y = v.a.join(e.clashPath, "Country.mmdb"), (_ = g.a.createWriteStream(y,
+										})), y = g.a.join(e.clashPath, "Country.mmdb"), (w = x.a.createWriteStream(y,
 										{
 											flags: "r+"
 										}))
 										.on("finish", (function()
 										{
-											l(y, b)
-										})), x.pipe(_)), t.next = 26;
+											d(y, b)
+										})), m.pipe(w)), t.next = 26;
 									break;
 								case 24:
 									t.prev = 24, t.t0 = t.catch(8);
@@ -19246,7 +19089,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[8, 24]
 						])
 					})))()
@@ -19255,7 +19098,7 @@
 				{
 					try
 					{
-						this.mixedPort && (this.systemProxy = this.$getSystemProxyStatus(this.mixedPort))
+						this.systemProxy = this.$getSystemProxyStatus()
 					}
 					catch (e)
 					{}
@@ -19267,10 +19110,10 @@
 				setupComponent: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
-						var n, r, i, s, d, l, u, p;
-						return c.a.wrap((function(t)
+						var n, r, a, i, o, s, d, u;
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -19281,9 +19124,9 @@
 										t.next = 20;
 										break
 									}
-									return t.prev = 3, t.next = 6, o.a.all([n.clashAxiosClient.get("/configs"), n.$parent.refreshClashStatus(), n.fetchCoreVersion()]);
+									return t.prev = 3, t.next = 6, Promise.all([n.clashAxiosClient.get("/configs"), n.$parent.refreshClashStatus(), n.fetchCoreVersion()]);
 								case 6:
-									r = t.sent, i = a()(r, 1), s = i[0], d = s.status, l = s.data, 200 === d && n.$parent.clashStatus === $.a.CONNECTED ? (u = l["mixed-port"], p = l["allow-lan"], e.port = u, e.isAllowLan = p, e.geoipUpdateTime = b()(g.a.statSync(v.a.join(e.clashPath, "Country.mmdb"))
+									r = t.sent, a = c()(r, 1), i = a[0], o = i.status, s = i.data, 200 === o && n.$parent.clashStatus === T.a.CONNECTED ? (d = s["mixed-port"], u = s["allow-lan"], e.port = d, e.isAllowLan = u, e.geoipUpdateTime = w()(x.a.statSync(g.a.join(e.clashPath, "Country.mmdb"))
 											.mtimeMs)
 										.format("YYYY-MM-DD HH:mm"), e.errorCount = 0) : e.errorCount += 1, t.next = 18;
 									break;
@@ -19298,7 +19141,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
+						}), t, null, [
 							[3, 14]
 						])
 					})))()
@@ -19306,10 +19149,10 @@
 				fetchCoreVersion: function()
 				{
 					var e = this;
-					return l()(c.a.mark((function t()
+					return p()(l.a.mark((function t()
 					{
 						var n, r, a, i;
-						return c.a.wrap((function(t)
+						return l.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
@@ -19321,12 +19164,13 @@
 									}
 									return t.next = 3, e.clashAxiosClient.get("/version");
 								case 3:
-									n = t.sent, (r = n.data) ? (a = r.premium, i = r.version, e.clashCoreVersion = void 0 !== a && void 0 !== i ? i + " " + (a ? "Premium" : "") : "Unknown") : e.clashCoreVersion = "Unknown";
+									n = t.sent, (r = n.data) ? (a = r.premium, i = r.version, e.clashCoreVersion = void 0 !== a && void 0 !== i ? "".concat(i, " ")
+										.concat(a ? "Premium" : "") : "Unknown") : e.clashCoreVersion = "Unknown";
 								case 6:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				}
 			}),
@@ -19335,9 +19179,9 @@
 			{
 				n((function(e)
 				{
-					e.version = "v " + e.$electron.remote.app.getVersion(), e.networkInterfaces = Object(O.b)(), e.setupComponent(), setTimeout(e.setupSwitches, 1), e.timeoutID = setTimeout((function()
+					e.version = "v ".concat(e.$electron.remote.app.getVersion()), e.networkInterfaces = Object(A.b)(), e.setupComponent(), setTimeout(e.setupSwitches, 1), e.timeoutID = setTimeout((function()
 					{
-						e.setupComponent()
+						e.setupComponent(), e.setupSwitches()
 					}), 1500), e.intervalID = setInterval((function()
 					{
 						e.setupComponent()
@@ -19349,7 +19193,7 @@
 				this.intervalID && (clearInterval(this.intervalID), this.intervalID = null), this.timeoutID && (clearTimeout(this.timeoutID), this.timeoutID = null), n()
 			}
 		},
-		B = (n(245), n(247), Object(j.a)(G, (function()
+		K = (n(144), n(146), Object(N.a)(W, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -19415,7 +19259,7 @@
 				{
 					click: function(t)
 					{
-						return t.stopPropagation(), e.openCmdWithProxy(e.item)
+						return t.stopPropagation(), e.openCmdWithProxy()
 					}
 				}
 			}) : e._e(), e._v(" "), n("div",
@@ -19627,30 +19471,177 @@
 			{
 				staticClass: "empty-div"
 			})])
-		}), [], !1, null, "27ee0397", null));
-	B.options.__file = "GeneralView.vue", t.default = B.exports
+		}), [], !1, null, "7faa54ca", null));
+	K.options.__file = "GeneralView.vue", t.default = K.exports
 }, function(e, t, n)
 {
 	"use strict";
-	var r = Math.floor;
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function i(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? a(Object(t), !0)
+			.forEach((function(n)
+			{
+				x()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : a(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+
+	function o(e, t)
+	{
+		var n;
+		if("undefined" == typeof Symbol || null == e[Symbol.iterator])
+		{
+			if(Array.isArray(e) || (n = s(e)) || t && e && "number" == typeof e.length)
+			{
+				n && (e = n);
+				var r = 0,
+					a = function() {};
+				return {
+					s: a,
+					n: function()
+					{
+						return r >= e.length ?
+						{
+							done: !0
+						} :
+						{
+							done: !1,
+							value: e[r++]
+						}
+					},
+					e: function(e)
+					{
+						throw e
+					},
+					f: a
+				}
+			}
+			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+		}
+		var i, o = !0,
+			c = !1;
+		return {
+			s: function()
+			{
+				n = e[Symbol.iterator]()
+			},
+			n: function()
+			{
+				var e = n.next();
+				return o = e.done, e
+			},
+			e: function(e)
+			{
+				c = !0, i = e
+			},
+			f: function()
+			{
+				try
+				{
+					o || null == n.return || n.return()
+				}
+				finally
+				{
+					if(c) throw i
+				}
+			}
+		}
+	}
+
+	function s(e, t)
+	{
+		if(e)
+		{
+			if("string" == typeof e) return c(e, t);
+			var n = Object.prototype.toString.call(e)
+				.slice(8, -1);
+			return "Object" === n && e.constructor && (n = e.constructor.name), "Map" === n || "Set" === n ? Array.from(e) : "Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n) ? c(e, t) : void 0
+		}
+	}
+
+	function c(e, t)
+	{
+		(null == t || t > e.length) && (t = e.length);
+		for(var n = 0, r = Array(t); n < t; n++) r[n] = e[n];
+		return r
+	}
+
+	function d(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function l(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? d(Object(t), !0)
+			.forEach((function(n)
+			{
+				x()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : d(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+	var u = Math.floor;
 	n.r(t);
-	var a = n(24),
-		i = n.n(a),
-		o = n(14),
-		s = n.n(o),
-		c = n(26),
-		d = n.n(c),
-		l = n(156),
-		u = n.n(l),
-		p = n(20),
+	var p = n(20),
 		f = n.n(p),
 		h = n(0),
 		v = n.n(h),
 		m = n(1),
 		g = n.n(m),
-		x = n(2),
-		b = n.n(x),
-		y = n(4),
+		b = n(2),
+		x = n.n(b),
+		y = n(5),
 		w = {
 			props: ["mode"],
 			data: function()
@@ -19659,7 +19650,20 @@
 					modes: ["global", "rule", "direct", "script"]
 				}
 			},
-			computed: b()(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? r(Object(t), !0)
+					.forEach((function(n)
+					{
+						x()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
 			{}, Object(y.mapState)(
 			{})),
 			methods:
@@ -19671,7 +19675,7 @@
 				btnTheme: function(e)
 				{
 					var t = ["btn"];
-					return this.mode === e.toLowerCase() ? t.push("selected-" + this.theme) : t.push("normal-" + this.theme), t
+					return this.mode === e.toLowerCase() ? t.push("selected-".concat(this.theme)) : t.push("normal-".concat(this.theme)), t
 				},
 				switchMode: function(e)
 				{
@@ -19688,13 +19692,13 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t)
+						}), n)
 					})))()
 				}
 			}
 		},
-		_ = (n(251), n(253), n(3)),
-		k = Object(_.a)(w, (function()
+		k = (n(148), n(150), n(4)),
+		_ = Object(k.a)(w, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -19725,13 +19729,11 @@
 				}, [e._v("\n      " + e._s(e.upperCaseFirstLetter(t)) + "\n    ")])
 			})), 0)])
 		}), [], !1, null, "3cb6848a", null);
-	k.options.__file = "ProxyModeSwitcher.vue";
-	var C = k.exports,
-		S = n(157),
-		P = n.n(S),
-		T = n(13),
-		$ = n.n(T),
-		E = {
+	_.options.__file = "ProxyModeSwitcher.vue";
+	var C = _.exports,
+		O = n(14),
+		P = n.n(O),
+		S = {
 			props:
 			{
 				text: String,
@@ -19746,7 +19748,7 @@
 				}
 			}
 		},
-		A = (n(258), Object(_.a)(E, (function()
+		j = (n(152), Object(k.a)(S, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -19778,11 +19780,11 @@
 				class: ["box", "animation-delay5", "large" === e.size ? "large" : "small"]
 			})]) : n("div", [e._v(e._s(e.text))])])
 		}), [], !1, null, "a524bd40", null));
-	A.options.__file = "Button.vue";
-	var O = {
+	j.options.__file = "Button.vue";
+	var E = {
 			components:
 			{
-				Button: A.exports
+				Button: j.exports
 			},
 			props: [],
 			data: function()
@@ -19791,7 +19793,7 @@
 					providers: []
 				}
 			},
-			computed: b()(
+			computed: i(
 			{}, Object(y.mapState)(
 			{
 				clashAxiosClient: function(e)
@@ -19803,7 +19805,7 @@
 			{
 				fromNowString: function(e)
 				{
-					return $()(e)
+					return P()(e)
 						.fromNow()
 				},
 				handleHealthCheck: function(e, t)
@@ -19811,14 +19813,15 @@
 					var n = this;
 					return g()(v.a.mark((function r()
 					{
-						var a, i;
+						var a, o;
 						return v.a.wrap((function(r)
 						{
 							for(;;) switch (r.prev = r.next)
 							{
 								case 0:
-									if(a = e.name, n.$set(n.providers, t, b()(
-									{}, e,
+									if(a = e.name, n.$set(n.providers, t, i(i(
+									{}, e),
+									{},
 									{
 										isChecking: !0
 									})), !a)
@@ -19826,18 +19829,19 @@
 										r.next = 13;
 										break
 									}
-									return r.prev = 3, r.next = 6, n.clashAxiosClient.get("/providers/proxies/" + a + "/healthcheck",
+									return r.prev = 3, r.next = 6, n.clashAxiosClient.get("/providers/proxies/".concat(a, "/healthcheck"),
 									{
 										timeout: 0
 									});
 								case 6:
-									i = r.sent, i.status, r.next = 13;
+									o = r.sent, o.status, r.next = 13;
 									break;
 								case 11:
 									r.prev = 11, r.t0 = r.catch(3);
 								case 13:
-									n.$set(n.providers, t, b()(
-									{}, e,
+									n.$set(n.providers, t, i(i(
+									{}, e),
+									{},
 									{
 										isChecking: !1
 									}));
@@ -19845,7 +19849,7 @@
 								case "end":
 									return r.stop()
 							}
-						}), r, n, [
+						}), r, null, [
 							[3, 11]
 						])
 					})))()
@@ -19855,14 +19859,15 @@
 					var n = this;
 					return g()(v.a.mark((function r()
 					{
-						var a, i;
+						var a, o;
 						return v.a.wrap((function(r)
 						{
 							for(;;) switch (r.prev = r.next)
 							{
 								case 0:
-									if(a = e.name, n.$set(n.providers, t, b()(
-									{}, e,
+									if(a = e.name, n.$set(n.providers, t, i(i(
+									{}, e),
+									{},
 									{
 										isUpdating: !0
 									})), !a)
@@ -19870,15 +19875,16 @@
 										r.next = 13;
 										break
 									}
-									return r.prev = 3, r.next = 6, n.clashAxiosClient.put("/providers/proxies/" + a);
+									return r.prev = 3, r.next = 6, n.clashAxiosClient.put("/providers/proxies/".concat(a));
 								case 6:
-									i = r.sent, 204 === i.status && n.fetchData(), r.next = 13;
+									o = r.sent, 204 === o.status && n.fetchData(), r.next = 13;
 									break;
 								case 11:
 									r.prev = 11, r.t0 = r.catch(3);
 								case 13:
-									n.$set(n.providers, t, b()(
-									{}, e,
+									n.$set(n.providers, t, i(i(
+									{}, e),
+									{},
 									{
 										isUpdating: !1
 									}));
@@ -19886,7 +19892,7 @@
 								case "end":
 									return r.stop()
 							}
-						}), r, n, [
+						}), r, null, [
 							[3, 11]
 						])
 					})))()
@@ -19896,7 +19902,7 @@
 					var e = this;
 					return g()(v.a.mark((function t()
 					{
-						var n, r, a, i, o, s, c, l, u, p, h, m, g, x, y, w;
+						var n, r, a, o, s, c, d, l, u, p, h, m;
 						return v.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
@@ -19904,47 +19910,24 @@
 								case 0:
 									return t.next = 2, e.clashAxiosClient.get("/providers/proxies");
 								case 2:
-									if(n = t.sent, r = n.status, a = n.data, i = void 0 === a ?
-									{} : a, 200 !== r)
+									if(n = t.sent, r = n.status, a = n.data, o = void 0 === a ?
+									{} : a, 200 === r)
 									{
-										t.next = 29;
-										break
+										for(s = o.providers, c = void 0 === s ?
+										{} : s, d = [], l = 0, u = Object.entries(c); l < u.length; l++) p = f()(u[l], 2), p[0], h = p[1], m = h.vehicleType, ["File", "HTTP"].includes(m) && d.push(i(i(
+										{}, h),
+										{},
+										{
+											isChecking: !1,
+											isUpdating: !1
+										}));
+										e.providers = d
 									}
-									for(o = i.providers, s = void 0 === o ?
-									{} : o, c = [], l = !0, u = !1, p = void 0, t.prev = 12, h = f()(P()(s)); !(l = (m = h.next())
-										.done); l = !0) g = m.value, x = d()(g, 2), x[0], y = x[1], w = y.vehicleType, ["File", "HTTP"].includes(w) && c.push(b()(
-									{}, y,
-									{
-										isChecking: !1,
-										isUpdating: !1
-									}));
-									t.next = 20;
-									break;
-								case 16:
-									t.prev = 16, t.t0 = t.catch(12), u = !0, p = t.t0;
-								case 20:
-									t.prev = 20, t.prev = 21, !l && h.return && h.return();
-								case 23:
-									if(t.prev = 23, !u)
-									{
-										t.next = 26;
-										break
-									}
-									throw p;
-								case 26:
-									return t.finish(23);
-								case 27:
-									return t.finish(20);
-								case 28:
-									e.providers = c;
-								case 29:
+								case 7:
 								case "end":
 									return t.stop()
 							}
-						}), t, e, [
-							[12, 16, 20, 28],
-							[21, , 23, 27]
-						])
+						}), t)
 					})))()
 				}
 			},
@@ -19953,7 +19936,7 @@
 				this.fetchData()
 			}
 		},
-		I = (n(260), Object(_.a)(O, (function()
+		T = (n(154), Object(k.a)(E, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -20038,19 +20021,19 @@
 			}))], 2) : n("div",
 			{
 				staticClass: "hint"
-			}, [e._v("此配置文件中没有提供程序。")])])])])
-		}), [], !1, null, "7c7f8c4f", null));
-	I.options.__file = "ProviderView.vue";
-	var j = I.exports,
-		D = (n(5), n(18)),
-		N = n.n(D),
-		L = (n(6), n(9)),
-		M = n(10),
-		R = n(134),
-		F = n.n(R),
-		U = N.a.CancelToken,
+			}, [e._v("此配置中无节点。")])])])])
+		}), [], !1, null, "5194739c", null));
+	T.options.__file = "ProviderView.vue";
+	var $ = T.exports,
+		D = (n(3), n(19)),
+		A = n.n(D),
+		I = (n(6), n(10)),
+		L = n(11),
+		N = n(91),
+		M = n.n(N),
+		R = A.a.CancelToken,
 		z = [],
-		H = {
+		F = {
 			props: [],
 			data: function()
 			{
@@ -20070,7 +20053,7 @@
 			components:
 			{
 				ProxyModeSwitcher: C,
-				ProviderView: j
+				ProviderView: $
 			},
 			watch:
 			{
@@ -20079,7 +20062,7 @@
 					!1 === e && this.fetchData()
 				}
 			},
-			computed: b()(
+			computed: l(l(
 			{}, Object(y.mapState)(
 			{
 				clashPath: function(e)
@@ -20102,12 +20085,13 @@
 				{
 					return e.app.settings
 				}
-			}),
+			})),
+			{},
 			{
 				proxyItemWidth: function()
 				{
 					var e = this.settings.proxyItemWidth;
-					return 290 <= parseInt(e) ? e + "px" : "290px"
+					return 290 <= parseInt(e) ? "".concat(e, "px") : "290px"
 				},
 				proxyInMode: function()
 				{
@@ -20122,11 +20106,12 @@
 					}))
 				}
 			}),
-			methods: b()(
+			methods: l(l(
 			{}, Object(y.mapMutations)(
 			{
 				changeProfile: "CHANGE_PROFILE"
-			}),
+			})),
+			{},
 			{
 				handleFilterIconClick: function()
 				{
@@ -20145,45 +20130,42 @@
 				},
 				handleSingleSpeedtest: function(e, t)
 				{
-					var n = this,
-						r = e.name,
-						a = t.name,
-						i = t.provider;
-					return g()(v.a.mark((function e()
+					var n = this;
+					return g()(v.a.mark((function r()
 					{
-						var t, o, s, c, d, l;
-						return v.a.wrap((function(e)
+						var a, i, o, s, c, d, l, u;
+						return v.a.wrap((function(r)
 						{
-							for(;;) switch (e.prev = e.next)
+							for(;;) switch (r.prev = r.next)
 							{
 								case 0:
-									if(null === i)
+									if(a = e.name, i = t.name, null === t.provider)
 									{
-										e.next = 2;
+										r.next = 4;
 										break
 									}
-									return e.abrupt("return");
-								case 2:
-									return n.cancelLatencyTest(), t = "", e.prev = 4, o = n.settings, s = o.latencyTimeout, c = o.latencyUrl, e.next = 8, n.speedtest(a, s || 3e3, c || "http://www.gstatic.com/generate_204");
-								case 8:
-									t = e.sent, e.next = 13;
+									return r.abrupt("return");
+								case 4:
+									return n.cancelLatencyTest(), o = "", r.prev = 6, s = n.settings, c = s.latencyTimeout, d = s.latencyUrl, r.next = 10, n.speedtest(i, c || 3e3, d || "http://www.gstatic.com/generate_204");
+								case 10:
+									o = r.sent, r.next = 15;
 									break;
-								case 11:
-									e.prev = 11, e.t0 = e.catch(4);
 								case 13:
-									(d = n.proxyInMode.find((function(e)
-									{
-										return e.name === r
-									}))) && ((l = d.data.all.find((function(e)
+									r.prev = 13, r.t0 = r.catch(6);
+								case 15:
+									(l = n.proxyInMode.find((function(e)
 									{
 										return e.name === a
-									}))) && (l.latency = t + (/\d/.test(t) ? " ms" : "超时")));
-								case 15:
+									}))) && ((u = l.data.all.find((function(e)
+									{
+										return e.name === i
+									}))) && (u.latency = o + (/\d/.test(o) ? " ms" : "超时")));
+								case 17:
 								case "end":
-									return e.stop()
+									return r.stop()
 							}
-						}), e, n, [
-							[4, 11]
+						}), r, null, [
+							[6, 13]
 						])
 					})))()
 				},
@@ -20194,7 +20176,7 @@
 				animateDone: function() {},
 				proxyItemsShowAnimate: function(e, t)
 				{
-					F()(e,
+					M()(e,
 					{
 						opacity: 1
 					},
@@ -20206,7 +20188,7 @@
 				},
 				proxyItemsHideAnimate: function(e, t)
 				{
-					F()(e,
+					M()(e,
 					{
 						opacity: 0,
 						height: 0
@@ -20219,7 +20201,7 @@
 				},
 				saveShowSecIdxs: function()
 				{
-					L.a.put(M.a.PROXY_SHOW_SEC_IDXS, this.showSecIdxs)
+					I.a.put(L.a.PROXY_SHOW_SEC_IDXS, this.showSecIdxs)
 				},
 				switchVisiable: function(e)
 				{
@@ -20239,13 +20221,8 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t)
+						}), n)
 					})))()
-				},
-				visiableIcon: function(e)
-				{
-					var t = ["dark", "red"].includes(this.theme) ? "white" : "blue";
-					return this.showSecIdxs.includes(e) ? "static/imgs/round_visibility_off_" + t + "_48dp.png" : "static/imgs/round_visibility_" + t + "_48dp.png"
 				},
 				nodeHint: function(e)
 				{
@@ -20255,7 +20232,10 @@
 					}));
 					if(!t) return "";
 					var n = t.data.type;
-					return "Selector" === n || "Fallback" === n || "URLTest" === n ? this.$parseEmoji(n + " - " + t.data.now, 16) : "LoadBalance" === n ? n + " - " + t.data.all.length + " server" + (1 < t.data.all.length ? "s" : "") : n
+					return "Selector" === n || "Fallback" === n || "URLTest" === n ? this.$parseEmoji("".concat(n, " - ")
+							.concat(t.data.now), 16) : "LoadBalance" === n ? "".concat(n, " - ")
+						.concat(t.data.all.length, " server")
+						.concat(1 < t.data.all.length ? "s" : "") : n
 				},
 				cancelLatencyTest: function()
 				{
@@ -20266,38 +20246,38 @@
 				},
 				switchProxy: function(e, t)
 				{
-					var n = this,
-						r = 2 < arguments.length && void 0 !== arguments[2] && arguments[2];
+					var n = arguments,
+						r = this;
 					return g()(v.a.mark((function a()
 					{
-						var i, o, s, c, d, l, u, p, h, m, g, x, y, w, _, k;
+						var i, s, c, d, u, p, f, h, m, g, b, x;
 						return v.a.wrap((function(a)
 						{
 							for(;;) switch (a.prev = a.next)
 							{
 								case 0:
-									if(!r)
+									if(!(2 < n.length && void 0 !== n[2] && n[2]))
 									{
-										a.next = 2;
+										a.next = 3;
 										break
 									}
 									return a.abrupt("return");
-								case 2:
-									return n.cancelLatencyTest(), a.next = 5, n.clashAxiosClient.put("/proxies/" + encodeURIComponent(e),
+								case 3:
+									return r.cancelLatencyTest(), a.next = 6, r.clashAxiosClient.put("/proxies/".concat(encodeURIComponent(e)),
 									{
 										name: t
 									});
-								case 5:
+								case 6:
 									if(204 !== a.sent.status)
 									{
-										a.next = 52;
+										a.next = 43;
 										break
 									}
-									if(n.proxies.find((function(t)
+									if(r.proxies.find((function(t)
 										{
 											return t.name === e
 										}))
-										.data.now = t, i = n.proxies.filter((function(e)
+										.data.now = t, i = r.proxies.filter((function(e)
 										{
 											return "Selector" === e.data.type
 										}))
@@ -20307,78 +20287,67 @@
 												name: e.name,
 												now: e.data.now
 											}
-										})), -1 < n.pfs.index && (o = n.pfs.files[n.pfs.index], n.changeProfile(
+										})), -1 < r.pfs.index && (s = r.pfs.files[r.pfs.index], r.changeProfile(
 										{
-											index: n.pfs.index,
-											profile: b()(
-											{}, o,
+											index: r.pfs.index,
+											profile: l(l(
+											{}, s),
+											{},
 											{
 												selected: i
 											})
-										})), s = n.settings.connProxy, 1 !== (c = void 0 === s ? 0 : s))
+										})), c = r.settings.connProxy, 1 !== (d = void 0 === c ? 0 : c))
 									{
-										a.next = 49;
+										a.next = 40;
 										break
 									}
-									return a.next = 14, n.clashAxiosClient.get("connections");
-								case 14:
-									if(d = a.sent, l = d.status, u = d.data, 200 !== l)
+									return a.next = 15, r.clashAxiosClient.get("connections");
+								case 15:
+									if(u = a.sent, p = u.status, f = u.data, 200 !== p)
 									{
-										a.next = 47;
+										a.next = 38;
 										break
 									}
-									p = u.connections, h = void 0 === p ? [] : p, m = !0, g = !1, x = void 0, a.prev = 22, y = f()(h);
-								case 24:
-									if(m = (w = y.next())
+									h = f.connections, m = o(void 0 === h ? [] : h), a.prev = 21, m.s();
+								case 23:
+									if((g = m.n())
 										.done)
-									{
-										a.next = 33;
-										break
-									}
-									if(_ = w.value, k = _.id, !_.chains.includes(e))
 									{
 										a.next = 30;
 										break
 									}
-									return a.next = 30, n.clashAxiosClient.delete("connections/" + k);
+									if(b = g.value, x = b.id, !b.chains.includes(e))
+									{
+										a.next = 28;
+										break
+									}
+									return a.next = 28, r.clashAxiosClient.delete("connections/".concat(x));
+								case 28:
+									a.next = 23;
+									break;
 								case 30:
-									m = !0, a.next = 24;
+									a.next = 35;
 									break;
-								case 33:
-									a.next = 39;
-									break;
+								case 32:
+									a.prev = 32, a.t0 = a.catch(21), m.e(a.t0);
 								case 35:
-									a.prev = 35, a.t0 = a.catch(22), g = !0, x = a.t0;
-								case 39:
-									a.prev = 39, a.prev = 40, !m && y.return && y.return();
-								case 42:
-									if(a.prev = 42, !g)
-									{
-										a.next = 45;
-										break
-									}
-									throw x;
-								case 45:
-									return a.finish(42);
-								case 46:
-									return a.finish(39);
-								case 47:
-									a.next = 52;
+									return a.prev = 35, m.f(), a.finish(35);
+								case 38:
+									a.next = 43;
 									break;
-								case 49:
-									if(2 !== c)
+								case 40:
+									if(2 !== d)
 									{
-										a.next = 52;
+										a.next = 43;
 										break
 									}
-									return a.next = 52, n.clashAxiosClient.delete("connections");
-								case 52:
+									return a.next = 43, r.clashAxiosClient.delete("connections");
+								case 43:
 								case "end":
 									return a.stop()
 							}
-						}), a, n, [
-							[22, 35, 39, 47],
-							[40, , 42, 46]
+						}), a, null, [
+							[21, 32, 35, 38]
 						])
 					})))()
 				},
@@ -20393,20 +20362,13 @@
 							for(;;) switch (r.prev = r.next)
 							{
 								case 0:
-									if(n.cancelLatencyTest(), n.showSecIdxs.find((function(e)
+									n.cancelLatencyTest(), n.showSecIdxs.find((function(e)
 									{
 										return e === t
 									})) || n.showSecIdxs.push(t), a = n.proxies.find((function(t)
 									{
 										return t.name === e
-									})), i = n.settings, o = i.latencyTimeout, s = i.latencyUrl, "static/imgs/round_flash_off_blue_48dp.png" !== n.latencyBtnSrc(a.data.all))
-									{
-										r.next = 6;
-										break
-									}
-									return r.abrupt("return");
-								case 6:
-									c = [], a.data.all.forEach(function()
+									})), i = n.settings, o = i.latencyTimeout, s = i.latencyUrl, c = [], a.data.all.forEach(function()
 									{
 										var e = g()(v.a.mark((function e(t)
 										{
@@ -20436,7 +20398,7 @@
 													case "end":
 														return e.stop()
 												}
-											}), e, n, [
+											}), e, null, [
 												[4, 11]
 											])
 										})));
@@ -20453,10 +20415,10 @@
 												for(;;) switch (e.prev = e.next)
 												{
 													case 0:
-														return e.next = 2, n.clashAxiosClient.get("/providers/proxies/" + encodeURIComponent(t.name) + "/healthcheck",
+														return e.next = 2, n.clashAxiosClient.get("/providers/proxies/".concat(encodeURIComponent(t.name), "/healthcheck"),
 														{
 															timeout: 0,
-															cancelToken: new U((function(e)
+															cancelToken: new R((function(e)
 															{
 																n.axiosCancelTokens.push(e)
 															}))
@@ -20465,55 +20427,56 @@
 													case "end":
 														return e.stop()
 												}
-											}), e, n)
+											}), e)
 										})));
 										return function()
 										{
 											return e.apply(this, arguments)
 										}
 									}());
-								case 9:
+								case 7:
 								case "end":
 									return r.stop()
 							}
-						}), r, n)
+						}), r)
 					})))()
 				},
 				speedtest: function(e)
 				{
-					var t = this,
-						n = 1 < arguments.length && void 0 !== arguments[1] ? arguments[1] : 1e3,
-						r = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : "http://www.gstatic.com/generate_204";
-					return g()(v.a.mark((function a()
+					var t = arguments,
+						n = this;
+					return g()(v.a.mark((function r()
 					{
-						var i, o, s;
-						return v.a.wrap((function(a)
+						var a, i, o, s, c;
+						return v.a.wrap((function(r)
 						{
-							for(;;) switch (a.prev = a.next)
+							for(;;) switch (r.prev = r.next)
 							{
 								case 0:
-									return a.next = 2, t.clashAxiosClient("/proxies/" + encodeURIComponent(e) + "/delay?timeout=" + n + "&url=" + encodeURIComponent(r),
-									{
-										cancelToken: new U((function(e)
+									return a = 1 < t.length && void 0 !== t[1] ? t[1] : 1e3, i = 2 < t.length && void 0 !== t[2] ? t[2] : "http://www.gstatic.com/generate_204", r.next = 4, n.clashAxiosClient("/proxies/".concat(encodeURIComponent(e), "/delay?timeout=")
+										.concat(a, "&url=")
+										.concat(encodeURIComponent(i)),
 										{
-											t.axiosCancelTokens.push(e)
-										})),
-										timeout: 0
-									});
-								case 2:
-									if(i = a.sent, !(o = i.data))
+											cancelToken: new R((function(e)
+											{
+												n.axiosCancelTokens.push(e)
+											})),
+											timeout: 0
+										});
+								case 4:
+									if(o = r.sent, !(s = o.data))
 									{
-										a.next = 7;
+										r.next = 9;
 										break
 									}
-									return s = o.delay, a.abrupt("return", s || 0);
-								case 7:
-									return a.abrupt("return", 0);
-								case 8:
+									return c = s.delay, r.abrupt("return", c || 0);
+								case 9:
+									return r.abrupt("return", 0);
+								case 10:
 								case "end":
-									return a.stop()
+									return r.stop()
 							}
-						}), a, t)
+						}), r)
 					})))()
 				},
 				handleModeSwitch: function(e)
@@ -20533,7 +20496,7 @@
 								case "end":
 									return n.stop()
 							}
-						}), n, t)
+						}), n)
 					})))()
 				},
 				randomBGC: function(e, t)
@@ -20541,52 +20504,48 @@
 					var n = 2 < arguments.length && void 0 !== arguments[2] && arguments[2];
 					if("light" === this.theme)
 					{
-						var a = z.find((function(t)
+						var r = z.find((function(t)
 						{
 							return t.name === e
 						}));
-						if(a) return n ?
+						if(r) return n ?
 						{
-							"background-color": t ? "rgba(" + a.r + "," + a.g + "," + a.b + ",0.9)" : "rgba(179, 179, 179, 0.8)"
+							"background-color": t ? "rgba(".concat(r.r, ",")
+								.concat(r.g, ",")
+								.concat(r.b, ",0.9)") : "rgba(179, 179, 179, 0.8)"
 						} :
 						{
-							"background-color": "rgba(" + a.r + "," + a.g + "," + a.b + "," + (t ? .9 : .6) + ")"
+							"background-color": "rgba(".concat(r.r, ",")
+								.concat(r.g, ",")
+								.concat(r.b, ",")
+								.concat(t ? .9 : .6, ")")
 						};
-						var i = r(100 * Math.random() + 10),
-							o = r(100 * Math.random() + 10),
-							s = r(100 * Math.random() + 10);
+						var a = u(100 * Math.random() + 10),
+							i = u(100 * Math.random() + 10),
+							o = u(100 * Math.random() + 10);
 						return z.push(
 						{
 							name: e,
-							r: i,
-							g: o,
-							b: s
+							r: a,
+							g: i,
+							b: o
 						}), n ?
 						{
-							"background-color": t ? "rgba(" + i + "," + o + "," + s + ",0.9)" : "rgba(179, 179, 179, 0.9)"
+							"background-color": t ? "rgba(".concat(a, ",")
+								.concat(i, ",")
+								.concat(o, ",0.9)") : "rgba(179, 179, 179, 0.9)"
 						} :
 						{
-							"background-color": "rgba(" + i + "," + o + "," + s + "," + (t ? .9 : .6) + ")"
+							"background-color": "rgba(".concat(a, ",")
+								.concat(i, ",")
+								.concat(o, ",")
+								.concat(t ? .9 : .6, ")")
 						}
 					}
 					return "red" === this.theme ?
 					{
 						"background-color": t ? "#da141e99" : "#c28f3d"
 					} : void 0
-				},
-				latencyBtnSrc: function(e)
-				{
-					var t = "blue";
-					["dark", "red"].includes(this.theme) && (t = "white");
-					var n = "static/imgs/";
-					e.every((function(e)
-					{
-						return null === e.latency
-					})), e.every((function(e)
-					{
-						return e.latency
-					}));
-					return n + "round_flash_on_" + t + "_48dp.png"
 				},
 				findProvider: function(e, t)
 				{
@@ -20608,13 +20567,13 @@
 					var e = this;
 					return g()(v.a.mark((function t()
 					{
-						var n, r, a, o, c, l, p, f, h, m;
+						var n, r, a, i, o, s, c, d, l, u;
 						return v.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return n = u.a, t.next = 3, s.a.all([e.clashAxiosClient.get("/proxies"), e.clashAxiosClient.get("/providers/proxies",
+									return n = Number.MAX_SAFE_INTEGER, t.next = 3, Promise.all([e.clashAxiosClient.get("/proxies"), e.clashAxiosClient.get("/providers/proxies",
 									{
 										validateStatus: function()
 										{
@@ -20622,38 +20581,38 @@
 										}
 									})]);
 								case 3:
-									r = t.sent, a = d()(r, 2), o = a[0], c = a[1], l = c.data, p = (void 0 === l ?
-										{} : l)
-										.providers, f = void 0 === p ?
-										{} : p, h = o.data.proxies, m = h.GLOBAL.all, e.viewData = h, e.proxies = i()(h)
+									r = t.sent, a = f()(r, 2), i = a[0], o = a[1], s = o.data, c = (void 0 === s ?
+										{} : s)
+										.providers, d = void 0 === c ?
+										{} : c, l = i.data.proxies, u = l.GLOBAL.all, e.viewData = l, e.proxies = Object.keys(l)
 										.map((function(t)
 										{
-											return h[t].hasOwnProperty("all") || (h[t].all = [h[t].now]), h[t].type, h[t].all = h[t].all.map((function(t)
+											return l[t].hasOwnProperty("all") || (l[t].all = [l[t].now]), l[t].type, l[t].all = l[t].all.map((function(t)
 												{
 													var r = null,
-														a = h[t];
+														a = l[t];
 													if(void 0 === a)
 													{
-														var i = e.findProvider(f, t),
-															o = d()(i, 2),
+														var i = e.findProvider(d, t),
+															o = f()(i, 2),
 															s = o[0],
 															c = o[1],
-															l = 0;
-														return 0 < c.length ? r = 0 === (l = c[c.length - 1].delay) ? "超时" : l + " ms" : r = "",
+															u = 0;
+														return 0 < c.length ? r = 0 === (u = c[c.length - 1].delay) ? "超时" : "".concat(u, " ms") : r = "",
 														{
 															name: t,
 															provider: s,
 															latency: r,
-															delay: l || n
+															delay: u || n
 														}
 													}
-													var u = 0;
-													return a && 0 < a.history.length && (r = 0 === (u = a.history[a.history.length - 1].delay) ? "超时" : u + " ms"),
+													var p = 0;
+													return a && 0 < a.history.length && (r = 0 === (p = a.history[a.history.length - 1].delay) ? "超时" : "".concat(p, " ms")),
 													{
 														name: t,
 														provider: null,
 														latency: r,
-														delay: u || n
+														delay: p || n
 													}
 												}))
 												.filter((function(t)
@@ -20682,24 +20641,23 @@
 												})),
 												{
 													name: t,
-													data: h[t]
+													data: l[t]
 												}
 										}))
 										.sort((function(e, t)
 										{
-											return m.indexOf(e.name) - m.indexOf(t.name)
+											return u.indexOf(e.name) - u.indexOf(t.name)
 										}));
 								case 13:
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				}
 			}),
 			beforeRouteEnter: function(e, t, n)
 			{
-				var r = this;
 				z = [], n(function()
 				{
 					var e = g()(v.a.mark((function e(t)
@@ -20711,7 +20669,7 @@
 								case 0:
 									return e.next = 2, t.$parent.getMode();
 								case 2:
-									return t.currentMode = e.sent, t.showSecIdxs = L.a.get(M.a.PROXY_SHOW_SEC_IDXS) || [], t.intervalID = setInterval(g()(v.a.mark((function e()
+									return t.currentMode = e.sent, t.showSecIdxs = I.a.get(L.a.PROXY_SHOW_SEC_IDXS) || [], t.intervalID = setInterval(g()(v.a.mark((function e()
 									{
 										return v.a.wrap((function(e)
 										{
@@ -20725,13 +20683,13 @@
 												case "end":
 													return e.stop()
 											}
-										}), e, r)
+										}), e)
 									}))), 2e3), e.next = 7, t.fetchData();
 								case 7:
 								case "end":
 									return e.stop()
 							}
-						}), e, r)
+						}), e)
 					})));
 					return function()
 					{
@@ -20744,7 +20702,7 @@
 				this.intervalID && clearInterval(this.intervalID), this.cancelLatencyTest(), n()
 			}
 		},
-		G = (n(262), n(264), Object(_.a)(H, (function()
+		U = (n(156), n(158), Object(k.a)(F, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -20812,13 +20770,14 @@
 				}, [e._v("\n              (" + e._s(t.data.type) + ")\n            ")])]), e._v(" "), n("div",
 				{
 					staticClass: "proxy-section-right"
-				}, [n("img",
+				}, [n("svg",
 				{
-					staticClass: "proxy-section-test-btn",
+					staticClass: "icon",
 					attrs:
 					{
-						title: "延迟测试",
-						src: e.latencyBtnSrc(t.data.all)
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: ["dark", "red"].includes(e.theme) ? "white" : "#2E459E"
 					},
 					on:
 					{
@@ -20827,11 +20786,27 @@
 							return n.stopPropagation(), e.startLatencyTest(t.name, r)
 						}
 					}
-				}), e._v(" "), n("img",
+				}, [n("path",
 				{
 					attrs:
 					{
-						src: "static/imgs/round_archive_" + (["dark", "red"].includes(e.theme) ? "white" : "blue") + "_48dp.png"
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M7 3v9c0 .55.45 1 1 1h2v7.15c0 .51.67.69.93.25l5.19-8.9c.39-.67-.09-1.5-.86-1.5H13l2.49-6.65c.25-.65-.23-1.35-.93-1.35H8c-.55 0-1 .45-1 1z"
+					}
+				})]), e._v(" "), n("svg",
+				{
+					staticClass: "icon",
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: ["dark", "red"].includes(e.theme) ? "white" : "#2E459E"
 					},
 					on:
 					{
@@ -20840,12 +20815,27 @@
 							t.stopPropagation(), e.isShowProviderView = !0
 						}
 					}
-				}), e._v(" "), ["rule", "script"].includes(e.currentMode) ? n("img",
+				}, [n("path",
 				{
-					staticClass: ".proxy-section-test-btn",
 					attrs:
 					{
-						src: e.visiableIcon(r)
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM6.5 9l3.15-3.15c.2-.2.51-.2.71 0L13.5 9H11v4H9V9H6.5zm7.85 9.15c-.2.2-.51.2-.71 0L10.5 15H13v-4h2v4h2.5l-3.15 3.15z"
+					}
+				})]), e._v(" "), ["rule", "script"].includes(e.currentMode) && e.showSecIdxs.includes(r) ? n("svg",
+				{
+					staticClass: "icon",
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: ["dark", "red"].includes(e.theme) ? "white" : "#2E459E"
 					},
 					on:
 					{
@@ -20854,7 +20844,49 @@
 							return t.stopPropagation(), e.switchVisiable(r)
 						}
 					}
-				}) : e._e()])]), e._v(" "), n("transition",
+				}, [n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0zm0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M12 6.5c2.76 0 5 2.24 5 5 0 .51-.1 1-.24 1.46l3.06 3.06c1.39-1.23 2.49-2.77 3.18-4.53C21.27 7.11 17 4 12 4c-1.27 0-2.49.2-3.64.57l2.17 2.17c.47-.14.96-.24 1.47-.24zM2.71 3.16c-.39.39-.39 1.02 0 1.41l1.97 1.97C3.06 7.83 1.77 9.53 1 11.5 2.73 15.89 7 19 12 19c1.52 0 2.97-.3 4.31-.82l2.72 2.72c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L4.13 3.16c-.39-.39-1.03-.39-1.42 0zM12 16.5c-2.76 0-5-2.24-5-5 0-.77.18-1.5.49-2.14l1.57 1.57c-.03.18-.06.37-.06.57 0 1.66 1.34 3 3 3 .2 0 .38-.03.57-.07L14.14 16c-.65.32-1.37.5-2.14.5zm2.97-5.33c-.15-1.4-1.25-2.49-2.64-2.64l2.64 2.64z"
+					}
+				})]) : e._e(), e._v(" "), ["rule", "script"].includes(e.currentMode) && !e.showSecIdxs.includes(r) ? n("svg",
+				{
+					staticClass: "icon",
+					attrs:
+					{
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: ["dark", "red"].includes(e.theme) ? "white" : "#2E459E"
+					},
+					on:
+					{
+						click: function(t)
+						{
+							return t.stopPropagation(), e.switchVisiable(r)
+						}
+					}
+				}, [n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+					}
+				})]) : e._e()])]), e._v(" "), n("transition",
 				{
 					attrs:
 					{
@@ -20992,32 +21024,86 @@
 				{
 					click: e.handleFilterIconClick
 				}
-			}, [n("img",
+			}, [e.isShowFilter ? n("svg",
 			{
 				attrs:
 				{
-					src: "static/imgs/" + (e.isShowFilter ? "fab-cancel" : "round_filter_list_white_48dp") + ".png",
-					alt: ""
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "white",
+					width: "20px",
+					height: "20px"
 				}
-			})])], 1) : e._e()], 1)
-		}), [], !1, null, "22acc631", null));
-	G.options.__file = "ProxyView.vue", t.default = G.exports
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+				}
+			})]) : n("svg",
+			{
+				attrs:
+				{
+					xmlns: "http://www.w3.org/2000/svg",
+					viewBox: "0 0 24 24",
+					fill: "white",
+					width: "20px",
+					height: "20px"
+				}
+			}, [n("path",
+			{
+				attrs:
+				{
+					d: "M0 0h24v24H0V0z",
+					fill: "none"
+				}
+			}), e._v(" "), n("path",
+			{
+				attrs:
+				{
+					d: "M11 18h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1zm4 6h10c.55 0 1-.45 1-1s-.45-1-1-1H7c-.55 0-1 .45-1 1s.45 1 1 1z"
+				}
+			})])])], 1) : e._e()], 1)
+		}), [], !1, null, "00718cb4", null));
+	U.options.__file = "ProxyView.vue", t.default = U.exports
 }, function(e, t, n)
 {
 	"use strict";
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
 	n.r(t);
-	var r = n(0),
-		a = n.n(r),
-		i = n(1),
-		o = n.n(i),
-		s = n(2),
-		c = n.n(s),
-		d = n(9),
+	var a = n(0),
+		i = n.n(a),
+		o = n(1),
+		s = n.n(o),
+		c = n(2),
+		d = n.n(c),
 		l = n(10),
-		u = n(18),
-		p = n.n(u),
-		f = (n(307), n(3)),
-		h = Object(f.a)(
+		u = n(11),
+		p = n(19),
+		f = n.n(p),
+		h = (n(198), n(4)),
+		v = Object(h.a)(
 		{
 			props: ["src", "clickalbe"],
 			data: function()
@@ -21081,15 +21167,15 @@
 				}
 			})])
 		}), [], !1, null, "5604da5e", null);
-	h.options.__file = "LazyImageView.vue";
-	var v = h.exports,
-		m = n(4),
-		g = (n(15),
+	v.options.__file = "LazyImageView.vue";
+	var m = v.exports,
+		g = n(5),
+		b = (n(15),
 		{
 			props: [],
 			components:
 			{
-				LazyImageView: v
+				LazyImageView: m
 			},
 			data: function()
 			{
@@ -21097,8 +21183,21 @@
 					adImages: []
 				}
 			},
-			computed: c()(
-			{}, Object(m.mapState)(
+			computed: function(e)
+			{
+				for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+					{} : arguments[n], n % 2 ? r(Object(t), !0)
+					.forEach((function(n)
+					{
+						d()(e, n, t[n])
+					})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+					.forEach((function(n)
+					{
+						Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+					}));
+				return e
+			}(
+			{}, Object(g.mapState)(
 			{})),
 			methods:
 			{
@@ -21113,26 +21212,25 @@
 			},
 			beforeRouteEnter: function(e, t, n)
 			{
-				var r = this;
 				n(function()
 				{
-					var e = o()(a.a.mark((function e(t)
+					var e = s()(i.a.mark((function e(t)
 					{
-						var n, i, o, s, c;
-						return a.a.wrap((function(e)
+						var n, r, a, o, s;
+						return i.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
 								case 0:
-									return t.adImages = d.a.get(l.a.AD_IMAGES) || [], e.next = 3, p.a.get("https://raw.githubusercontent.com/Fndroid/ads/master/ads_v2.json?t=" + (new Date)
+									return t.adImages = l.a.get(u.a.AD_IMAGES) || [], e.next = 3, f.a.get("https://raw.githubusercontent.com/Fndroid/ads/master/ads_v2.json?t=" + (new Date)
 										.getTime());
 								case 3:
-									n = e.sent, i = n.status, o = n.data, 200 === i && ((s = o.feedback) && (c = s, d.a.put(l.a.AD_IMAGES, c), t.adImages = c));
+									n = e.sent, r = n.status, a = n.data, 200 === r && ((o = a.feedback) && (s = o, l.a.put(u.a.AD_IMAGES, s), t.adImages = s));
 								case 6:
 								case "end":
 									return e.stop()
 							}
-						}), e, r)
+						}), e)
 					})));
 					return function()
 					{
@@ -21141,7 +21239,7 @@
 				}())
 			}
 		}),
-		x = (n(309), n(311), Object(f.a)(g, (function()
+		x = (n(200), n(202), Object(h.a)(b, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -21331,18 +21429,49 @@
 }, function(e, t, n)
 {
 	"use strict";
-	var r = Math.floor;
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? r(Object(t), !0)
+			.forEach((function(n)
+			{
+				u()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
+	var i = Math.floor;
 	n.r(t);
-	var a = n(0),
-		i = n.n(a),
-		o = n(1),
+	var o = n(0),
 		s = n.n(o),
-		c = n(2),
+		c = n(1),
 		d = n.n(c),
-		l = n(13),
+		l = n(2),
 		u = n.n(l),
-		p = (n(6), n(5), n(4)),
-		f = {
+		p = n(14),
+		f = n.n(p),
+		h = (n(6), n(3), n(5)),
+		v = n(18),
+		m = {
 			props: [],
 			data: function()
 			{
@@ -21361,14 +21490,15 @@
 					this.closeLogStream(), e && this.openLogStream()
 				}
 			},
-			computed: d()(
-			{}, Object(p.mapState)(
+			computed: a(a(
+			{}, Object(h.mapState)(
 			{
 				clashAxiosClient: function(e)
 				{
 					return e.app.clashAxiosClient
 				}
-			}),
+			})),
+			{},
 			{
 				buttonText: function()
 				{
@@ -21395,20 +21525,24 @@
 							return t.type === e
 						}));
 						if(t) return {
-							color: "rgb(" + t.r + "," + t.g + "," + t.b + ")"
+							color: "rgb(".concat(t.r, ",")
+								.concat(t.g, ",")
+								.concat(t.b, ")")
 						};
-						var n = r(150 * Math.random() + 10),
-							a = r(150 * Math.random() + 10),
-							i = r(150 * Math.random() + 10);
+						var n = i(150 * Math.random() + 10),
+							r = i(150 * Math.random() + 10),
+							a = i(150 * Math.random() + 10);
 						return this.randomColor.push(
 						{
 							type: e,
 							r: n,
-							g: a,
-							b: i
+							g: r,
+							b: a
 						}),
 						{
-							color: "rgb(" + n + "," + a + "," + i + ")"
+							color: "rgb(".concat(n, ",")
+								.concat(r, ",")
+								.concat(a, ")")
 						}
 					}
 				},
@@ -21419,7 +21553,8 @@
 					t && (t.on("message", (function(t)
 					{
 						var n = JSON.parse(t),
-							r = {};
+							r = {},
+							a = Object(v.uniqueId)();
 						/^\[(.+?)\](.*?)-->(.*?) doesn't match any rule using (.*)$/.test(n.payload) ? (r = {
 							type: n.type,
 							protocol: RegExp.$1.trim(),
@@ -21427,7 +21562,8 @@
 							rule: "NoMatch",
 							proxy: "DIRECT",
 							from: RegExp.$2.trim(),
-							time: u()()
+							time: f()(),
+							id: a
 						}, e.listData.push(r)) : /^\[(.+?)\](.*?)-->(.*?) match (.*?) using (.*)$/.test(n.payload) ? (r = {
 							type: n.type,
 							protocol: RegExp.$1.trim(),
@@ -21435,7 +21571,8 @@
 							rule: RegExp.$4.trim(),
 							from: RegExp.$2.trim(),
 							proxy: RegExp.$5.trim(),
-							time: u()()
+							time: f()(),
+							id: a
 						}, e.listData.push(r)) : /^\[(.+?)\](.+?)-->(.+?) using (.+?) by Script$/.test(n.payload) ? (r = {
 							type: n.type,
 							protocol: RegExp.$1.trim(),
@@ -21443,7 +21580,8 @@
 							rule: "Script",
 							from: RegExp.$2.trim(),
 							proxy: RegExp.$4.trim(),
-							time: u()()
+							time: f()(),
+							id: a
 						}, e.listData.push(r)) : /^\[(.+?)\](.+?)-->(.+?) using (.+?)$/.test(n.payload) ? (r = {
 							type: n.type,
 							protocol: RegExp.$1.trim(),
@@ -21451,14 +21589,15 @@
 							rule: RegExp.$4.trim(),
 							from: RegExp.$2.trim(),
 							proxy: RegExp.$4.trim(),
-							time: u()()
+							time: f()()
 						}, e.listData.push(r)) : /dial (.+?) error: (.+)/.test(n.payload) && (r = {
 							type: n.type,
-							url: "Dial [" + RegExp.$1.trim() + "] failed",
+							url: "Dial [".concat(RegExp.$1.trim(), "] failed"),
 							rule: RegExp.$2.trim(),
 							from: "",
 							proxy: "",
-							time: u()()
+							time: f()(),
+							id: a
 						}, e.listData.push(r))
 					})), this.client = t)
 				},
@@ -21492,12 +21631,11 @@
 			},
 			beforeRouteEnter: function(e, t, n)
 			{
-				var r = this;
 				n(function()
 				{
-					var e = s()(i.a.mark((function e(t)
+					var e = d()(s.a.mark((function e(t)
 					{
-						return i.a.wrap((function(e)
+						return s.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
@@ -21509,7 +21647,7 @@
 								case "end":
 									return e.stop()
 							}
-						}), e, r)
+						}), e)
 					})));
 					return function()
 					{
@@ -21530,8 +21668,8 @@
 				}))
 			}
 		},
-		h = (n(266), n(268), n(3)),
-		v = Object(h.a)(f, (function()
+		g = (n(160), n(162), n(4)),
+		b = Object(g.a)(m, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -21572,11 +21710,11 @@
 			}, [0 === e.listData.length ? n("div",
 			{
 				staticClass: "empty-list"
-			}, [n("div", [e._v("空日志列表")]), e._v(" "), n("div", [e._v("刷新浏览器以发出请求。")])]) : e._l(e.listData, (function(t, r)
+			}, [n("div", [e._v("空日志列表")]), e._v(" "), n("div", [e._v("刷新浏览器以发出请求。")])]) : e._l(e.listData.slice(-200), (function(t)
 			{
 				return n("div",
 				{
-					key: r,
+					key: t.id,
 					class: ["log-item-" + e.theme],
 					on:
 					{
@@ -21613,26 +21751,56 @@
 					}
 				}) : e._e()])])
 			}))], 2)])
-		}), [], !1, null, "161d6630", null);
-	v.options.__file = "LogView.vue", t.default = v.exports
+		}), [], !1, null, "689e14fc", null);
+	b.options.__file = "LogView.vue", t.default = b.exports
 }, function(e, t, n)
 {
 	"use strict";
+
+	function r(e, t)
+	{
+		var n = Object.keys(e);
+		if(Object.getOwnPropertySymbols)
+		{
+			var r = Object.getOwnPropertySymbols(e);
+			t && (r = r.filter((function(t)
+			{
+				return Object.getOwnPropertyDescriptor(e, t)
+					.enumerable
+			}))), n.push.apply(n, r)
+		}
+		return n
+	}
+
+	function a(e)
+	{
+		for(var t, n = 1; n < arguments.length; n++) t = null == arguments[n] ?
+			{} : arguments[n], n % 2 ? r(Object(t), !0)
+			.forEach((function(n)
+			{
+				p()(e, n, t[n])
+			})) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : r(Object(t))
+			.forEach((function(n)
+			{
+				Object.defineProperty(e, n, Object.getOwnPropertyDescriptor(t, n))
+			}));
+		return e
+	}
 	n.r(t);
-	var r = n(32),
-		a = n.n(r),
-		i = n(0),
+	var i = n(22),
 		o = n.n(i),
-		s = n(1),
+		s = n(0),
 		c = n.n(s),
-		d = n(2),
+		d = n(1),
 		l = n.n(d),
-		u = n(9),
-		p = n(10),
-		f = n(13),
-		h = n.n(f),
-		v = n(4),
-		m = {
+		u = n(2),
+		p = n.n(u),
+		f = n(10),
+		h = n(11),
+		v = n(14),
+		m = n.n(v),
+		g = n(5),
+		b = {
 			props: [],
 			data: function()
 			{
@@ -21661,8 +21829,8 @@
 					this.client && this.client.terminate(), e && this.setupComponent()
 				}
 			},
-			computed: l()(
-			{}, Object(v.mapState)(
+			computed: a(a(
+			{}, Object(g.mapState)(
 			{
 				clashAxiosClient: function(e)
 				{
@@ -21672,7 +21840,8 @@
 				{
 					return e.app.settings
 				}
-			}),
+			})),
+			{},
 			{
 				orderedConnections: function()
 				{
@@ -21710,7 +21879,7 @@
 			{
 				handleLableSelect: function(e)
 				{
-					this.labelSelected = e, u.a.put(p.a.CONNECTION_ORDER_INDEX, e)
+					this.labelSelected = e, f.a.put(h.a.CONNECTION_ORDER_INDEX, e)
 				},
 				calcLabelClasses: function(e)
 				{
@@ -21726,17 +21895,18 @@
 						a = void 0 === r ? 0 : r,
 						i = n.download,
 						o = void 0 === i ? 0 : i;
-					return 0 !== a && t.push("↑" + this.traffic(a) + "/s"), 0 !== o && t.push("↓" + this.traffic(o) + "/s"), t.join(" ")
+					return 0 !== a && t.push("↑".concat(this.traffic(a), "/s")), 0 !== o && t.push("↓".concat(this.traffic(o), "/s")), t.join(" ")
 				},
 				fromNow: function(e)
 				{
-					return h()(e)
+					return m()(e)
 						.fromNow()
 				},
 				traffic: function(e)
 				{
 					for(var t = ["B", "KB", "MB", "GB", "TB"], n = 0; ~~(e / 1024) && n < t.length;) e /= 1024, n++;
-					return (0 == n ? e : e.toFixed(2)) + " " + t[n]
+					return "".concat(0 == n ? e : e.toFixed(2), " ")
+						.concat(t[n])
 				},
 				upperCaseFirst: function(e)
 				{
@@ -21746,35 +21916,36 @@
 				handleCloseConnection: function(e)
 				{
 					var t = this;
-					return c()(o.a.mark((function n()
+					return l()(c.a.mark((function n()
 					{
-						return o.a.wrap((function(n)
+						return c.a.wrap((function(n)
 						{
 							for(;;) switch (n.prev = n.next)
 							{
 								case 0:
-									return n.next = 2, t.clashAxiosClient.delete("connections/" + e);
+									return n.next = 2, t.clashAxiosClient.delete("connections/".concat(e));
 								case 2:
 								case "end":
 									return n.stop()
 							}
-						}), n, t)
+						}), n)
 					})))()
 				},
 				handleCloseAllConnections: function()
 				{
 					var e = this;
-					return c()(o.a.mark((function t()
+					return l()(c.a.mark((function t()
 					{
-						return o.a.wrap((function(t)
+						return c.a.wrap((function(t)
 						{
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
 									return t.next = 2, e.clashAxiosClient.delete("connections");
 								case 2:
-									e.data = l()(
-									{}, e.data,
+									e.data = a(a(
+									{}, e.data),
+									{},
 									{
 										connections: []
 									});
@@ -21782,7 +21953,7 @@
 								case "end":
 									return t.stop()
 							}
-						}), t, e)
+						}), t)
 					})))()
 				},
 				handleItemSelected: function(e)
@@ -21809,16 +21980,16 @@
 				setupComponent: function()
 				{
 					var e = this;
-					this.labelSelected = u.a.get(p.a.CONNECTION_ORDER_INDEX) || 4;
+					this.labelSelected = f.a.get(h.a.CONNECTION_ORDER_INDEX) || 4;
 					var t = this.$parent.createWsClient("connections");
 					t && (t.on("message", (function(t)
 					{
 						var n = JSON.parse(t),
 							r = n.connections,
 							i = void 0 === r ? [] : r,
-							o = e.data.connections,
-							s = void 0 === o ? [] : o,
-							c = i.filter((function(e)
+							s = e.data.connections,
+							c = void 0 === s ? [] : s,
+							d = i.filter((function(e)
 							{
 								return e
 							}))
@@ -21826,18 +21997,19 @@
 							{
 								return e.id
 							})),
-							d = s.reduce((function(e, t)
+							l = c.reduce((function(e, t)
 							{
 								var n = t.id,
 									r = t.start;
-								return h()(r)
-									.isAfter(h()()
-										.subtract(10, "minutes")) && !c.includes(n) && e.push(t), e
+								return m()(r)
+									.isAfter(m()()
+										.subtract(10, "minutes")) && !d.includes(n) && e.push(t), e
 							}), [])
 							.map((function(e)
 							{
-								return l()(
-								{}, e,
+								return a(a(
+								{}, e),
+								{},
 								{
 									closed: !0
 								})
@@ -21846,27 +22018,27 @@
 						var u = e.settings,
 							p = u.connKeepOld,
 							f = u.connShowType,
-							v = void 0 === f ? 0 : f,
-							m = void 0 !== p && p ? [].concat(a()(i), a()(d)) : i;
-						(1 === v || 2 === v) && (m = m.filter((function(e)
+							h = void 0 === f ? 0 : f,
+							v = void 0 !== p && p ? [].concat(o()(i), o()(l)) : i;
+						(1 === h || 2 === h) && (v = v.filter((function(e)
 						{
-							return e.metadata.network === (1 === v ? "tcp" : "udp")
-						}))), e.data = l()(
-						{}, n,
+							return e.metadata.network === (1 === h ? "tcp" : "udp")
+						}))), e.data = a(a(
+						{}, n),
+						{},
 						{
-							connections: m
+							connections: v
 						})
 					})), this.client = t)
 				}
 			},
 			beforeRouteEnter: function(e, t, n)
 			{
-				var r = this;
 				n(function()
 				{
-					var e = c()(o.a.mark((function e(t)
+					var e = l()(c.a.mark((function e(t)
 					{
-						return o.a.wrap((function(e)
+						return c.a.wrap((function(e)
 						{
 							for(;;) switch (e.prev = e.next)
 							{
@@ -21876,7 +22048,7 @@
 								case "end":
 									return e.stop()
 							}
-						}), e, r)
+						}), e)
 					})));
 					return function()
 					{
@@ -21889,8 +22061,8 @@
 				this.client && this.client.terminate(), n()
 			}
 		},
-		g = (n(293), n(3)),
-		x = Object(g.a)(m, (function()
+		x = (n(184), n(4)),
+		y = Object(x.a)(b, (function()
 		{
 			var e = this,
 				t = e.$createElement,
@@ -21991,15 +22163,30 @@
 							return n.stopPropagation(), e.handleCloseConnection(t.id)
 						}
 					}
-				}, [n("img",
+				}, [n("svg",
 				{
 					staticClass: "item-icon",
 					attrs:
 					{
-						src: "static/imgs/delete-icon.png"
+						xmlns: "http://www.w3.org/2000/svg",
+						viewBox: "0 0 24 24",
+						fill: "white"
 					}
-				})])])
+				}, [n("path",
+				{
+					attrs:
+					{
+						d: "M0 0h24v24H0V0z",
+						fill: "none"
+					}
+				}), e._v(" "), n("path",
+				{
+					attrs:
+					{
+						d: "M18.3 5.71c-.39-.39-1.02-.39-1.41 0L12 10.59 7.11 5.7c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L10.59 12 5.7 16.89c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0L12 13.41l4.89 4.89c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L13.41 12l4.89-4.89c.38-.38.38-1.02 0-1.4z"
+					}
+				})])])])
 			})), 0)])
-		}), [], !1, null, "ab745176", null);
-	x.options.__file = "ConnectionView.vue", t.default = x.exports
+		}), [], !1, null, "2a778fb9", null);
+	y.options.__file = "ConnectionView.vue", t.default = y.exports
 }]);
