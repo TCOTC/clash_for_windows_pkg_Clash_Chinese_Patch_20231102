@@ -11112,7 +11112,7 @@
 								case 0:
 									return t.prev = 0, t.next = 3, e.$alert(
 									{
-										title: "Warning",
+										title: "警告",
 										content: "您确定要重设所有设置吗？",
 										isShowErrorBtn: !0
 									});
@@ -16635,7 +16635,7 @@
 				{
 					class: ["rule-" + e.theme]
 				}, [e._v("\n          " + e._s(t.type) + "\n          "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            Rules: " + e._s(e.providerOfPayload(t.payload)
-					.ruleCount) + "\n          ")]) : e._e(), e._v(" "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            Last Updated:\n            " + e._s(e.fromNow(e.providerOfPayload(t.payload)
+					.ruleCount) + "\n          ")]) : e._e(), e._v(" "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            上次更新：\n            " + e._s(e.fromNow(e.providerOfPayload(t.payload)
 					.updatedAt)) + "\n          ")]) : e._e(), e._v(" "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            " + e._s(e.providerOfPayload(t.payload)
 					.vehicleType) + "\n            " + e._s(e.providerOfPayload(t.payload)
 					.behavior) + "\n          ")]) : e._e()])]), e._v(" "), n("div",
@@ -17806,7 +17806,7 @@
 					{
 						"item-time": !0
 					}
-				}, [e._v("\n          " + e._s("Last updated: " + e.parseDate(t)) + "\n        ")]), e._v(" "), n("div",
+				}, [e._v("\n          " + e._s("上次更新： " + e.parseDate(t)) + "\n        ")]), e._v(" "), n("div",
 				{
 					staticClass: "item-edit-zone",
 					on:
