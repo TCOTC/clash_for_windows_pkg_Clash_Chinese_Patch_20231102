@@ -11179,7 +11179,7 @@
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("Editor")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("编辑器")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
