@@ -12836,7 +12836,7 @@
 										e.next = 8;
 										break
 									}
-									R.a.put(z.a.SYSTEM_PROXY, r), n.$showNotification("Shortcut", "System Proxy: ".concat(r ? "On" : "Off"));
+									R.a.put(z.a.SYSTEM_PROXY, r), n.$showNotification("快捷键", "系统代理： ".concat(r ? "开" : "关"));
 								case 8:
 								case "end":
 									return e.stop()
@@ -12853,7 +12853,7 @@
 						n.changeIsMixinEnable(
 						{
 							isMixin: e
-						}), n.refreshProfile(), n.$showNotification("Shortcut", "Mixin: ".concat(e ? "On" : "Off"))
+						}), n.refreshProfile(), n.$showNotification("快捷键", "混合配置： ".concat(e ? "开" : "关"))
 					}))
 				},
 				"settings.shortcutGlobalMode": function(e, t)
@@ -12869,7 +12869,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("global");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
+									(t = e.sent) && n.$showNotification("快捷键", "模式： ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
@@ -12890,7 +12890,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("rule");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
+									(t = e.sent) && n.$showNotification("快捷键", "模式： ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
@@ -12911,7 +12911,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("direct");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
+									(t = e.sent) && n.$showNotification("快捷键", "模式： ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
@@ -12932,7 +12932,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("script");
 								case 2:
-									(t = e.sent) && n.$showNotification("Shortcut", "Mode: ".concat(t.toUpperCase()));
+									(t = e.sent) && n.$showNotification("快捷键", "模式： ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
