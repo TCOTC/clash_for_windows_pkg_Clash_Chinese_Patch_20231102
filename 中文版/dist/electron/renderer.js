@@ -17729,11 +17729,15 @@
 			}, [e._v("\n          " + e._s(e.getBtnText) + "\n        ")]), e._v(" "), n("div",
 			{
 				staticClass: "confirm confirm-right",
+				style:
+				{
+					"white-space": "nowrap"
+				},
 				on:
 				{
 					click: e.handleImport
 				}
-			}, [e._v("Import")])])]), e._v(" "), n("draggable",
+			}, [e._v("导入")])])]), e._v(" "), n("draggable",
 			{
 				class: ["list-view-" + e.theme],
 				attrs:
