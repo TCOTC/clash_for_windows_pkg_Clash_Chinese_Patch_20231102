@@ -194,8 +194,10 @@ module.exports = function(e)
 			"darwin" === process.platform && d.app.dock.show(), v.webContents.send("window-event", "show"), v.setBounds(a(v.getBounds()))
 		})), v.on("close", (function(e)
 		{
-			if(d.app.isQuiting)
+			if(d.app.isQuiting) d.globalShortcut.unregisterAll(), d.app.exit();
+			else
 			{
+				e.preventDefault(), v.hide(), "darwin" === process.platform && d.app.dock.hide();
 				try
 				{
 					m.writeFileSync(k, JSON.stringify(
@@ -205,9 +207,7 @@ module.exports = function(e)
 				}
 				catch (e)
 				{}
-				d.globalShortcut.unregisterAll(), d.app.exit()
 			}
-			else e.preventDefault(), v.hide(), "darwin" === process.platform && d.app.dock.hide();
 			return !1
 		})), v.on("session-end", (function(e)
 		{
@@ -230,8 +230,8 @@ module.exports = function(e)
 						return t = {
 							type: "error",
 							title: "Clash for Windows",
-							message: "面板崩溃了！",
-							buttons: ["刷新", "退出"]
+							message: "Dashboard has crashed!",
+							buttons: ["Reload", "Exit"]
 						}, e.next = 5, d.dialog.showMessageBox(v, t);
 					case 5:
 						n = e.sent, 0 === n.response ? (d.app.relaunch(), d.app.exit(0)) : d.app.quit();
@@ -351,7 +351,7 @@ module.exports = function(e)
 		}));
 		var i = d.Menu.buildFromTemplate([
 		{
-			label: "显示面板",
+			label: "Dashboard",
 			click: function()
 			{
 				return v.show()
@@ -361,7 +361,7 @@ module.exports = function(e)
 			type: "separator"
 		},
 		{
-			label: "系统代理",
+			label: "System Proxy",
 			type: "checkbox",
 			id: "system-proxy",
 			click: function(e)
@@ -371,7 +371,7 @@ module.exports = function(e)
 			}
 		},
 		{
-			label: "混合配置",
+			label: "Mixin",
 			type: "checkbox",
 			id: "mixin",
 			click: function(e)
@@ -384,11 +384,11 @@ module.exports = function(e)
 			type: "separator"
 		},
 		{
-			label: "代理模式",
+			label: "Proxy Mode",
 			id: "mode",
 			submenu: [
 			{
-				label: "全局",
+				label: "Global",
 				type: "radio",
 				id: "mode-global",
 				click: function()
@@ -397,7 +397,7 @@ module.exports = function(e)
 				}
 			},
 			{
-				label: "规则",
+				label: "Rule",
 				type: "radio",
 				id: "mode-rule",
 				click: function()
@@ -406,7 +406,7 @@ module.exports = function(e)
 				}
 			},
 			{
-				label: "直连",
+				label: "Direct",
 				type: "radio",
 				id: "mode-direct",
 				click: function()
@@ -415,7 +415,7 @@ module.exports = function(e)
 				}
 			},
 			{
-				label: "脚本",
+				label: "Script",
 				type: "radio",
 				id: "mode-script",
 				click: function()
@@ -428,14 +428,14 @@ module.exports = function(e)
 			type: "separator"
 		},
 		{
-			label: "强制退出",
+			label: "Force Quit",
 			click: function()
 			{
 				d.app.isQuiting = !0, d.app.quit()
 			}
 		},
 		{
-			label: "退出",
+			label: "Quit",
 			click: function()
 			{
 				return v.webContents.send("app-exit")
