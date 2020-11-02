@@ -21994,17 +21994,17 @@
 					{
 						data:
 						{
-							Host: t.host,
-							Upload: this.traffic(e.upload),
-							Download: this.traffic(e.download),
-							Source: t.sourceIP + ":" + t.sourcePort,
-							Destination: (n ? t.destinationIP : t.host || t.destinationIP) + ":" + t.destinationPort,
-							Rule: e.rule,
-							Chains: e.chains.slice()
+							主机: t.host,
+							上传: this.traffic(e.upload),
+							下载: this.traffic(e.download),
+							连接源: t.sourceIP + ":" + t.sourcePort,
+							目标: (n ? t.destinationIP : t.host || t.destinationIP) + ":" + t.destinationPort,
+							规则: e.rule,
+							链路: e.chains.slice()
 								.reverse()
 								.join(" - ")
 						},
-						title: "Connection Info"
+						title: "连接信息"
 					})
 				},
 				setupComponent: function()
