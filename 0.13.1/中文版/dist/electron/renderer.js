@@ -18913,8 +18913,8 @@
 													case 8:
 														e.$alert(
 														{
-															title: "You are awesome",
-															content: "The current version is up to date."
+															title: "太棒了！",
+															content: "你已经升级到最新版本了。"
 														});
 													case 9:
 													case "end":
