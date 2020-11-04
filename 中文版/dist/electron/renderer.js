@@ -19993,7 +19993,7 @@
 			}, [0 < e.providers.length ? n("div", [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("Proxy Providers")]), e._v(" "), e._l(e.providers, (function(t, r)
+			}, [e._v("代理集")]), e._v(" "), e._l(e.providers, (function(t, r)
 			{
 				return n("div",
 				{
@@ -20022,7 +20022,7 @@
 					staticClass: "btn btn-update",
 					attrs:
 					{
-						text: "Update",
+						text: "更新",
 						isLoading: t.isUpdating
 					},
 					on:
@@ -20037,7 +20037,7 @@
 					staticClass: "btn btn-check",
 					attrs:
 					{
-						text: "Health Check",
+						text: "运行状况检查",
 						isLoading: t.isChecking
 					},
 					on:
