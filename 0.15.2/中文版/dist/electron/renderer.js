@@ -12159,7 +12159,7 @@
 			{
 				attrs:
 				{
-					items: ["白亮", "暗黑", "国庆中秋", "Cyberpunk"]
+					items: ["白亮", "暗黑", "国庆中秋", "赛博朋克2077"]
 				},
 				model:
 				{
@@ -20614,9 +20614,9 @@
 									}
 									return t.next = 8, e.$select(
 									{
-										title: "Open terminal with proxy set up",
+										title: "打开终端并设置代理",
 										message: "选择终端类型",
-										items: ["CMD", "Powershell", "Windows Terminal", "Copy Commands Only"]
+										items: ["CMD", "Powershell", "Windows Terminal", "仅复制命令"]
 									});
 								case 8:
 									3 === (n = t.sent) ? e.handlePortClick() : (r = ["cmd", "powershell", "wt"], Object(P.exec)("start ".concat(r[n]),
@@ -20655,7 +20655,7 @@
 								case 0:
 									return n = [
 									{
-										name: "New Port",
+										name: "新端口",
 										key: "port",
 										placeholder: e.port,
 										value: "",
@@ -20665,7 +20665,7 @@
 										}
 									}], t.prev = 1, t.next = 4, e.$input(
 									{
-										title: "Change Mixed Port",
+										title: "修改 Mixed 端口",
 										data: n,
 										hint: "mixed = http + socks"
 									});
