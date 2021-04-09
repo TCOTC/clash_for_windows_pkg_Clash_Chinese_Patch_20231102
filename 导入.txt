@@ -1,8 +1,0 @@
-style:
-				{
-					"white-space": "nowrap"
-				},
-				on:
-				{
-					click: e.handleImport
-				}
