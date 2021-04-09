@@ -1,5 +1,3 @@
-# 由于原作者0.13.2版本之后给文件加密了，所以暂停更新。但是群里有热心网友会继续汉化。
-
 # Clash_Chinese_Patch
 
 [![](https://img.shields.io/badge/Telegram-公告板-blue)](https://t.me/ClashR_for_Windows_Channel)
