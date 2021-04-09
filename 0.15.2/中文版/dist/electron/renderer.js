@@ -1,4 +1,4 @@
-﻿module.exports = function(e)
+module.exports = function(e)
 {
 	function t(e)
 	{
@@ -6,7 +6,7 @@
 		if(!t) return d;
 		var n = function(n)
 			{
-				return t.hot.active ? (j[n] ? -1 === j[n].parents.indexOf(e) && j[n].parents.push(e) : (x = [e], u = n), -1 === t.children.indexOf(n) && t.children.push(n)) : (console.warn("[HMR] unexpected require(" + n + ") from disposed module " + e), x = []), d(n)
+				return t.hot.active ? (j[n] ? -1 === j[n].parents.indexOf(e) && j[n].parents.push(e) : (x = [e], u = n), -1 === t.children.indexOf(n) && t.children.push(n)) : (console.warn("[HMR] 请求(" + n + ") from disposed module " + e), x = []), d(n)
 			},
 			i = function(e)
 			{
@@ -114,13 +114,13 @@
 
 	function a(e)
 	{
-		if("idle" !== k) throw new Error("check() is only allowed in idle status");
+		if("idle" !== k) throw new Error("仅允许在空闲状态下使用 check() 函数");
 		return v = e, r("check"),
 			function(e)
 			{
 				return e = e || 1e4, new Promise((function(t, n)
 				{
-					if("undefined" == typeof XMLHttpRequest) return n(new Error("No browser support"));
+					if("undefined" == typeof XMLHttpRequest) return n(new Error("无浏览器支持"));
 					try
 					{
 						var r = new XMLHttpRequest,
@@ -134,9 +134,9 @@
 					r.onreadystatechange = function()
 					{
 						if(4 === r.readyState)
-							if(0 === r.status) n(new Error("Manifest request to " + i + " timed out."));
+							if(0 === r.status) n(new Error("发起请求到 " + i + " 超时."));
 							else if(404 === r.status) t();
-						else if(200 !== r.status && 304 !== r.status) n(new Error("Manifest request to " + i + " failed."));
+						else if(200 !== r.status && 304 !== r.status) n(new Error("发起请求到 " + i + " 失败."));
 						else
 						{
 							try
@@ -269,7 +269,7 @@
 		{
 			for(var n, r = 0; r < t.length; r++) n = t[r], -1 === e.indexOf(n) && e.push(n)
 		}
-		if("ready" !== k) throw new Error("apply() is only allowed in ready status");
+		if("ready" !== k) throw new Error("仅允许在就绪状态下使用 apply() 函数");
 		t = t ||
 		{};
 		var o, s, c, l, u, p = {},
@@ -277,7 +277,7 @@
 			g = {},
 			y = function()
 			{
-				console.warn("[HMR] unexpected require(" + _.moduleId + ") to disposed module")
+				console.warn("[HMR] 请求(" + _.moduleId + ")处理模块时发生异常")
 			};
 		for(var w in f)
 			if(Object.prototype.hasOwnProperty.call(f, w))
@@ -292,10 +292,10 @@
 					S = !1,
 					P = !1,
 					E = "";
-				switch (_.chain && (E = "\nUpdate propagation: " + _.chain.join(" -> ")), _.type)
+				switch (_.chain && (E = "\n更新传播: " + _.chain.join(" -> ")), _.type)
 				{
 					case "self-declined":
-						t.onDeclined && t.onDeclined(_), t.ignoreDeclined || (O = new Error("Aborted because of self decline: " + _.moduleId + E));
+						t.onDeclined && t.onDeclined(_), t.ignoreDeclined || (O = new Error("因自身拒绝而中止: " + _.moduleId + E));
 						break;
 					case "declined":
 						t.onDeclined && t.onDeclined(_), t.ignoreDeclined || (O = new Error("Aborted because of declined dependency: " + _.moduleId + " in " + _.parentId + E));
@@ -310,7 +310,7 @@
 						t.onDisposed && t.onDisposed(_), P = !0;
 						break;
 					default:
-						throw new Error("Unexception type " + _.type)
+						throw new Error("异常类型 " + _.type)
 				}
 				if(O) return r("abort"), Promise.reject(O);
 				if(S)
@@ -678,7 +678,7 @@
 			}
 			catch (n)
 			{
-				console.error("get [".concat(e, "] from cache failed with error:"), n)
+				console.error("[".concat(e, "] 从缓存中获取失败:"), n)
 			}
 		}
 	}
@@ -869,7 +869,7 @@
 		return i
 	}));
 	var l = "undefined" != typeof document;
-	if("undefined" != typeof DEBUG && DEBUG && !l) throw new Error("vue-style-loader cannot be used in a non-browser environment. Use { target: 'node' } in your Webpack config to indicate a server-rendering environment.");
+	if("undefined" != typeof DEBUG && DEBUG && !l) throw new Error("vue-style-loader 不能在非浏览器环境中使用. 在你的 Webpack 配置中使用 { target: 'node' } 来表示服务器渲染环境.");
 	var u = {},
 		p = l && (document.head || document.getElementsByTagName("head")[0]),
 		f = null,
@@ -1553,7 +1553,7 @@
 		{
 			(a = n ? e.apply(t, n) : e.call(t)) && !a._isVue && d(a) && !a._handled && (a.catch((function(e)
 			{
-				return G(e, r, i + " (Promise/async)")
+				return G(e, r, i + " (诺言/异步)")
 			})), a._handled = !0)
 		}
 		catch (t)
@@ -2694,7 +2694,7 @@
 
 	function Pt(e)
 	{
-		console.error("[Vue compiler]: " + e)
+		console.error("[Vue 编译器]: " + e)
 	}
 
 	function Ct(e, t)
@@ -6145,7 +6145,7 @@
 					f: a
 				}
 			}
-			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+			throw new TypeError("实例不可迭代。\n为了可以迭代，非数组对象必须要有 [Symbol.iterator]() 方法。")
 		}
 		var o, s = !0,
 			c = !1;
@@ -6366,7 +6366,7 @@
 					f: a
 				}
 			}
-			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+			throw new TypeError("实例不可迭代。\n为了可以迭代，非数组对象必须要有 [Symbol.iterator]() 方法。")
 		}
 		var o, s = !0,
 			c = !1;
@@ -6685,7 +6685,7 @@
 							return e.abrupt("return",
 							{
 								success: !1,
-								message: "Download profile(".concat(n, ") failed with error: HTTP Response Status Code(")
+								message: "下载配置(".concat(n, ") 失败: HTTP 返回状态码(")
 									.concat(o, ")")
 							});
 						case 31:
@@ -6700,14 +6700,14 @@
 							return e.abrupt("return",
 							{
 								success: !1,
-								message: "Download profile(".concat(n, ") failed with error: ")
+								message: "下载配置(".concat(n, ") 失败: ")
 									.concat(e.t0.message)
 							});
 						case 38:
 							return e.abrupt("return",
 							{
 								success: !1,
-								message: "unknow error"
+								message: "未知错误"
 							});
 						case 39:
 						case "end":
@@ -6817,7 +6817,7 @@
 							{}, e.t1),
 							{},
 							{
-								message: "[Parser Error] " + e.t1.message
+								message: "[Parser 错误] " + e.t1.message
 							});
 						case 51:
 						case "end":
@@ -7676,7 +7676,7 @@
 	{
 		if(!n.o(a, e))
 		{
-			var t = new Error("Cannot find module '" + e + "'");
+			var t = new Error("找不到模块 '" + e + "'");
 			throw t.code = "MODULE_NOT_FOUND", t
 		}
 		return a[e]
@@ -7900,7 +7900,7 @@
 			{
 				id: "Clash Core Service",
 				name: "Clash Core Service",
-				description: "Clash Core Service started by Clash for Windows",
+				description: "用于 Clash 代理开机自启的服务",
 				executable: "clash-core-service",
 				log:
 				{
@@ -8150,7 +8150,7 @@
 {
 	e.exports = function()
 	{
-		throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+		throw new TypeError("试图解构非迭代实例无效。\n为了可以迭代，非数组对象必须要有 [Symbol.iterator]() 方法。")
 	}
 }, function(e, t, n)
 {
@@ -8169,7 +8169,7 @@
 {
 	e.exports = function()
 	{
-		throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+		throw new TypeError("尝试传播不可迭代实例无效。\n为了可以迭代，非数组对象必须要有 [Symbol.iterator]() 方法。")
 	}
 }, function(e)
 {
@@ -8280,7 +8280,7 @@
 			var i = k;
 			return function(a, o)
 			{
-				if(i == O) throw new Error("Generator is already running");
+				if(i == O) throw new Error("发生器已运行");
 				if(i == S)
 				{
 					if("throw" === a) throw o;
@@ -8331,14 +8331,14 @@
 				if(t.delegate = null, "throw" === t.method)
 				{
 					if(e.iterator.return && (t.method = "return", t.arg = void 0, l(e, t), "throw" === t.method)) return P;
-					t.method = "throw", t.arg = new TypeError("The iterator does not provide a 'throw' method")
+					t.method = "throw", t.arg = new TypeError("该迭代器不提供 'throw' 方法")
 				}
 				return P
 			}
 			var i = r(n, e.iterator, t.arg);
 			if("throw" === i.type) return t.method = "throw", t.arg = i.arg, t.delegate = null, P;
 			var a = i.arg;
-			return a ? a.done ? (t[e.resultName] = a.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, P) : a : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, P)
+			return a ? a.done ? (t[e.resultName] = a.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, P) : a : (t.method = "throw", t.arg = new TypeError("迭代器结果不是对象"), t.delegate = null, P)
 		}
 
 		function u(e)
@@ -8514,7 +8514,7 @@
 						}
 						else
 						{
-							if(!s) throw new Error("try statement without catch or finally");
+							if(!s) throw new Error("try 语句缺少 catch 或 finally");
 							if(this.prev < i.finallyLoc) return t(i.finallyLoc)
 						}
 					}
@@ -8557,7 +8557,7 @@
 							p(t)
 						}
 						return i
-					} throw new Error("illegal catch attempt")
+					} throw new Error("捕获到 catch 非法错误")
 			},
 			delegateYield: function(e, t, n)
 			{
@@ -8649,7 +8649,7 @@
 	{
 		if(!n.o(a, e))
 		{
-			var t = new Error("Cannot find module '" + e + "'");
+			var t = new Error("找不到模块 '" + e + "'");
 			throw t.code = "MODULE_NOT_FOUND", t
 		}
 		return a[e]
@@ -8950,7 +8950,7 @@
 }, function(e, t, n)
 {
 	(e.exports = n(9)(!1))
-	.push([e.i, "input[data-v-6960bb28]{cursor:text;width:calc(100vw - 230px);height:45px;font-size:1em;border:1px solid rgba(50,50,50,.2);padding:0 10px}input[data-v-6960bb28]:focus{outline:none;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.remote-view[data-v-6960bb28]{display:flex;align-items:center;justify-content:space-around}.local-view[data-v-6960bb28]{right:0;margin:0 2vw 20px 1vw}.list-view[data-v-6960bb28]>:last-child{margin-bottom:25px}.item-name-top[data-v-6960bb28]{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:16px}.item-name-top>div[data-v-6960bb28]{max-width:calc((80vw - 80px) / 2 - 65px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-time[data-v-6960bb28]{font-size:14px;cursor:pointer}.item-expired[data-v-6960bb28]{color:#fa4949}.item-parser[data-v-6960bb28]{font-size:.8em}.item-time-now[data-v-6960bb28]{color:#9eff71}.btns-container[data-v-6960bb28]{display:flex;align-items:center;width:fit-content;justify-content:space-between}.confirm[data-v-6960bb28]{height:45px;color:#fff;cursor:pointer;line-height:45px;text-align:center;background-color:#7e7b7b;border-radius:3px;padding-left:10px;padding-right:10px;font-size:.85em;box-shadow:0 2px 20px 2px rgba(50,50,50,.1);width:fit-content;white-space:nowrap}.confirm-left[data-v-6960bb28]{padding:auto 30px}.confirm-right[data-v-6960bb28]{margin-left:10px}.confirm-copy[data-v-6960bb28]{border-radius:5px}.btn-error[data-v-6960bb28]{background-color:#ec2658}.btn-success[data-v-6960bb28]{background-color:#8ade4e}.btn-loading[data-v-6960bb28]{box-shadow:2px 2px 5px 1px rgba(50,50,50,.1)}.hint-normal[data-v-6960bb28]{text-align:center;font-size:1em;font-weight:500}.hint-error[data-v-6960bb28]{color:#ec2658}.copy-icon[data-v-6960bb28]{flex-shrink:0;height:45px;width:45px;padding:10px;background-color:#5e798b;cursor:pointer;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.rotating[data-v-6960bb28]{animation:downloading-data-v-6960bb28 1s infinite;animation-timing-function:linear}@keyframes downloading-data-v-6960bb28{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}", ""])
+	.push([e.i, "input[data-v-6960bb28]{cursor:text;width:calc(100vw - 230px);height:45px;font-size:1em;border:1px solid rgba(50,50,50,.2);padding:0 10px}input[data-v-6960bb28]:focus{outline:none;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.remote-view[data-v-6960bb28]{display:flex;align-items:center;justify-content:space-around}.local-view[data-v-6960bb28]{right:0;margin:0 2vw 20px 1vw}.list-view[data-v-6960bb28]>:last-child{margin-bottom:25px}.item-name-top[data-v-6960bb28]{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:16px}.item-name-top>div[data-v-6960bb28]{max-width:calc((80vw - 80px) / 2 - 65px);text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.item-time[data-v-6960bb28]{font-size:14px;cursor:pointer}.item-expired[data-v-6960bb28]{color:#fa4949}.item-parser[data-v-6960bb28]{font-size:.8em}.item-time-now[data-v-6960bb28]{color:#9eff71}.btns-container[data-v-6960bb28]{display:flex;align-items:center;width:fit-content;justify-content:space-between}.confirm[data-v-6960bb28]{height:45px;color:#fff;cursor:pointer;line-height:45px;text-align:center;background-color:#7e7b7b;border-radius:3px;padding-left:10px;padding-right:10px;font-size:.85em;box-shadow:0 2px 20px 2px rgba(50,50,50,.1);width:fit-content;white-space:nowrap}.confirm-left[data-v-6960bb28]{padding:auto 30px;width:80px;}.confirm-right[data-v-6960bb28]{margin-left:10px;width:80px;}.confirm-copy[data-v-6960bb28]{border-radius:5px}.btn-error[data-v-6960bb28]{background-color:#ec2658}.btn-success[data-v-6960bb28]{background-color:#8ade4e}.btn-loading[data-v-6960bb28]{box-shadow:2px 2px 5px 1px rgba(50,50,50,.1)}.hint-normal[data-v-6960bb28]{text-align:center;font-size:1em;font-weight:500}.hint-error[data-v-6960bb28]{color:#ec2658}.copy-icon[data-v-6960bb28]{flex-shrink:0;height:45px;width:45px;padding:10px;background-color:#5e798b;cursor:pointer;box-shadow:0 0 2px 1px rgba(50,50,50,.2)}.rotating[data-v-6960bb28]{animation:downloading-data-v-6960bb28 1s infinite;animation-timing-function:linear}@keyframes downloading-data-v-6960bb28{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}", ""])
 }, function(e, t, n)
 {
 	"use strict";
@@ -10224,7 +10224,7 @@
 						{
 							return e.required && "" === e.value
 						}))
-						.length) this.error = "required key(*) must have a value";
+						.length) this.error = "必填项(*) 必须输入内容";
 					else
 					{
 						var e = this.data.find((function(e)
@@ -10333,7 +10333,7 @@
 				{
 					click: e.handleDone
 				}
-			}, [e._v("确认")])])], 2)])]) : e._e()
+			}, [e._v("确定")])])], 2)])]) : e._e()
 		}), [], !1, null, "475167ea", null));
 	ve.options.__file = "InputView.vue";
 	var me = ve.exports,
@@ -10449,7 +10449,7 @@
 				return {
 					isShow: !1,
 					content: "",
-					title: "Error",
+					title: "错误",
 					isShowErrorBtn: !1,
 					resolve: null,
 					reject: null
@@ -10486,7 +10486,7 @@
 				{
 					var t = this,
 						n = e.title,
-						r = void 0 === n ? "Error" : n,
+						r = void 0 === n ? "错误" : n,
 						i = e.content,
 						a = void 0 === i ? "" : i,
 						o = e.isShowErrorBtn;
@@ -10563,7 +10563,7 @@
 				{
 					click: e.handleDone
 				}
-			}, [e._v("确认")])])])])]) : e._e()
+			}, [e._v("确定")])])])])]) : e._e()
 		}), [], !1, null, "f4eac7fc", null));
 	ke.options.__file = "AlertView.vue";
 	var _e = ke.exports,
@@ -10840,9 +10840,9 @@
 						{
 							var r = n.start,
 								i = n.end;
-							void 0 !== r && void 0 !== i && (t = ', at "'.concat(this.rawCode.slice(r, i), '"'))
+							void 0 !== r && void 0 !== i && (t = ', 位于 "'.concat(this.rawCode.slice(r, i), '"'))
 						}
-						this.error = "错误： ".concat(a.message)
+						this.error = "错误: ".concat(a.message)
 							.concat(t), setTimeout((function()
 							{
 								e.error = ""
@@ -11408,7 +11408,7 @@
 				},
 				hint: function()
 				{
-					return this.isRecording ? "请输入快捷键" : this.placeholder
+					return this.isRecording ? "正在录制，请按下任意键盘组合键..." : this.placeholder
 				}
 			}),
 			methods:
@@ -11899,9 +11899,9 @@
 											return e.name
 										})), t.next = 4, e.$select(
 										{
-											title: "Choose outbound interface",
-											message: "only works when TAP mode enabled",
-											items: [].concat(u()(n), ["[ Reset ]"])
+											title: "选择出站网卡接口",
+											message: "仅在启用 TAP 模式时生效",
+											items: [].concat(u()(n), ["[ 重置 ]"])
 										});
 								case 4:
 									r = t.sent, e.settings.interfaceName = r === n.length ? "" : n[r], t.next = 10;
@@ -11972,7 +11972,7 @@
 					{
 						var n = t.showOpenDialogSync(
 						{
-							properties: [e ? "openFile" : "openDirectory"]
+							properties: [e ? "打开文件" : "打开文件夹"]
 						});
 						if(n && 0 < n.length) return n[0]
 					}
@@ -11990,7 +11990,7 @@
 									return t.prev = 0, t.next = 3, e.$alert(
 									{
 										title: "警告",
-										content: "您确定要重设所有设置吗？",
+										content: "确定重置所有设置吗?",
 										isShowErrorBtn: !0
 									});
 								case 3:
@@ -12061,7 +12061,7 @@
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("编辑器设置")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("配置编辑器")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
@@ -12093,7 +12093,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("静默启动")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("启动 Clash For Windows 时自动最小化到通知栏")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12107,7 +12107,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("随机控制器端口")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("使用动态端口连接 Clash 核心程序")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12121,7 +12121,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("轻量化模式")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("轻量模式")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12135,12 +12135,12 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("GUI Log 文件夹")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("GUI 日志文件夹")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
 				{
-					text: "Open"
+					text: "打开"
 				},
 				on:
 				{
@@ -12159,7 +12159,7 @@
 			{
 				attrs:
 				{
-					items: ["白亮", "暗黑", "国庆中秋", "赛博朋克2077"]
+					items: ["明亮", "暗黑", "国庆中秋", "赛博朋克"]
 				},
 				model:
 				{
@@ -12205,7 +12205,7 @@
 			})], 1), e._v(" "), e.isWindows ? n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("默认图标路径")]), e._v(" "), n("div",
+			}, [n("div", [e._v("默认状态的图标路径")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
@@ -12213,7 +12213,7 @@
 				staticClass: "short-input",
 				attrs:
 				{
-					placeholder: "ICO(.ico) asset path"
+					placeholder: "ICO(.ico) 图标路径"
 				},
 				model:
 				{
@@ -12238,7 +12238,7 @@
 			})], 1)]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("系统代理开启时的图标路径")]), e._v(" "), n("div",
+			}, [n("div", [e._v("启用系统代理时的图标路径")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
@@ -12246,7 +12246,7 @@
 				staticClass: "short-input",
 				attrs:
 				{
-					placeholder: "ICO(.ico) asset path"
+					placeholder: "ICO(.ico) 图标路径"
 				},
 				model:
 				{
@@ -12271,7 +12271,7 @@
 			})], 1)]) : e._e(), e._v(" "), n("separator"), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("增强系统托盘")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("增强托盘")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12285,14 +12285,14 @@
 			})], 1), e._v(" "), e.settings.iconSpeed ? n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("Text")]), e._v(" "), n("div",
+			}, [n("div", [e._v("文本")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
 			{
 				attrs:
 				{
-					placeholder: "Text to display in tray"
+					placeholder: "要在增强托盘中显示的文本"
 				},
 				model:
 				{
@@ -12306,7 +12306,7 @@
 			})], 1)]) : e._e(), e._v(" "), !e.settings.trayText && e.settings.iconSpeed ? n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("Script")]), e._v(" "), n("div",
+			}, [n("div", [e._v("脚本")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
@@ -12314,7 +12314,7 @@
 				staticClass: "short-input",
 				attrs:
 				{
-					placeholder: "Script to run"
+					placeholder: "增强托盘运行的脚本"
 				},
 				model:
 				{
@@ -12412,7 +12412,7 @@
 			})], 1) : e._e(), e._v(" "), e.isWindows && 1 === e.settings.systemProxyTypeIndex ? n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("PAC Content")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("PAC 内容")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
@@ -12426,7 +12426,7 @@
 			})], 1) : e._e(), e._v(" "), 1 === e.settings.systemProxyTypeIndex ? e._e() : n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("绕过域名/IP")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("系统代理绕过的域名/IP网段")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
@@ -12441,7 +12441,7 @@
 			{
 				attrs:
 				{
-					title: "混合类型"
+					title: "Mixin 混合配置"
 				}
 			}, [n("div",
 			{
@@ -12450,7 +12450,7 @@
 			{
 				attrs:
 				{
-					items: ["YAML", "Java脚本"]
+					items: ["YAML", "JavaScript"]
 				},
 				model:
 				{
@@ -12478,7 +12478,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("Java脚本")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("JavaScript")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
@@ -12498,7 +12498,7 @@
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("代理项宽度")]), e._v(" "), n("SimpleInput",
+			}, [n("div", [e._v("代理节点条目宽度")]), e._v(" "), n("SimpleInput",
 			{
 				attrs:
 				{
@@ -12517,11 +12517,11 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("排序方式")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("排序规则")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
-					items: ["默认", "延迟", "字母表"]
+					items: ["默认", "延迟", "字母"]
 				},
 				model:
 				{
@@ -12535,7 +12535,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("延迟测试URL")]), e._v(" "), n("SimpleInput",
+			}, [n("div", [e._v("延迟测试 URL")]), e._v(" "), n("SimpleInput",
 			{
 				attrs:
 				{
@@ -12553,7 +12553,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("延迟测试超时阈值")]), e._v(" "), n("SimpleInput",
+			}, [n("div", [e._v("延迟测试超时时间")]), e._v(" "), n("SimpleInput",
 			{
 				attrs:
 				{
@@ -12573,7 +12573,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("显示过滤器")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("在节点列表右下角显示筛选按钮")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12593,11 +12593,11 @@
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("切换节点时断开")]), e._v(" "), n("SelectView",
+			}, [n("div", [e._v("代理更改时中断连接")]), e._v(" "), n("SelectView",
 			{
 				attrs:
 				{
-					items: ["否", "仅连接", "所有"]
+					items: ["不中断", "旧链", "全部"]
 				},
 				model:
 				{
@@ -12611,7 +12611,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("切换配置时断开")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("配置更改时中断连接")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12625,7 +12625,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("切换模式时断开")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("代理模式更改时中断连接")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12645,7 +12645,7 @@
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("接口名")]), e._v(" "), n("div",
+			}, [n("div", [e._v("网卡接口名称")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [e.detectedInterfaceName ? n("MoreHint",
@@ -12653,7 +12653,7 @@
 				staticClass: "interface-hint",
 				attrs:
 				{
-					text: "已检测到： " + e.detectedInterfaceName,
+					text: "检测到: " + e.detectedInterfaceName,
 					clickable: !1
 				}
 			}) : e._e(), e._v(" "), n("MoreHint",
@@ -12696,7 +12696,7 @@
 			}, [n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("解析器")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("预处理配置")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
@@ -12710,12 +12710,12 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("控制台输出")]), e._v(" "), n("MoreHint",
+			}, [n("div", [e._v("控制台输出日志")]), e._v(" "), n("MoreHint",
 			{
 				staticClass: "hint",
 				attrs:
 				{
-					text: "Open File"
+					text: "打开文件"
 				},
 				on:
 				{
@@ -12724,7 +12724,7 @@
 			})], 1), e._v(" "), n("separator"), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("文件夹路径")]), e._v(" "), n("div",
+			}, [n("div", [e._v("配置文件目录")]), e._v(" "), n("div",
 			{
 				staticClass: "item"
 			}, [n("SimpleInput",
@@ -12732,7 +12732,7 @@
 				staticClass: "short-input",
 				attrs:
 				{
-					placeholder: "配置文件夹路径"
+					placeholder: "配置文件路径"
 				},
 				model:
 				{
@@ -12771,7 +12771,7 @@
 			})], 1), e._v(" "), n("div",
 			{
 				staticClass: "item"
-			}, [n("div", [e._v("更新后启用")]), e._v(" "), n("SwitchView",
+			}, [n("div", [e._v("更新订阅后直接切换为该配置文件")]), e._v(" "), n("SwitchView",
 			{
 				model:
 				{
@@ -12786,7 +12786,7 @@
 			{
 				attrs:
 				{
-					title: "快捷键"
+					title: "热键"
 				}
 			}, [n("div",
 			{
@@ -12799,7 +12799,7 @@
 				staticClass: "input",
 				attrs:
 				{
-					placeholder: "点击录入快捷键"
+					placeholder: "点击以录制热键"
 				},
 				model:
 				{
@@ -12821,7 +12821,7 @@
 				staticClass: "input",
 				attrs:
 				{
-					placeholder: "点击录入快捷键"
+					placeholder: "点击以录制热键"
 				},
 				model:
 				{
@@ -12843,7 +12843,7 @@
 				staticClass: "input",
 				attrs:
 				{
-					placeholder: "点击录入快捷键"
+					placeholder: "点击以录制热键"
 				},
 				model:
 				{
@@ -12865,7 +12865,7 @@
 				staticClass: "input",
 				attrs:
 				{
-					placeholder: "点击录入快捷键"
+					placeholder: "点击以录制热键"
 				},
 				model:
 				{
@@ -12887,7 +12887,7 @@
 				staticClass: "input",
 				attrs:
 				{
-					placeholder: "点击录入快捷键"
+					placeholder: "点击以录制热键"
 				},
 				model:
 				{
@@ -12909,7 +12909,7 @@
 				staticClass: "input",
 				attrs:
 				{
-					placeholder: "点击录入快捷键"
+					placeholder: "点击以录制热键"
 				},
 				model:
 				{
@@ -12923,7 +12923,7 @@
 			})], 1)])], 1)], 1) : e._e(), e._v(" "), e.isEditingExternal ? n("div",
 			{
 				staticClass: "edit-hint"
-			}, [n("div", [e._v("\n      " + e._s(["", "Visual Studio Code", "Sublime Text"][e.settings.editor]) + " is\n      launching for editing.\n    ")]), e._v(" "), n("div", [e._v("Close the editing file to Save.")]), e._v(" "), n("div",
+			}, [n("div", [e._v("\n      " + e._s(["", "Visual Studio Code", "Sublime Text"][e.settings.editor]) + " \n      正在启动以进行编辑.\n    ")]), e._v(" "), n("div", [e._v("关闭编辑文件以保存.")]), e._v(" "), n("div",
 			{
 				staticClass: "btn",
 				on:
@@ -13133,7 +13133,7 @@
 					f: i
 				}
 			}
-			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+			throw new TypeError("实例不可迭代。\n为了可以迭代，非数组对象必须要有 [Symbol.iterator]() 方法。")
 		}
 		var a, o = !0,
 			s = !1;
@@ -13684,7 +13684,7 @@
 						e.isAllowSort = !1
 					}
 				}
-			}, [e._v("\n    Stop Sorting\n  ")]) : e._e()], 1)
+			}, [e._v("\n    停止排序\n  ")]) : e._e()], 1)
 		}), [], !1, null, "197ffb3e", null));
 	G.options.__file = "MainMenu.vue";
 	var K = G.exports,
@@ -14084,15 +14084,15 @@
 				},
 				mixedPort: function()
 				{
-					ee.info("mixed-port changed"), this.resetSystemProxySettings()
+					ee.info("mixed-port 已变更"), this.resetSystemProxySettings()
 				},
 				controllerPort: function()
 				{
-					ee.info("external controller port changed")
+					ee.info("外部控制器端口已变更")
 				},
 				finalInterfaceName: function(e)
 				{
-					ee.info("new outbound interface: ".concat(e)), this.refreshProfile()
+					ee.info("新出站网卡接口: ".concat(e)), this.refreshProfile()
 				},
 				clashStatus: function()
 				{
@@ -14192,7 +14192,7 @@
 									n.setIsSystemProxyOn(
 									{
 										isOn: t
-									}), Object(le.c)("快捷键", "系统代理： ".concat(t ? "开" : "关"));
+									}), Object(le.c)("触发热键", "系统代理: ".concat(t ? "开启" : "关闭"));
 								case 6:
 								case "end":
 									return e.stop()
@@ -14209,7 +14209,7 @@
 						n.changeIsMixinEnable(
 						{
 							isMixin: e
-						}), n.refreshProfile(), Object(le.c)("快捷键", "混合配置： ".concat(e ? "开" : "关"))
+						}), n.refreshProfile(), Object(le.c)("触发热键", "混合配置: ".concat(e ? "开启" : "关闭"))
 					}))
 				},
 				"settings.shortcutGlobalMode": function(e, t)
@@ -14225,7 +14225,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("global");
 								case 2:
-									(t = e.sent) && Object(le.c)("快捷键", "模式： ".concat(t.toUpperCase()));
+									(t = e.sent) && Object(le.c)("触发热键", "模式: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
@@ -14246,7 +14246,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("rule");
 								case 2:
-									(t = e.sent) && Object(le.c)("快捷键", "模式： ".concat(t.toUpperCase()));
+									(t = e.sent) && Object(le.c)("触发热键", "模式: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
@@ -14267,7 +14267,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("direct");
 								case 2:
-									(t = e.sent) && Object(le.c)("快捷键", "模式： ".concat(t.toUpperCase()));
+									(t = e.sent) && Object(le.c)("触发热键", "模式: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
@@ -14288,7 +14288,7 @@
 								case 0:
 									return e.next = 2, n.switchMode("script");
 								case 2:
-									(t = e.sent) && Object(le.c)("快捷键", "模式： ".concat(t.toUpperCase()));
+									(t = e.sent) && Object(le.c)("触发热键", "模式: ".concat(t.toUpperCase()));
 								case 4:
 								case "end":
 									return e.stop()
@@ -14314,7 +14314,7 @@
 				},
 				isAppSuspend: function(e)
 				{
-					e || (this.tun2socks && (ee.info("system resume, restart tun2socks"), this.killSpawned(this.tun2socks), this.tun2socks = null, this.spawnTun2socks()), this.refreshProfile()
+					e || (this.tun2socks && (ee.info("系统恢复, 重新启动 tun2socks"), this.killSpawned(this.tun2socks), this.tun2socks = null, this.spawnTun2socks()), this.refreshProfile()
 						.then((function() {}))
 						.catch((function() {})))
 				},
@@ -14466,8 +14466,8 @@
 				},
 				statusHint: function()
 				{
-					return 0 < this.pkgDownloadProgress && 1 > this.pkgDownloadProgress ? "Download progress: ".concat((100 * this.pkgDownloadProgress)
-						.toFixed(2), "%") : this.clashStatus === D.a.CONNECTED ? "连接成功" : this.clashStatus === D.a.DISCONNECTED ? "断开连接" : void 0
+					return 0 < this.pkgDownloadProgress && 1 > this.pkgDownloadProgress ? "下载进度: ".concat((100 * this.pkgDownloadProgress)
+						.toFixed(2), "%") : this.clashStatus === D.a.CONNECTED ? "已连接" : this.clashStatus === D.a.DISCONNECTED ? "已断开" : void 0
 				},
 				statusIcon: function()
 				{
@@ -14554,7 +14554,7 @@
 										t.next = 86;
 										break
 									}
-									if(ee.info("restore at index: ".concat(s)), d = e.profiles.files[s], a = ie.a.join(e.profilesPath, d.time), t.prev = 9, l = ce.a.parse(ne.a.readFileSync(a, "utf8"),
+									if(ee.info("恢复到: ".concat(s)), d = e.profiles.files[s], a = ie.a.join(e.profilesPath, d.time), t.prev = 9, l = ce.a.parse(ne.a.readFileSync(a, "utf8"),
 									{
 										prettyErrors: !0
 									}), u = e.settings, p = u.mixinType, f = void 0 === p ? 0 : p, h = u.mixinText, m = u.mixinCode, g = l, !e.isMixinEnable)
@@ -14629,7 +14629,7 @@
 									return t.abrupt("return",
 									{
 										success: !1,
-										message: "TUN mode enable but no interface-name in this YAML"
+										message: "TUN 模式已开启但此 YAML 配置文件内未设置网络接口"
 									});
 								case 37:
 									if(!Object(pe.g)())
@@ -14644,7 +14644,7 @@
 									}
 									ne.a.access(ie.a.join(e.clashPath, "wintun.dll"), ne.a.constants.F_OK, (function(e)
 									{
-										e && Object(le.c)("TUN mode enabled but wintun.dll is missing!", "click to open document", !1,
+										e && Object(le.c)("TUN 模式已启用但找不到 wintun.dll!", "点击打开帮助文档", !1,
 										{
 											url: "https://docs.cfw.lbyczf.com/contents/tun.html"
 										})
@@ -14691,7 +14691,7 @@
 									return t.abrupt("return",
 									{
 										success: !1,
-										message: "TAP mode enable but no interface-name in this YAML"
+										message: "TAP 模式已开启但此 YAML 配置文件内未设置网络接口"
 									});
 								case 57:
 									return W = (B = g)["proxy-providers"], G = B["rule-providers"], K = 0 < Object.keys(null != W ? W :
@@ -14716,21 +14716,21 @@
 											timeout: K ? 0 : 1e4
 										});
 								case 62:
-									if(J = t.sent, Z = J.status, te = J.data, r = 204 === Z, re = te.message, i = re || "Switching profile failed with status: ".concat(Z), r && (K ? !e.menuItems.find((function(e)
+									if(J = t.sent, Z = J.status, te = J.data, r = 204 === Z, re = te.message, i = re || "切换配置失败: ".concat(Z), r && (K ? !e.menuItems.find((function(e)
 									{
-										return "代理集" === e.title
+										return "服务商" === e.title
 									})) && e.setMenuItems(
 									{
 										items: [].concat(y()(e.menuItems), [
 										{
-											title: "代理集",
+											title: "服务商",
 											path: "/home/provider"
 										}])
 									}) : e.setMenuItems(
 									{
 										items: e.menuItems.filter((function(e)
 										{
-											return "代理集" !== e.title
+											return "服务商" !== e.title
 										}))
 									})), r)
 										if(N)
@@ -14751,16 +14751,16 @@
 									t.next = 79;
 									break;
 								case 72:
-									t.prev = 72, t.t1 = t.catch(9), ae = "", (oe = t.t1.linePos) && ((se = oe.start) && (de = se.line, ue = se.col, ae = ", on line: ".concat(de, ", at column: ")
-											.concat(ue))), i = "错误： ".concat(t.t1.message)
-										.concat(ae), ee.warn("fail to restore last profile with error: ".concat(t.t1));
+									t.prev = 72, t.t1 = t.catch(9), ae = "", (oe = t.t1.linePos) && ((se = oe.start) && (de = se.line, ue = se.col, ae = ", 位于行: ".concat(de, ", 列: ")
+											.concat(ue))), i = "错误: ".concat(t.t1.message)
+										.concat(ae), ee.warn("恢复最近一次配置失败: ".concat(t.t1));
 								case 79:
 									if(fe = d.selected, he = d.mode, !r || !fe)
 									{
 										t.next = 85;
 										break
 									}
-									return ee.info("restore proxy settings"), t.next = 84, Promise.allSettled(fe.map((function(t)
+									return ee.info("恢复代理设置"), t.next = 84, Promise.allSettled(fe.map((function(t)
 									{
 										var n = t.name,
 											r = t.now;
@@ -14774,8 +14774,8 @@
 									{
 										var n = e.status,
 											r = e.reason;
-										"rejected" === n && ee.info("restore proxy group ".concat(fe[t].name, " to ")
-											.concat(fe[t].now, " failed with reason: ")
+										"rejected" === n && ee.info("恢复代理分组 ".concat(fe[t].name, " 到 ")
+											.concat(fe[t].now, " 失败: ")
 											.concat(r))
 									}));
 								case 85:
@@ -14888,7 +14888,7 @@
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									if(ee.info("restarting clash core..."), i = ie.a.join(e.clashPath, "logs", "".concat(F()()
+									if(ee.info("正在重启 clash 核心程序..."), i = ie.a.join(e.clashPath, "logs", "".concat(F()()
 										.format("YYYY-MM-DD-HHmmss"), ".log")), ne.a.readdir(ie.a.join(e.clashPath, "logs"), (function(t, n)
 									{
 										!t && 0 < n.length && n.forEach((function(t)
@@ -14949,18 +14949,18 @@
 													for(;;) switch (t.prev = t.next)
 													{
 														case 0:
-															if(!/level=info msg="RESTful API listening at:/.test(n.toString()))
+															if(!/level=info msg="API 监听在:/.test(n.toString()))
 															{
 																t.next = 8;
 																break
 															}
-															return ee.info("clash core startup success!"), t.t0 = e, t.next = 5, e.getClashStatus();
+															return ee.info("clash 核心程序启动成功!"), t.t0 = e, t.next = 5, e.getClashStatus();
 														case 5:
 															t.t1 = t.sent, t.t2 = {
 																status: t.t1
 															}, t.t0.setClashStatus.call(t.t0, t.t2);
 														case 8:
-															/level=fatal/.test(n.toString()) && ee.error("clash core startup failed!!!");
+															/level=fatal/.test(n.toString()) && ee.error("clash 核心程序启动失败!!!");
 														case 9:
 														case "end":
 															return t.stop()
@@ -14971,7 +14971,7 @@
 											{
 												return t.apply(this, arguments)
 											}
-										}()), u.on("exit", (function() {})), "静默" !== e.confData["log-level"] && (p = ne.a.createWriteStream(i,
+										}()), u.on("exit", (function() {})), "silent" !== e.confData["log-level"] && (p = ne.a.createWriteStream(i,
 										{
 											flags: "a"
 										}), u.stdout.pipe(p), u.stderr.pipe(p), e.setLogFilePath(
@@ -15190,8 +15190,8 @@
 									}
 									return n.abrupt("return");
 								case 9:
-									return ee.info("wait for method [".concat(r.name, "] to be fulfilled, retry ")
-										.concat(d, " times")), n.next = 12, t.$wait(1e3);
+									return ee.info("等待 [".concat(r.name, "] 函数完成, 重试 ")
+										.concat(d, " 次")), n.next = 12, t.$wait(1e3);
 								case 12:
 									if(!((d += 1) >= o))
 									{
@@ -15220,7 +15220,7 @@
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return n = e.$electron.remote.app.getVersion(), ee.info("check for app update, current: ".concat(n)), t.next = 4, oe.a.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest");
+									return n = e.$electron.remote.app.getVersion(), ee.info("检查更新, 当前版本: ".concat(n)), t.next = 4, oe.a.get("https://api.github.com/repos/Fndroid/clash_for_windows_pkg/releases/latest");
 								case 4:
 									if(200 === (r = t.sent)
 										.status && (i = r.data.tag_name, (a = function(e)
@@ -15283,7 +15283,7 @@
 				},
 				loadConfData: function()
 				{
-					ee.info("load data from general config.yaml");
+					ee.info("从标准 config.yaml 加载数据");
 					var e = ie.a.join(this.clashPath, "config.yaml");
 					try
 					{
@@ -15309,15 +15309,15 @@
 							{
 								var o = a.line,
 									s = a.col;
-								r = ", on line: ".concat(o, ", at column: ")
+								r = ", 位于行: ".concat(o, ", 列: ")
 									.concat(s)
 							}
 						}
 						this.appendError(
 						{
-							error: "错误： ".concat(t)
+							error: "错误: ".concat(t)
 								.concat(r)
-						}), ee.warn("fail to load general config.yaml with error: ".concat(t))
+						}), ee.warn("加载标准 config.yaml 文件出错: ".concat(t))
 					}
 				},
 				mkdirPathSync: function(e)
@@ -15356,7 +15356,7 @@
 					}
 					catch (t)
 					{}
-					else ee.info("first luanch, creating config.yaml..."), ne.a.copyFileSync(e, t);
+					else ee.info("首次运行，正在创建配置文件 config.yaml..."), ne.a.copyFileSync(e, t);
 					var o = ie.a.join(this.filesPath, "default/Country.mmdb"),
 						s = ie.a.join(this.clashPath, "Country.mmdb");
 					ne.a.existsSync(s) || ne.a.copyFileSync(o, s);
@@ -15498,7 +15498,7 @@
 										t.next = 20;
 										break
 									}
-									return m = c[h].url, ee.warn("fail to update profile with url: ".concat(m)), Object(le.c)("Profile update failed", m), e.profileUpdateFailed.hasOwnProperty(m) || (e.profileUpdateFailed[m] = n()), t.abrupt("continue", 28);
+									return m = c[h].url, ee.warn("从 url 更新配置文件失败: ".concat(m)), Object(le.c)("配置文件更新失败", m), e.profileUpdateFailed.hasOwnProperty(m) || (e.profileUpdateFailed[m] = n()), t.abrupt("continue", 28);
 								case 20:
 									return g = ie.a.join(e.profilesPath, v.time), t.next = 23, Object(ye.a)(v.url, d[h].data);
 								case 23:
@@ -15596,17 +15596,17 @@
 						{
 							case 0:
 								if(e.startTime = (new Date)
-									.getTime(), e.devMode = Se, ee.info("app start with mode: ".concat(Se ? "dev" : "production")), e.$router.replace(
+									.getTime(), e.devMode = Se, ee.info("app 运行方式为: ".concat(Se ? "dev" : "production")), e.$router.replace(
 									{
 										path: e.currentRoutePath
 									}), Object(pe.g)() && l()
 									.then((function()
 									{
-										ee.info("http server started at: ".concat(e.innerServerPort))
+										ee.info("http 服务已启动: ".concat(e.innerServerPort))
 									}))
 									.catch((function(e)
 									{
-										ee.info("http server failed to start with error: ".concat(e))
+										ee.info("http 服务启动失败: ".concat(e))
 									})), n = e.devMode ? "" : e.$electron.remote.app.getPath("exe"), e.setExePath(
 									{
 										path: n
@@ -15616,7 +15616,7 @@
 								}
 								catch (t)
 								{
-									ee.info("faile to get user dns setting with error: ".concat(t))
+									ee.info("获取用户DNS出错: ".concat(t))
 								}(r = T.a.get(B.a.LAST_CLASH_PID)) && e.killSpawned(
 								{
 									pid: r
@@ -15654,7 +15654,7 @@
 											for(;;) switch (t.prev = t.next)
 											{
 												case 0:
-													return ee.info("app exiting, turn off system proxy"), t.next = 3, e.killClashCore();
+													return ee.info("程序退出, 关闭系统代理"), t.next = 3, e.killClashCore();
 												case 3:
 													if(null !== e.userDNS) try
 													{
@@ -15913,7 +15913,7 @@
 										setTimeout(U, 500 + 500 * t)
 									})), setInterval(U, 3e3), t.next = 81, e.handlerRestartClash();
 							case 81:
-								T.a.put(B.a.IS_LIGHTWEIGHT_MODE_CLOSE, !1), e.showStartup || (e.showStartup = !0, Object(le.c)("Clash 已经在后台运行", "享受你的自由时光！")), e.detectInterfaceName(), e.spawnUserDefindExes(), e.checkForUpdate()
+								T.a.put(B.a.IS_LIGHTWEIGHT_MODE_CLOSE, !1), e.showStartup || (e.showStartup = !0, Object(le.c)("Clash 正在后台运行", "开始享受你的美好时光!")), e.detectInterfaceName(), e.spawnUserDefindExes(), e.checkForUpdate()
 									.then((function() {}))
 									.catch((function(e)
 									{
@@ -16143,7 +16143,7 @@
 					f: i
 				}
 			}
-			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+			throw new TypeError("实例不可迭代。\n为了可以迭代，非数组对象必须要有 [Symbol.iterator]() 方法。")
 		}
 		var a, o = !0,
 			s = !1;
@@ -16374,7 +16374,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v(e._s(e.data ? "编辑" : "New") + " Proxy Group")]), e._v(" "), n("input",
+			}, [e._v(e._s(e.data ? "编辑" : "新增") + " 代理组")]), e._v(" "), n("input",
 			{
 				directives: [
 				{
@@ -16386,7 +16386,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Group Name"
+					placeholder: "分组名称"
 				},
 				domProps:
 				{
@@ -16452,7 +16452,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "地址"
+					placeholder: "URL"
 				},
 				domProps:
 				{
@@ -16477,7 +16477,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Interval ( Second )"
+					placeholder: "间隔 ( 秒 )"
 				},
 				domProps:
 				{
@@ -16496,7 +16496,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v(e._s(e.data ? "编辑" : "New") + " Proxy")]), e._v(" "), n("input",
+			}, [e._v(e._s(e.data ? "编辑" : "新增") + " 代理")]), e._v(" "), n("input",
 			{
 				directives: [
 				{
@@ -16508,7 +16508,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Proxy Name"
+					placeholder: "代理名称"
 				},
 				domProps:
 				{
@@ -16574,7 +16574,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Server"
+					placeholder: "服务器IP或域名"
 				},
 				domProps:
 				{
@@ -16599,7 +16599,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "代理端口"
+					placeholder: "端口"
 				},
 				domProps:
 				{
@@ -16624,7 +16624,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Password"
+					placeholder: "密码"
 				},
 				domProps:
 				{
@@ -16734,7 +16734,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Obfs (Optional, tls or http)"
+					placeholder: "Obfs 混淆(可选项, tls 或 http)"
 				},
 				domProps:
 				{
@@ -16759,7 +16759,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Obfs-host (Optional)"
+					placeholder: "Obfs-host (可选项)"
 				},
 				domProps:
 				{
@@ -16881,7 +16881,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "User Name (Optional)"
+					placeholder: "用户名 (可选项)"
 				},
 				domProps:
 				{
@@ -16906,7 +16906,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "Password (Optional)"
+					placeholder: "密码 (可选项)"
 				},
 				domProps:
 				{
@@ -16931,7 +16931,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "ws path"
+					placeholder: "ws path 伪装路径"
 				},
 				domProps:
 				{
@@ -16956,7 +16956,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "ws headers (JSON)"
+					placeholder: "ws headers (JSON 格式)"
 				},
 				domProps:
 				{
@@ -17049,7 +17049,7 @@
 				{
 					for: "vmess-skip-cert-verify"
 				}
-			}, [e._v("Skip Cert Verify")])])]) : e._e()]) : e._e(), e._v(" "), n("div",
+			}, [e._v("跳过证书验证")])])]) : e._e()]) : e._e(), e._v(" "), n("div",
 			{
 				staticClass: "btns"
 			}, [n("div",
@@ -17069,7 +17069,7 @@
 				{
 					click: e.confirmInput
 				}
-			}, [e._v("确认")])])])
+			}, [e._v("确定")])])])
 		}), [], !1, null, "15e4a5f6", null);
 	T.options.__file = "AppendProxyView.vue";
 	var D = T.exports,
@@ -17218,7 +17218,7 @@
 					var n = e.type;
 					return ["url-test", "fallback", "select", "load-balance"].includes(n) ? (this.addType = 0, e._index = t, void(this.addData = e)) : void this.$alert(
 					{
-						content: "Could not edit proxy gorup type [".concat(n, "].")
+						content: "无法编辑代理组类型 [".concat(n, "].")
 					})
 				},
 				newProxy: function()
@@ -17230,7 +17230,7 @@
 					var n = e.type;
 					return ["ss", "vmess", "http", "socks"].includes(n) ? (this.addType = 1, e._index = t, void(this.addData = e)) : void this.$alert(
 					{
-						content: "Could not edit proxy type [".concat(n, "].")
+						content: "无法编辑代理类型 [".concat(n, "].")
 					})
 				},
 				loadData: function()
@@ -17253,7 +17253,7 @@
 					}
 					catch (e)
 					{
-						this.$emit("错误")
+						this.$emit("error")
 					}
 				}
 			},
@@ -17279,7 +17279,7 @@
 			}, [n("div",
 			{
 				staticClass: "hint"
-			}, [e._v("拖动以排序或添加到右侧列表中。")]), e._v(" "), n("div",
+			}, [e._v("拖动排序或添加到右边的列表.")]), e._v(" "), n("div",
 			{
 				staticClass: "floating-right"
 			}, [n("div",
@@ -17341,7 +17341,7 @@
 			})), 0), e._v(" "), n("div",
 			{
 				staticClass: "section-title"
-			}, [n("h2", [e._v("分组")]), e._v(" "), n("div",
+			}, [n("h2", [e._v("代理分组")]), e._v(" "), n("div",
 			{
 				staticClass: "add-icon",
 				on:
@@ -17623,7 +17623,7 @@
 			return n("div",
 			{
 				staticClass: "section-title"
-			}, [n("h2", [e._v("特殊配置")])])
+			}, [n("h2", [e._v("特殊代理")])])
 		}], !1, null, "3c8e2f94", null));
 	F.options.__file = "ConfigView.vue";
 	var U = F.exports,
@@ -17736,7 +17736,7 @@
 			}, [n("div",
 			{
 				class: ["model-title-" + e.theme]
-			}, [n("div", [e._v("Create a new rule")]), e._v(" "), n("div",
+			}, [n("div", [e._v("新建一条规则")]), e._v(" "), n("div",
 			{
 				staticClass: "rule-floating-btns"
 			}, [n("div",
@@ -17814,7 +17814,7 @@
 			})), 0), e._v(" "), n("div",
 			{
 				staticClass: "rule-section-title"
-			}, [e._v("Proxy or Policy")]), e._v(" "), n("div",
+			}, [e._v("代理或策略")]), e._v(" "), n("div",
 			{
 				staticClass: "rule-proxy-group"
 			}, e._l(e.proxyGroups, (function(t, r)
@@ -17902,10 +17902,10 @@
 									}
 									return n.prev = 2, n.next = 5, t.clashAxiosClient.put("/providers/rules/".concat(encodeURIComponent(i)));
 								case 5:
-									a = n.sent, 204 === a.status ? (t.loadData(), Object(Y.c)("Success", "RULE-SET [".concat(i, "] has been updated!"))) : Object(Y.c)("Failed", "RULE-SET [".concat(i, "] update failed(Server Error)!")), n.next = 13;
+									a = n.sent, 204 === a.status ? (t.loadData(), Object(Y.c)("成功", "RULE-SET [".concat(i, "] 已更新!"))) : Object(Y.c)("失败", "RULE-SET [".concat(i, "] 更新失败(服务器错误)!")), n.next = 13;
 									break;
 								case 10:
-									n.prev = 10, n.t0 = n.catch(2), Object(Y.c)("Failed", "RULE-SET [".concat(i, "] update failed(Network Error)!"));
+									n.prev = 10, n.t0 = n.catch(2), Object(Y.c)("失败", "RULE-SET [".concat(i, "] 更新失败(网络错误)!"));
 								case 13:
 								case "end":
 									return n.stop()
@@ -17918,7 +17918,7 @@
 				fromNow: function(e)
 				{
 					return w()(e)
-						.fromNow()
+						.locale('zh-cn').fromNow()
 				},
 				providerOfPayload: function(e)
 				{
@@ -17995,11 +17995,11 @@
 													.concat(a) : "".concat(t, ",")
 													.concat(r)
 											})), i = L.a.join(e.profilesPath, e.profileName), a = I.a.readFileSync(i, "utf8"), (o = _.a.parse(a))
-											.rules = r, I.a.writeFileSync(i, _.a.stringify(o)), e.$emit("done"), e.saveBtnText = "Done"
+											.rules = r, I.a.writeFileSync(i, _.a.stringify(o)), e.$emit("done"), e.saveBtnText = "完成"
 									}
 									catch (t)
 									{
-										e.$emit("错误"), e.saveBtnText = "Fail"
+										e.$emit("error"), e.saveBtnText = "失败"
 									}
 									setTimeout((function()
 									{
@@ -18104,7 +18104,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("前100个匹配规则(" + e._s(e.memoryData.length) + ").")]), e._v(" "), n("div",
+			}, [e._v("前100条匹配规则(" + e._s(e.memoryData.length) + ").")]), e._v(" "), n("div",
 			{
 				staticClass: "header-btns"
 			}, [n("div",
@@ -18149,7 +18149,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "按关键字过滤"
+					placeholder: "关键字过滤"
 				},
 				domProps:
 				{
@@ -18194,8 +18194,8 @@
 				}, [e._v("\n          " + e._s(t.payload) + "\n        ")]), e._v(" "), n("div",
 				{
 					class: ["rule-" + e.theme]
-				}, [e._v("\n          " + e._s(t.type) + "\n          "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            Rules: " + e._s(e.providerOfPayload(t.payload)
-					.ruleCount) + "\n          ")]) : e._e(), e._v(" "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            上次更新：\n            " + e._s(e.fromNow(e.providerOfPayload(t.payload)
+				}, [e._v("\n          " + e._s(t.type) + "\n          "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            规则数: " + e._s(e.providerOfPayload(t.payload)
+					.ruleCount) + "\n          ")]) : e._e(), e._v(" "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            最后更新于:\n            " + e._s(e.fromNow(e.providerOfPayload(t.payload)
 					.updatedAt)) + "\n          ")]) : e._e(), e._v(" "), e.providerOfPayload(t.payload) ? n("div", [e._v("\n            " + e._s(e.providerOfPayload(t.payload)
 					.vehicleType) + "\n            " + e._s(e.providerOfPayload(t.payload)
 					.behavior) + "\n          ")]) : e._e()])]), e._v(" "), n("div",
@@ -18330,7 +18330,7 @@
 			{
 				return {
 					btnType: 0,
-					resultHint: "填入配置地址",
+					resultHint: "输入URL下载配置文件",
 					editProfileName: "",
 					editProfileType: -1,
 					fileWatcher: null,
@@ -18400,7 +18400,7 @@
 				},
 				getBtnText: function()
 				{
-					return 3 === this.btnType ? "下载中……" : 1 === this.btnType ? "错误!" : 2 === this.btnType ? "成功!" : "下载"
+					return 3 === this.btnType ? "下载中" : 1 === this.btnType ? "出错!" : 2 === this.btnType ? "成功!" : "下载"
 				},
 				getRightBtnText: function()
 				{
@@ -18515,7 +18515,7 @@
 						.join("<br />");
 					this.$alert(
 					{
-						title: "找到了 ".concat(n.length, " 个匹配解析器"),
+						title: "找到 ".concat(n.length, " 条匹配的预处理配置信息"),
 						content: "".concat(r)
 					})
 				},
@@ -18558,9 +18558,9 @@
 								case 0:
 									return r = [
 									{
-										name: "备注",
+										name: "名称",
 										key: "filename",
-										placeholder: "填入新的备注",
+										placeholder: "输入新文件名",
 										required: !0
 									}], n.prev = 1, n.next = 4, t.$input(
 									{
@@ -18596,21 +18596,21 @@
 									{}, t.pfs.files[e]), "编辑配置信息", i = r.interval, a = void 0 === i ? 0 : i, o = [
 									{
 										key: "name",
-										name: "备注",
+										name: "名称",
 										required: !0,
 										value: r.name
 									},
 									{
 										key: "url",
-										name: "地址",
+										name: "URL",
 										value: r.url
 									},
 									{
 										key: "interval",
-										name: "更新间隔 (小时)",
+										name: "更新间隔(小时)",
 										validate: function(e)
 										{
-											return /^\d+$/.test(e) ? "" : "Update Interval must be an integer"
+											return /^\d+$/.test(e) ? "" : "更新间隔必须是整数"
 										},
 										value: a
 									}], n.prev = 4, n.next = 7, t.$input(
@@ -18723,7 +18723,7 @@
 								case 0:
 									(n = e.$electron.remote.dialog) && ((r = n.showOpenDialogSync(
 									{
-										properties: ["openFile"]
+										properties: ["打开文件"]
 									})) && 0 < r.length && (i = r[0], e.localCopy(ne.basename(i), ne.resolve(i))));
 								case 2:
 								case "end":
@@ -18782,8 +18782,8 @@
 							}));
 						if(-1 < i && i < r.files.length) return void this.$alert(
 						{
-							content: "Local file already exist.",
-							title: "Error"
+							content: "本地文件已存在.",
+							title: "错误"
 						});
 						this.appendProfile(
 						{
@@ -18820,8 +18820,8 @@
 								case 0:
 									return r = t.pfs.files[e], i = r.name, r.url, n.next = 3, t.$showDialog(
 									{
-										type: "警告",
-										message: '您确定要删除 "'.concat(i, '"?'),
+										type: "warning",
+										message: '确定要删除 "'.concat(i, '"?'),
 										buttons: ["是", "否"]
 									});
 								case 3:
@@ -18885,10 +18885,10 @@
 									}
 									return n.next = 11, t.$showDialog(
 									{
-										type: "错误",
-										message: "无法切换到此配置文件！",
+										type: "error",
+										message: "无法切换到此配置文件!",
 										detail: a || "",
-										buttons: ["确认", "文本编辑"]
+										buttons: ["确定", "以文本模式编辑"]
 									});
 								case 11:
 									o = n.sent, 1 === o.response && t.openProfile(t.pfs.files[e]), t.changeProfilesIndex(
@@ -18972,7 +18972,7 @@
 				},
 				parseDomain: function(e)
 				{
-					var t = "本地配置";
+					var t = "本地文件";
 					try
 					{
 						var n = new URL(e),
@@ -18991,7 +18991,7 @@
 						var n = te.statSync(ne.join(this.profilesPath, t))
 							.mtime;
 						return w()(n)
-							.fromNow()
+							.locale('zh-cn').fromNow()
 					}
 					catch (t)
 					{
@@ -19192,7 +19192,7 @@
 				{
 					spellcheck: "false",
 					type: "text",
-					placeholder: "填入配置地址"
+					placeholder: "输入URL下载配置文件"
 				},
 				domProps:
 				{
@@ -19250,7 +19250,7 @@
 				{
 					click: e.handleUpdateAllProfiles
 				}
-			}, [e._v("\n          更新所有\n        ")]), e._v(" "), n("div",
+			}, [e._v("\n          全部更新\n        ")]), e._v(" "), n("div",
 			{
 				staticClass: "confirm confirm-right",
 				on:
@@ -19355,7 +19355,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("文本编辑")]), e._v(" "), n("path",
+				}, [n("title", [e._v("以文本模式编辑")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19385,7 +19385,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("策略编辑")]), e._v(" "), n("path",
+				}, [n("title", [e._v("修改策略")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19415,7 +19415,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("规则编辑")]), e._v(" "), n("path",
+				}, [n("title", [e._v("修改规则")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19445,7 +19445,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("复制配置文件")]), e._v(" "), n("path",
+				}, [n("title", [e._v("复制为新的配置")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19479,7 +19479,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("打开配置地址")]), e._v(" "), n("path",
+				}, [n("title", [e._v("用浏览器打开订阅URL")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19509,7 +19509,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("解析器信息")]), e._v(" "), n("path",
+				}, [n("title", [e._v("预处理配置信息")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19539,7 +19539,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("修改配置文件信息")]), e._v(" "), n("path",
+				}, [n("title", [e._v("修改配置信息")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19577,7 +19577,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("更新配置文件")]), e._v(" "), n("path",
+				}, [n("title", [e._v("更新此配置")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -19899,9 +19899,9 @@
 									return t.next = 2, e.$showDialog(
 									{
 										title: "Clash for Windows",
-										type: "警告",
+										type: "warning",
 										message: "请确认",
-										detail: "config.yaml和country.mmdb将被删除。",
+										detail: "config.yaml 和 country.mmdb 将被删除.",
 										buttons: ["是", "否"]
 									});
 								case 2:
@@ -19964,7 +19964,7 @@
 				{
 					id: "error-title"
 				}
-			}, [e._v("Errors")]), e._v(" "), n("div",
+			}, [e._v("错误")]), e._v(" "), n("div",
 			{
 				class: ["error-content-" + e.theme],
 				domProps:
@@ -19981,24 +19981,24 @@
 				{
 					click: e.openHomeDir
 				}
-			}, [e._v("\n        配置文件目录\n      ")]), e._v(" "), n("div",
+			}, [e._v("\n        配置文件主目录\n      ")]), e._v(" "), n("div",
 			{
 				class: ["error-hint-" + e.theme],
 				on:
 				{
 					click: e.openLogsFolder
 				}
-			}, [e._v("\n        日志\n      ")]), e._v(" "), n("div",
+			}, [e._v("\n        日志文件夹\n      ")]), e._v(" "), n("div",
 			{
 				class: ["error-hint-" + e.theme],
 				on:
 				{
 					click: e.autoFix
 				}
-			}, [e._v("\n        Try to repair\n      ")])])]) : n("div",
+			}, [e._v("\n        尝试修复\n      ")])])]) : n("div",
 			{
 				staticClass: "loading-hint"
-			}, [e._v("Loading...")])])
+			}, [e._v("加载中...")])])
 		}), [], !1, null, "273fe74c", null);
 	Y.options.__file = "ErrorView.vue";
 	var X = Y.exports,
@@ -20194,7 +20194,7 @@
 			{
 				autoLaunchHint: function()
 				{
-					return Object(S.f)() ? "开机自启动" : Object(S.g)() ? "开机自启动" : void 0
+					return Object(S.f)() ? "开机启动" : Object(S.g)() ? "开机启动" : void 0
 				},
 				isShowNewIcon: function()
 				{
@@ -20227,7 +20227,7 @@
 									return t.prev = 0, t.next = 3, e.$select(
 									{
 										title: "服务管理",
-										message: "这可能需要一段时间。<br/>该APP将自动重新启动。<br/><br/>当前状态： ".concat(e.isLocalMode ? "无效" : "激活"),
+										message: "这可能需要一段时间.<br/>APP 将自动重新启动.<br/><br/>当前状态: ".concat(e.isLocalMode ? "Inactive" : "Active"),
 										items: ["安装", "卸载"]
 									});
 								case 3:
@@ -20361,10 +20361,10 @@
 							for(;;) switch (t.prev = t.next)
 							{
 								case 0:
-									return t.prev = 0, n = ["静默", "错误", "警告", "信息", "调试"], t.next = 4, e.$select(
+									return t.prev = 0, n = ["silent", "error", "warning", "info", "debug"], t.next = 4, e.$select(
 									{
-										title: "改变日志级别",
-										message: "静默将阻止下次启动时生成.log文件",
+										title: "更改日志级别",
+										message: "Clash 核心程序默认是将日志打印输出到&nbsp;标准输出设备(通常是屏幕).&nbsp;CFW&nbsp;在日志级别为非&nbsp;silent&nbsp;时会把日志写入到磁盘文件。<br/>日志量由少到多排序为：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;静默&nbsp;<&nbsp;错误&nbsp;<&nbsp;警告&nbsp;<&nbsp;信息&nbsp;<&nbsp;调试<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;silent&nbsp;<&nbsp;error&nbsp;<&nbsp;warning&nbsp;<&nbsp;info&nbsp;<&nbsp;debug<br/>silent&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;不记录日志<br/>error&nbsp;&nbsp;&nbsp;&nbsp;：记录错误和异常信息到日志文件<br/>warning:&nbsp;记录错误和异常还有告警信息<br/>info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;记录程序正常运行时的日志(包括警告，错<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;误和异常信息)<br/>debug&nbsp;&nbsp;:&nbsp;日志量最多，一般用于提供日志文件给开发<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者进行诊断问题",
 										items: n
 									});
 								case 4:
@@ -20499,9 +20499,9 @@
 									}
 									return t.prev = 1, t.next = 4, e.$select(
 									{
-										title: "虚拟网卡设备管理",
-										message: '名为“ cfw-tap”的适配器会安装到Clash中。<br /><br />如果弹出安装框，请继续单击“下一步”，直到安装完成。',
-										items: ["安装", "卸载", "自定义"]
+										title: "TAP 设备管理",
+										message: '数据将通过一个名称为 "cfw-tap" 的网络适配器路由到 clash.<br /><br />如果安装对话框弹出，请继续单击 "下一步" 直到安装完成.',
+										items: ["安装", "卸载", "自定义设置 IP"]
 									});
 								case 4:
 									if(0 !== (n = t.sent))
@@ -20511,10 +20511,10 @@
 									}
 									return t.prev = 6, t.next = 9, e.$parent.setupTapDevice(!0);
 								case 9:
-									Object(ne.c)("Success", "cfw-tap device had been installed", !0), e.isMixinEnable && e.$parent.refreshProfile(), t.next = 16;
+									Object(ne.c)("成功", "cfw-tap 网络适配器已安装", !0), e.isMixinEnable && e.$parent.refreshProfile(), t.next = 16;
 									break;
 								case 13:
-									t.prev = 13, t.t0 = t.catch(6), Object(ne.c)("Failed", "counld not install cfw-tap device.", !0);
+									t.prev = 13, t.t0 = t.catch(6), Object(ne.c)("失败", "无法安装 cfw-tap 网络适配器.", !0);
 								case 16:
 									t.next = 43;
 									break;
@@ -20526,10 +20526,10 @@
 									}
 									return t.prev = 19, t.next = 22, e.$parent.setupTapDevice(!1);
 								case 22:
-									Object(ne.c)("Success", "cfw-tap device had been removed", !0), t.next = 28;
+									Object(ne.c)("成功", "cfw-tap 网络适配器已卸载", !0), t.next = 28;
 									break;
 								case 25:
-									t.prev = 25, t.t1 = t.catch(19), Object(ne.c)("Failed", "counld not remove cfw-tap device.", !0);
+									t.prev = 25, t.t1 = t.catch(19), Object(ne.c)("失败", "无法卸载 cfw-tap 网络适配器.", !0);
 								case 28:
 									t.next = 43;
 									break;
@@ -20560,9 +20560,9 @@
 										value: null != s ? s : ""
 									}], t.prev = 33, t.next = 36, e.$input(
 									{
-										title: "虚拟网卡设备",
+										title: "TAP 网络适配器",
 										data: c,
-										hint: "更改这些字段后，您需要重新安装虚拟网卡设备！"
+										hint: "更改这些字段后，你需要重新安装 TAP 网络适配器!"
 									});
 								case 36:
 									d = t.sent, W.a.put(B.a.TAP_INFO, d), t.next = 42;
@@ -20614,9 +20614,9 @@
 									}
 									return t.next = 8, e.$select(
 									{
-										title: "打开终端并设置代理",
-										message: "选择终端类型",
-										items: ["CMD", "Powershell", "Windows Terminal", "仅复制命令"]
+										title: "打开终端并设置终端的代理",
+										message: "选择终端",
+										items: ["CMD", "Powershell", "Windows Terminal", "复制命令"]
 									});
 								case 8:
 									3 === (n = t.sent) ? e.handlePortClick() : (r = ["cmd", "powershell", "wt"], Object(P.exec)("start ".concat(r[n]),
@@ -20661,11 +20661,11 @@
 										value: "",
 										validate: function(e)
 										{
-											return /^\d+$/.test(e) && 0 <= 1 * e && 65353 >= 1 * e ? "" : "Port must be an integer between 0 to 65353"
+											return /^\d+$/.test(e) && 0 <= 1 * e && 65353 >= 1 * e ? "" : "端口必须是一个0到65353之间的整数"
 										}
 									}], t.prev = 1, t.next = 4, e.$input(
 									{
-										title: "修改 Mixed 端口",
+										title: "变更 Mixed 端口",
 										data: n,
 										hint: "mixed = http + socks"
 									});
@@ -20792,9 +20792,9 @@
 														}
 														return t.next = 5, e.$select(
 														{
-															title: "".concat(a, " had been released"),
+															title: "".concat(a, " 已发布"),
 															message: o.replace(/\n/g, "<br />"),
-															items: [c ? "" : "更新", "下载", "Copy URL", "取消"]
+															items: [c ? "" : "更新", "下载", "复制下载链接", "取消"]
 														});
 													case 5:
 														if(0 !== (u = t.sent))
@@ -20805,18 +20805,18 @@
 														return t.next = 9, N(i, a)
 															.catch((function(e)
 															{
-																R.a.info("upgrade app failed with error: ".concat(e))
+																R.a.info("升级失败: ".concat(e))
 															}));
 													case 9:
-														if(p = t.sent, R.a.info("upgrade asset path: ".concat(p)), !Object(S.f)())
+														if(p = t.sent, R.a.info("升级路径: ".concat(p)), !Object(S.f)())
 														{
 															t.next = 17;
 															break
 														}
 														return t.next = 14, e.$showDialog(
 														{
-															type: "信息",
-															message: "Update installed successfully, do you want to restart the APP?",
+															type: "info",
+															message: "安装更新完成, 是否重新启动 APP?",
 															buttons: ["是", "否"]
 														});
 													case 14:
@@ -20829,8 +20829,8 @@
 														}
 														return t.next = 20, e.$showDialog(
 														{
-															type: "信息",
-															message: "Package downloaded successfully, do you want to execute it?",
+															type: "info",
+															message: "安装包下载完成, 是否运行?",
 															buttons: ["是", "否"]
 														});
 													case 20:
@@ -20865,8 +20865,8 @@
 													case 31:
 														e.$alert(
 														{
-															title: "You are awesome",
-															content: "你已经是到最新版本了。"
+															title: "你真棒！",
+															content: "当前使用的是最新版."
 														});
 													case 32:
 													case "end":
@@ -20924,8 +20924,8 @@
 									}
 									return t.prev = 5, t.next = 8, e.$select(
 									{
-										title: "复制终端代理命令",
-										message: "选择终端类型",
+										title: "复制代理设置命令",
+										message: "选择终端",
 										items: ["CMD", "Powershell"]
 									});
 								case 8:
@@ -20936,7 +20936,7 @@
 								case 12:
 									t.prev = 12, t.t0 = t.catch(5);
 								case 14:
-									n && (e.$electron.clipboard.writeText(n), Object(ne.c)("命令已复制到剪贴板！", n, !0));
+									n && (e.$electron.clipboard.writeText(n), Object(ne.c)("命令已复制到剪切板!", n, !0));
 								case 15:
 								case "end":
 									return t.stop()
@@ -20980,7 +20980,7 @@
 									}
 									return e.$alert(
 									{
-										content: "CFW不允许更新GeoIP数据库，请手动进行。",
+										content: "CFW(Clash For Windows)不允许更新 GeoIP 数据库, 请手动更新.",
 										title: "注意"
 									}), t.abrupt("return");
 								case 3:
@@ -20993,21 +20993,21 @@
 								case 6:
 									return r = [
 									{
-										name: "MaxMind User License Key",
+										name: "MaxMind 用户许可证密钥",
 										key: "token",
 										placeholder: "",
 										value: W.a.get(B.a.GEOIP_TOKEN) || ""
 									},
 									{
-										name: "地址",
+										name: "URL",
 										key: "url",
 										placeholder: "",
 										value: W.a.get(B.a.GEOIP_URL) || "https://github.com/Dreamacro/maxmind-geoip/releases/latest/download/Country.mmdb"
 									}], t.prev = 7, t.next = 10, e.$input(
 									{
-										title: "Update GeoIP database",
+										title: "更新 GeoIP 数据库",
 										data: r,
-										hint: "Input fields are alternative"
+										hint: "输入字段是可选字段"
 									});
 								case 10:
 									if(i = t.sent, a = i.url, o = void 0 === a ? "" : a, s = i.token, c = void 0 === s ? "" : s, W.a.put(B.a.GEOIP_TOKEN, c), W.a.put(B.a.GEOIP_URL, o), e.clashPath)
@@ -21020,16 +21020,16 @@
 									d = function(t, n)
 									{
 										x.a.ftruncateSync(x.a.openSync(t, "r+"), n), e.$parent.handlerRestartClash()
-									}, c ? (e.geoipUpdateTime = "Updating... (0%)", u = g.a.join(e.$electron.remote.app.getPath("temp")), g.a.join(u, "cfw_geoip.tag.gz"), (p = _.a.stream("https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=".concat(c, "&suffix=tar.gz")))
+									}, c ? (e.geoipUpdateTime = "正在更新... (0%)", u = g.a.join(e.$electron.remote.app.getPath("temp")), g.a.join(u, "cfw_geoip.tag.gz"), (p = _.a.stream("https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=".concat(c, "&suffix=tar.gz")))
 										.on("downloadProgress", (function(t)
 										{
 											var n;
-											n = 1 === t.percent ? "Restarting core..." : "Updating... (".concat(l(100 * t.percent), "%)"), e.geoipUpdateTime = n
-										})), p.on("错误", (function(t)
+											n = 1 === t.percent ? "正在重启内核..." : "正在更新... (".concat(l(100 * t.percent), "%)"), e.geoipUpdateTime = n
+										})), p.on("error", (function(t)
 										{
 											e.$alert(
 											{
-												content: "Download GeoIP database failed with error: ".concat(t.name)
+												content: "下载 GeoIP 数据库失败: ".concat(t.name)
 											}), e.geoipUpdateTime = n
 										})), f = g.a.join(e.clashPath, "Country.mmdb"), h = H.a.extract(), v = 0, h.on("entry", (function(e, t, n)
 										{
@@ -21044,17 +21044,17 @@
 										{
 											d(f, v)
 										})), p.pipe(F.a.createGunzip())
-										.pipe(h)) : o && (e.geoipUpdateTime = "Updating... (0%)", m = _.a.stream(o), b = 0, m.on("downloadProgress", (function(t)
+										.pipe(h)) : o && (e.geoipUpdateTime = "正在更新... (0%)", m = _.a.stream(o), b = 0, m.on("downloadProgress", (function(t)
 										{
 											var n = "",
 												r = t.percent,
 												i = t.total;
-											1 === r ? (b = i, n = "Restarting core...") : n = "Updating... (".concat(l(100 * t.percent), "%)"), e.geoipUpdateTime = n
-										})), m.on("错误", (function(t)
+											1 === r ? (b = i, n = "正在重启内核...") : n = "正在更新... (".concat(l(100 * t.percent), "%)"), e.geoipUpdateTime = n
+										})), m.on("error", (function(t)
 										{
 											e.$alert(
 											{
-												content: "Download GeoIP database failed with error: ".concat(t.name)
+												content: "下载 GeoIP 数据库失败: ".concat(t.name)
 											}), e.geoipUpdateTime = n
 										})), y = g.a.join(e.clashPath, "Country.mmdb"), (w = x.a.createWriteStream(y,
 										{
@@ -21213,7 +21213,7 @@
 			}, [e._v("\n        " + e._s(e.version) + "\n        "), e.isShowNewIcon ? n("div",
 			{
 				staticClass: "new-version-tag"
-			}, [e._v("New")]) : e._e()])])]), e._v(" "), e.isLaunching ? e._e() : n("div",
+			}, [e._v("有新版本")]) : e._e()])])]), e._v(" "), e.isLaunching ? e._e() : n("div",
 			{
 				staticClass: "content"
 			}, [n("div",
@@ -21222,7 +21222,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("代理端口")]), e._v(" "), n("div",
+			}, [e._v("端口")]), e._v(" "), n("div",
 			{
 				staticClass: "item-right"
 			}, [n("img",
@@ -21230,7 +21230,7 @@
 				staticClass: "control-icon",
 				attrs:
 				{
-					title: "CMD with proxy",
+					title: "CMD 代理",
 					src: "static/imgs/terminal.svg",
 					alt: ""
 				},
@@ -21265,7 +21265,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("局域网代理")]), e._v(" "), n("div",
+			}, [e._v("允许局域网连接")]), e._v(" "), n("div",
 			{
 				staticClass: "item-right"
 			}, [n("switch-view",
@@ -21287,7 +21287,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("日志级别")]), e._v(" "), n("div",
+			}, [e._v("当前日志级别")]), e._v(" "), n("div",
 			{
 				staticClass: "item-right"
 			}, [n("div",
@@ -21297,7 +21297,7 @@
 				{
 					click: e.handleEditLogLevel
 				}
-			}, [e._v("\n          " + e._s(e.logLevel) + "\n        ")])])]), e._v(" "), n("div",
+			}, [e._v("\n          " + ("silent"==e._s(e.logLevel)?"静默":"error"==e._s(e.logLevel)?"错误":"warning"==e._s(e.logLevel)?"警告":"info"==e._s(e.logLevel)?"信息":"debug"==e._s(e.logLevel)?"调试":e._s(e.logLevel)) + "\n        ")])])]), e._v(" "), n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
@@ -21325,7 +21325,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("Clash 内核")]), e._v(" "), n("div",
+			}, [e._v("Clash 核心 ( API 端口 )")]), e._v(" "), n("div",
 			{
 				staticClass: "item-right",
 				class: "clickable-" + e.theme,
@@ -21339,7 +21339,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("配置文件目录")]), e._v(" "), n("div",
+			}, [e._v("配置文件主目录")]), e._v(" "), n("div",
 			{
 				staticClass: "item-right",
 				class: "clickable-" + e.theme,
@@ -21347,7 +21347,7 @@
 				{
 					click: e.handleHomeDirectoryOpen
 				}
-			}, [e._v("\n        打开文件夹\n      ")])]), e._v(" "), e.isWindows ? e._e() : n("div",
+			}, [e._v("\n        打开目录\n      ")])]), e._v(" "), e.isWindows ? e._e() : n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
@@ -21383,7 +21383,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("UWP应用联网限制解除工具")]), e._v(" "), n("div",
+			}, [e._v("UWP 应用网络回环")]), e._v(" "), n("div",
 			{
 				class: ["item-right", "clickable-" + e.theme],
 				on:
@@ -21393,13 +21393,13 @@
 						return e.spawnLoopback(t)
 					}
 				}
-			}, [e._v("\n        启动程序\n      ")])]) : e._e(), e._v(" "), e.isWindows ? n("div",
+			}, [e._v("\n        启动助手\n      ")])]) : e._e(), e._v(" "), e.isWindows ? n("div",
 			{
 				class: ["item-" + e.theme]
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [e._v("虚拟网卡驱动")]), e._v(" "), n("div",
+			}, [e._v("TAP 网络适配器")]), e._v(" "), n("div",
 			{
 				class: ["item-right", "clickable-" + e.theme],
 				on:
@@ -21462,7 +21462,7 @@
 			}, [n("div",
 			{
 				staticClass: "item-left"
-			}, [n("div", [e._v("混合配置")]), e._v(" "), n("info-icon", [e._v("\n          Mixin允许您覆盖原始配置文件。\n          "), n("a",
+			}, [n("div", [e._v("混合配置")]), e._v(" "), n("info-icon", [e._v("\n          Mixin 混合配置允许你覆盖原有配置文件以注入公共属性设置.\n          "), n("a",
 			{
 				attrs:
 				{
@@ -21565,7 +21565,7 @@
 					f: i
 				}
 			}
-			throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")
+			throw new TypeError("实例不可迭代。\n为了可以迭代，非数组对象必须要有 [Symbol.iterator]() 方法。")
 		}
 		var o, s = !0,
 			c = !1;
@@ -21688,7 +21688,7 @@
 				},
 				btnTheme: function(e)
 				{
-					var t = ["btn"];
+					var t = ["btn"];"全局"==e?e="global":"规则"==e?e="rule":"直连"==e?e="direct":"脚本"==e&&(e="script");
 					return this.mode === e.toLowerCase() ? t.push("selected-".concat(this.theme)) : t.push("normal-".concat(this.theme)), t
 				},
 				switchMode: function(e)
@@ -21873,7 +21873,7 @@
 				{
 					var t = e.provider,
 						n = e.latency;
-					return t ? n || "" : n || "延迟测试"
+					return t ? n || "" : n || "测试"
 				},
 				handleSingleSpeedtest: function(e, t)
 				{
@@ -22611,7 +22611,7 @@
 						staticClass: "indicator"
 					}), e._v(" "), n("div",
 					{
-						staticClass: "信息"
+						staticClass: "info"
 					}, [n("div",
 					{
 						staticClass: "left"
@@ -22627,7 +22627,7 @@
 						staticClass: "item-hint",
 						domProps:
 						{
-							innerHTML: e._s(r.provider ? "Provider: " + r.provider.name : e.nodeHint(r))
+							innerHTML: e._s(r.provider ? "代理服务商: " + r.provider.name : e.nodeHint(r))
 						}
 					})]), e._v(" "), n("div",
 					{
@@ -22673,7 +22673,7 @@
 			})), 0)]) : e._e(), e._v(" "), 0 === e.proxyInMode.length && "direct" !== this.currentMode ? n("div",
 			{
 				staticClass: "empty-hint"
-			}, [n("div", [e._v("No proxy group in this profile")]), e._v(" "), n("div", [e._v("\n        Go to\n        "), n("span",
+			}, [n("div", [e._v("此配置文件无代理分组")]), e._v(" "), n("div", [e._v("\n        请转到\n        "), n("span",
 			{
 				on:
 				{
@@ -22685,7 +22685,7 @@
 						})
 					}
 				}
-			}, [e._v("配置")]), e._v("\n        to import/switch a profile\n      ")])]) : e._e()], 2), e._v(" "), e.settings.showProxyFilter ? n("div",
+			}, [e._v("配置")]), e._v("\n        进行导入或切换配置文件\n      ")])]) : e._e()], 2), e._v(" "), e.settings.showProxyFilter ? n("div",
 			{
 				staticClass: "filter-keyword"
 			}, [n("transition",
@@ -22911,7 +22911,7 @@
 				fromNowString: function(e)
 				{
 					return v()(e)
-						.fromNow()
+						.locale('zh-cn').fromNow()
 				},
 				handleAllProvidersUpdate: function()
 				{
@@ -23033,7 +23033,7 @@
 									})), n.next = 28;
 									break;
 								case 26:
-									p = d.message, f = void 0 === p ? "could not update provider" : p, t.$set(t.providers, e, i(i(
+									p = d.message, f = void 0 === p ? "无法更新服务列表" : p, t.$set(t.providers, e, i(i(
 									{}, r),
 									{},
 									{
@@ -23125,7 +23125,7 @@
 									})), n.next = 28;
 									break;
 								case 26:
-									p = d.message, f = void 0 === p ? "could not update provider" : p, t.$set(t.ruleProviders, e, i(i(
+									p = d.message, f = void 0 === p ? "无法更新服务列表" : p, t.$set(t.ruleProviders, e, i(i(
 									{}, r),
 									{},
 									{
@@ -23265,7 +23265,7 @@
 				staticClass: "btn",
 				attrs:
 				{
-					text: "更新所有",
+					text: "全部更新",
 					isLoading: !1
 				},
 				on:
@@ -23277,7 +23277,7 @@
 				staticClass: "btn",
 				attrs:
 				{
-					text: "运行所有状况检查",
+					text: "全部检查",
 					isLoading: !1
 				},
 				on:
@@ -23291,7 +23291,7 @@
 			}, [0 < e.providers.length ? [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("代理集")]), e._v(" "), n("div",
+			}, [e._v("代理服务商")]), e._v(" "), n("div",
 			{
 				staticClass: "items"
 			}, e._l(e.providers, (function(t, r)
@@ -23315,7 +23315,7 @@
 				}, [n("div",
 				{
 					staticClass: "type"
-				}, [e._v("\n                    " + e._s(t.vehicleType) + " (" + e._s(t.proxies.length) + "\n                    Proxies) (" + e._s(e.fromNowString(t.updatedAt)) + ")\n                  ")])]), e._v(" "), n("div",
+				}, [e._v("\n                    " + e._s(t.vehicleType) + " (" + e._s(t.proxies.length) + "\n                    个代理节点) (" + e._s(e.fromNowString(t.updatedAt)) + ")\n                  ")])]), e._v(" "), n("div",
 				{
 					staticClass: "error-hint"
 				}, [e._v(e._s(t.message))])]), e._v(" "), n("div",
@@ -23372,7 +23372,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("Update provider")]), e._v(" "), n("path",
+				}, [n("title", [e._v("更新服务列表")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -23389,7 +23389,7 @@
 			})), 0)] : e._e(), e._v(" "), 0 < e.ruleProviders.length ? [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("代理集规则")]), e._v(" "), n("div",
+			}, [e._v("规则服务商")]), e._v(" "), n("div",
 			{
 				staticClass: "items"
 			}, e._l(e.ruleProviders, (function(t, r)
@@ -23440,7 +23440,7 @@
 						xmlns: "http://www.w3.org/2000/svg",
 						viewBox: "0 0 24 24"
 					}
-				}, [n("title", [e._v("Update provider")]), e._v(" "), n("path",
+				}, [n("title", [e._v("更新服务列表")]), e._v(" "), n("path",
 				{
 					attrs:
 					{
@@ -23546,7 +23546,7 @@
 					expression: "isDefault"
 				}],
 				staticClass: "placeholder ad-img twinkling"
-			}, [n("div", [e._v("Image is on the way")])]), e._v(" "), n("img",
+			}, [n("div", [e._v("图片正在加载")])]), e._v(" "), n("img",
 			{
 				directives: [
 				{
@@ -23582,7 +23582,7 @@
 					expression: "isFailed"
 				}],
 				staticClass: "ad-img error-img"
-			}, [n("div", [e._v("Image not found")]), e._v(" "), n("img",
+			}, [n("div", [e._v("找不到图片")]), e._v(" "), n("img",
 			{
 				attrs:
 				{
@@ -23680,7 +23680,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [e._v("相关链接")]), e._v(" "), n("div",
+			}, [e._v("相关信息")]), e._v(" "), n("div",
 			{
 				staticClass: "chat-list"
 			}, [n("div",
@@ -23703,7 +23703,7 @@
 						return e.select(5)
 					}
 				}
-			}, [e._v("Document")])])]), e._v(" "), n("div",
+			}, [e._v("帮助文档")])])]), e._v(" "), n("div",
 			{
 				staticClass: "section"
 			}, [n("div",
@@ -23959,7 +23959,7 @@
 			{
 				buttonText: function()
 				{
-					return this.client && 1 === this.client.readyState ? "停止" : "开始"
+					return this.client && 1 === this.client.readyState ? "暂停" : "开始"
 				},
 				buttonStyle: function()
 				{
@@ -23973,7 +23973,7 @@
 			{
 				copyPayload: function(e)
 				{
-					this.$electron.clipboard.writeText(e.url), Object(h.c)("Copied to Clipboad!", e.url)
+					this.$electron.clipboard.writeText(e.url), Object(h.c)("已复制到剪切板!", e.url)
 				},
 				randomBGC: function(e)
 				{
@@ -24143,7 +24143,7 @@
 			}, [n("div", [e._v("请求日志")]), e._v(" "), n("div",
 			{
 				staticClass: "hint"
-			}, [e._v("模式: " + e._s(e.mode))])]), e._v(" "), n("div",
+			}, [e._v("模式: " + ("global"==e._s(e.mode)?"全局":"rule"==e._s(e.mode)?"规则":"direct"==e._s(e.mode)?"直连":"script"==e._s(e.mode)?"脚本":e._s(e.mode)))])]), e._v(" "), n("div",
 			{
 				staticClass: "btns"
 			}, [n("div",
@@ -24153,7 +24153,7 @@
 				{
 					click: e.handleClear
 				}
-			}, [e._v("清除")]), e._v(" "), n("div",
+			}, [e._v("清空")]), e._v(" "), n("div",
 			{
 				class: e.buttonStyle,
 				on:
@@ -24167,7 +24167,7 @@
 			}, [0 === e.listData.length ? n("div",
 			{
 				staticClass: "empty-list"
-			}, [n("div", [e._v("空日志列表")]), e._v(" "), n("div", [e._v("刷新浏览器以发出请求。")])]) : e._l(e.listData.slice(-200), (function(t)
+			}, [n("div", [e._v("暂无日志")]), e._v(" "), n("div", [e._v("刷新浏览器以发出请求.")])]) : e._l(e.listData.slice(-200), (function(t)
 			{
 				return n("div",
 				{
@@ -24184,7 +24184,7 @@
 				{
 					class:
 					{
-						left: !0, warning: "警告" === t.type
+						left: !0, warning: "warning" === t.type
 					}
 				}, [n("div",
 				{
@@ -24278,7 +24278,7 @@
 						downloadTotal: 0,
 						connections: []
 					},
-					labels: ["上传速度", "下载速度", "上传流量", "下载流量", "连接时间"],
+					labels: ["上传速度", "下载速度", "上传流量", "下载流量", "时间"],
 					labelSelected: 4,
 					isReverse: !1
 				}
@@ -24372,7 +24372,7 @@
 				fromNow: function(e)
 				{
 					return m()(e)
-						.fromNow()
+						.locale('zh-cn').fromNow()
 				},
 				traffic: function(e)
 				{
@@ -24438,10 +24438,10 @@
 						{
 							主机: t.host,
 							上传: this.traffic(e.upload),
-							下载: this.traffic(e.download),
-							连接源: t.sourceIP + ":" + t.sourcePort,
+							Download: this.traffic(e.download),
+							Source: t.sourceIP + ":" + t.sourcePort,
 							目标: (n ? t.destinationIP : t.host || t.destinationIP) + ":" + t.destinationPort,
-							规则: e.rule,
+							Rule: e.rule,
 							链路: e.chains.slice()
 								.reverse()
 								.join(" - ")
@@ -24517,7 +24517,7 @@
 			}, [n("div",
 			{
 				staticClass: "title"
-			}, [n("div", [e._v(e._s("连接"))]), e._v(" "), n("div",
+			}, [n("div", [e._v(e._s("连接情况"))]), e._v(" "), n("div",
 			{
 				on:
 				{
@@ -24562,7 +24562,7 @@
 				attrs:
 				{
 					type: "text",
-					placeholder: "搜索"
+					placeholder: "筛选"
 				},
 				domProps:
 				{
@@ -24618,7 +24618,7 @@
 			}, [e._v("\n        " + e._s(e.isPause ? "恢复" : "暂停") + "\n      ")]), e._v(" "), n("div",
 			{
 				staticClass: "total-hint"
-			}, [e._v("\n        " + e._s("总计: ↑" + e.traffic(e.data.uploadTotal, 1) + " ↓" + e.traffic(e.data.downloadTotal, 1)) + "\n      ")])])]), e._v(" "), n("div",
+			}, [e._v("\n        " + e._s("流量: ↑" + e.traffic(e.data.uploadTotal, 1) + " ↓" + e.traffic(e.data.downloadTotal, 1)) + "\n      ")])])]), e._v(" "), n("div",
 			{
 				staticClass: "control-view"
 			}, [n("div",
@@ -24681,7 +24681,7 @@
 					staticClass: "conn-traffic",
 					domProps:
 					{
-						innerHTML: e._s(e.$parseEmoji(t.chains[0], 18))
+						innerHTML: e._s(e.$parseEmoji(t.chains[0]==="DIRECT"?"直连":t.chains[0], 18))
 					}
 				}), e._v(" "), n("div",
 				{
@@ -24848,7 +24848,7 @@
 				path: "/home/setting"
 			},
 			{
-				title: "反馈",
+				title: "关于",
 				path: "/home/about"
 			}],
 			updateDownloadProgress: null,

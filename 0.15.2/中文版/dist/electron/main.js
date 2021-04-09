@@ -1,4 +1,4 @@
-﻿module.exports = function(e)
+module.exports = function(e)
 {
 	function t(r)
 	{
@@ -240,8 +240,8 @@
 							return o = {
 								type: "error",
 								title: "Clash for Windows",
-								message: "面板崩溃了！",
-								buttons: ["刷新", "退出"]
+								message: "主窗口崩溃了!",
+								buttons: ["重载", "退出"]
 							}, e.next = 7, p.dialog.showMessageBox(v, o);
 						case 7:
 							i = e.sent, 0 === i.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
@@ -259,7 +259,7 @@
 		{
 			items: [new m(
 			{
-				label: "General",
+				label: "常规",
 				backgroundColor: "#505050",
 				click: function()
 				{
@@ -267,7 +267,7 @@
 				}
 			}), new m(
 			{
-				label: "Proxies",
+				label: "代理",
 				backgroundColor: "#505050",
 				click: function()
 				{
@@ -275,7 +275,7 @@
 				}
 			}), new m(
 			{
-				label: "Profiles",
+				label: "配置",
 				backgroundColor: "#505050",
 				click: function()
 				{
@@ -283,7 +283,7 @@
 				}
 			}), new m(
 			{
-				label: "Logs",
+				label: "日志",
 				backgroundColor: "#505050",
 				click: function()
 				{
@@ -291,7 +291,7 @@
 				}
 			}), new m(
 			{
-				label: "Connections",
+				label: "连接",
 				backgroundColor: "#505050",
 				click: function()
 				{
@@ -299,7 +299,7 @@
 				}
 			}), new m(
 			{
-				label: "Settings",
+				label: "设置",
 				backgroundColor: "#505050",
 				click: function()
 				{
@@ -307,7 +307,7 @@
 				}
 			}), new m(
 			{
-				label: "Feedback",
+				label: "关于",
 				backgroundColor: "#505050",
 				click: function()
 				{
@@ -375,7 +375,7 @@
 		}));
 		var i = p.Menu.buildFromTemplate([
 		{
-			label: "显示面板",
+			label: "显示窗口",
 			click: function()
 			{
 				return v.show()
@@ -425,7 +425,7 @@
 			}
 		},
 		{
-			label: "规则",
+			label: "Rule",
 			type: "radio",
 			id: "mode-rule",
 			enabled: !1,
@@ -445,7 +445,7 @@
 			}
 		},
 		{
-			label: "脚本",
+			label: "Script",
 			type: "radio",
 			id: "mode-script",
 			click: function()
@@ -471,7 +471,7 @@
 			type: "separator"
 		},
 		{
-			label: "退出",
+			label: "退出程序",
 			click: function()
 			{
 				return v.webContents.send("app-exit")
@@ -642,7 +642,7 @@
 				}()
 			},
 			{
-				label: "Document",
+				label: "帮助文档",
 				click: function()
 				{
 					var e = l()(s.a.mark((function e()
@@ -857,7 +857,7 @@
 			var o = _;
 			return function(i, a)
 			{
-				if(o == R) throw new Error("Generator is already running");
+				if(o == R) throw new Error("发生器已运行");
 				if(o == x)
 				{
 					if("throw" === i) throw a;
@@ -908,14 +908,14 @@
 				if(t.delegate = null, "throw" === t.method)
 				{
 					if(e.iterator.return && (t.method = "return", t.arg = void 0, l(e, t), "throw" === t.method)) return C;
-					t.method = "throw", t.arg = new TypeError("The iterator does not provide a 'throw' method")
+					t.method = "throw", t.arg = new TypeError("该迭代器不提供 'throw' 方法")
 				}
 				return C
 			}
 			var o = r(n, e.iterator, t.arg);
 			if("throw" === o.type) return t.method = "throw", t.arg = o.arg, t.delegate = null, C;
 			var i = o.arg;
-			return i ? i.done ? (t[e.resultName] = i.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, C) : i : (t.method = "throw", t.arg = new TypeError("iterator result is not an object"), t.delegate = null, C)
+			return i ? i.done ? (t[e.resultName] = i.value, t.next = e.nextLoc, "return" !== t.method && (t.method = "next", t.arg = void 0), t.delegate = null, C) : i : (t.method = "throw", t.arg = new TypeError("迭代器结果不是对象"), t.delegate = null, C)
 		}
 
 		function d(e)
@@ -1091,7 +1091,7 @@
 						}
 						else
 						{
-							if(!c) throw new Error("try statement without catch or finally");
+							if(!c) throw new Error("try 语句缺少 catch 或 finally");
 							if(this.prev < o.finallyLoc) return t(o.finallyLoc)
 						}
 					}
@@ -1134,7 +1134,7 @@
 							f(t)
 						}
 						return o
-					} throw new Error("illegal catch attempt")
+					} throw new Error("捕获到 catch 非法错误")
 			},
 			delegateYield: function(e, t, n)
 			{
@@ -1317,7 +1317,7 @@
 		},
 		y = (e, t) =>
 		{
-			let n = "Attempting to call a function in a renderer window that has been closed or released." + `\nFunction provided here: ${p.get(t)}`;
+			let n = "尝试调用已关闭或释放的渲染器窗口中的函数." + `\nFunction provided here: ${p.get(t)}`;
 			if(e instanceof i.EventEmitter)
 			{
 				const r = e.eventNames()
