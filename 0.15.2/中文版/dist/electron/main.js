@@ -1,4 +1,4 @@
-module.exports = function(e)
+﻿module.exports = function(e)
 {
 	function t(r)
 	{
@@ -240,8 +240,8 @@ module.exports = function(e)
 							return o = {
 								type: "error",
 								title: "Clash for Windows",
-								message: "Dashboard has crashed!",
-								buttons: ["Reload", "Exit"]
+								message: "面板崩溃了！",
+								buttons: ["刷新", "退出"]
 							}, e.next = 7, p.dialog.showMessageBox(v, o);
 						case 7:
 							i = e.sent, 0 === i.response ? (p.app.relaunch(), p.app.exit(0)) : p.app.quit();
@@ -375,7 +375,7 @@ module.exports = function(e)
 		}));
 		var i = p.Menu.buildFromTemplate([
 		{
-			label: "Dashboard",
+			label: "显示面板",
 			click: function()
 			{
 				return v.show()
@@ -385,7 +385,7 @@ module.exports = function(e)
 			type: "separator"
 		},
 		{
-			label: "System Proxy",
+			label: "系统代理",
 			type: "checkbox",
 			id: "system-proxy",
 			enabled: !1,
@@ -396,7 +396,7 @@ module.exports = function(e)
 			}
 		},
 		{
-			label: "Mixin",
+			label: "混合配置",
 			type: "checkbox",
 			id: "mixin",
 			enabled: !1,
@@ -410,12 +410,12 @@ module.exports = function(e)
 			type: "separator"
 		},
 		{
-			label: "Proxy Mode",
+			label: "代理模式",
 			id: "mode",
 			enabled: !1
 		},
 		{
-			label: "Global",
+			label: "全局",
 			type: "radio",
 			id: "mode-global",
 			enabled: !1,
@@ -425,7 +425,7 @@ module.exports = function(e)
 			}
 		},
 		{
-			label: "Rule",
+			label: "规则",
 			type: "radio",
 			id: "mode-rule",
 			enabled: !1,
@@ -435,7 +435,7 @@ module.exports = function(e)
 			}
 		},
 		{
-			label: "Direct",
+			label: "直连",
 			type: "radio",
 			id: "mode-direct",
 			enabled: !1,
@@ -445,7 +445,7 @@ module.exports = function(e)
 			}
 		},
 		{
-			label: "Script",
+			label: "脚本",
 			type: "radio",
 			id: "mode-script",
 			click: function()
@@ -457,10 +457,10 @@ module.exports = function(e)
 			type: "separator"
 		},
 		{
-			label: "More",
+			label: "更多",
 			submenu: [
 			{
-				label: "Force Quit",
+				label: "强制退出",
 				click: function()
 				{
 					p.app.isQuiting = !0, p.app.quit()
@@ -471,7 +471,7 @@ module.exports = function(e)
 			type: "separator"
 		},
 		{
-			label: "Quit",
+			label: "退出",
 			click: function()
 			{
 				return v.webContents.send("app-exit")
