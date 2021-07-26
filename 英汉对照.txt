@@ -9,8 +9,13 @@
 
 ("New")=("有新版本")
 ('New')=('有新版本')
-'Connections')='连接情况')
-"Connections")="连接情况")
+
+###v0.15.5
+"\n        Connections\n        "="\n        连接状态\n        "
+###v0.15.5
+
+'Connections')='连接状态')
+"Connections")="连接状态")
 startup",items:=startup",items:["静默","错误","警告","信息","调试"],NoUseItem:
 #以上renderer必须先翻译，否则可能会被后面的覆盖
 
@@ -65,6 +70,7 @@ Dashboard has crashed=主窗口崩溃了
 'Feedback'='关于'
 "Dashboard"="显示窗口"
 'Dashboard'='显示窗口'
+label:"Run Tray Script"=label:"运行托盘脚本"
 "System Proxy"="系统代理"
 'System Proxy'='系统代理'
 "Mixin"="混合配置"
@@ -83,6 +89,7 @@ label:"Rule"=label:"规则"
 label:"Script"=label:"脚本"
 "More"="更多"
 'More'='更多'
+"Toggle DevTools"="切换开发工具"
 "Force Quit"="强制退出"
 'Force Quit'='强制退出'
 "Quit"="退出程序"
@@ -98,6 +105,15 @@ label:"Script"=label:"脚本"
 Attempting to call a function in a renderer window that has been closed or released=尝试调用已关闭或释放的渲染器窗口中的函数
 
 #以下是 renderer.js 独有
+
+###v0.15.3修改--二维码相关
+"Go to URL"="显示二维码"
+'Go to URL'='显示二维码'
+"Remove":"Include"="移除":"包含"
+###v0.15.3修改--二维码相关
+
+
+
 'Logs'='日志'
 System Proxy:=系统代理:
 "check() is only allowed in idle status"="仅允许在空闲状态下使用 check() 函数"
@@ -700,7 +716,7 @@ upgrade asset path:=升级路径:
 "Package downloaded successfully, do you want to execute it?"="安装包下载完成, 是否运行?"
 'Package downloaded successfully, do you want to execute it?'='安装包下载完成, 是否运行?'
 "Update installed successfully, do you want to restart the APP?"="安装更新完成, 是否重新启动 APP?"
-silent will prevent .log file to generate on next startup=Clash 核心程序默认是将日志打印输出到&nbsp;标准输出设备(通常是屏幕).&nbsp;CFW&nbsp;在日志级别为非&nbsp;silent&nbsp;时会把日志写入到磁盘文件。<br/>日志量由少到多排序为：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;静默&nbsp;<&nbsp;错误&nbsp;<&nbsp;警告&nbsp;<&nbsp;信息&nbsp;<&nbsp;调试<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;silent&nbsp;<&nbsp;error&nbsp;<&nbsp;warning&nbsp;<&nbsp;info&nbsp;<&nbsp;debug<br/>silent&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;不记录日志<br/>error&nbsp;&nbsp;&nbsp;&nbsp;：记录错误和异常信息到日志文件<br/>warning:&nbsp;记录错误和异常还有告警信息<br/>info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;记录程序正常运行时的日志(包括警告，错<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;误和异常信息)<br/>debug&nbsp;&nbsp;:&nbsp;日志量最多，一般用于提供日志文件给开发<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者进行诊断问题
+silent will prevent .log file to generate on next startup=Clash 核心程序默认是将日志打印输出到&nbsp;标准输出设备(通常是屏幕).&nbsp;CFW&nbsp;在日志级别为非&nbsp;silent&nbsp;时会把日志写入到磁盘文件。<br/>日志量由少到多排序为：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;静默&nbsp;<&nbsp;错误&nbsp;<&nbsp;警告&nbsp;<&nbsp;信息&nbsp;<&nbsp;调试<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;silent&nbsp;<&nbsp;error&nbsp;<&nbsp;warning&nbsp;<&nbsp;info&nbsp;<&nbsp;debug<br/>silent&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;不记录日志<br/>error&nbsp;&nbsp;&nbsp;&nbsp;：记录错误和异常信息到日志文件<br/>warning:&nbsp;记录错误和异常还有告警信息<br/>info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;记录程序正常运行时的日志(包括警告，错<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;误和异常信息)<br/>debug&nbsp;&nbsp;:&nbsp;日志量最多，一般用于提供日志文件给开<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发者进行诊断问题
 "Customize"="自定义设置 IP"
 'Customize'='自定义设置 IP'
 'Success'='成功'
@@ -955,6 +971,17 @@ v("Script"=v("脚本"
 ,["global","规则","直连","script"]=,["global","rule","direct","script"]
 ;["direct","规则","global","script"]=;["direct","rule","global","script"]
 ###v0.15.2-end
+###v0.15.3
+"Specify Protocol"="指定协议( Windows 系统)"
+"Transparent"="背景透明"
+"foreground color"="前景色 red 或 #CBF 等"
+" Scheme\n    "="跳转方案(URI Scheme)\n    "
+###v0.15.3-end
+
+
+
+
+
 
 
 ###############
@@ -989,8 +1016,79 @@ t.chains[0]=t.chains[0]==="DIRECT"?"直连":t.chains[0]
 ,t},switchMode:function(e){var t=,t},switchMode:function(e){"全局"==e?e="global":"规则"==e?e="rule":"直连"==e?e="direct":"脚本"==e&&(e="script");var t
 e._s(e.mode)=("global"==e._s(e.mode)?"全局":"rule"==e._s(e.mode)?"规则":"direct"==e._s(e.mode)?"直连":"script"==e._s(e.mode)?"脚本":e._s(e.mode))
 e._s(e.logLevel)=("silent"==e._s(e.logLevel)?"静默":"error"==e._s(e.logLevel)?"错误":"warning"==e._s(e.logLevel)?"警告":"info"==e._s(e.logLevel)?"信息":"debug"==e._s(e.logLevel)?"调试":e._s(e.logLevel))
+###v0.15.3
+e.mode[0].toUpperCase()=("G"==e.mode[0].toUpperCase()?"全局":"R"==e.mode[0].toUpperCase()?"规则":"D"==e.mode[0].toUpperCase()?"直连":"S"==e.mode[0].toUpperCase()?"脚本":e.mode[0].toUpperCase())
+#).width=).width+65
+#,300,=,360,
+###v0.15.3
+###v0.15.4
+#流量箭头线条
+#concat(c.unit),270,30)=concat(c.unit),270,30)
+#concat(d.unit),270,58)=concat(d.unit),270,58)
+#u.moveTo(93,31),u.lineTo(100,22),u.lineTo(107,31)=u.moveTo(93,31),u.lineTo(100,22),u.lineTo(107,31)
+#u.moveTo(107,38),u.lineTo(100,47),u.lineTo(93,38)=u.moveTo(107,38),u.lineTo(100,47),u.lineTo(93,38)
 
+,270,=,290,
+93,3=123,3
+lineTo(100=lineTo(130
+107,3=137,3
 
-###未加密混淆启用AA：
+###v0.15.4
+###v0.15.5
+"Hide Unselectable Group"="隐藏不可选择的代理组"
+"Display Chain Type"="连接面板中显示的链路信息类型"
+"Proxy","Group","Both"="节点名","分组名","全部"
+"Run Tray Script"="运行增强托盘配置的脚本"
+,Network=,网络协议
+Traffic:=流量:
+"Start Time"="开始时间"
+###v0.15.5-end
+###v0.15.6
+"Run Time Format"="运行时间格式"
+"Show/Hide Dashboard"="打开/关闭主界面"
+###v0.15.6-end
+###v0.15.7
+"Edit Parsers"="编辑预处理配置"
+"\n        Force Quit\n      "="\n        强制退出\n      "
+"Credits"="鸣谢"
+###v0.15.7-end
+###v0.16.0
+"Static Host"="静态主机IP地址(启用DHCP服务端时作为局域网代理网关用)"
+"Router"="路由"
+"Select a interface"="选择一个接口"
+"Configuration"="配置"
+"Interface"="接口"
+"Local IP Address"="本地IP地址"
+"DHCP IP Range"="DHCP 分配 IP 地址范围"
+"From"="起始IP地址"
+"To"="结束IP地址"
+"Netmask"="子网掩码"
+"Default Router"="默认路由"
+"DNS Servers"="DNS 服务器地址"
+"Primary"="首选"
+"Alternative"="备用"
+"Continue"="继续"
+"dhcp server listen at "="DHCP服务器监听在 "
+"DHCP Server"="DHCP 服务器"
+"\n          Connections\n        "="\n          连接\n        "
+###v0.16.0-end
 
+##MacOS版本增加的DHCP服务器功能对应的一些翻译对照参考，有苹果的可自行汉化测试是否正常。（使用条件参考https://docs.cfw.lbyczf.com/contents/dhcp.html  ）
+###v0.16.2英汉对照参考
+["direct","规则","global","script"]=["direct","rule","global","script"]
+###v0.16.2-end
+
+###v0.16.3
+"Use System Emoji"="使用系统表情符号"
+"Profile"="配置"
+"Profile had been downloaded successfully."="配置文件下载成功。"
+" server").concat(1<t.data.all.length?"s":"")=" 个节点")
+"clash status change to ["="clash 状态变更为 ["
+"connected":"disconnected","]"="已连接":"已断开","]"
+"clash axios client changed"="clash axios 客户端已改变"
+###v0.16.3-end
+
+#v0.16.4
+"Restart"="重启"
+#v0.16.4-end
 
