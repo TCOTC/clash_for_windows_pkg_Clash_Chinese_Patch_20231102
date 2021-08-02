@@ -1092,3 +1092,6 @@ Traffic:=流量:
 "Restart"="重启"
 #v0.16.4-end
 
+#v0.17.0
+"It might take a while.<br/>The APP will be relaunched automatically."="这可能需要一段时间。<br/>APP会自动重启。"
+Current status: =当前状态：
