@@ -1095,3 +1095,10 @@ Traffic:=流量:
 #v0.17.0
 "It might take a while.<br/>The APP will be relaunched automatically."="这可能需要一段时间。<br/>APP会自动重启。"
 Current status: =当前状态：
+#v0.17.0-end
+
+#v0.17.1
+e.fromNow(=e.locale('zh-cn').fromNow(
+.from(this.now)=.locale('zh-cn').from(this.now)
+"Update Cron (UNIX)"="更新定时任务 (UNIX 系统)"
+#v0.17.1-end
