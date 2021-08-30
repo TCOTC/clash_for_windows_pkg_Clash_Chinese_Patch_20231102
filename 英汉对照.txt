@@ -689,6 +689,11 @@ wait for method [=等待 [
 Service management=服务管理
 "It might take a while.<br/>The APP will be relaunched automatically.<br/><br/>Current status: "="这可能需要一段时间.<br/>APP 将自动重新启动.<br/><br/>当前状态: "
 'It might take a while.<br/>The APP will be relaunched automatically.<br/><br/>Current status: '='这可能需要一段时间.<br/>APP 将自动重新启动.<br/><br/>当前状态: '
+##v0.17.0
+"<br/><br/><strong>nftables</strong> and <strong>iproute2</strong> are required, please install them first!!!"="<br/><br/>请先安装 <strong>nftables</strong> 和 <strong>iproute2</strong>!!!"
+"It might take a while.<br/>The APP will be relaunched automatically."="这可能需要一段时间.<br/>APP 将自动重新启动."
+"<br/><br/>Current status: "="<br/><br/>当前状态: "
+##v0.17.0-end
 ?"Inactive":"Active"=?"无效":"已激活"
 ?"Inactive":'Active'=?"无效":'已激活'
 ?'Inactive':'Active'=?'无效':'已激活'
@@ -1072,33 +1077,41 @@ Traffic:=流量:
 "DHCP Server"="DHCP 服务器"
 "\n          Connections\n        "="\n          连接\n        "
 ###v0.16.0-end
-
-##MacOS版本增加的DHCP服务器功能对应的一些翻译对照参考，有苹果的可自行汉化测试是否正常。（使用条件参考https://docs.cfw.lbyczf.com/contents/dhcp.html  ）
-###v0.16.2英汉对照参考
+###v0.16.1
+"Edit file"="编辑文件"
+###v0.16.1-end
+###v0.16.2
 ["direct","规则","global","script"]=["direct","rule","global","script"]
 ###v0.16.2-end
-
 ###v0.16.3
 "Use System Emoji"="使用系统表情符号"
+###v0.16.3-end
+
+#20210716补充翻译
 "Profile"="配置"
 "Profile had been downloaded successfully."="配置文件下载成功。"
 " server").concat(1<t.data.all.length?"s":"")=" 个节点")
 "clash status change to ["="clash 状态变更为 ["
 "connected":"disconnected","]"="已连接":"已断开","]"
 "clash axios client changed"="clash axios 客户端已改变"
-###v0.16.3-end
-
+#20210716补充翻译
 #v0.16.4
 "Restart"="重启"
 #v0.16.4-end
-
-#v0.17.0
-"It might take a while.<br/>The APP will be relaunched automatically."="这可能需要一段时间。<br/>APP会自动重启。"
-Current status: =当前状态：
-#v0.17.0-end
-
 #v0.17.1
-e.fromNow(=e.locale('zh-cn').fromNow(
+#之前多翻译一个地方，导致连接页面不显示信息。
+#以下是此版本的修正和补充翻译
+"Custom"="自定义"
+"Copy Command"="复制命令"
 .from(this.now)=.locale('zh-cn').from(this.now)
 "Update Cron (UNIX)"="更新定时任务 (UNIX 系统)"
 #v0.17.1-end
+
+
+## 注意：如果对照文件有修改，我都会在上传汉化补丁时一起说明的，形式类似于
+#v0.xx.xx(版本)
+#xxxx=xxxxxx(调整的内容)
+#v0.xx.xx(版本)-end
+#你们要自己汉化的，可以参考一下，只要把添加到这个文件后面就行了。
+#就是前面 #v0.17.1的一样。
+#目前0.17.2没有调整的地方，和0.17.1的英汉对照文件一样。
