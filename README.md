@@ -24,6 +24,8 @@
 
 [白塔加速](https://btavpn.xyz/)
 
+[TG群组一键直达](https://t.me/btvpn)
+
 七折优惠码：BoyceClash
 
 一个月最低7元，一年最低只要69， 轻松跑满宽带。
