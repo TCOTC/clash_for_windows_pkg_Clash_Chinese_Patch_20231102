@@ -1109,9 +1109,26 @@ Traffic:=流量:
 
 #v0.18.0-0.18.1
 "missing file"="文件丢失"
-"\n          "+e._s(t.payload)="名称\n          "+e._s(t.payload)
-"\n          "+e._s(t.type)="类型\n          "+e._s(t.type)
-"\n            "+e._s(e.providerOfPayload(t.payload).vehicleType)="规则来源:\n            "+e._s(e.providerOfPayload(t.payload).vehicleType)
-"\n            "+e._s(e.providerOfPayload(t.payload).behavior)="  行为类型:\n            "+e._s(e.providerOfPayload(t.payload).behavior)
+"\n          "+e._s(t.payload)="名称\n          "+e._s(t.payload)
+"\n          "+e._s(t.type)="类型\n          "+e._s(t.type)
+"\n            "+e._s(e.providerOfPayload(t.payload).vehicleType)="规则来源:\n            "+e._s(e.providerOfPayload(t.payload).vehicleType)
+"\n            "+e._s(e.providerOfPayload(t.payload).behavior)="  行为类型:\n            "+e._s(e.providerOfPayload(t.payload).behavior)
 future: '%s后'=future: '%s前'
+"auto upgrade failed with error: "="自动升级失败: "
+"upgrade to "="升级到 "
+"silent upgrade done, stop checking"="后台升级完成, 停止检查"
+"inner port:"="内网端口:"
+"this profile could not be parsed!"="无法解析此配置文件!"
+"\n    Press Enter to stop\n  "="\n    按回车停止\n  "
+"Start with Linux"="开机启动"
 #v0.18.0-0.18.1-end
+
+#时间后面添加字符
+t.join(" ")},fromNow:function(e){return l()(e).locale('zh-cn').fromNow()}=t.join(" ")},fromNow:function(e){return l()(e).locale('zh-cn').fromNow()+"建立连接"}
+join(this.profilesPath,e)).mtime;return l()(t).locale('zh-cn').from(this.now)=join(this.profilesPath,e)).mtime;return l()(t).locale('zh-cn').from(this.now)+"更新"
+(["clashAxiosClient"])),methods:{fromNowString:function(e){return l()(e).locale('zh-cn').fromNow()}=(["clashAxiosClient"])),methods:{fromNowString:function(e){return l()(e).locale('zh-cn').fromNow()+"更新"}
+#时间后面添加字符-end
+
+#v0.18.2
+"Mini List Width"="策略组导航器宽度"
+#v0.18.2-end
