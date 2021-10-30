@@ -1232,4 +1232,6 @@ detail:i=detail:i.replace("Document contains trailing content not separated by a
 "Delete"="删除"
 "Show connections"="查看连接"
 "Reorder"="重新排序"
+attrs:{hint:"update"},on:{click:function(n){return n.stopPropagation(),e.openProfile(t)}}=attrs:{hint:"编辑"},on:{click:function(n){return n.stopPropagation(),e.openProfile(t)}}
+attrs:{hint:"update"},on:{click:function(n){return n.stopPropagation(),e.refreshProfile(t)}}=attrs:{hint:"更新"},on:{click:function(n){return n.stopPropagation(),e.refreshProfile(t)}}
 #v0.18.6-end
