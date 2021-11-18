@@ -1247,6 +1247,7 @@ hint:"reverse"=hint:"反向排序"
 e._v("Scripts")=e._v("脚本")
 "Actions"="操作"
 "Run script"="运行脚本"
+"Custom Editor Command"="自定义编辑器命令"
 #修复设置右边快捷跳转栏汉化后无法跳转
 ref:"section-general"=ref:"section-常规"
 ref:"section-appearance"=ref:"section-外观"
