@@ -1262,3 +1262,7 @@ ref:"section-actions"=ref:"section-操作"
 ref:"section-shortcuts"=ref:"section-热键"
 #修复设置右边快捷跳转栏汉化后无法跳转-end
 #v0.18.8-end
+
+#v0.18.9
+"Hide Tray Icon"="隐藏托盘图标"
+#v0.18.9-end
