@@ -1269,4 +1269,7 @@ ref:"section-shortcuts"=ref:"section-热键"
 
 #v0.18.10
 hint:"Reverse"=hint:"反向排序"
+hint:"Test latency"=hint:"测试延迟"
+hint:"Scroll to selected proxy"=hint:"滚动到选定的节点"
+hint:"Show or hide proxies"=hint:"显示或隐藏代理"
 #v0.18.10-end
