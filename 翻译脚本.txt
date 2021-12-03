@@ -1273,3 +1273,15 @@ hint:"Test latency"=hint:"延迟检测"
 hint:"Scroll to selected proxy"=hint:"定位到选定的节点"
 hint:"Show or hide proxies"=hint:"显示或收起当前代理分组"
 #v0.18.10-end
+
+#v0.19.0
+[e._v("TUN Mode")]=[e._v("TUN 模式")]
+[e._v("\n          To enable this mode, please install Service Mode first!\n        ")]=[e._v("\n          如果您要启用该模式，请先安装服务模式!\n        ")]
+label:"TUN Mode"=label:"TUN 模式"
+"TUN Mode Settings"="TUN 模式设置"
+"Fallback DNS Servers"="备用 DNS 服务器"
+"Fake IP Filter"="Fake IP 过滤"
+"TUN Stack"="TUN 堆栈"
+{attrs:{items:["gvisor"={attrs:{items:["gVisor"
+"Auto Detect Interface"="自动检测网卡接口"
+#v0.19.0-end
