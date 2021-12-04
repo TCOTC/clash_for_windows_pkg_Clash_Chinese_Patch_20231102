@@ -201,10 +201,6 @@ Vue compiler=Vue 编译器
 'only works when TAP mode enabled'='仅在启用 TAP 模式时生效'
 "[ Reset ]"="[ 重置 ]"
 '[ Reset ]'='[ 重置 ]'
-"openFile"="打开文件"
-'openFile'='打开文件'
-"openDirectory"="打开文件夹"
-'openDirectory'='打开文件夹'
 "Warning"="警告"
 'Warning'='警告'
 "Are you sure to reset all settings?"="确定重置所有设置吗?"
@@ -275,7 +271,6 @@ Stop Sorting=停止排序
 "Profile Mixin"="Mixin 混合配置"
 'Profile Mixin'='Mixin 混合配置'
 "Type"="类型"
-#"Proxies"="代理"
 "Proxy Item Width"="代理节点条目宽度"
 'Proxy Item Width'='代理节点条目宽度'
 'Proxy\x20Item\x20Width'='代理节点条目宽度'
@@ -925,35 +920,14 @@ Change Mixed Port=变更 Mixed 端口
 "Time"="时间"
 'Time'='时间'
 
-
-
-#时间汉化
-#['fromNow']()=.locale('zh-cn')['fromNow']()
-#["fromNow"]()=.locale('zh-cn')["fromNow"]()
-#其中 #.fromNow()},handleAllProvidersUpdate 是 服务商 页面的更新时间
-###updatedAt))+")=updatedAt))+"更新) #缺少一个  服务商的翻译了，这里不用再翻译
-###updatedAt))+"=updatedAt))+"更新  服务商的翻译了，这里不用再翻译
-#from(this.now)}catch(e){return"missing file"}}  是 配置 页面的更新时间
-#.fromNow()},traffic  是 连接 页面的时间
-# fromNow()},providerOfPayload 这里要翻译成  前 ，是 规则集使用了provider 的情况
-
-#下边正常
 #前建立连接
-#.fromNow()},traffic=.locale("zh-co").fromNow()},traffic
-#.fromNow()},traffic=.locale("zh-tr").fromNow()},traffic
 .fromNow()},traffic=.locale("tr").fromNow()},traffic
 
 #前更新
-#.fromNow()},handleAllProvidersUpdate=.locale("zh-mo").fromNow()},handleAllProvidersUpdate
-#.fromNow()},handleAllProvidersUpdate=.locale("zh-pr").fromNow()},handleAllProvidersUpdate
 .fromNow()},handleAllProvidersUpdate=.locale("pr").fromNow()},handleAllProvidersUpdate
 
 #前更新--配置页
-#.from(this.now)}catch(e){return"missing file"}}=.locale("zh-hk").from(this.now)}catch(e){return"文件丢失"}}
-#.from(this.now)}catch(e){return"missing file"}}=.locale("zh-co").from(this.now)}catch(e){return"文件丢失"}}
 .from(this.now)}catch(e){return"missing file"}}=.locale("co").from(this.now)}catch(e){return"文件丢失"}}
-
-#.fromNow()},providerOfPayload=.locale("zh-tw").fromNow()},providerOfPayload
 
 #规则集最后更新于用来，翻译成 xxx 前
 .fromNow()},providerOfPayload=.locale("zh-cn").fromNow()},providerOfPayload
@@ -964,9 +938,6 @@ Change Mixed Port=变更 Mixed 端口
 "\n          "+e._s(t.type)="类型\n          "+e._s(t.type)
 "\n            "+e._s(e.providerOfPayload(t.payload).vehicleType)="规则来源:\n            "+e._s(e.providerOfPayload(t.payload).vehicleType)
 "\n            "+e._s(e.providerOfPayload(t.payload).behavior)="  行为类型:\n            "+e._s(e.providerOfPayload(t.payload).behavior)
-
-
-
 
 'Host'='主机'
 'Upload'='上传'
@@ -1055,34 +1026,14 @@ node cannot be resolved as a mapping=节点无法解析为映射
 
 
 ###未加密混淆启用AA：
-#.fromNow()=.locale('zh-cn').fromNow()
-
 
 t.chains[0]=t.chains[0]==="DIRECT"?"直连":t.chains[0]
 ["btn"];=["btn"];"全局"==e?e="global":"规则"==e?e="rule":"直连"==e?e="direct":"脚本"==e&&(e="script");
-####switchMode:function(e){var t=this;
 ,t},switchMode:function(e){var t=,t},switchMode:function(e){"全局"==e?e="global":"规则"==e?e="rule":"直连"==e?e="direct":"脚本"==e&&(e="script");var t
 e._s(e.mode)=("global"==e._s(e.mode)?"全局":"rule"==e._s(e.mode)?"规则":"direct"==e._s(e.mode)?"直连":"script"==e._s(e.mode)?"脚本":e._s(e.mode))
 e._s(e.logLevel)=("silent"==e._s(e.logLevel)?"静默":"error"==e._s(e.logLevel)?"错误":"warning"==e._s(e.logLevel)?"警告":"info"==e._s(e.logLevel)?"信息":"debug"==e._s(e.logLevel)?"调试":e._s(e.logLevel))
 ###v0.15.3
 e.mode[0].toUpperCase()=("G"==e.mode[0].toUpperCase()?"全局":"R"==e.mode[0].toUpperCase()?"规则":"D"==e.mode[0].toUpperCase()?"直连":"S"==e.mode[0].toUpperCase()?"脚本":e.mode[0].toUpperCase())
-#).width=).width+65
-#,300,=,360,
-###v0.15.3
-###v0.15.4
-#流量箭头线条
-#concat(c.unit),270,30)=concat(c.unit),270,30)
-#concat(d.unit),270,58)=concat(d.unit),270,58)
-#u.moveTo(93,31),u.lineTo(100,22),u.lineTo(107,31)=u.moveTo(93,31),u.lineTo(100,22),u.lineTo(107,31)
-#u.moveTo(107,38),u.lineTo(100,47),u.lineTo(93,38)=u.moveTo(107,38),u.lineTo(100,47),u.lineTo(93,38)
-
-#20210910
-#,300,=,310,
-#i.fillText(c,300,50))=i.fillText(c,320,50)) ## 增强托盘自定义文字位置
-##a?280+(=a?280+(  ## 0 B/s末尾位置
-##20+parseInt(=50+parseInt(   ## 增强托盘自定义文字位置
-##280+(0<s?20
-#280+(0<s?20=310+(0<s?50
 
 ## 增强托盘自定义文字位置
 fillText(c,300,50)=fillText(c,320,50)
@@ -1092,14 +1043,12 @@ fillText(c,300,50)=fillText(c,320,50)
 
 #20210910
 
-#,270,=,290,
 ,270,=,300,
 93,3=123,3
 lineTo(100=lineTo(130
 107,3=137,3
 
 
-###v0.15.4
 ###v0.15.5
 "Hide Unselectable Group"="隐藏不可选择的代理组"
 "Display Chain Type"="连接面板中显示的链路信息类型"
@@ -1109,15 +1058,18 @@ lineTo(100=lineTo(130
 Traffic:=流量:
 "Start Time"="开始时间"
 ###v0.15.5-end
+
 ###v0.15.6
 "Run Time Format"="运行时间格式"
 "Show/Hide Dashboard"="打开/关闭主界面"
 ###v0.15.6-end
+
 ###v0.15.7
 "Edit Parsers"="编辑预处理配置"
 "\n        Force Quit\n      "="\n        强制退出\n      "
 "Credits"="鸣谢"
 ###v0.15.7-end
+
 ###v0.16.0
 "Static Host"="静态主机IP地址(启用DHCP服务端时作为局域网代理网关用)"
 "Router"="路由"
@@ -1138,12 +1090,15 @@ Traffic:=流量:
 "DHCP Server"="DHCP 服务器"
 "\n          Connections\n        "="\n          连接\n        "
 ###v0.16.0-end
+
 ###v0.16.1
 "Edit file"="编辑文件"
 ###v0.16.1-end
+
 ###v0.16.2
 ["direct","规则","global","script"]=["direct","rule","global","script"]
 ###v0.16.2-end
+
 ###v0.16.3
 "Use System Emoji"="使用系统表情符号"
 ###v0.16.3-end
@@ -1156,20 +1111,19 @@ Traffic:=流量:
 "connected":"disconnected","]"="已连接":"已断开","]"
 "clash axios client changed"="clash axios 客户端已改变"
 #20210716补充翻译
+
 #v0.16.4
 "Restart"="重启"
 #v0.16.4-end
+
 #v0.17.1
 #之前多翻译一个地方，导致连接页面不显示信息。
 #以下是此版本的修正和补充翻译
 "Custom"="自定义"
 "Copy Command"="复制命令"
-
-#.from(this.now)=.locale('zh-cn').from(this.now)
-
-
 "Update Cron (UNIX)"="更新定时任务 (UNIX 系统)"
 #v0.17.1-end
+
 #v0.18.0补充
 "auto upgrade failed with error: "="自动升级失败: "
 "upgrade to "="升级到 "
@@ -1179,11 +1133,12 @@ Traffic:=流量:
 "\n    Press Enter to stop\n  "="\n    按回车停止\n  "
 "Start with Linux"="开机启动"
 #v0.18.0补充-end
+
 #v0.18.2
 "Mini List Width"="策略组导航器宽度"
 #v0.18.2-end
+
 #v0.18.3
-## 请手动把之前的 Service Mode=服务模式 改成 "Service Mode"="服务模式"
 "scroll to selected proxy"="滚动到选定的节点"
 "scroll to selected porxy"="滚动到选定的节点"
 hide)"=隐藏)"
@@ -1211,11 +1166,14 @@ t.from)=t.from.replace("connect error:","错误:").replace("connectex: A socket 
 "Aborted because of declined dependency: "="由于依赖关系被拒绝而中止: "
 ("Aborted because "+I+" is not accepted"+D)=("中止原因: "+I+" 未被 "+D+"所接受")
 " success, path: "=" 成功, 路径: "
+
 #供应商错误信息处理
 t.message=t.message.replace("Invalid date","日期无效，请刷新页面").replace("unmarshal errors","解析错误").replace(" line","位于行").replace("cannot unmarshal","无法解析").replace("into","到").replace("Get","获取").replace("context deadline exceeded","连接超时").replace("dial","连接").replace("connectex: No connection could be made because the target machine actively refused it","出错:由于目标机主动拒绝连接，所以无法进行连接").replace("lookup","查找").replace("no such host","域名未解析").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("couldn't find ip","找不到 IP").replace("certificate has expired or is not yet valid","网站证书已过期或无效").replace("handshake timeout","握手超时").replace("All collection items must start at the same column at line","所有集合项目必须从同一列开始，位于行")
+
 #下方是切换配置文件报错信息处理
 detail:i=detail:i.replace("Document contains trailing content not separated by a ... or --- line at","文件含有尾部未使用...或---的行").replace("initial proxy provider","初始化代理集").replace("error","出错").replace("Error","错误").replace("open","打开").replace("The system cannot find the file specified","系统找不到该配置文件").replace("Implicit map keys need to be on a single line at line","隐式映射键需要放在同一行上，位于行").replace("column","列").replace("initial rule provider","初始化规则集").replace("format invalid","格式无效").replace("Command failed","执行命令失败").replace("Cannot read property 'put' of null","无法读取为空的 'put' 的属性").replace("unmarshal errors","解析错误").replace("cannot unmarshal","无法解析").replace("into","到").replace("expected type","期望类型是").replace("got unconvertible type","得到了不可转换的类型").replace("All collection items must start at the same column at line","所有集合项目必须从同一列开始，位于行")
 #v0.18.3-end
+
 #v0.18.4
 "You can make some changes to a profile then we merge them for you when you refresh the profile."="你可以对配置文件进行一些更改，程序将会在配置文件更新时自动合并到新的配置文件中。"
 "Delete diff files"="删除合并文件"
