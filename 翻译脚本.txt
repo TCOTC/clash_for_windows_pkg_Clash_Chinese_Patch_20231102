@@ -1243,3 +1243,10 @@ label:"TUN Mode"=label:"TUN模式"
 {attrs:{items:["gvisor"={attrs:{items:["gVisor"
 "Auto Detect Interface"="自动检测网卡接口"
 #v0.19.0-end
+
+#v0.19.1
+title:"Cache"=title:"缓存"
+e._v("Fake IP Cache")=e._v("Fake IP 缓存")
+"Fake IP cache cleared":"Failed with reason: "="Fake IP 缓存已清除":"失败原因: "
+"Abort"="中止"
+#v0.19.1-end
