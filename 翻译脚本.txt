@@ -1257,4 +1257,5 @@ e._v("Fake IP Cache")=e._v("Fake IP 缓存")
 "Are you sure to delete diff files?"="你确定要删除合并文件吗?"
 [e._v("Reset")]=[e._v("重置")]
 "DNS Hijacks"="DNS 劫持"
+[e._v("Use CFW Editor")]=[e._v("使用 CFW 编辑器")]
 #v0.19.2-end
