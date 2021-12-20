@@ -22,10 +22,14 @@
 
 ## 相关推荐：
 
-[白塔加速](https://btavpn.xyz/)
+8折优惠卷码：clash
 
-[TG群组一键直达](https://t.me/btvpn)
+[OK加速](https://ok.okjiasu.com/auth/register?code=F9B0)
 
-七折优惠码：BoyceClash
+[TG群组一键直达](https://t.me/okjiasu)
 
-一个月最低7元，一年最低只要69， 轻松跑满宽带。
+[TG公告板一键直达](https://t.me/okjiasuqi)
+
+中转线路、千兆宽带轻松跑满。
+
+注：每日【签到】可以白嫖流量。
