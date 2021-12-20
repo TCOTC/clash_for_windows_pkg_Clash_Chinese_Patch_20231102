@@ -1577,6 +1577,6 @@ can only be used to decorate a parameter"=只能用于装饰一个参数"
 "Controls the line height. \n - Use 0 to automatically compute the line height from the font size.\n - Values between 0 and 8 will be used as a multiplier with the font size.\n - Values greater than or equal to 8 will be used as effective values."="控制行高. \n - 使用 0 可以从字体大小自动计算行高.\n - 0到8之间的值将被用作与字体大小的乘数.\n - 大于或等于8的值将作为有效值使用."
 
 #搜索下边这一句接力翻译吧，从下边的开始找
-#"Line numbers are not rendered."
+"Line numbers are not rendered."="行号不会被渲染。"
 
 #v0.19.2-end
