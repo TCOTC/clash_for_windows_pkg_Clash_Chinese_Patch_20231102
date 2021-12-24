@@ -1581,3 +1581,8 @@ can only be used to decorate a parameter"=只能用于装饰一个参数"
 "Line numbers are rendered every 10 lines."="每 10 行渲染一次行号。"
 "Controls the display of line numbers."="控制行号显示。"
 #v0.19.2-end
+
+#v0.19.3
+[e._v("Preload")]=[e._v("预加载")]
+suffix:"lines"=suffix:"行"
+#v0.19.3-end
