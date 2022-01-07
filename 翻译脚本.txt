@@ -2074,3 +2074,7 @@ role:"viewMenu"=label:"显示",submenu:[{role:"reload",label:"重新载入"},{ro
 role:"windowMenu"=label:"窗口",submenu:[{role:"minimize",label:"最小化"},{role:"zoom",label:"缩放"},{type:"separator"},{role:"front",label:"前置全部窗口"},{type:"separator"},{role:"window",label:"Clash for Windows"}]
 role:"help"=role:"help",label:"帮助"
 #v0.19.4-end
+
+#v0.19.5
+label:"Move Dashboard To Nearest Monitor"=label:"将仪表板移动至最近显示器"
+#v0.19.5-end
