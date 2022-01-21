@@ -1035,10 +1035,10 @@ t.chains[0]=t.chains[0]==="DIRECT"?"直连":t.chains[0]
 e._s(e.mode)=("global"==e._s(e.mode)?"全局":"rule"==e._s(e.mode)?"规则":"direct"==e._s(e.mode)?"直连":"script"==e._s(e.mode)?"脚本":e._s(e.mode))
 e._s(e.logLevel)=("silent"==e._s(e.logLevel)?"静默":"error"==e._s(e.logLevel)?"错误":"warning"==e._s(e.logLevel)?"警告":"info"==e._s(e.logLevel)?"信息":"debug"==e._s(e.logLevel)?"调试":e._s(e.logLevel))
 ###v0.15.3
-e.mode[0].toUpperCase()=("G"==e.mode[0].toUpperCase()?"全局":"R"==e.mode[0].toUpperCase()?"规则":"D"==e.mode[0].toUpperCase()?"直连":"S"==e.mode[0].toUpperCase()?"脚本":e.mode[0].toUpperCase())
+#e.mode[0].toUpperCase()=("G"==e.mode[0].toUpperCase()?"全局":"R"==e.mode[0].toUpperCase()?"规则":"D"==e.mode[0].toUpperCase()?"直连":"S"==e.mode[0].toUpperCase()?"脚本":e.mode[0].toUpperCase())
 
 ## 增强托盘自定义文字位置
-fillText(c,300,50)=fillText(c,320,50)
+#fillText(c,300,50)=fillText(c,320,50)
 
 ## 0 B/s末尾位置
 280+(=310+(
