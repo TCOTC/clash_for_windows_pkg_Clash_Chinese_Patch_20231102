@@ -2080,5 +2080,5 @@ label:"Move Dashboard To Nearest Monitor"=label:"将仪表板移动至最近显�
 #v0.19.5-end
 
 #v0.19.6
-name:"Headers"=name:"标题"
+name:"Headers"=name:"标头"
 #v0.19.6-end
