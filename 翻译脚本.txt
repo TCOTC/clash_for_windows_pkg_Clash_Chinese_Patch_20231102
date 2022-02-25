@@ -2086,3 +2086,9 @@ name:"Headers"=name:"标头"
 #悬浮窗规则模式宽度
 30):=60):
 #v0.19.6-end
+
+#0.19.9
+"Don't Save"="不保存"
+"Do you want to save the changes?"="是否要保存更改？"
+e._v("Manage")=e._v("管理")
+#0.19.9-end
