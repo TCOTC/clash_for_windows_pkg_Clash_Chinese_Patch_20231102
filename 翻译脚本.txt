@@ -2091,4 +2091,5 @@ name:"Headers"=name:"标头"
 "Don't Save"="不保存"
 "Do you want to save the changes?"="是否要保存更改？"
 e._v("Manage")=e._v("管理")
+"Are you sure to quit?"="你确定要退出吗？"
 #0.19.9-end
