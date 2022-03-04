@@ -2095,3 +2095,8 @@ e._v("Manage")=e._v("管理")
 "Logs Folder"="日志文件夹"
 "failed to clash core, logs are not available."="Clash 核心失败，日志不可用。"
 #0.19.9-end
+
+#0.19.11
+text:"Edit externally"=text:"从外部编辑"
+text:"Scroll to group"=text:"滚动到组"
+#0.19.11-end
