@@ -2105,4 +2105,6 @@ message:"It might take a while.\nThe APP will be relaunched automatically."=mess
 "\n\nCurrent status: "="\n\n当前状态："
 message:"Clash 核心程序默认是将日志打印输出到&nbsp;标准输出设备(通常是屏幕).&nbsp;CFW&nbsp;在日志级别为非&nbsp;silent&nbsp;时会把日志写入到磁盘文件。<br/>日志量由少到多排序为：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;静默&nbsp;<&nbsp;错误&nbsp;<&nbsp;警告&nbsp;<&nbsp;信息&nbsp;<&nbsp;调试<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;silent&nbsp;<&nbsp;error&nbsp;<&nbsp;warning&nbsp;<&nbsp;info&nbsp;<&nbsp;debug<br/>silent&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;不记录日志<br/>error&nbsp;&nbsp;&nbsp;&nbsp;：记录错误和异常信息到日志文件<br/>warning:&nbsp;记录错误和异常还有告警信息<br/>info&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;记录程序正常运行时的日志(包括警告，错<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;误和异常信息)<br/>debug&nbsp;&nbsp;:&nbsp;日志量最多，一般用于提供日志文件给开<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;发者进行诊断问题"=message:"Clash核心程序默认是将日志打印输出到标准输出设备（通常是屏幕）。CFW 在日志级别为非静默时会把日志写入到磁盘文件。\n\n日志量由少到多排序为：\n静默<错误<警告<信息<调试\n\n静默：不记录日志\n错误：记录错误和异常信息到日志文件\n警告：记录错误和异常还有告警信息\n信息：记录程序正常运行时的日志(包括警告，错误和异常信息)\n调试：日志量最多，一般用于提供日志文件给开发者进行诊断问题"
 "run as admin"="以管理员身份运行"
+#修复在删除配置文件对话框 点叉时会直接删除配置文件
+buttons:["是","否"]=buttons:["Yes","No"]
 #0.19.11-end
