@@ -2109,3 +2109,11 @@ message:"Clash 核心程序默认是将日志打印输出到&nbsp;标准输出�
 #修复在删除配置文件对话框 点叉时会直接删除配置文件
 buttons:["是","否"]=buttons:["Yes","No"]
 #0.19.11-end
+
+#0.19.12
+title:"Security"=title:"安全"
+Core Secret=Secret 核心
+hint:"secret is currently empty, we strongly recommend to generate one"=hint:"Secret 当前为空，我们强烈建议生成一个"
+"Generate"="生成"
+message:"Do you want to set a new uuidv4 secret in Home Directory/config.yaml and restart the APP?"=message:"是否要在 config.yaml 中设置新的 uuidv4 Secret 并重启 APP？"
+#0.19.12-end
