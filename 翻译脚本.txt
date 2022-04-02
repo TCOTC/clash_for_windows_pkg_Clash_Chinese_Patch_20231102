@@ -2117,3 +2117,8 @@ hint:"secret is currently empty, we strongly recommend to generate one"=hint:"Se
 "Generate"="生成"
 message:"Do you want to set a new uuidv4 secret in Home Directory/config.yaml and restart the APP?"=message:"是否要在 config.yaml 中设置新的 uuidv4 Secret 并重启 APP？"
 #0.19.12-end
+
+#0.19.14
+{attrs:{hint:"random mixed port"}={attrs:{hint:"使用动态端口连接混合配置"}
+[e._v("Random Mixed Port")]=[e._v("使用动态端口连接混合配置")]
+#0.19.14-end
