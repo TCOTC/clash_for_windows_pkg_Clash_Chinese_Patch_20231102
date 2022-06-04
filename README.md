@@ -25,7 +25,7 @@
 ### 相关推荐1：OK加速
 8.8折优惠卷码：clash
 
-[OK加速](https://ok.okjiasu.com/auth/register?code=F9B0)
+[OK加速](http://o.okjiasu.com/auth/register?code=F9B0)
 [TG群组一键直达](https://t.me/okjiasu)
 [TG公告板一键直达](https://t.me/okjiasuqi)
 
