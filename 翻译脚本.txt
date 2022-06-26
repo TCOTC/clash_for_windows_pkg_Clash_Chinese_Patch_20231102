@@ -978,7 +978,7 @@ Destination:=目标:
 Chains:=链路:
 "Pause"="暂停"
 "Resume"="恢复"
-"search"="筛选"
+#"search"="筛选"
 ##v0.15.0
 
 ###v0.15.2
@@ -996,12 +996,6 @@ v("Script"=v("脚本"
 "foreground color"="前景色 red 或 #CBF 等"
 " Scheme\n    "="跳转方案(URI Scheme)\n    "
 ###v0.15.3-end
-
-
-
-
-
-
 
 ###############
 ###############
