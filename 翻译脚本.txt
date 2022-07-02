@@ -2121,3 +2121,7 @@ message:"Do you want to set a new uuidv4 secret in Home Directory/config.yaml an
 e._v("Tray Proxy Groups Style")=e._v("托盘代理组样式")
 "Submenu","Hidden"="子菜单","隐藏"
 #0.19.19-end
+
+#0.19.23
+"Show Process If Present"="显示进程(如果存在)"
+#0.19.23-end
