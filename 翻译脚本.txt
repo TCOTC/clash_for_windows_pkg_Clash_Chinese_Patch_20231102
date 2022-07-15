@@ -1157,7 +1157,7 @@ serviceNeedUpdate?"updated":"installed"=serviceNeedUpdate?"更新":"安装"
 "service done"="服务完成"
 "Automatic Upgrade completed!"="自动升级完成!"
 "Do you want to restart the APP?"="是否重新启动 APP?"
-t.from)=t.from.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("no such host","域名未解析"))
+#t.from)=t.from.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("no such host","域名未解析"))
 
 "Aborted because of declined dependency: "="由于依赖关系被拒绝而中止: "
 ("Aborted because "+I+" is not accepted"+D)=("中止原因: "+I+" 未被 "+D+"所接受")
@@ -2135,3 +2135,10 @@ attrs:{hint:"terminal"}=attrs:{hint:"终端"}
 #0.19.23
 "Show Process If Present"="显示进程(如果存在)"
 #0.19.23-end
+
+#0.19.24
+"It might take a while.\nThe APP will be relaunched automatically.\n\nCurrent status: "="这可能需要一段时间.\nAPP 将自动重新启动.\n\n当前状态: "
+[e._v("Alive")]=[e._v("活动中")]
+[e._v("Closed")]=[e._v("已关闭")]
+t.from)=t.from.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("no such host","域名未解析").replace("connectex: No connection could be made because the target machine actively refused it","出错:由于目标机主动拒绝连接，所以无法进行连接"))
+#0.19.24-end
