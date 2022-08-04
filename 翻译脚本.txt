@@ -991,7 +991,7 @@ v("Script"=v("脚本"
 ;["direct","规则","global","script"]=;["direct","rule","global","script"]
 ###v0.15.2-end
 ###v0.15.3
-"Specify Protocol"="指定协议( Windows 系统)"
+"Specify Protocol"="指定协议(Windows 系统)"
 "Transparent"="背景透明"
 "foreground color"="前景色 red 或 #CBF 等"
 " Scheme\n    "="跳转方案(URI Scheme)\n    "
@@ -1067,7 +1067,7 @@ Traffic:=流量:
 ###v0.15.7-end
 
 ###v0.16.0
-"Static Host"="静态主机IP地址(启用DHCP服务端时作为局域网代理网关用)"
+"Static Host"="静态主机 IP 地址(启用 DHCP 服务端时作为局域网代理网关用)"
 "Router"="路由"
 "Select a interface"="选择一个接口"
 "Configuration"="配置"
@@ -2153,3 +2153,8 @@ e.checkingProvidersCount?"":"s"=e.checkingProvidersCount?"":""
 " error"=" 个错误"
 e.failedProvidersCount?"":"s"=e.failedProvidersCount?"":""
 #0.19.25-end
+
+#0.19.26
+"Show Tray Proxy Delay Indicator"="显示托盘代理延迟指示器"
+"Health check"="健康检查"
+#0.19.26-end
