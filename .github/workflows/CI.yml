@@ -1,0 +1,100 @@
+name: CI
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout/@v3
+      - name: Get Tag
+        id: get_tag
+        uses: dawidd6/action-get-tag@v1
+      - name: Download ClashSinicizationTool
+        id: clash_sinicization_tool
+        uses: robinraju/release-downloader@e3fd2c236128631471f3822b8e7c56e0838e87ed
+        with:
+          repository: "BoyceLig/ClashSinicizationTool"
+          latest: true
+          fileName: "*.7z"
+          tarBall: false
+          zipBall: false
+          out-file-path: "downloads"
+      - name: Unpack ClashSinicizationTool & Copy Project Files
+        shell: pwsh
+        run: |
+          if (-not (Test-Path ./Build)) { New-Item -Path ./ -Name Build -ItemType Directory }
+          7z x ./downloads/ClashSinicizationTool-${{ steps.clash_sinicization_tool.outputs.tag_name }}.7z -o"./Build"
+          Copy-Item -Path ./翻译脚本.txt -Destination ./Build/ClashSinicizationTool/ -Recurse -Force
+          Copy-Item -Path ./moment-with-CN.js -Destination ./Build/ClashSinicizationTool/ -Recurse -Force
+      - name: Download Clash for Windows
+        id: clash_for_windows
+        uses: robinraju/release-downloader@v1.4
+        with:
+          repository: "Fndroid/clash_for_windows_pkg"
+          tag: ${{ steps.get_tag.outputs.tag }}
+          fileName: "Clash.for.Windows-${{ steps.get_tag.outputs.tag }}-win.7z"
+          tarBall: false
+          zipBall: false
+          out-file-path: "downloads"
+      - name: Unpack Clash for Windows & Sinicization
+        shell: pwsh
+        run: |
+          7z x ./downloads/Clash.for.Windows-${{ steps.get_tag.outputs.tag }}-win.7z -o"./Build/Clash"
+          ./Build/ClashSinicizationTool/CLI.exe -c ./Build/Clash -t ./Build/ClashSinicizationTool/翻译脚本.txt
+      - name: Package Asar
+        shell: pwsh
+        run: |
+          7z a -mx9 "./Build/app.7z" "./Build/Clash/resources/app.asar"
+      - name: Create Release
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Clash for Windows v${{ steps.get_tag.outputs.tag }} 汉化补丁
+          prerelease: true
+          draft: false
+          artifacts: ./Build/app.7z
+          body: |
+            [![](https://img.shields.io/badge/Channel-blue?label=Telegram&logo=telegram)](https://t.me/ClashR_for_Windows_Channel) [![](https://img.shields.io/badge/Group-green?label=Telegram&logo=telegram)](https://t.me/+Se4RSc06w8QK1HiS)
+            ## 汉化方法：
+            
+            解压压缩包后，请自行替换下列路径中的 `app.asar` 文件
+
+            `Clash for Windows\resources\app.asar`
+
+            ## 相关推荐：
+
+            ### 相关推荐1：OK加速
+
+            8.8折优惠卷码：clash
+
+            [OK加速](http://o.okjiasu.com/auth/register?code=F9B0)
+            [TG群组一键直达](https://t.me/okjiasu)
+            [TG公告板一键直达](https://t.me/okjiasuqi)
+
+            特色属性：
+            ✅不限速，不限时。
+            ✅使用不满意随时🉑退款！！！
+            ✅尊重用户隐私，不保留用户使用记录！！！
+            ✅免费提供Netflix高级视频会员账号。
+            ✅免费提供iOS美区id内含小火箭/圈X等多款付费软件。
+            购买小火箭、Google voice👉[神马杂货铺](https://googlevoice.top/)
+
+
+            ### 相关推荐2：Cherry VPN
+
+            8折优惠卷：clash
+
+            [Cherry VPN 官网](https://cherryvpn.net/auth/register?code=EO50)
+            [讨论组](https://t.me/cherrylink_vpn)
+            [公告板直达](https://t.me/cherrylink_channel)
+
+            特色属性：
+            ✅全SS隧道中转节点.
+            ✅轻松带你畅游世界。
+            ✅使用不满意随时🉑退款！！！
+            ✅尊重用户隐私，不保留用户使用记录！！！
