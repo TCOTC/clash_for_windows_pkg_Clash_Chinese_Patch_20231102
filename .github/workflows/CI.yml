@@ -45,11 +45,11 @@ jobs:
         shell: pwsh
         run: |
           7z x ./downloads/Clash.for.Windows-${{ steps.get_tag.outputs.tag }}-win.7z -o"./Build/Clash"
-          ./Build/ClashSinicizationTool/CLI.exe -c ./Build/Clash -t ./Build/ClashSinicizationTool/翻译脚本.txt
+          ./Build/ClashSinicizationTool/CLI.exe -c ./Build/Clash -t ./Build/ClashSinicizationTool/翻译脚本.txt -o ./Build
       - name: Package Asar
         shell: pwsh
         run: |
-          7z a -mx9 "./Build/app.7z" "./Build/Clash/resources/app.asar"
+          7z a -mx9 "./Build/app.7z" "./Build/app.asar"
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
