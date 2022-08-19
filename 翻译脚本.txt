@@ -2158,3 +2158,8 @@ e.failedProvidersCount?"":"s"=e.failedProvidersCount?"":""
 "Show Tray Proxy Delay Indicator"="显示托盘代理延迟指示器"
 "Health check"="健康检查"
 #0.19.26-end
+
+#0.19.27
+"network interfaces"="网络接口"
+"add firewall rules(for Allow LAN and system stack)"="添加防火墙规则(用于允许局域网连接和系统栈)"
+#0.19.27-end
