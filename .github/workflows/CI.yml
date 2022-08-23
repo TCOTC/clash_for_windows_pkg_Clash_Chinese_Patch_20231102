@@ -29,8 +29,8 @@ jobs:
         run: |
           if (-not (Test-Path ./Build)) { New-Item -Path ./ -Name Build -ItemType Directory }
           7z x ./downloads/ClashSinicizationTool-${{ steps.clash_sinicization_tool.outputs.tag_name }}.7z -o"./Build"
-          Copy-Item -Path ./翻译脚本.txt -Destination ./Build/ClashSinicizationTool/ -Recurse -Force
-          Copy-Item -Path ./moment-with-CN.js -Destination ./Build/ClashSinicizationTool/ -Recurse -Force
+          Copy-Item -Path ./翻译脚本.txt -Destination ./Build/ClashSinicizationTool/ -Force
+          Copy-Item -Path ./moment-with-CN.js -Destination ./Build/ClashSinicizationTool/ -Force
       - name: Download Clash for Windows
         id: clash_for_windows
         uses: robinraju/release-downloader@v1.4
@@ -50,6 +50,7 @@ jobs:
         shell: pwsh
         run: |
           7z a -mx9 "./Build/app.7z" "./Build/app.asar"
+          Compress-Archive -Path "./Build/app.asar" -DestinationPath "./Build/app.zip"
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
@@ -57,7 +58,7 @@ jobs:
           name: Clash for Windows v${{ steps.get_tag.outputs.tag }} 汉化补丁
           prerelease: true
           draft: false
-          artifacts: ./Build/app.7z
+          artifacts: "./Build/app.7z,./Build/app.zip"
           body: |
             [![](https://img.shields.io/badge/Channel-blue?label=Telegram&logo=telegram)](https://t.me/ClashR_for_Windows_Channel) [![](https://img.shields.io/badge/Group-green?label=Telegram&logo=telegram)](https://t.me/+Se4RSc06w8QK1HiS)
             ## 汉化方法：
