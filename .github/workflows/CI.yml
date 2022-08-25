@@ -61,6 +61,9 @@ jobs:
           artifacts: "./Build/app.7z,./Build/app.zip"
           body: |
             [![](https://img.shields.io/badge/Channel-blue?label=Telegram&logo=telegram)](https://t.me/ClashR_for_Windows_Channel) [![](https://img.shields.io/badge/Group-green?label=Telegram&logo=telegram)](https://t.me/+Se4RSc06w8QK1HiS)
+            
+            ⚠️汉化永久免费，请注意欺诈！！！
+            
             ## 汉化方法：
             
             下载 `app.7z` 或 `app.zip` 文件(*两个压缩包内容一样*)后，解压压缩包，请自行替换下列路径中的 `app.asar` 文件
