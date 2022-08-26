@@ -56,7 +56,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: Clash for Windows v${{ steps.get_tag.outputs.tag }} 汉化补丁
-          prerelease: true
+          prerelease: false
           draft: false
           artifacts: "./Build/app.7z,./Build/app.zip"
           body: |
