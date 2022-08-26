@@ -2163,3 +2163,8 @@ e.failedProvidersCount?"":"s"=e.failedProvidersCount?"":""
 "network interfaces"="网络接口"
 "add firewall rules(for Allow LAN and system stack)"="添加防火墙规则(用于允许局域网连接和系统栈)"
 #0.19.27-end
+
+#0.19.28
+"Copy domain"="复制域名"
+"It seems that Port is not listening, you might need to set a new port."="端口似乎未监听，您可能需要设置一个新的端口。"
+#0.19.28-end
