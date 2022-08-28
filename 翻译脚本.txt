@@ -2168,3 +2168,7 @@ e.failedProvidersCount?"":"s"=e.failedProvidersCount?"":""
 "Copy domain"="复制域名"
 "It seems that Port is not listening, you might need to set a new port."="端口似乎未监听，您可能需要设置一个新的端口。"
 #0.19.28-end
+
+#0.19.28补充
+"Open dashboard"="打开主窗口"
+#0.19.28补充-end
