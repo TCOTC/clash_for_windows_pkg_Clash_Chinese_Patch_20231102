@@ -2172,3 +2172,8 @@ e.failedProvidersCount?"":"s"=e.failedProvidersCount?"":""
 #0.19.28补充
 "Open dashboard"="打开主窗口"
 #0.19.28补充-end
+
+# 增加关于
+"https://fonts.google.com/icons"="https://fonts.google.com/icons","https://github.com/BoyceLig/Clash_Chinese_Patch"
+[e._v("\n        Document\n      ")])=[e._v("\n        Document\n      ")]), i("div",{staticClass:"text-[color:var(--feedback-link-c)] mr-2 cursor-pointer",on:{click:function(t){return e.select(20)}}},[e._v("\n        汉化相关\n      ")])
+# 增加关于-end
