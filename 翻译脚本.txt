@@ -2184,7 +2184,7 @@ attrs:{items:["info","debug"]}=attrs:{items:["信息","调试"]}
 
 #0.20.0补充
 "Copy Domain:Port"="复制 域名:端口"
-e._s(t.msg)=e._s(t.msg.replace(" connected", " 已连接").replace(" dial failed", " 连接失败").replace(" accept connection", " 接收连接").replace(" find process success", " 成功找到进程").replace(" initial compatible provider", " 初始化兼容的服务商").replace(" dial ICMP Packet failed", "连接 ICMP 数据包失败"))
+e._s(t.msg)=e._s(t.msg.replace(" connected", " 已连接").replace(" dial failed", " 连接失败").replace(" accept connection", " 接收连接").replace(" find process success", " 成功找到进程").replace(" initial compatible provider", " 初始化兼容的服务商").replace(" dial ICMP Packet failed", " 连接 ICMP 数据包失败"))
 "FROM":t.key.toUpperCase()="本地地址":t.key.toUpperCase().replace("NAME", "名称").replace("RULEPAYLOAD", "规则负载").replace("RULE", "规则").replace("INBOUND", "入站").replace("PROXY", "代理").replace("ADDR", "地址").replace("PATH", "路径").replace("ERROR", "错误")
 e._s(t.value)=e._s(t.value.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("no such host","域名未解析").replace("connectex: No connection could be made because the target machine actively refused it","出错:由于目标机主动拒绝连接，所以无法进行连接").replace("context deadline exceeded", "客户端请求超时").replace("network invalid", "网络无效"))
 #0.20.0补充-end
