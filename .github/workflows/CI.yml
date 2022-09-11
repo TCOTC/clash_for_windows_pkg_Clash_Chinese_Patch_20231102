@@ -11,24 +11,36 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout/@v3
+        with:
+          submodules: true
+      - name: Clone BoyceLig/ClashSinicizationTool Repository
+        uses: GuillaumeFalourd/clone-github-repo-action@v2
+        with:
+          owner: 'BoyceLig'
+          repository: 'ClashSinicizationTool'
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: 6.0.x
+      - name: Setup NuGet
+        shell: pwsh
+        run: |
+          cd ./ClashSinicizationTool
+          dotnet nuget update source
+          nuget restore ClashSinicizationTool.sln
+      - name: Build .NET App
+        shell: pwsh
+        run: |
+          cd ./ClashSinicizationTool
+          ./build_cli.ps1 app
       - name: Get Tag
         id: get_tag
         uses: dawidd6/action-get-tag@v1
-      - name: Download ClashSinicizationTool
-        id: clash_sinicization_tool
-        uses: robinraju/release-downloader@e3fd2c236128631471f3822b8e7c56e0838e87ed
-        with:
-          repository: "BoyceLig/ClashSinicizationTool"
-          latest: true
-          fileName: "*.7z"
-          tarBall: false
-          zipBall: false
-          out-file-path: "downloads"
-      - name: Unpack ClashSinicizationTool & Copy Project Files
+      - name: Copy Project Files
         shell: pwsh
         run: |
           if (-not (Test-Path ./Build)) { New-Item -Path ./ -Name Build -ItemType Directory }
-          7z x ./downloads/ClashSinicizationTool-${{ steps.clash_sinicization_tool.outputs.tag_name }}.7z -o"./Build"
+          Copy-Item -Path ./ClashSinicizationTool/Dist/Release/ -Destination ./Build/ClashSinicizationTool/ -Recurse -Force
           Copy-Item -Path ./翻译脚本.txt -Destination ./Build/ClashSinicizationTool/ -Force
           Copy-Item -Path ./moment-with-CN.js -Destination ./Build/ClashSinicizationTool/ -Force
       - name: Download Clash for Windows
