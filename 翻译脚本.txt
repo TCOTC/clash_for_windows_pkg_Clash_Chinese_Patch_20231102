@@ -2183,5 +2183,13 @@ attrs:{items:["info","debug"]}=attrs:{items:["信息","调试"]}
 "Copy Domain:Port"="复制 域名:端口"
 e._s(t.msg)=e._s(t.msg.replace(" connected", " 已连接").replace(" dial failed", " 连接失败").replace(" accept connection", " 接收连接").replace(" find process success", " 成功找到进程").replace(" initial compatible provider", " 初始化兼容的服务商").replace(" dial ICMP Packet failed", " 连接 ICMP 数据包失败").replace(" dns response", " DNS 响应").replace(" hijack udp dns", " 劫持 UDP DNS").replace(" TUN listening", " 监听 TUN").replace(" failed to dummy bind, retry in 1 second...", " 虚拟绑定失败，1秒后重试...").replace(" resolve success", " 解析成功").replace(" accept session", " 接收会话"))
 "FROM":t.key.toUpperCase()="本地地址":t.key.toUpperCase().replace("NAME", "名称").replace("RULEPAYLOAD", "规则负载").replace("RULE", "规则").replace("INBOUND", "入站").replace("PROXY", "代理").replace("ADDR", "地址").replace("PATH", "路径").replace("ERROR", "错误").replace("SOURCE", "来源").replace("QTYPE", "查询类型").replace("ANSWER", "应答").replace("IFACE", "接口").replace("GATEWAY", "网关").replace("MAXTIMES", "最大次数").replace("TIMES", "次数").replace("HOST", "主机")
-e._s(t.value)=e._s(t.value.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("no such host","域名未解析").replace("connectex: No connection could be made because the target machine actively refused it"," 由于目标机主动拒绝连接，所以无法进行连接").replace("context deadline exceeded", "客户端请求超时").replace("wsarecv: An existing connection was forcibly closed by the remote host", " 远程主机强制关闭现有连接").replace("network invalid", "网络无效").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("read", "读取"))
+e._s(t.value)=e._s(t.value.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("no such host","域名未解析").replace("connectex: No connection could be made because the target machine actively refused it"," 由于目标机主动拒绝连接，所以无法进行连接").replace("context deadline exceeded", "客户端请求超时").replace("wsarecv: An existing connection was forcibly closed by the remote host", " 远程主机强制关闭现有连接").replace("network invalid", "网络无效").replace("no such device", "设备不存在").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("read", "读取"))
 #0.20.0-end
+
+#0.20.0补充
+"Fail to ".concat(i[n].toLowerCase()," service"="未能".concat(i[n].toLowerCase(),"服务"
+"Fail to ".concat(e.serviceNeedUpdate?"update":"install"," service")="未能".concat(e.serviceNeedUpdate?"更新":"安装","服务")
+"Reload APP"="重载应用程序"
+"fail to spawn in service mode, fallback to local mode"="未能在服务模式下创建进程，回退到本地模式"
+"Spawn go-tun2socks"="创建 go-tun2socks"
+#0.20.0补充-end
