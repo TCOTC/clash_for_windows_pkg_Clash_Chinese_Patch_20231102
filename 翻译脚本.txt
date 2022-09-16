@@ -2192,6 +2192,7 @@ e._s(t.value)=e._s(t.value.replace("connect error:","错误:").replace("connecte
 "Reload APP"="重载应用程序"
 "fail to spawn in service mode, fallback to local mode"="未能在服务模式下创建进程，回退到本地模式"
 "Spawn go-tun2socks"="创建 go-tun2socks"
+"Attention","The support for Windows 7 will be dropped soon in 2023 due to upstream changes. Click to learn more."="注意","由于上游变化，对 Windows 7 的支持将很快在 2023 年停止。点击了解更多信息。"
 #0.20.0补充-end
 
 #0.20.3
