@@ -2201,7 +2201,7 @@ e._v("Set whether to allow pop-up system-level notifications")=e._v("设置是�
 e._v("Set weather to show Process Name(if present) in Connections\n            module")=e._v("设置在连接模块中显示进程名称（如果存在）")
 e._v("Set whether to display dashboard at startup")=e._v("设置是否在启动时显示仪表板")
 e._v("Set whether to use a random port as the core controller port (the\n            port section of external-controller in Home\n            Directory/config.ymal)")=e._v("设置是否使用随机端口作为核心控制器端口（配置文件主目录/config.ymal 中 external-controller 的端口部分）")
-e._v("Set whether to use a random port as the Port parameter in General\n            (mixed-port parameter in Home Directory/config.ymal)")=e._v("设置是否使用随机端口作为常规中的端口参数（配置文件主目录y/config.ymal中的mixed-port参数）")
+e._v("Set whether to use a random port as the Port parameter in General\n            (mixed-port parameter in Home Directory/config.ymal)")=e._v("设置是否使用随机端口作为常规中的端口参数（配置文件主目录/config.ymal 中的 mixed-port 参数）")
 e._v("Terminate dashboard to free memory after closed.\n            ")=e._v("关闭后终止仪表板以释放内存。")
 e._v("Set the taskbar icon in the default state")=e._v("将任务栏图标设置为默认状态")
 e._v("Set the taskbar icon when the System Proxy is turned on")=e._v("设置系统代理开启时的任务栏图标")
@@ -2241,5 +2241,5 @@ e._v("Set the request header content when updating a profile")=e._v("更新配�
 e._v("Set\n            the individual profile request header content in the Profiles\n            module")=e._v("在配置模块中设置单独的配置文件请求头内容")
 e._v("Set whether the profile is selected after updating")=e._v("设置更新后是否选择配置")
 e._v("Set the number of log lines to be preloaded in the Logs module,\n            set to 0 to not preload")=e._v("在日志模块中设置要预加载的日志行数，设置为 0 表示不预加载")
-e._v("Set the code to be called when the Action is executed,\n            ")=e._v("设置执行Action时要调用的代码,")
+e._v("Set the code to be called when the Action is executed,\n            ")=e._v("设置执行 Action 时要调用的代码,")
 #0.20.3-end
