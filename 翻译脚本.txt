@@ -2219,6 +2219,7 @@ e._v("Set whether to enable custom taskbar (macOS) / hover window\n            (
 e._v("Drag")]),e._v(' icons between "show" and "hide"\n            to control.\n            ')=e._v("拖拽")]),e._v(' “显示”和“隐藏”之间的图标进行控制。')
 e._v("Set the type of System Proxy")=e._v("设置系统代理的类型")
 e._v("Set the display width of each proxy in the Proxies module")=e._v("在代理模块中设置每个代理的显示宽度")
+e._v("Set the width of the minilist in the Proxies module")=e._v("在代理模块中设置 minilist 的宽度")
 e._v("Set the URL used when clicking the Delay Test button in the\n            Proxies module")=e._v("设置在代理模块中单击延迟测试按钮时使用的 URL")
 e._v("Set the Proxies module to display the keyword filter icon or\n            not")=e._v("设置代理模块是否显示关键字过滤器图标")
 e._v("Set whether to hide unselectable proxy groups in the Proxies\n            module")=e._v("设置是否隐藏代理模块中不可选择的代理组")
