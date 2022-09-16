@@ -2243,5 +2243,5 @@ e._v("Set\n            the individual profile request header content in the Prof
 e._v("Set whether the profile is selected after updating")=e._v("设置更新后是否选择配置")
 e._v("Set the number of log lines to be preloaded in the Logs module,\n            set to 0 to not preload")=e._v("在日志模块中设置要预加载的日志行数，设置为 0 表示不预加载")
 e._v("Set the code to be called when the Action is executed,\n            ")=e._v("设置执行 Action 时要调用的代码,")
-placeholder:"Search"=placeholder:"查找"
+placeholder:"Search"=placeholder:"搜索"
 #0.20.3-end
