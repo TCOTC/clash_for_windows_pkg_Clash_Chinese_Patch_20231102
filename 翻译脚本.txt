@@ -2195,7 +2195,7 @@ e._s(t.value)=e._s(t.value.replace("connect error:","错误:").replace("connecte
 #0.20.0补充-end
 
 #0.20.3
-e._v("Set the secret parameter in Home Directory/config.yaml to random\n            uuid4 to prevent the Clash API from being called directly by the\n            web page\n          ")=e._v("将配置文件主目录/config.yaml 中的 Secret参数设置为 Random uuid4 防止网页直接调用 Clash API")
+e._v("Set the secret parameter in Home Directory/config.yaml to random\n            uuid4 to prevent the Clash API from being called directly by the\n            web page\n          ")=e._v("将配置文件主目录/config.yaml 中的 Secret参数设置为随机 uuid4 防止网页直接调用 Clash API")
 e._v("Set the editor used by the Settings module, if you need custom\n            commands, you need command support breaks (eg: subl --wait)")=e._v("设置 Settings 模块使用的编辑器，如果需要自定义命令，则需要命令支持中断(例: subl --wait)")
 e._v("Set weather to show Process Name(if present) in Connections\n            module")=e._v("设置在连接模块中显示进程名称（如果存在）")
 e._v("Set whether to display dashboard at startup")=e._v("设置是否在启动时显示仪表板")
