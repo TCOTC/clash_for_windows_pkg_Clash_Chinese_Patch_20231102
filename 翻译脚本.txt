@@ -2254,3 +2254,7 @@ e._v("Set whether to update automatically, after turning on the new\n           
 [e._v("Docs")]=[e._v("文档")]
 [e._v("\n              Docs")]=[e._v("\n              文档")]
 #0.20.3-end
+
+#0.20.4
+e._v("Set whether to show Process Name(if present) in Connections\n            module")=e._v("设置是否在连接模块中显示进程名称（如果存在）")
+#0.20.4-end
