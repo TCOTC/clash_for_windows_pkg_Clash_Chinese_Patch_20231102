@@ -2291,4 +2291,5 @@ e._v("Turn on to forcibly add scheme to the system proxy settings.")=e._v("启�
 e._v("\n            This is not for general-purpose use, and indeed violates the\n            current spec of Windows. Consider it only when an old Python\n            program has trouble.")=e._v("\n            这不是一般用途，而且确实违反了 Windows 当前的规范。仅当在旧的 Python 程序出现问题时才考虑这个选项。")
 e._v("Modify and customize your profiles after download but before\n            ")=e._v("修改和自定义下载后的配置文件，但早于\n            ")
 "Open web page"="打开门户首页"
+"&System Proxy"="系统代理(&S)"
 #0.20.5-end
