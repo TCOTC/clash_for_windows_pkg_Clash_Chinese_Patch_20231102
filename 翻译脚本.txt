@@ -2258,3 +2258,37 @@ e._v("Set whether to update automatically, after turning on the new\n           
 #0.20.4
 e._v("Set whether to show Process Name(if present) in Connections\n            module")=e._v("设置是否在连接模块中显示进程名称（如果存在）")
 #0.20.4-end
+
+#0.20.5
+e._v("\n            Set Clash Core's ")=e._v("将 Clash 核心的 ")
+e._v(" to a random RFC\n            4122 version 4 UUID, so that Clash REST API cannot be accessed\n            arbitrarily. ")=e._v(" 设置为一个随机 RFC 4122 版本 4 的 UUID, 这样就不能随意访问 Clash REST API 了. ")
+e._v("The value is stored in the\n            ")=e._v("该值存储在 ")
+e._v("For details, see Clash documentation:\n            ")=e._v("有关详细信息，请参阅 Clash 文档:\n            ")
+e._v("REST API Authentication")=e._v("REST API 身份验证")
+"Allow unsafe URLs"="允许不安全的网址"
+e._v("\n            Set the URLs that do not verify the certificate when requesting")=e._v("设置在请求时不验证 URL 的证书")
+e._v("\n\n            Do ")=e._v("\n\n           请")
+t("strong",[e._v("not")])=t("strong",[e._v("不要")])
+e._v(" change it if you do not know what it is\n          ")=e._v("改变它，如果你不知道它是什么\n          ")
+e._v("Text editor used by Settings.")=e._v("配置设置模块所使用的文本编辑器。")
+e._v("For\n            ")=e._v("对于\n            ")
+e._v(", the command should only return control\n            after the edited file is closed. For example:")=e._v("，该命令应该仅在已编辑的文件关闭后才返回控制。例如:")
+e._v("Turn on to generate a new proxy server port number when the app\n            starts.")=e._v("启用后，当应用启动时会生成一个新的代理服务器端口号.")
+e._v("The value is shown as Port in General, and is\n            stored as\n            ")=e._v("该值在常规模块中显示为端口，并存储为\n            ")
+e._v("\n            in the\n            ")=e._v("\n            在\n            ")
+e._v("Turn on to terminate app processes after closing the dashboard,\n            but keep Clash Core running in the background. Most of the\n            features provided by CFW will be unavailable then.\n            ")=e._v("启用后，关闭主窗口后会终止应用程序进程，但保持 Clash Core 在后台运行。此时，CFW 提供的大多数功能将不可用.\n            ")
+e._v("Relies on the ")=e._v("依赖于 ")
+e._v("For details, see\n            ")=e._v("有关详细信息，请参阅\n            ")
+e._v("docs")=e._v("文档")
+e._v("Windows accepts an HTTP endpoint or PAC (proxy\n            auto-configuration) script. The HTTP mode is generally\n            sufficient."=e._v("Windows 接受一个 HTTP 端点或者 PAC(代理自动配置) 脚本。HTTP 模式通常就足够了。"
+e._v("\n            For details, see:")=e._v("\n            有关详细信息，请参阅:")
+e._v("Use a proxy server in Windows")=e._v("在 Windows 中使用代理服务器")
+e._v("Use a proxy server in Windows\n                ")=e._v("在 Windows 中使用代理服务器\n                ")
+e._v("Bypass (don't use) the proxy server when visiting certain\n            addresses.")=e._v("访问某些地址时绕过(不使用)代理服务器。")
+e._v("\n            The interpretation of this list is OS-dependent and app-dependent.\n            In other words, your operating systems and applications may\n            evaluate the rules differently.")=e._v("\n            该列表的解释取决于操作系统和应用程序。\n            换句话说，您的操作系统和应用程序可能会以不同的方式评估规则。")
+e._v("Enter proxy server settings on Mac")=e._v("在 Mac 上输入代理服务器设置")
+e._v("Turn on to forcibly add scheme to the system proxy settings.")=e._v("启用后，强行将方案添加到系统代理设置中。")
+e._v("\n            This is not for general-purpose use, and indeed violates the\n            current spec of Windows. Consider it only when an old Python\n            program has trouble.")=e._v("\n            这不是一般用途，而且确实违反了 Windows 当前的规范。仅当在旧的 Python 程序出现问题时才考虑这个选项。")
+e._v("Modify and customize your profiles after download but before\n            ")=e._v("修改和自定义下载后的配置文件，但早于\n            ")
+"Open web page"="打开门户首页"
+#0.20.5-end
