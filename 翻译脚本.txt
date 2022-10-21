@@ -2304,3 +2304,9 @@ e._v("Modify and customize your profiles after download but before\n            
 "Warning: {0}"="警告: {0}"
 "Info: {0}"="信息: {0}"
 #消息弹窗-end
+
+#0.20.6
+"Preview the final configuration file that was submitted to Clash Core"="预览最终提交到 Clash 核心的配置文件"
+label:"Close All"=label:"关闭所有连接"
+"If you keep seeing this error, you need to go to Keychain APP to trust the certificate."="如果您不断看到此错误，您需要转到 Keychain APP 来信任证书。"
+#0.20.6-end
