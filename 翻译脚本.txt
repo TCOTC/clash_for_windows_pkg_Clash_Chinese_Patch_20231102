@@ -2310,3 +2310,8 @@ e._v("Modify and customize your profiles after download but before\n            
 label:"Close All"=label:"关闭所有连接"
 "If you keep seeing this error, you need to go to Keychain APP to trust the certificate."="如果您不断看到此错误，您需要转到 Keychain APP 来信任证书。"
 #0.20.6-end
+
+#0.20.7
+"Use Mode Icons"="使用模式图标"
+"Use first letter of current mode as tray icon"="使用当前模式的首字母作为托盘图标"
+#0.20.7-end
