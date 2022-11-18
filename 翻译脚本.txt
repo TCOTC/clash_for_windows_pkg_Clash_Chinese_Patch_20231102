@@ -2319,3 +2319,9 @@ label:"Close All"=label:"关闭所有连接"
 #更新会出错
 e._v("\n                "+e._s(t.value)+"\n              ")=e._v("\n                "+e._s(t.value.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("no such host","域名未解析").replace("connectex: No connection could be made because the target machine actively refused it"," 由于目标机主动拒绝连接，所以无法进行连接").replace("context deadline exceeded", "客户端请求超时").replace("wsarecv: An existing connection was forcibly closed by the remote host", " 远程主机强制关闭现有连接").replace("bind: address already in use", "绑定: 地址已经在使用").replace("network invalid", "网络无效").replace("no such device", "设备不存在").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("read", "读取").replace("listen", "监听"))+"\n              ")
 #更新会出错-end
+
+#0.20.8
+"Install method:"="安装方法:"
+"schtasks(recommanded)"="schtasks(推荐)"
+"Visible On All Workspaces"="在所有工作区中可见"
+#0.20.8-end
