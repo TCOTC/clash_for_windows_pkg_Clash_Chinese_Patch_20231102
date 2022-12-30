@@ -2333,3 +2333,7 @@ e._v("\n                "+e._s(t.value)+"\n              ")=e._v("\n            
 #0.20.11补充
 "scroll to view more"="滚动查看更多"
 #0.20.11补充-end
+
+#0.20.12
+"schtasks(recommended)"="schtasks(推荐)"
+#0.20.12-end
