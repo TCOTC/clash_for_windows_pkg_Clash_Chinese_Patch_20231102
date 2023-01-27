@@ -2337,3 +2337,7 @@ e._v("\n                "+e._s(t.value)+"\n              ")=e._v("\n            
 #0.20.12
 "schtasks(recommended)"="schtasks(推荐)"
 #0.20.12-end
+
+#0.20.15
+"Show actual file"="显示实际文件"
+#0.20.15-end
