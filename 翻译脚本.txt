@@ -181,7 +181,7 @@ Vue compiler=Vue 编译器
 'Cancel'='取消'
 "OK"="确定"
 'OK'='确定'
-"Error"="错误"
+#"Error"="错误"
 'Error'='错误'
 "\n          Cancel\n        "="\n          取消\n        "
 '\n          Cancel\n        '='\n          取消\n        '
@@ -201,7 +201,7 @@ Vue compiler=Vue 编译器
 'only works when TAP mode enabled'='仅在启用 TAP 模式时生效'
 "[ Reset ]"="[ 重置 ]"
 '[ Reset ]'='[ 重置 ]'
-"Warning"="警告"
+#"Warning"="警告"
 'Warning'='警告'
 "Are you sure to reset all settings?"="确定重置所有设置吗?"
 'Are you sure to reset all settings?'='确定重置所有设置吗?'
@@ -2341,3 +2341,32 @@ e._v("\n                "+e._s(t.value)+"\n              ")=e._v("\n            
 #0.20.15
 "Show actual file"="显示实际文件"
 #0.20.15-end
+
+#0.20.16
+attrs:{hint:"Destination"}=attrs:{hint:"目标"}
+"CFW Editor"="CFW 编辑器"
+"Font Size"="字体大小"
+"Copy URL MD5"="复制 URL MD5"
+"Follow link"="跟踪链接"
+"Execute command"="执行命令"
+"Execute command {0}",t)}"="执行命令 {0}",t)}"
+"Open Link"="打开链接"
+"Go to Previous Problem in Files (Error, Warning, Info)"="转到文件中的上一个问题 (错误, 警告, 信息)"
+"Go to Next Problem in Files (Error, Warning, Info)"="转到文件中的下一个问题 (错误, 警告, 信息)"
+"Go to Previous Problem (Error, Warning, Info)"="转到上一个问题 (错误, 警告, 信息)"
+"Go to Next Problem (Error, Warning, Info)"="转到下一个问题 (错误, 警告, 信息)"
+"Icon for goto previous marker."="转到上一个标记的图标."
+"Icon for goto next marker."="转到下一个标记的图标."
+"Editor marker navigation widget background."="编辑器标记导航小部件背景."
+"Editor marker navigation widget info heading background."="编辑器标记导航小部件信息标题背景."
+"Editor marker navigation widget warning heading background."="编辑器标记导航小部件警告标题背景."
+"Editor marker navigation widget error heading background."="编辑器标记导航小部件错误标题背景."
+"Editor marker navigation widget info color."="编辑器标记导航小部件信息颜色."
+"Editor marker navigation widget warning color."="编辑器标记导航小部件警告颜色."
+"Editor marker navigation widget error color."="编辑器标记导航小部件错误颜色."
+"{0} of {1} problem"="{0} of {1} problem"
+"Error")="错误")
+title:"Error"=title:"错误"
+"Warning")="警告")
+title:"Warning"=title:"警告"
+#0.20.16-end
