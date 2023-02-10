@@ -2370,3 +2370,7 @@ title:"Error"=title:"错误"
 "Warning")="警告")
 title:"Warning"=title:"警告"
 #0.20.16-end
+
+#0.20.16补充
+'Make changes to a profile then we merge them for you when you refresh it. <a href="https://docs.cfw.lbyczf.com/contents/diff.html">Docs</a>'==='对配置文件进行更改，程序将会在配置文件更新时自动合并到新的配置文件中。 <a href="https://docs.cfw.lbyczf.com/contents/diff.html">文档</a>'
+#0.20.16补充-end
