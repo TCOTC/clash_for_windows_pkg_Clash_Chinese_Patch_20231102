@@ -2391,6 +2391,7 @@ text:"Manual Run"=text:"手动运行"
 e._v("DNS Query")=e._v("DNS 查询")
 e._v("Status")=e._v("状态")
 e._v("Answer")=e._v("应答")
+e._v("Flags")=e._v("标志")
 e._v("Authority")=e._v("权限")
 e._v("Additional")=e._v("附加")
 "Please input domain"="请输入域名"
