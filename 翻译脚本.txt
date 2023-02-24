@@ -54,7 +54,7 @@ Dashboard has crashed=主窗口崩溃了
 'Reload'='重载'
 "Exit"="退出"
 'Exit'='退出'
-"General"="常规"
+#"General"="常规"
 'General'='常规'
 "Proxies"="代理"
 'Proxies'='代理'
@@ -209,7 +209,7 @@ Vue compiler=Vue 编译器
 'Reset\x20All\x20Settings'='重置所有设置'
 "Reset All Settings"="重置所有设置"
 'Reset All Settings'='重置所有设置'
-"General"="常规"
+#"General"="常规"
 "Settings Editor"="配置编辑器"
 'Settings Editor'='配置编辑器'
 "Editor"="编辑器"
@@ -481,7 +481,7 @@ wait for method [=等待 [
 "Proxy Name"="代理名称"
 "Server"="服务器IP或域名"
 'Server'='服务器IP或域名'
-"Port"="端口"
+#"Port"="端口"
 'Port'='端口'
 "Password"="密码"
 'Password'='密码'
@@ -969,7 +969,7 @@ Lightweight Mode=轻量模式
 Proxies)=个代理节点)
 
 ##v0.15.0
-Host:=主机:
+#Host:=主机:
 Upload:=上传:
 ,Download:=,下载:
 ,Source:=,连接源:
@@ -2374,3 +2374,32 @@ title:"Warning"=title:"警告"
 #0.20.16补充
 'Make changes to a profile then we merge them for you when you refresh it. <a href="https://docs.cfw.lbyczf.com/contents/diff.html">Docs</a>'==='对配置文件进行更改，程序将会在配置文件更新时自动合并到新的配置文件中。 <a href="https://docs.cfw.lbyczf.com/contents/diff.html">文档</a>'
 #0.20.16补充-end
+
+#0.20.17
+{Host:={主机:
+placeholder:"Port"=placeholder:"端口"
+e._v("Port")]),e._v(" ")=e._v("端口")]),e._v(" ")
+label:"General"=label:"常规"
+title:"General"=title:"常规"
+e._v("Home Directory/config.yaml")=e._v("配置文件主目录/config.yaml")
+e._v("Learn PAC")=e._v("了解 PAC")
+e._v(" is the placeholder of the\n            "),t("strong",[e._v("Port")]),e._v(" in "),t("strong",[e._v("General")])=e._v(" 是"),t("strong",[e._v("常规")]),e._v("中的"),t("strong",[e._v("端口")]),e._v("的占位符\n            ")
+"Resolve a host using Clash core"="使用 Clash 核心解析主机"
+e._v("Script Interval")=e._v("脚本间隔")
+placeholder:"seconds"=placeholder:"秒数"
+text:"Manual Run"=text:"手动运行"
+e._v("DNS Query")=e._v("DNS 查询")
+e._v("Status")=e._v("状态")
+e._v("Answer")=e._v("应答")
+e._v("Authority")=e._v("权限")
+e._v("Additional")=e._v("附加")
+"Please input domain"="请输入域名"
+e._v("Auto Redir")=e._v("自动 Redir")
+e._v("Auto Route(Auto Redir)"=e._v("自动路由(自动 Redir)"
+e._v("\n              Copy\n            ")=e._v("\n              复制\n            ")
+e._v("\n          Lookup\n        ")=e._v("\n          查询\n        ")
+placeholder:"Host"=placeholder:"主机"
+placeholder:"Type"=placeholder:"类型"
+title:"MD5 Copied"=title:"MD5 已复制"
+placeholder:"eg: google.com"=placeholder:"例如: google.com"
+#0.20.17-end
