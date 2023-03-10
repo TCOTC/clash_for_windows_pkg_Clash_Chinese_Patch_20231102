@@ -185,7 +185,7 @@ Vue compiler=Vue 编译器
 'Error'='错误'
 "\n          Cancel\n        "="\n          取消\n        "
 '\n          Cancel\n        '='\n          取消\n        '
-"Select"="选择"
+#"Select"="选择"
 'Select'='选择'
 ", at \""=", 位于 \""
 ', at "'=', 位于 "'
@@ -224,7 +224,7 @@ Vue compiler=Vue 编译器
 Stop Sorting=停止排序
 "GUI Log Folder"="GUI 日志文件夹"
 'GUI Log Folder'='GUI 日志文件夹'
-"Open"="打开"
+#"Open"="打开"
 'Open'='打开'
 "Appearance"="外观"
 'Appearance'='外观'
@@ -294,7 +294,7 @@ v("Type")=v("类型")
 'Connections'='连接'
 "Break When Proxy Change"="代理更改时中断连接"
 'Break When Proxy Change'='代理更改时中断连接'
-"None"="不中断"
+#"None"="不中断"
 'None'='不中断'
 'Chain'='旧链'
 "Chain"="旧链"
@@ -368,9 +368,9 @@ v("Type")=v("类型")
 'Shortcut'='触发热键'
 System Proxy: "=系统代理: "
 System Proxy: '=系统代理: '
-"On"="开启"
+#"On"="开启"
 'On'='开启'
-"Off"="关闭"
+#"Off"="关闭"
 'Off'='关闭'
 'Mixin:\x20'='混合配置: '
 "Mixin: "="混合配置: "
@@ -976,14 +976,14 @@ Upload:=上传:
 Destination:=目标:
 ,Rule:=,规则:
 Chains:=链路:
-"Pause"="暂停"
-"Resume"="恢复"
+#"Pause"="暂停"
+#"Resume"="恢复"
 #"search"="筛选"
 ##v0.15.0
 
 ###v0.15.2
 "Enhanced Tray"="增强托盘"
-"Text"="文本"
+#"Text"="文本"
 "Text to display in tray"="要在增强托盘中显示的文本"
 v("Script"=v("脚本"
 "Script to run"="增强托盘运行的脚本"
@@ -1071,7 +1071,7 @@ Traffic:=流量:
 "Router"="路由"
 "Select a interface"="选择一个接口"
 "Configuration"="配置"
-"Interface"="接口"
+#"Interface"="接口"
 "Local IP Address"="本地IP地址"
 "DHCP IP Range"="DHCP 分配 IP 地址范围"
 "From"="起始IP地址"
@@ -1115,7 +1115,7 @@ Traffic:=流量:
 #v0.17.1
 #之前多翻译一个地方，导致连接页面不显示信息。
 #以下是此版本的修正和补充翻译
-"Custom"="自定义"
+#"Custom"="自定义"
 "Copy Command"="复制命令"
 "Update Cron (UNIX)"="更新定时任务 (UNIX 系统)"
 #v0.17.1-end
@@ -1181,9 +1181,9 @@ serviceNeedUpdate?"updated":"installed"=serviceNeedUpdate?"更新":"安装"
 #v0.18.6
 "Show in folder"="打开所在文件夹"
 "Rules"="规则"
-"Copy"="复制"
+#"Copy"="复制"
 "QRCode"="URL和二维码"
-"Delete"="删除"
+#"Delete"="删除"
 "Show connections"="查看连接"
 "Reorder"="重新排序"
 "Diff"="合并"
@@ -1245,7 +1245,7 @@ title:"Cache"=title:"缓存"
 e._v("Fake IP Cache")=e._v("Fake IP 缓存")
 "Failed with reason: ".concat(n)="Failed with reason: ".concat(n.replace("bucket not found","未找到DNS存储桶"))
 "Fake IP cache cleared":"Failed with reason: "="Fake IP 缓存已清除":"失败原因: "
-"Abort"="中止"
+#"Abort"="中止"
 "Edit Mixin content"="编辑 Mixin混合配置 内容"
 #v0.19.1-end
 
@@ -2061,7 +2061,7 @@ role:"services"=role:"services",label:"服务"
 role:"hide"=role:"hide",label:"隐藏"
 role:"hideothers"=role:"hideothers",label:"隐藏其它窗口"
 role:"unhide"=role:"unhide",label:"显示所有窗口"
-label:"Close"=label:"Close",label:"关闭"
+#label:"Close"=label:"Close",label:"关闭"
 label:"Quit Clash for Windows"=label:"退出 Clash for Windows"
 role:"editMenu"=label:"编辑",submenu:[{role:"undo",label:"撤销"},{role:"redo",label:"重做"},{type:"separator"},{role:"cut",label:"剪切"},{role:"copy",label:"拷贝"},{role:"paste",label:"粘粘"},{role:"pasteAndMatchStyle",label:"粘粘并匹配样式"},{role:"delete",label:"删除"},{role:"selectAll",label:"全选"},{type:"separator"},{label:"Speech",label:"语音",submenu:[{role:"startSpeaking",label:"开始朗读"},{role:"stopSpeaking",label:"停止朗读"}]}]
 role:"viewMenu"=label:"显示",submenu:[{role:"reload",label:"重新载入"},{role:"forceReload",label:"强制重载"},{role:"toggleDevTools",label:"切换开发者工具"},{type:"separator"},{role:"resetZoom",label:"实际大小"},{role:"zoomIn",label:"放大"},{role:"zoomOut",label:"缩小"},{type:"separator"},{role:"togglefullscreen",label:"进入全屏幕"}]
@@ -2404,3 +2404,40 @@ placeholder:"Type"=placeholder:"类型"
 title:"MD5 Copied"=title:"MD5 已复制"
 placeholder:"eg: google.com"=placeholder:"例如: google.com"
 #0.20.17-end
+
+#0.20.18
+"Test script using by Script mode"="通过脚本模式测试脚本"
+"Script Test"="脚本测试"
+e._v("Network")=e._v("网络")
+e._v("Host")=e._v("主机")
+e._v("Source IP")=e._v("源 IP")
+e._v("Source Port")=e._v("源端口")
+e._v("Destination IP")=e._v("目标 IP")
+e._v("Destination Port")=e._v("目标端口")
+hint:"ESC"=hint:"退出"
+hint:"Esc"=hint:"退出"
+label:"Delete"=label:"删除"
+text:"Delete"=text:"删除"
+e._v("None")=e._v("不中断")
+{items:["None"={items:["不中断"
+?"Resume"=?"恢复"
+:"Pause"=:"暂停"
+?"Pause"=?"暂停"
+text:"Open"=text:"打开"
+text:"Select"=text:"选择"
+||"Select"}=||"选择"}
+?"Select"=?"选择"
+text:"Copy"=text:"复制"
+label:"Close"=label:"关闭"
+:"Off"=:"关闭"
+?"On"=?"开启"
+e._v("Custom")=e._v("自定义")
+,"Custom"]=,"自定义"]
+e._v("Text")=e._v("文本")
+e._v("Interface")=e._v("接口")
+"Trust"="信任"
+"Certificate Error"="证书错误"
+"Failed verify the certificate for ".concat(r,". This may be because the certificate is self-signed or the certificate authority is not recognized. Do you want to trust this certificate?")="证书验证失败对于 ".concat(r,". 这可能是因为证书是自签名的或证书颁发机构未被识别. 是否要信任此证书?")
+"Success, result: "="成功, 结果: "
+"Fail, error: "="失败, 错误: "
+#0.20.18-end
