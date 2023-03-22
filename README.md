@@ -24,7 +24,7 @@
 
 ## 相关推荐：
 
-### 相关推荐1：OK加速
+### 相关推荐1：逐日
 8.8折优惠卷码：clash
 
 [OK加速](http://zhuri.cc/auth/register?code=F9B0)
