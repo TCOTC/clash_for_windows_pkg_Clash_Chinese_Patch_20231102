@@ -2445,7 +2445,7 @@ e._v("Interface")=e._v("接口")
 #0.20.19
 "Delay Type"="延迟类型"
 "Mean Delay"="平均延迟"
-" - Delay of a latency test"=" - 一次延迟测试的延迟值"
+" - Delay of a latency test"=" - 单次延迟测试的延迟值"
 " - Average delay of two latency tests"=" - 两次延迟测试的平均延迟值"
 "Reset DNS Settings"="重置 DNS 设置"
 e._v("\n      If ")=e._v("\n      如果")
