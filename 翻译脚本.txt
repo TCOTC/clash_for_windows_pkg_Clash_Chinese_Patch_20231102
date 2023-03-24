@@ -2441,3 +2441,21 @@ e._v("Interface")=e._v("接口")
 "Success, result: "="成功, 结果: "
 "Fail, error: "="失败, 错误: "
 #0.20.18-end
+
+#0.20.19
+"Delay Type"="延迟类型"
+"Mean Delay"="平均延迟"
+" - Delay of a latency test"=" - 一次延迟测试的延迟值"
+" - Average delay of two latency tests"=" - 两次延迟测试的平均延迟值"
+"Reset DNS Settings"="重置 DNS 设置"
+e._v("\n      If ")=e._v("\n      如果")
+e._v("Enable")=e._v("启用")
+e._v("Enabled")=e._v("已启用")
+e._v("Custom Servers")=e._v("自定义服务器")
+e._v("Custom Servers:")=e._v("自定义服务器:")
+e._v("Detected Servers")=e._v("检测到的服务器")
+e._v("Detected Servers:")=e._v("检测到的服务器:")
+e._v(" will be used to\n      reset the system DNS after TUN mode is disabled. Otherwise,\n      ")=e._v("将被用于在 TUN 模式被禁用后重置系统 DNS. 否则,\n      ")
+e._v("\n      will be used.\n    ")=e._v("将被使用.\n    ")
+"System DNS servers that will be set after TUN Mode is disabled"="禁用 TUN 模式后将设置的系统 DNS 服务器"
+#0.20.19-end
