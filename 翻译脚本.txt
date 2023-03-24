@@ -2175,7 +2175,7 @@ e.failedProvidersCount?"":"s"=e.failedProvidersCount?"":""
 
 # 增加关于
 "https://fonts.google.com/icons"="https://fonts.google.com/icons","https://github.com/BoyceLig/Clash_Chinese_Patch"
-[e._v("\n        Document\n      ")])=[e._v("\n        文档\n      ")]), i("div",{staticClass:"text-[color:var(--feedback-link-c)] mr-2 cursor-pointer",on:{click:function(t){return e.select(20)}}},[e._v("\n        汉化相关\n      ")])
+#[e._v("\n        Document\n      ")])=[e._v("\n        文档\n      ")]), i("div",{staticClass:"text-[color:var(--feedback-link-c)] mr-2 cursor-pointer",on:{click:function(t){return e.select(20)}}},[e._v("\n        汉化相关\n      ")])
 # 增加关于-end
 
 #0.20.0
@@ -2235,7 +2235,7 @@ e._v("\n              Set the type of chain displayed in the Connections module:
 e._v("Proxy")]),e._v(" - Proxy name")=e._v("节点名")]),e._v(" - 节点名字")
 e._v("Group")]),e._v(" - Group name")=e._v("分组名")]),e._v(" - 分组名字")
 e._v("Both")]),e._v(" - Proxy name and group name")=e._v("全部")]),e._v(" - 节点名字和分组名字")
-e._v("Set interface name to overwrite like Mixin, will be removed in\n            the future")=e._v("像混合模式一样设置接口名覆盖，以后会移除")
+e._v("Set interface name to overwrite like Mixin, will be removed in\n            the future")=e._v("像混合配置一样设置接口名覆盖，以后会移除")
 e._v("Set child processes to be spawned with dashboard,\n            ")=e._v("设置要使用 CFW 创建的子进程,\n            ")
 e._v("Set parsers to process profiles after downloaded,\n            ")=e._v("为下载后的配置文件设置预处理,\n            ")
 e._v("Set the path to the profiles folder, default: Home\n            Directory/profiles")=e._v("设置配置文件文件夹的路径，默认: 配置文件主目录/profiles")
@@ -2458,4 +2458,7 @@ e._v("Detected Servers:")=e._v("检测到的服务器:")
 e._v(" will be used to\n      reset the system DNS after TUN mode is disabled. Otherwise,\n      ")=e._v("将被用于在 TUN 模式被禁用后重置系统 DNS. 否则,\n      ")
 e._v("\n      will be used.\n    ")=e._v("将被使用.\n    ")
 "System DNS servers that will be set after TUN Mode is disabled"="禁用 TUN 模式后将设置的系统 DNS 服务器"
+"1. This software is only intended for the purpose of learning and researching network technology. Users must comply with the laws and regulations in their respective regions and must not use it for illegal purposes. The software will not be held responsible for any actions of the user.\n\n2. Users must strictly abide by the laws, regulations, and policies of their own countries/regions when using this software. Any consequences or liabilities resulting from violations of relevant laws, regulations, and policies shall be borne by the user.\n\n3. The software is not responsible for the transmission of content. Therefore, if any problems or consequences arise from the use of this software, the user shall bear all responsibility.\n\n4. If the software violates any laws and regulations of the user's country/region, the user must immediately stop using it and bear the corresponding legal responsibility.\n\n5. While using this software, the user acknowledges and agrees that the software cannot guarantee network stability, accuracy, timeliness, and security. The software will not be held responsible for any connection problems or inability to connect caused by network congestion, firewall restrictions, DNS pollution, operator interference, and other reasons.\n\n6. The software does not provide technical support and is not responsible for any direct or indirect losses caused by the user's use of this software, including but not limited to property damage, data loss, and other forms of loss.\n\n7. The software has made every effort to ensure the stability and safety of the software, but will not be held responsible for any direct or indirect losses suffered by the user due to the use of this software.\n\n8. The software reserves the right to change the terms and conditions at any time. Once the terms and conditions change, an announcement will be posted on the software page. Users need to pay attention and abide by the latest version of the terms and conditions.\n    "="1. 本软件仅用于学习和研究网络技术。用户必须遵守各自所在地区的法律法规，不得将其用于非法目的。本软件不会对用户的任何行为负责。\n\n2. 用户在使用本软件时必须严格遵守本国/地区的法律、法规和政策。因违反相关法律、法规和政策而产生的任何后果或责任应由用户承担。\n\n3. 本软件不负责内容的传输。因此，如果因使用本软件而产生任何问题或后果，用户应承担全部责任。\n\n4. 如果本软件违反了用户所在国家或地区的法律法规，用户必须立即停止使用并承担相应的法律责任。\n\n5. 在使用本软件时，用户承认并同意本软件不能保证网络的稳定性、准确性、及时性和安全性。由于网络拥塞、防火墙限制、DNS 污染、运营商干扰和其他原因导致的任何连接问题或无法连接，本软件将不承担任何责任。\n\n6. 本软件不提供技术支持，也不对用户使用本软件造成的任何直接或间接损失负责，包括但不限于财产损失、数据损失和其他形式的损失。\n\n7. 本软件已尽一切努力确保软件的稳定性和安全性，但对用户因使用本软件而遭受的任何直接或间接损失不承担任何责任。\n\n8. 软件保留随时更改条款和条件的权利。一旦条款和条件发生变化，将在软件页面上发布公告。用户需要注意并遵守最新版本的条款和条件。\n    "
+[e._v("\n          Document\n        ")])=[e._v("\n          帮助文档\n        ")]), i("div",{staticClass:"text-[color:var(--feedback-link-c)] mr-2 cursor-pointer",on:{click:function(t){return e.select(20)}}},[e._v("\n        汉化相关\n      ")])
+e._v("\n          Disclaimer Statement\n        ")=e._v("\n          免责声明\n        ")
 #0.20.19-end
