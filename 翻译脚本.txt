@@ -2201,7 +2201,7 @@ e._v("Set the editor used by the Settings module, if you need custom\n          
 e._v("Set whether to allow pop-up system-level notifications")=e._v("设置是否允许弹出系统级通知")
 e._v("Set weather to show Process Name(if present) in Connections\n            module")=e._v("设置在连接模块中显示进程名称 (如果存在)")
 e._v("Set whether to display dashboard at startup")=e._v("设置是否在启动时显示主窗口")
-e._v("Set whether to use a random port as the core controller port (the\n            port section of external-controller in Home\n            Directory/config.ymal)")=e._v("设置是否使用随机端口作为核心控制器端口 (配置文件主目录/config.ymal 中 external-controller 的 port 部分)")
+e._v("Set whether to use a random port as the core controller port (the\n            port section of external-controller in Home\n            Directory/config.ymal)")=e._v("设置是否使用随机端口作为核心控制器端口 (配置文件主目录/config.ymal 中 external-controller 的端口部分)")
 e._v("Set whether to use a random port as the Port parameter in General\n            (mixed-port parameter in Home Directory/config.ymal)")=e._v("设置是否使用随机端口作为常规中的端口参数 (配置文件主目录/config.ymal 中的 mixed-port 参数)")
 e._v("Terminate dashboard to free memory after closed.\n            ")=e._v("关闭主窗口后终止 CFW 以释放内存 \n            ")
 e._v("Set the taskbar icon in the default state")=e._v("设置默认状态下的任务栏图标")
@@ -2462,3 +2462,9 @@ e._v("\n      will be used.\n    ")=e._v("将被使用.\n    ")
 [e._v("\n          Document\n        ")])=[e._v("\n          帮助文档\n        ")]), i("div",{staticClass:"text-[color:var(--feedback-link-c)] mr-2 cursor-pointer",on:{click:function(t){return e.select(20)}}},[e._v("\n        汉化相关\n      ")])
 e._v("\n          Disclaimer Statement\n        ")=e._v("\n          免责声明\n        ")
 #0.20.19-end
+
+#0.20.20
+"GUI Data Folder"="GUI 数据文件夹"
+"Show/Hide timed-out proxies"="显示/隐藏超时代理"
+"Show/hide proxies"="显示/隐藏代理"
+#0.20.20-end
