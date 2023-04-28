@@ -2468,3 +2468,7 @@ e._v("\n          Disclaimer Statement\n        ")=e._v("\n          免责声�
 "Show/Hide timed-out proxies"="显示/隐藏超时代理"
 "Show/hide proxies"="显示/隐藏代理"
 #0.20.20-end
+
+#0.20.22
+"Side by side mode"="并排模式"
+#0.20.22-end
