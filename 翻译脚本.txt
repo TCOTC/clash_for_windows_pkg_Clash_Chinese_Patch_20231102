@@ -2472,3 +2472,8 @@ e._v("\n          Disclaimer Statement\n        ")=e._v("\n          免责声�
 #0.20.22
 "Side by side mode"="并排模式"
 #0.20.22-end
+
+#0.20.23
+"SSID Strategy"="SSID 策略"
+"\n              Set the strategy for SSID matching, the first matched strategy\n              will be used,\n              "="\n              设置 SSID 匹配策略，将使用第一个匹配的策略,\n              "
+#0.20.23-end
