@@ -2477,3 +2477,11 @@ e._v("\n          Disclaimer Statement\n        ")=e._v("\n          免责声�
 "SSID Strategy"="SSID 策略"
 "\n              Set the strategy for SSID matching, the first matched strategy\n              will be used,\n              "="\n              设置 SSID 匹配策略，将使用第一个匹配的策略,\n              "
 #0.20.23-end
+
+#0.20.24
+label:"Test"=label:"测试"
+"SSID Strategy:"="SSID 策略:"
+"Show all Quick Access Providers"="显示所有快速访问服务商"
+"Unknown Outline Provider"="未知的大纲服务商"
+"Cannot set tokens provider for unknown language "="无法为未知语言设置令牌服务商 "
+#0.20.24-end
