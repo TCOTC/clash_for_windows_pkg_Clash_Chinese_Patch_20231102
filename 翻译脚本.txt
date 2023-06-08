@@ -2485,3 +2485,11 @@ label:"Test"=label:"测试"
 "Unknown Outline Provider"="未知的大纲服务商"
 "Cannot set tokens provider for unknown language "="无法为未知语言设置令牌服务商 "
 #0.20.24-end
+
+#0.20.25
+"PAC Server Port"="PAC 服务器端口"
+"\n            Leave it empty to use a random port."="\n            留空以使用随机端口."
+"Restart the APP"="重新启动 APP"
+" to take effect.\n          "=" 来使更改生效.\n          "
+placeholder:"random"=placeholder:"随机端口"
+#0.20.25-end
