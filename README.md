@@ -41,6 +41,9 @@
 
 ✅尊重用户隐私，不保留用户使用记录！！！
 
+购买小火箭、Google voice👉[神马杂货铺](https://googlevoice.top/)
+
+Chatgpt网站👉[WOAIAI·GPT](https://chat1.woaiai.cc/)
 
 
 
