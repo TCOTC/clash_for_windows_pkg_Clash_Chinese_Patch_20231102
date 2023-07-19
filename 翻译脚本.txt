@@ -2493,3 +2493,15 @@ label:"Test"=label:"测试"
 " to take effect.\n          "=" 来使更改生效.\n          "
 placeholder:"random"=placeholder:"随机端口"
 #0.20.25-end
+
+#0.20.29
+e._v("\n        Close All\n        ")=e._v("\n        全部断开\n        ")
+attrs:{items:["Simple","Detailed"]}=attrs:{items:["简单","详细"]}
+title:"Source IP"=title:"源 IP"
+title:"Destination IP"=title:"目标 IP"
+title:"Host"=title:"主机"
+title:"Network"=title:"网络协议"
+title:"Type"=title:"类型"
+title:"Source Port"=title:"源端口"
+title:"Destination Port"=title:"目标端口"
+#0.20.29-end
