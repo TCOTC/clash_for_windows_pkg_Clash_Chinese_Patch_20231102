@@ -795,8 +795,8 @@ Change Mixed Port=变更 Mixed 端口
 'Restarting core...'='正在重启内核...'
 "CMD with proxy"="CMD 代理"
 'CMD with proxy'='CMD 代理'
-"Allow LAN"="允许局域网连接"
-'Allow LAN'='允许局域网连接'
+"Allow LAN"="允许局域网代理"
+'Allow LAN'='允许局域网代理'
 "Core Version"="Clash 核心版本"
 'Core Version'='Clash 核心版本'
 "Clash Core"="Clash 核心"
@@ -2161,7 +2161,7 @@ e.failedProvidersCount?"":"s"=e.failedProvidersCount?"":""
 
 #0.19.27
 "network interfaces"="网络接口"
-"add firewall rules(for Allow LAN and system stack)"="添加防火墙规则(用于允许局域网连接和系统栈)"
+"add firewall rules(for Allow LAN and system stack)"="添加防火墙规则(用于允许局域网代理和系统栈)"
 #0.19.27-end
 
 #0.19.28
@@ -2510,5 +2510,5 @@ title:"Destination Port"=title:"目标端口"
 "\n          Bind: "="\n          绑定: "
 "New Bind Address"="新的绑定地址"
 "Change Bind Address"="更改绑定地址"
-"Allow LAN will only bind to address you set, * means all interfaces"="允许局域网连接将只绑定到您设置的地址，* 表示所有接口"
+"Allow LAN will only bind to address you set, * means all interfaces"="允许局域网代理将只绑定到您设置的地址，* 表示所有接口"
 #0.20.32-end
