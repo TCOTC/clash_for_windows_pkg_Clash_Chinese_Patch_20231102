@@ -2524,5 +2524,27 @@ concat(k().capitalize(e))=concat(k().capitalize(e).replace("Global", "全局").r
 [e._v("\n          Document\n        ")]),e._v(" ")=[e._v("\n          帮助文档\n        ")]),e._v(" "),t("div",{staticClass:"text-[color:var(--feedback-link-c)] cursor-pointer",on:{click:function(t){return e.select(20)}}},[e._v("\n          汉化相关\n        ")]),e._v(" ")
 i.key?"FROM":i.key.toUpperCase()=i.key?"本地地址":i.key.toUpperCase().replace("NAME", "名称").replace("RULEPAYLOAD", "规则负载").replace("RULE", "规则").replace("INBOUND", "入站").replace("PROXY", "代理").replace("ADDR", "地址").replace("PATH", "路径").replace("ERROR", "错误").replace("SOURCE", "来源").replace("QTYPE", "查询类型").replace("TYPE", "类型").replace("ANSWER", "应答").replace("IFACE", "接口").replace("GATEWAY", "网关").replace("MAXTIMES", "最大次数").replace("TIMES", "次数").replace("HOST", "主机")
 e._s(i.msg)=e._s(i.msg.replace(" can't create TCP Endpoint in ipstack", " 无法在 ipstack 中创建 TCP 端点").replace(" redir-host is deprecated, please use fake-ip instead", " redir-host 已弃用，请改用 fake-ip").replace(" initial rule provider"," 初始化规则服务商").replace(" connected, doesn't match any rule", " 已连接，不匹配任何规则").replace(" connected", " 已连接").replace(" dial failed", " 连接失败").replace(" start failed", " 启动失败").replace(" parse failed", " 解析失败").replace(" accept connection", " 接收连接").replace(" find process success", " 成功找到进程").replace(" initial compatible provider", " 初始化兼容的服务商").replace(" dial ICMP Packet failed", " 连接 ICMP 数据包失败").replace(" can't open cache file", " 无法打开缓存文件").replace(" dns response", " DNS 响应").replace(" hijack udp dns", " 劫持 UDP DNS").replace(" TUN listening", " 监听 TUN").replace(" listening", " 监听").replace(" failed to dummy bind, retry in 1 second...", " 虚拟绑定失败，1秒后重试...").replace(" resolve success", " 解析成功").replace(" accept session", " 接收会话"))
-e._v("\n                "+e._s(i.value)+"\n              ")=e._v("\n                "+e._s(i.value.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("no such host","域名未解析").replace("connectex: No connection could be made because the target machine actively refused it"," 由于目标机主动拒绝连接，所以无法进行连接").replace("context deadline exceeded", "客户端请求超时").replace("wsarecv: An existing connection was forcibly closed by the remote host", " 远程主机强制关闭现有连接").replace("bind: address already in use", "绑定: 地址已经在使用").replace("network invalid", "网络无效").replace("operation timed out", "操作已超时").replace("no such device", "设备不存在").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("read", "读取").replace("listen", "监听"))+"\n              ")
+e._v("\n                "+e._s(i.value)+"\n              ")=e._v("\n                "+e._s(i.value.replace("connect error:","错误:").replace("connectex: A socket operation was attempted to an unreachable network"," 尝试对无法访问的网络进行套接字操作").replace("all DNS requests failed, first error","所有DNS请求失败，第一个错误").replace("use default dns resolve failed: couldn't find ip","使用默认DNS解析失败:找不到IP").replace("no such host","域名未解析").replace("connectex: No connection could be made because the target machine actively refused it"," 由于目标机主动拒绝连接，所以无法进行连接").replace("context deadline exceeded", "客户端请求超时").replace("wsarecv: An existing connection was forcibly closed by the remote host", " 远程主机强制关闭现有连接").replace("bind: address already in use", "绑定: 地址已经在使用").replace("network invalid", "网络无效").replace("operation timed out", "操作已超时").replace("no such device", "设备不存在").replace("script not found", "找不到脚本").replace("dial","连接").replace("timeout","超时").replace("lookup","查找").replace("read", "读取").replace("listen", "监听"))+"\n              ")
 #0.20.33-end
+
+#0.20.34
+"Routed through the selected proxy"="流量将通过选定的代理进行路由"
+"Routed according to the rules"="流量将根据规则进行路由"
+"Go directly"="流量将直接通过"
+"Routed according to the script"="流量将根据脚本进行路由"
+"Title Bar Text"="标题栏文本"
+"\n              Set the text in title bar, some placeholders for replacement:\n            "="\n              设置标题栏中的文本，一些占位符用于替换:\n            "
+" - Current proxy mode"=" - 当前代理模式"
+" - System Proxy status, On or Off"=" - 系统代理状态，开启或关闭"
+" - TUN Mode status, On or Off"=" - TUN 模式状态，开启或关闭"
+" - Mixin status, On or Off"=" - Mixin 状态，开启或关闭"
+"Text to display in title bar"="要在标题栏中显示的文本"
+e._v("Strategy")=e._v("策略")
+"Get Current SSID"="获取当前 SSID"
+"\n              Multiple SSIDs are joined by "="\n              多个 SSIDs 的连接使用 "
+attrs:{text:"Fetch"}=attrs:{text:"提取"}
+"Current SSID"="当前 SSID"
+"Copy the SSID to the clipboard"="将 SSID 复制到剪贴板"
+e._v("Rule")=e._v("规则")
+this.settings.titleBarText.replace("%mode%",this.mode).replace("%Mode%",this.capMode)=this.settings.titleBarText.replace("%mode%",this.mode.replace("global", "全局").replace("rule", "规则").replace("direct", "直连").replace("script", "脚本")).replace("%Mode%",this.capMode.replace("Global", "全局").replace("Rule", "规则").replace("Direct", "直连").replace("Script", "脚本"))
+#0.20.34-end
