@@ -2548,3 +2548,7 @@ attrs:{text:"Fetch"}=attrs:{text:"提取"}
 e._v("Rule")=e._v("规则")
 this.settings.titleBarText.replace("%mode%",this.mode).replace("%Mode%",this.capMode)=this.settings.titleBarText.replace("%mode%",this.mode.replace("global", "全局").replace("rule", "规则").replace("direct", "直连").replace("script", "脚本")).replace("%Mode%",this.capMode.replace("Global", "全局").replace("Rule", "规则").replace("Direct", "直连").replace("Script", "脚本"))
 #0.20.34-end
+
+#0.20.35
+"Are you sure to open this URL?"="您确定要打开这个 URL 吗？"
+#0.20.35-end
