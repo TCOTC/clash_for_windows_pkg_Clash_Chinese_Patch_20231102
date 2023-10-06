@@ -2557,3 +2557,8 @@ this.settings.titleBarText.replace("%mode%",this.mode).replace("%Mode%",this.cap
 "At least one profile failed to update while dashboard is closed."="在面板关闭时，至少有一个配置文件更新失败."
 "Please wait"="请稍等"
 #0.20.36-end
+
+#0.20.37
+"Check For Updates"="检查更新"
+" Set whether to check for updates every 6 hours"=" 设置是否每 6 小时检查一次更新"
+#0.20.37-end
