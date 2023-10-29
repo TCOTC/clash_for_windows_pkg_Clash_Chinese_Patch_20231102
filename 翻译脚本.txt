@@ -1173,7 +1173,6 @@ serviceNeedUpdate?"updated":"installed"=serviceNeedUpdate?"更新":"安装"
 #v0.18.4
 "You can make some changes to a profile then we merge them for you when you refresh the profile."="你可以对配置文件进行一些更改，程序将会在配置文件更新时自动合并到新的配置文件中。"
 "Delete diff files"="删除合并文件"
-"Make changes"="修改合并文件"
 "Init diff files"="初始化合并文件"
 {hint:"make diff"}={hint:"构建合并文件"}
 #v0.18.4-end
@@ -2365,9 +2364,9 @@ attrs:{hint:"Destination"}=attrs:{hint:"目标"}
 "Editor marker navigation widget warning color."="编辑器标记导航小部件警告颜色."
 "Editor marker navigation widget error color."="编辑器标记导航小部件错误颜色."
 "{0} of {1} problem"="{0} of {1} problem"
-"Error")="错误")
+#"Error")="错误")
 title:"Error"=title:"错误"
-"Warning")="警告")
+#"Warning")="警告")
 title:"Warning"=title:"警告"
 #0.20.16-end
 
@@ -2582,3 +2581,9 @@ placeHolder:"eg: *.lan"=placeHolder:"例: *.lan"
 placeHolder:"eg: any:53"=placeHolder:"例: any:53"
 keyPlaceHolder:"domain"=keyPlaceHolder:"域名"
 #0.20.39-end
+
+#0.20.39补充
+'Changes contains conflict, "Make changes" to solve issues.'='更改包含冲突，"修改合并文件"以解决问题。'
+'Fail to merge profiles, "Make changes" to solve issues.'='未能合并配置文件，"修改合并文件"以解决问题。'
+"Make changes"="修改合并文件"
+#0.20.39补充-end
