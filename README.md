@@ -19,9 +19,9 @@
 
 居然有人以为下载了就能直接用的😅，还是放两个我自己用的机场吧
 
-还算便宜且比较稳定：[星链计划](https://starlink.to/#/register?code=ZGpZxxUy)
+还算便宜且比较稳定（建议按月充值，以免跑路）：[星链计划](https://starlink.to/#/register?code=ZGpZxxUy)
 
-按量计费特别便宜但不太稳定：[Taffy Cloud](https://taffy.cloud/#/login?type=reg&affcode=1lJZlvoC)
+按量计费特别便宜但不太稳定（充10块钱够用好久了）：[Taffy Cloud](https://taffy.cloud/#/login?type=reg&affcode=1lJZlvoC)
 
 ---
 
