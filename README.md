@@ -17,4 +17,12 @@
 
 ---
 
+居然有人以为下载了就能直接用的😅，还是放两个我自己用的机场吧
+
+还算便宜且比较稳定：[星链计划](https://starlink.to/#/register?code=ZGpZxxUy)
+
+按量计费特别便宜但不太稳定：[Taffy Cloud](https://taffy.cloud/#/login?type=reg&affcode=1lJZlvoC)
+
+---
+
 软件仅供学习，24小时内删除。
