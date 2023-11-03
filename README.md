@@ -1,3 +1,5 @@
+原仓库链接：https://github.com/Fndroid/clash_for_windows_pkg
+
 # Clash_Chinese_Patch
 
 [![](https://img.shields.io/badge/Telegram-公告板-blue)](https://t.me/ClashR_for_Windows_Channel)
